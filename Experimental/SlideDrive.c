@@ -5,20 +5,24 @@
 #include "JoystickDriver.c"
 
 const int Deadband = 10;
-const int MiddleSpeed = 40;
+const int MiddleSpeed = 100;
 
 void HandleSides()
 {
 	if (abs(joystick.joy1_y2) > Deadband)
 	{
-		I2C_SetMotorSpeed(S1, 1, 2, -joystick.joy1_y2);
+		int Speed = joystick.joy1_y2;
+		if (joystick.joy1_y2 < -128) {Speed = -120;}
+		I2C_SetMotorSpeed(S1, 1, 2, -Speed);
 	} else {
 		I2C_SetMotorSpeed(S1, 1, 2, 0);
 	}
 
 	if (abs(joystick.joy1_y1) > Deadband)
 	{
-		I2C_SetMotorSpeed(S1, 1, 1, joystick.joy1_y1);
+		int Speed;
+		if (joystick.joy1_y1 < -128) {Speed = -120;}
+		I2C_SetMotorSpeed(S1, 1, 1, Speed);
 	} else {
 		I2C_SetMotorSpeed(S1, 1, 1, 0);
 	}
