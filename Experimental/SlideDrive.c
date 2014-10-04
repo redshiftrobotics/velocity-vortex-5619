@@ -6,12 +6,12 @@ const int MiddleSpeed = 40;
 
 void HandleSides()
 {
-	if (abs(joystick.joy1_y2) > deadband)
+	if (abs(joystick.joy1_y2) > Deadband)
 	{
 		I2C_SetMotorSpeed(S1, 1, 2, -joystick.joy1_y2);
 	}
 	
-	if (abs(joystick.joy1_y1) > deadband)
+	if (abs(joystick.joy1_y1) > Deadband)
 	{
 		I2C_SetMotorSpeed(S1, 1, 1, joystick.joy1_y1);
 	}
@@ -34,7 +34,7 @@ task main()
 {
 	while(true)
 	{
-		getJoystickSetting(joystick);
+		getJoystickSettings(joystick);
 		
 		HandleSides();
 		HandleMiddle();
