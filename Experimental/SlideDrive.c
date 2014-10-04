@@ -12,8 +12,16 @@ void HandleSides()
 	if (abs(joystick.joy1_y2) > Deadband)
 	{
 		int Speed = joystick.joy1_y2;
-		if (joystick.joy1_y2 < -128) {Speed = -100;}
+		if (joystick.joy1_y2 < -100) {
+			Speed = -100;
+		}
+		
+		if (joystick.joy1_y2 > 100) {
+			Speed = 100;
+		}
+		
 		I2C_SetMotorSpeed(S1, 1, 2, -Speed);
+		
 	} else {
 		I2C_SetMotorSpeed(S1, 1, 2, 0);
 	}
@@ -21,7 +29,14 @@ void HandleSides()
 	if (abs(joystick.joy1_y1) > Deadband)
 	{
 		int Speed;
-		if (joystick.joy1_y1 < -128) {Speed = -100;}
+		if (joystick.joy1_y1 < -100) {
+			Speed = -100;
+		}
+		
+		if (joystick.joy1_y1 > 100) {
+			Speed = 100;
+		}
+
 		I2C_SetMotorSpeed(S1, 1, 1, Speed);
 	} else {
 		I2C_SetMotorSpeed(S1, 1, 1, 0);
