@@ -6,18 +6,6 @@
 
 const int Deadband = 10;
 const int MiddleSpeed = 100;
-const int LockSpeed = 10;
-
-int LeftSideLastEncoder;
-int RightSideLastEncoder;
-int MiddleLastEncoder;
-
-void SetInitialEncoderPositions()
-{
-	LeftSideLastEncoder = I2C_GetEncoderPosition(S1, 1, 1);
-	RightSideLastEncoder = I2C_GetEncoderPosition(S1, 1, 2);
-	MiddleLastEncoder = I2C_GetEncoderPosition(S1, 2, 2);
-}
 
 void HandleSides()
 {
@@ -27,17 +15,15 @@ void HandleSides()
 		if (joystick.joy1_y2 < -100) {
 			Speed = -100;
 		}
-
+		
 		if (joystick.joy1_y2 > 100) {
 			Speed = 100;
 		}
-
+		
 		I2C_SetMotorSpeed(S1, 1, 2, -Speed);
-
-		RightSideLastEncoder = I2C_GetEncoderPosition(S1, 1, 2);
-
+		
 	} else {
-		I2C_SetEncoderPosition(S1, 1, 2, RightSideLastEncoder, LockSpeed);
+		I2C_SetMotorSpeed(S1, 1, 2, 0);
 	}
 
 	if (abs(joystick.joy1_y1) > Deadband)
@@ -46,23 +32,19 @@ void HandleSides()
 		if (joystick.joy1_y1 < -100) {
 			Speed = -100;
 		}
-
+		
 		if (joystick.joy1_y1 > 100) {
 			Speed = 100;
 		}
 
 		I2C_SetMotorSpeed(S1, 1, 1, Speed);
-
-		LeftSideLastEncoder = I2C_GetEncoderPosition(S1, 1, 1);
 	} else {
-		I2C_SetEncoderPosition(S1, 1, 1, LeftSideLastEncoder, LockSpeed);
+		I2C_SetMotorSpeed(S1, 1, 1, 0);
 	}
 }
 
 void HandleMiddle()
 {
-	bool MovedMiddle = true;
-
 	if (joy1Btn(8))
 	{
 		I2C_SetMotorSpeed(S1, 2, 2, -MiddleSpeed);
@@ -73,20 +55,12 @@ void HandleMiddle()
 	}
 	else
 	{
-		I2C_SetEncoderPosition(S1, 2, 2, MiddleLastEncoder, LockSpeed);
-		MovedMiddle = false;
-	}
-
-	if (MovedMiddle)
-	{
-		MiddleLastEncoder = I2C_GetEncoderPosition(S1, 2, 2);
+		I2C_SetMotorSpeed(S1, 2, 2, 0);
 	}
 }
 
 task main()
 {
-	SetInitialEncoderPositions();
-
 	while(true)
 	{
 		getJoystickSettings(joystick);
