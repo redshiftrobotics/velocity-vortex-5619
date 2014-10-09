@@ -7,7 +7,7 @@
  *
  */
 
-#include "../LibrariesMotors.h"
+#include "../Libraries/Motors.h"
 #include "../Libraries/Servos.h"
 
 #include "JoystickDriver.c"
@@ -15,27 +15,62 @@
 /*
  * BUTTONS:
  * Button 2 - deploy arm
- * 
+ *
  *
  */
 
+int initialEncoderPosition;
+
 void LockArm()
 {
-	
+
 }
 
 void DeployArm()
 {
-	
+	// TODO: fix this dead reckoning
+	Motors_SetPosition(1, 1, 1, Motors_GetPosition(1, 1, 1)+100, 10);
+}
+
+void RaiseArm()
+{
+	// TODO: fix this dead reckoning
+	Motors_SetPosition(1, 1, 1, Motors_GetPosition(1, 1, 1)-100, 10);
 }
 
 task main()
 {
+	int currentPosition = 1;
+
 	getJoystickSettings(joystick);
-	
-	while(joy2Btn(2))
+
+	initialEncoderPosition = Motors_GetPosition(1, 1, 1);
+
+	while(!joy2Btn(2))
 	{
+		// wait for button 2
 		getJoystickSettings(joystick);
-		
+	}
+
+	LockArm();
+
+	// main loop
+	while (true)
+	{
+		if (joy2Btn(2)) {
+			switch (currentPosition)
+			{
+				case 1 :
+					RaiseArm();
+					currentPosition = 2;
+					break;
+
+				case 2 :
+					LockArm();
+					currentPosition = 1;
+					break;
+
+}
+		}
 	}
 }
