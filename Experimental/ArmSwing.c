@@ -23,54 +23,71 @@ int initialEncoderPosition;
 
 void LockArm()
 {
-
-}
-
-void DeployArm()
-{
+	writeDebugStreamLine("Running LockArm()");
 	// TODO: fix this dead reckoning
-	Motors_SetPosition(1, 1, 1, Motors_GetPosition(1, 1, 1)+100, 10);
+	Motors_SetPosition(S1, 1, 1, Motors_GetPosition(S1, 1, 1)-100, 10);
 }
 
 void RaiseArm()
 {
+	writeDebugStreamLine("Running RaiseArm()");
 	// TODO: fix this dead reckoning
-	Motors_SetPosition(1, 1, 1, Motors_GetPosition(1, 1, 1)-100, 10);
+	writeDebugStreamLine("Setting position to %i", Motors_GetPosition(S1, 1, 1)-100);
+	Motors_SetPosition(S1, 1, 1, Motors_GetPosition(S1, 1, 1)+100, 10);
 }
 
 task main()
 {
+	clearDebugStream();
+
 	int currentPosition = 1;
 
 	getJoystickSettings(joystick);
 
-	initialEncoderPosition = Motors_GetPosition(1, 1, 1);
+	initialEncoderPosition = Motors_GetPosition(S1, 1, 1);
 
-	while(!joy2Btn(2))
+	bool readyForStart = false;
+	writeDebugStreamLine("Waiting for joystick button 2...");
+	while(!readyForStart)
 	{
 		// wait for button 2
 		getJoystickSettings(joystick);
+
+		if (joy1Btn(2) == 1)
+		{
+			readyForStart = true;
+		}
 	}
 
+	writeDebugStreamLine("Got joy 1 btn 1.");
+
 	LockArm();
+
+	writeDebugStreamLine("Entering the main loop.");
 
 	// main loop
 	while (true)
 	{
-		if (joy2Btn(2)) {
+		getJoystickSettings(joystick);
+		if (joy1Btn(2) == 1) {
+			writeDebugStreamLine("Evaluating switch statement.");
 			switch (currentPosition)
 			{
-				case 1 :
-					RaiseArm();
-					currentPosition = 2;
-					break;
+			case 1 :
+				writeDebugStreamLine("Running case 1");
+				RaiseArm();
+				currentPosition = 2;
+				writeDebugStreamLine("Finished running case 1.");
+				break;
 
-				case 2 :
-					LockArm();
-					currentPosition = 1;
-					break;
+			case 2 :
+				writeDebugStreamLine("Running case 2");
+				LockArm();
+				currentPosition = 1;
+				writeDebugStreamLine("Finished running case 2.");
+				break;
 
-}
-		}
-	}
+			}
+		} /* if (joy1Btn(2)) */
+	} /* while (true) */
 }
