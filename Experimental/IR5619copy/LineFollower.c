@@ -5,9 +5,9 @@
 #include "IR.c"
 #include "Motors.h"
 
-const int Threashold = 25;
+const int Threashold = 25; //Should this value be binary such as it is or proportional to the signal?
 
-void MoveRight()
+void MoveRight()                     //All motor stuff should be in a different file
 {
 	Motors_SetSpeed(S3, 1, 2, -10);
 	Motors_SetSpeed(S3, 1, 1, 5);
@@ -27,12 +27,12 @@ void MoveStraight()
 
 task main()
 {
-	int Distance = 3;
+	int Distance = 3;  //Known or predetermined beforehand
 
 	while(true)
 	{
 		//update IR
-		IR_Update();
+		IR_Update(); //What is this? Find path
 
 		//stops the program if we are short
 		if(IR_LeftValue.C > Threashold && IR_LeftValue.D > Threashold && IR_RightValue.B > Threashold && IR_RightValue.C > Threashold)
