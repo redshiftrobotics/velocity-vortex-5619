@@ -5,8 +5,8 @@
 #include "../Libraries/I2C.h"
 #include "IRfunctions.c"
 
-const int goal = 15;
-
+const int goal = 20;
+int IRvalues[5];
 float power[2];
 
 task main() {
@@ -19,13 +19,14 @@ task main() {
 				I2C_SetMotorSpeed(S1, 2, 2, (sbyte)power[1]);
 				writeDebugStreamLine("%i", (sbyte)power[0]);
 				writeDebugStreamLine("%i", (sbyte)power[1]);
+
 	}
 
-		//while(true) {
-		//HTIRS2readAllDCStrength(S2, IRvalues[0], IRvalues[1], IRvalues[2], IRvalues[3], IRvalues[4]);
-		////for(int i = 0; i <= 4; i++)
-		////{
-		////	writeDebugStreamLine("%i", IRvalues[i]);
-		////}
+	//	while(true) {
+	//	HTIRS2readAllDCStrength(S2, IRvalues[0], IRvalues[1], IRvalues[2], IRvalues[3], IRvalues[4]);
+	//	for(int i = 0; i <= 4; i++)
+	//	{
+	//		writeDebugStreamLine("%i", IRvalues[i]);
+	//	}
 	//}
 }

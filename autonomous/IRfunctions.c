@@ -14,7 +14,7 @@ int chdeg(int x) {
 	return (x*72)-144;
 }
 
-float readIR(tSensors link) {
+int readIR(tSensors link) {
 	int IRvalues[5];
 	HTIRS2readAllDCStrength(link, IRvalues[0], IRvalues[1], IRvalues[2], IRvalues[3], IRvalues[4]);
 	int n = -1;
@@ -33,6 +33,13 @@ float readIR(tSensors link) {
 		  //do nothing
 		}
 	}
-	return chdeg(n);
+	return chdeg(n+1);
 	//return (n*72)-36;
+}
+
+int readIR2(tSensors link) {
+	int IRvalue = 0;
+	IRvalue = HTIRS2readDCDir(link);
+	IRvalue = 30*(10 - IRvalue);
+	return IRvalue;
 }
