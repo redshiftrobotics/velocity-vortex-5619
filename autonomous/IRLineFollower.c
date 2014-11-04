@@ -27,11 +27,11 @@ void stopMoving(tSensors port) {
 }
 
 void strafeRight(tSensors port, int spd) {
-	I2C_SetMotorSpeed(port, 2, 1, (sbyte)spd);
+	I2C_SetMotorSpeed(port, 2, 2, (sbyte)spd);
 }
 
 void strafeLeft(tSensors port, int spd) {
-	I2C_SetMotorSpeed(port, 2, 1, (sbyte)-spd);
+	I2C_SetMotorSpeed(port, 2, 2, (sbyte)-spd);
 }
 
 void updateIR(tSensors port) {

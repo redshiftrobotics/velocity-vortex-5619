@@ -44,6 +44,6 @@ float readIR(tSensors link) {
 		return chdeg(n);
 	}
 	else
-		return -1
+		return -1;
 	//return (n*72)-36;
 }
