@@ -6,7 +6,7 @@
 
 /*
 
-	(C) Copyright 2014 Alex Jordan
+	(C) Copyright 2014 Alex Jordan, Aidan Wood
 
 	This file is part of the FTC team 5619 application code.
 
