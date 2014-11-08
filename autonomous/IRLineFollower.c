@@ -26,7 +26,7 @@
 
 */
 
-const int regSpd = 50;
+const int regSpd = 25;
 const int turn = 2;
 const int threshold = 10;
 int IRvalues[5];
@@ -68,28 +68,32 @@ void updateIR(tSensors port) {
 
 void IRLineFollow(tSensors IRport, tSensors Motorport) {
 	updateIR(IRport);
+	// Is the beacon front left or front right?
 	if(IRvalues[1] > threshold || IRvalues[3] > threshold)
 	{
+			// Is it front left?
 			if(IRvalues[1] > IRvalues[3])
-				moveRight(Motorport, regSpd);
-			else if(IRvalues[1] < IRvalues[3])
+			{
 				moveLeft(Motorport, regSpd);
-			else if(abs(IRvalues[2] == IRvalues[1]) <= threshold) {
+			}
+			// Is it front right?
+			else if(IRvalues[1] < IRvalues[3]) {
+				moveRight(Motorport, regSpd);
+			} else if(abs(IRvalues[2] - IRvalues[1]) <= threshold) {
 				moveForward(Motorport, regSpd);
 				//strafeLeft(Motorport, regSpd / (IRvalues[2] == IRvalues[1]));
 				strafeLeft(Motorport, regSpd / 4);
-			}
-			else if(abs(IRvalues[2] - IRvalues[3]) < threshold) {
+			} else if(abs(IRvalues[2] - IRvalues[3]) < threshold) {
 				moveForward(Motorport, regSpd);
 				//strafeRight(Motorport, regSpd * (1 - (1 / (11 - IRvalues[2] - IRvalues[3]))));
 				strafeRight(Motorport, regSpd / 4);
 			}
-			else
-				break;
+			else {
+				return;
+			}
 	}
 	else
-		break;
-
+		return;
 }
 
 void moveDownRamp(tSensors port) {
