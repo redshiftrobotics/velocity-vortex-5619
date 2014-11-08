@@ -26,25 +26,28 @@
 
 */
 
-const int regSpd = 25;
+const int regSpd = -25;
 const int turn = 2;
 const int threshold = 10;
 int IRvalues[5];
 
 void moveForward(tSensors port, int spd) {
-		I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd);
-		I2C_SetMotorSpeed(port, 1, 2, (sbyte)spd);
+	// Tested
+	I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd/turn);
+	I2C_SetMotorSpeed(port, 1, 2, (sbyte)-spd/turn);
 }
 
 void moveLeft(tSensors port, int spd) {
 		I2C_SetMotorSpeed(port, 1, 1, (sbyte)-spd/turn);
-		I2C_SetMotorSpeed(port, 1, 2, (sbyte)spd/turn);
+		I2C_SetMotorSpeed(port, 1, 2, (sbyte)-spd/turn);
 }
 
 void moveRight(tSensors port, int spd) {
-		I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd/turn);
-		I2C_SetMotorSpeed(port, 1, 2, (sbyte)-spd/turn);
+	// Tested
+	I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd);
+	I2C_SetMotorSpeed(port, 1, 2, (sbyte)spd);
 }
+
 void stopMoving(tSensors port) {
 		I2C_SetMotorSpeed(port, 1, 1, (sbyte)0);
 		I2C_SetMotorSpeed(port, 1, 2, (sbyte)0);
@@ -75,15 +78,21 @@ void IRLineFollow(tSensors IRport, tSensors Motorport) {
 			if(IRvalues[1] > IRvalues[3])
 			{
 				moveLeft(Motorport, regSpd);
+
 			}
 			// Is it front right?
 			else if(IRvalues[1] < IRvalues[3]) {
+
 				moveRight(Motorport, regSpd);
-			} else if(abs(IRvalues[2] - IRvalues[1]) <= threshold) {
+			}
+			// Is the beacon close and to the left?
+			else if(abs(IRvalues[2] - IRvalues[1]) <= threshold) {
 				moveForward(Motorport, regSpd);
 				//strafeLeft(Motorport, regSpd / (IRvalues[2] == IRvalues[1]));
 				strafeLeft(Motorport, regSpd / 4);
-			} else if(abs(IRvalues[2] - IRvalues[3]) < threshold) {
+			}
+			// Is the becon close and to the right?
+			else if(abs(IRvalues[2] - IRvalues[3]) < threshold) {
 				moveForward(Motorport, regSpd);
 				//strafeRight(Motorport, regSpd * (1 - (1 / (11 - IRvalues[2] - IRvalues[3]))));
 				strafeRight(Motorport, regSpd / 4);
