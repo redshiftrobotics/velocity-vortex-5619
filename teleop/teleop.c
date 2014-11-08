@@ -83,7 +83,7 @@ task main()
 	while(true)
 	{
 		// state machine loop
-		doShit();
+		doStuff();
 		getJoystickSettings(joystick);
 
 		switch(State)
