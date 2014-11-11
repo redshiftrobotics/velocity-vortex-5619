@@ -118,7 +118,7 @@ void leftOMNIAnalogControl() {
 		If the assumption is wrong we need to make the function
 		round( -100*cos(controllerAngleRad))  [I think]  TEST TEST TEST!!
 		*/
-		centerPowerLevel = round( 100*cos(controllerAngleRad));
+		centerPowerLevel = (int)( 100*cos(controllerAngleRad));
 	}
 	if (DEBUG){
 		writeDebugStreamLine("In leftAnalogControl");
