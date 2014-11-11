@@ -4,14 +4,14 @@
 
 tSensors MotorController = S1;
 const int leftMotorDaisyChainLevel=1;
-const int rightMotorDaisyChainLevel=2;
+const int rightMotorDaisyChainLevel=1;
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
-bool TESTBOT=true;
-bool DEBUG=true;
+bool TESTBOT=false;
+bool DEBUG=false;
 //**********************************************
 //Wrapper functions for left/right/center motors
 void leftMotor(int spd){
