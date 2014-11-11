@@ -169,16 +169,20 @@ void driveJoyStickControl(){
 	if (joy1Btn(7)){
 	}
 	//Bottom right shoulder do nothing placeholder
-	if (joy1Btn(8)){
+	if (joy1Btn(8))
+	{
 	}
 	//back button do nothing placeholder
-	if (joy1Btn(9)){
+	if (joy1Btn(9))
+	{
 	}
 	//start button switch between tank and OmniDrive
 	//Note: OMNI=false, this will remove any use of the center wheel
-	if (joy1Btn(10)){
+	if (joy1Btn(10))
+	{
 		//if we are switching OFF Omni play Beep Beep
-		if (OMNI){
+		if (OMNI)
+		{
 			PlaySound(soundBeepBeep);
 		}
 		//If we are switching back to Omni Beep Beep Beep Beep
@@ -189,19 +193,20 @@ void driveJoyStickControl(){
 		OMNI=!OMNI;
 	}
 
-	if (OMNI){
+	if (OMNI)
+	{
 		//Left analog button will manage the omnidrive and
 		//move the robot at the angle given on the analog pad
 		leftOMNIAnalogControl();
-	}
-	else {
+	} else {
 		//Right analog will run the robot like a tank drive not using the center wheel
 		tankAnalogControl();
 	}
 
 }
 
-void operatorJoystickControl(){
+void operatorJoystickControl()
+{
 	//This set of if statements handle the different button functions.
 	// Question to test.  Should the statements be mutually exclusive
 	// Should we only handle one input per cycle?  Results could be strange TEST

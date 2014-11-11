@@ -1,13 +1,12 @@
-<<<<<<< HEAD
 #pragma config(Sensor, S1, Motor, sensorI2CCustom)
 
 #include "Motors.h"
 
 tSensors MotorController = S1;
-int leftMotorDaisyChainLevel=1;
-int rightMotorDaisyChainLevel=2;
-int leftMotorNumber=1;
-int rightMotorNumber=2;
+const int leftMotorDaisyChainLevel=1;
+const int rightMotorDaisyChainLevel=2;
+const int leftMotorNumber=1;
+const int rightMotorNumber=2;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
@@ -23,7 +22,6 @@ void leftMotor(int spd){
 	else {
 		Motors_SetSpeed(MotorController, leftMotorDaisyChainLevel, leftMotorNumber, spd);
 	}
-
 }
 
 void rightMotor(int spd){
@@ -98,7 +96,8 @@ void Drive_forward(int speed)
 }
 // Backward takes ONLY A POSITIVE VALUE assuming that
 //we want to go backward
-void Drive_backward (int speed) {
+void Drive_backward (int speed)
+{
 	if (DEBUG){
 		writeDebugStreamLine("in Drive_backward");
 	}
