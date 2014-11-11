@@ -1,6 +1,6 @@
 #pragma config(Sensor, S1, Motor, sensorI2CCustom)
 
-#include "Motors.h"
+#include "../Libraries/Motors.h"
 
 tSensors MotorController = S1;
 const int leftMotorDaisyChainLevel=1;
