@@ -245,7 +245,7 @@ void operatorJoystickControl(){
 task main()
 {
 
-	//waitForStart();
+	waitForStart();
 
 	while(true)
 	{
@@ -253,7 +253,7 @@ task main()
 		getJoystickSettings(joystick);
 		updateJoystick();
 		driveJoyStickControl();
-		//operatorJoystickControl();
+		operatorJoystickControl();
 
 	}
 
