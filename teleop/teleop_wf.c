@@ -40,7 +40,7 @@ void updateJoystick() {
 
 	if (DEBUG){
 		writeDebugStreamLine("In updateJoystick");
-		writeDebugStreamLine("Joystick (x,y): (%i, %i)",joystick.joy1_x2,joystick.joy1_y1);
+		writeDebugStreamLine("Joystick (x,y): (%i, %i)",joystick.joy1_x1,joystick.joy1_y1);
 		Sleep(1000);
 	}
 	//All of these are divided by 128 and then multiplied by 100
@@ -53,7 +53,7 @@ void updateJoystick() {
 	rightJoystickY = (100*joystick.joy1_y2)/128;
 	// X and Y joystick value from 128 to 127
 	leftJoystickY = (100*joystick.joy1_y1)/128;
-	leftJoystickX = (100*joystick.joy1_x2)/128;
+	leftJoystickX = (100*joystick.joy1_x1)/128;
 
 
 	//We are going to handle the dead head functionality in order to clean up the later
@@ -102,7 +102,7 @@ void leftOMNIAnalogControl() {
 		//takes a radian value I THINK    TEST TEST
 		controllerAngleRad=atan(leftJoystickY/leftJoystickX);  //In radians
 		if (DEBUG){
-			writeDebugStreamLine("Controller Angle: %d", controllerAngleRad);
+			writeDebugStreamLine("Controller Angle: %f", controllerAngleRad);
 		}
 		//This calculation needs more documentation.  More to come.
 		/*
@@ -134,7 +134,7 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
-	Drive_turn(leftJoystickY,leftJoystickX);
+	Drive_turn(leftJoystickY,rightJoystickY);
 }
 //********************************************************************************
 //********************************************************************************
