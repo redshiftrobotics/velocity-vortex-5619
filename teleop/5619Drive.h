@@ -16,7 +16,7 @@ bool DEBUG=false;
 //Wrapper functions for left/right/center motors
 void leftMotor(int spd){
 	if (TESTBOT){
-		writeDebugStreamLine("LEFT POWER %d",spd);
+		writeDebugStreamLine("LEFT POWER %i",spd);
 		Sleep(1000);
 	}
 	else {
@@ -26,7 +26,7 @@ void leftMotor(int spd){
 
 void rightMotor(int spd){
 	if (TESTBOT){
-		writeDebugStreamLine("RIGHT POWER %d",spd);
+		writeDebugStreamLine("RIGHT POWER %i",spd);
 		Sleep(1000);
 	}
 	else {
@@ -36,7 +36,7 @@ void rightMotor(int spd){
 
 void centerMotor(int spd){
 	if (TESTBOT){
-		writeDebugStreamLine("CENTER POWER %d",spd);
+		writeDebugStreamLine("CENTER POWER %i",spd);
 		Sleep(1000);
 	}
 	else {
