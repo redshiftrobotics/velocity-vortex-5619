@@ -22,6 +22,12 @@ int rightJoystickX;
 int rightJoystickY;
 int leftJoystickX;
 int leftJoystickY;
+
+//maxSpeed can be set to slow down the robot so that we don't have to
+//send a 100 speed to the motors  This value corresponds to the highest
+//value sent to the motors.  SHOULD NEVER BE SET ABOVE 100
+//This value will not effect the center wheel since we need it to go faster
+int maxSpeed = 100;
 //******************************End of Global Constants*****************************
 
 //******************************Joystick setup Functions****************************
@@ -48,12 +54,12 @@ void updateJoystick() {
 	// be used as power to the motors
 
 	// X value of right joystick from -128 to 127
-	rightJoystickX = (100*joystick.joy1_x2)/128;
+	rightJoystickX = (maxSpeed*joystick.joy1_x2)/128;
 	// Y value of right joystick from -128 to 127
-	rightJoystickY = (100*joystick.joy1_y2)/128;
+	rightJoystickY = (maxSpeed*joystick.joy1_y2)/128;
 	// X and Y joystick value from 128 to 127
-	leftJoystickY = (100*joystick.joy1_y1)/128;
-	leftJoystickX = (100*joystick.joy1_x1)/128;
+	leftJoystickY = (maxSpeed*joystick.joy1_y1)/128;
+	leftJoystickX = (maxSpeed*joystick.joy1_x1)/128;
 
 
 	//We are going to handle the dead head functionality in order to clean up the later
@@ -92,6 +98,8 @@ void allStop(){
 void leftOMNIAnalogControl() {
 	int centerPowerLevel=0;  //Good programming, we initialize it to a value
 	float controllerAngleRad=0;  // Need initialization here
+	//This value catches an issue later on in the code where the cos function
+	//only returns a positive value.  This will adjust the direction.
 	int centerDirection = 1;  //1 is right, -1 is left
 	if (leftJoystickX<0)
 	{
@@ -119,9 +127,9 @@ void leftOMNIAnalogControl() {
 		This coincides with a cos function with an amplitude of 100
 
 		QUESTION: Is the positive value for the center wheel left or right?
-		ASSUMPTION: Positive = right
-		If the assumption is wrong we need to make the function
-		round( -100*cos(controllerAngleRad))  [I think]  TEST TEST TEST!!
+		ASSUMPTION: Positive = right CHECKED - This is correct
+		However, interesting issue.  The cos function only returns a positive value
+		so the "centerDirection" value makes the adjustment
 		*/
 		centerPowerLevel = (int)( centerDirection*100*cos(controllerAngleRad));
 	}
@@ -192,8 +200,7 @@ void driveJoyStickControl(){
 		}
 		//If we are switching back to Omni Beep Beep Beep Beep
 		else {
-			PlaySound(soundBeepBeep);
-			PlaySound(soundBeepBeep);
+			PlaySound(soundUpwardTones);
 		}
 		OMNI=!OMNI;
 	}
