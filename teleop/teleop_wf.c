@@ -10,7 +10,7 @@ const int Threshold = 15;
 //The spin of the robot in Omni mode will always be at the same speed since it uses
 //the shoulder buttons and not the analog
 //spin during tank drive is handled differently by the y values of the analog.
-const int SpinSpeed = 25;
+const int SpinSpeed = 65;
 
 //This value can be changed by the "start" button to switch between
 //tank and omni drive. Not sure why we want it, but there it is
@@ -92,6 +92,11 @@ void allStop(){
 void leftOMNIAnalogControl() {
 	int centerPowerLevel=0;  //Good programming, we initialize it to a value
 	float controllerAngleRad=0;  // Need initialization here
+	int centerDirection = 1;  //1 is right, -1 is left
+	if (leftJoystickX<0)
+	{
+		centerDirection=-1;
+	}
 
 	//This if-else will catch the divide by zero problem
 	if (leftJoystickX==0){
@@ -118,7 +123,7 @@ void leftOMNIAnalogControl() {
 		If the assumption is wrong we need to make the function
 		round( -100*cos(controllerAngleRad))  [I think]  TEST TEST TEST!!
 		*/
-		centerPowerLevel = (int)( 100*cos(controllerAngleRad));
+		centerPowerLevel = (int)( centerDirection*100*cos(controllerAngleRad));
 	}
 	if (DEBUG){
 		writeDebugStreamLine("In leftAnalogControl");
