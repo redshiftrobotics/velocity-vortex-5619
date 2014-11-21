@@ -29,6 +29,7 @@
 
 #include "JoystickDriver.c"
 #include "IRLineFollower.c"
+#include "../teleop/5619Drive.h"
 
 task main()
 {
@@ -46,20 +47,24 @@ task main()
 		switch(State)
 		{
 			case ONRAMP:
+				moveDownRamp(S1);
+				State = STOPPED;
 				break;
 			case MOVEFROMRAMP:
-				moveDownRamp(S1);
 				break;
 			case LINEFOLLOWING:
 				writeDebugStreamLine("Running loop: LINEFOLLOWING");
-				IRLineFollow(S2, S1);
+				bool readyToChange = IRLineFollow(S2, S1);
+				if (readyToChange) {
+					State = DISPENSING;
+				}
 				break;
 			case DISPENSING:
 				break;
 			case KICKSTAND:
 				break;
 			case STOPPED:
-				// TODO: stop all motors
+				Drive_allStop();
 				Sleep(10);
 				break;
 			default:

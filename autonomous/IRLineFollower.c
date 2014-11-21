@@ -26,32 +26,12 @@
 
 */
 
-const int regSpd = -25;
+#include "../teleop/5619Drive.h"
+
+const int regSpd = -5;
 const int turn = 2;
 const int threshold = 10;
 int IRvalues[5];
-
-void moveForward(tSensors port, int spd) {
-	// Tested
-	I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd/turn);
-	I2C_SetMotorSpeed(port, 1, 2, (sbyte)-spd/turn);
-}
-
-void moveLeft(tSensors port, int spd) {
-		I2C_SetMotorSpeed(port, 1, 1, (sbyte)-spd/turn);
-		I2C_SetMotorSpeed(port, 1, 2, (sbyte)-spd/turn);
-}
-
-void moveRight(tSensors port, int spd) {
-	// Tested
-	I2C_SetMotorSpeed(port, 1, 1, (sbyte)spd);
-	I2C_SetMotorSpeed(port, 1, 2, (sbyte)spd);
-}
-
-void stopMoving(tSensors port) {
-		I2C_SetMotorSpeed(port, 1, 1, (sbyte)0);
-		I2C_SetMotorSpeed(port, 1, 2, (sbyte)0);
-}
 
 void strafeRight(tSensors port, int spd) {
 	I2C_SetMotorSpeed(port, 2, 2, (sbyte)spd);
@@ -69,43 +49,46 @@ void updateIR(tSensors port) {
 	}
 }
 
-void IRLineFollow(tSensors IRport, tSensors Motorport) {
+bool IRLineFollow(tSensors IRport, tSensors Motorport) {
 	updateIR(IRport);
 	// Is the beacon front left or front right?
 	//sensor 2 and sensor 4
-	if(IRvalues[1] > threshold || IRvalues[3] > threshold)
+	if (IRvalues[1] > threshold || IRvalues[3] > threshold)
 	{
 			// Is it front left?
-			if(IRvalues[1] > IRvalues[3])
+			if (IRvalues[1] > IRvalues[3])
 			{
-				moveLeft(Motorport, regSpd);
+				Drive_spinLeft(-regSpd);
 
 			}
 			// Is it front right?
-			else if(IRvalues[1] < IRvalues[3]) {
+			else if (IRvalues[1] < IRvalues[3]) {
 
-				moveRight(Motorport, regSpd);
+				Drive_spinRight(-regSpd);
 			}
 			// Is the beacon close and to the left?
-			else if(abs(IRvalues[2] - IRvalues[1]) <= threshold) {
-				moveForward(Motorport, regSpd);
+			else if (abs(IRvalues[2] - IRvalues[1]) <= threshold) {
+				Drive_forward(regSpd);
 				//strafeLeft(Motorport, regSpd / (IRvalues[2] == IRvalues[1]));
 				strafeLeft(Motorport, regSpd / 4);
 			}
 			// Is the becon close and to the right?
-			else if(abs(IRvalues[2] - IRvalues[3]) < threshold) {
-				moveForward(Motorport, regSpd);
+			else if (abs(IRvalues[2] - IRvalues[3]) < threshold) {
+				Drive_forward(regSpd);
 				//strafeRight(Motorport, regSpd * (1 - (1 / (11 - IRvalues[2] - IRvalues[3]))));
 				strafeRight(Motorport, regSpd / 4);
 			}
 			else {
-				return;
+				// TODO: pass back whether or not we're at the center goal
+				return false;
 			}
+	}	else {
+		// TODO: pass back whether or not we're at the center goal
+		return false;
 	}
-	else
-		return;
 }
 
 void moveDownRamp(tSensors port) {
-		strafeRight(port, regSpd / 2);
+		Drive_forward(39);
+		Sleep(1500);
 }
