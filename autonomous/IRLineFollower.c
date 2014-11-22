@@ -70,6 +70,6 @@ void MoveDownRamp() {
 }
 
 void MoveToKickstand() {
-	Drive_driveOmni(45, 55);
+	Drive_driveOmni(-25, -43.3);
 	sleep(1500);
 }
