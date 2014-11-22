@@ -56,9 +56,9 @@ void updateJoystick() {
 	// be used as power to the motors
 
 	// X value of right joystick from -128 to 127
-	rightJoystickX = (maxSpeed*joystick.joy1_x2)/128;
+	rightJoystickX = (maxSpeed*joystick.joy2_x2)/128;
 	// Y value of right joystick from -128 to 127
-	rightJoystickY = (maxSpeed*joystick.joy1_y2)/128;
+	rightJoystickY = (maxSpeed*joystick.joy2_y2)/128;
 	// X and Y joystick value from 128 to 127
 	leftJoystickY = (maxSpeed*joystick.joy1_y1)/128;
 	leftJoystickX = (maxSpeed*joystick.joy1_x1)/128;
@@ -150,6 +150,7 @@ void tankAnalogControl() {
 		writeDebugStreamLine("In tankAnalogControl");
 	}
 	Drive_turn(leftJoystickY,rightJoystickY);
+
 }
 //********************************************************************************
 //********************************************************************************
