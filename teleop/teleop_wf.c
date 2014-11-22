@@ -149,7 +149,16 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
-	Drive_turn(leftJoystickY,rightJoystickY);
+	if(leftJoystickY >= 75 && rightJoystickY >= 75) {
+		int avg = (leftJoystickY + rightJoystickY) / 2;
+		Drive_turn(avg,avg);
+	}
+	else if(leftJoystickY <= -75 && rightJoystickY <= -75) {
+		int avg = (leftJoystickY + rightJoystickY) / 2;
+		Drive_turn(avg,avg);
+	}
+	else
+		Drive_turn(leftJoystickY,rightJoystickY);
 
 }
 //********************************************************************************
