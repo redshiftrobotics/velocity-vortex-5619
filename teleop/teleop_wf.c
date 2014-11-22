@@ -257,9 +257,9 @@ void operatorJoystickControl()
 		//reset encoders
 	}
 
-	if (abs(joystick.joy1_y1) > Threshold)
+	if (abs(joystick.joy2_y1) > Threshold)
 	{
-		Drive_scissorLift(joystick.joy1_y1*scissorMultiplier);
+		Drive_scissorLift(joystick.joy2_y1*scissorMultiplier);
 	}
 }
 //************************************End Driver/Operator Functions*******************************
