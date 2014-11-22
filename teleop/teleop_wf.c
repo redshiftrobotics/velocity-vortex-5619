@@ -16,7 +16,7 @@ const int scissorMultiplier = 99/128;
 
 //This value can be changed by the "start" button to switch between
 //tank and omni drive. Not sure why we want it, but there it is
-bool OMNI=true;
+bool OMNI=false;
 
 // global values to catch the values of the analog joysticks
 //renamed so that the code is more readible
