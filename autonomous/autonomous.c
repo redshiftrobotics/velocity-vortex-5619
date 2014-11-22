@@ -54,7 +54,7 @@ task main()
 				break;
 			case LINEFOLLOWING:
 				writeDebugStreamLine("Running loop: LINEFOLLOWING");
-				bool readyToChange = IRLineFollow(S2, S1);
+				bool readyToChange = IRLineFollow(S2);
 				if (readyToChange) {
 					State = DISPENSING;
 				}

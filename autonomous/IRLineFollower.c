@@ -49,43 +49,18 @@ void updateIR(tSensors port) {
 	}
 }
 
-bool IRLineFollow(tSensors IRport, tSensors Motorport) {
-	updateIR(IRport);
-	// Is the beacon front left or front right?
-	//sensor 2 and sensor 4
-	if (IRvalues[1] > threshold || IRvalues[3] > threshold)
-	{
-			// Is it front left?
-			if (IRvalues[1] > IRvalues[3])
-			{
-				Drive_spinLeft(-regSpd);
+bool IRLineFollow(tSensors IRport)
+{
+	int strength;
+	int direction;
+	HTIRS2readEnhanced(IRport, direction, strength);
+	direction -= 5;
+	Drive_forward(regspd);
+	centerMotor(50*direction);
 
-			}
-			// Is it front right?
-			else if (IRvalues[1] < IRvalues[3]) {
+	writeDebugStreamLine("Read IR: %i, %i", direction, strength);
 
-				Drive_spinRight(-regSpd);
-			}
-			// Is the beacon close and to the left?
-			else if (abs(IRvalues[2] - IRvalues[1]) <= threshold) {
-				Drive_forward(regSpd);
-				//strafeLeft(Motorport, regSpd / (IRvalues[2] == IRvalues[1]));
-				strafeLeft(Motorport, regSpd / 4);
-			}
-			// Is the becon close and to the right?
-			else if (abs(IRvalues[2] - IRvalues[3]) < threshold) {
-				Drive_forward(regSpd);
-				//strafeRight(Motorport, regSpd * (1 - (1 / (11 - IRvalues[2] - IRvalues[3]))));
-				strafeRight(Motorport, regSpd / 4);
-			}
-			else {
-				// TODO: pass back whether or not we're at the center goal
-				return false;
-			}
-	}	else {
-		// TODO: pass back whether or not we're at the center goal
-		return false;
-	}
+	return (strength < 550);
 }
 
 void moveDownRamp(tSensors port) {
