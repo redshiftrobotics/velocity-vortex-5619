@@ -1,6 +1,7 @@
 #include "../Libraries/I2C.h"
 #include "../Libraries/Drivers/hitechnic-irseeker-v2.h"
 #include "../Libraries/Motors.h"
+#include "../teleop/5619Drive.h"
 
 
 /*
@@ -63,7 +64,12 @@ bool IRLineFollow(tSensors IRport)
 	return (strength < 550);
 }
 
-void moveDownRamp(tSensors port) {
-		Drive_forward(39);
-		Sleep(1500);
+void MoveDownRamp() {
+	Drive_turn(50, 50);
+	Sleep(1500);
+}
+
+void MoveToKickstand() {
+	Drive_driveOmni(45, 55);
+	sleep(1500);
 }

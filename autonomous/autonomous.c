@@ -35,7 +35,7 @@ task main()
 {
 
 	typedef enum { ONRAMP, MOVEFROMRAMP, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
-	AutoState State = LINEFOLLOWING;
+	AutoState State = ONRAMP;
 
 	clearDebugStream();
 	//waitForStart();
@@ -47,8 +47,8 @@ task main()
 		switch(State)
 		{
 			case ONRAMP:
-				moveDownRamp(S1);
-				State = STOPPED;
+				MoveDownRamp();
+				State = KICKSTAND;
 				break;
 			case MOVEFROMRAMP:
 				break;
@@ -62,6 +62,8 @@ task main()
 			case DISPENSING:
 				break;
 			case KICKSTAND:
+				MoveToKickstand();
+				State = STOPPED;
 				break;
 			case STOPPED:
 				Drive_allStop();
