@@ -2,6 +2,21 @@
 
 #include "../Libraries/Motors.h"
 
+/*
+
+ SPEED PARAMETERS
+
+*/
+
+const int scissorSpeed = 10; // TODO tune
+const int sweeperSpeed = 10; // TODO tune
+
+/*
+
+ BUS ADDRESS DATA
+
+*/
+
 tSensors MotorController = S1;
 const int leftMotorDaisyChainLevel=1;
 const int rightMotorDaisyChainLevel=1;
@@ -10,8 +25,17 @@ const int rightMotorNumber=2;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
+
+/*
+
+ DEBUG PARAMETERS
+
+*/
+
 bool TESTBOT=false;
 bool DEBUG=false;
+
+
 //**********************************************
 //Wrapper functions for left/right/center motors
 void leftMotor(int spd){
@@ -121,6 +145,56 @@ void Drive_driveOmni(int inLineSpeed, int centerSpeed){
 		Drive_backward(-inLineSpeed); //remember that "backward" takes a positive value
 	}
 }
+
+/*
+
+ SWEEPER CONTROL
+
+*/
+
+void Drive_sweeper(int speed)
+{
+	Motors_SetSpeed(S1, 1, 1, speed); // TODO check these addresses
+}
+
+void Drive_sweeperIn()
+{
+	Drive_sweeper(sweeperSpeed); // TODO check sign
+}
+
+void Drive_sweeperOut()
+{
+	Drive_sweeper(-sweeperSpeed); // TODO check sign
+}
+
+/*
+
+ SCISSOR LIFT CONTROL
+
+*/
+
+void Drive_scissorLift(int speed)
+{
+	// TODO: limit switches
+	Motors_SetSpeed(S1, 3, 1, speed);
+	Motors_SetSpeed(S1, 3, 2, -speed);
+}
+
+void Drive_scissorLiftUp()
+{
+	Drive_scissorLift(-scissorSpeed); // TODO check whether this should be negative
+}
+
+void Drive_scissorLiftDown()
+{
+	Drive_scissorLift(scissorSpeed); // TODO check whether this should be negative
+}
+
+/*
+
+ MISCELLANEOUS
+
+*/
 
 //Kills all motors
 void Drive_allStop(){

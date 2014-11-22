@@ -12,6 +12,8 @@ const int Threshold = 15;
 //spin during tank drive is handled differently by the y values of the analog.
 const int SpinSpeed = 65;
 
+const int scissorMultiplier = 99/128;
+
 //This value can be changed by the "start" button to switch between
 //tank and omni drive. Not sure why we want it, but there it is
 bool OMNI=true;
@@ -229,17 +231,17 @@ void operatorJoystickControl()
 	if (joy1Btn(1) || joy1Btn(2) || joy1Btn(3) || joy1Btn(4)){
 		//To be done
 	}
-	// Upper left shoulder button Raise conveyor
+	// Upper left shoulder button sweep balls INTO the robot
 	if (joy1Btn(5)){
-		//raise conveyor
+		Drive_sweeperIn();
 	}
 	// Upper right shoulder button
 	if (joy1Btn(6)){
 		//nothing
 	}
-	//Bottom left shoulder do nothing placeholder
+	//Bottom left shoulder send balls OUT of the robot
 	if (joy1Btn(7)){
-		//lower conveyor
+		Drive_sweeperOut();
 	}
 	//Bottom right shoulder release bucket
 	if (joy1Btn(8)){
@@ -254,7 +256,10 @@ void operatorJoystickControl()
 		//reset encoders
 	}
 
-	//Missing any analog controls
+	if (abs(joystick.joy1_y1) > Threshold)
+	{
+		Drive_scissorLift(joystick.joy1_y1*scissorMultiplier);
+	}
 }
 //************************************End Driver/Operator Functions*******************************
 //************************************************************************************************
