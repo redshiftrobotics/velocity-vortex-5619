@@ -202,3 +202,28 @@ void Drive_allStop(){
 	leftMotor(0);
 	rightMotor(0);
 }
+
+//Get encoder position
+long GetEncValue(int side) {
+	long pos = 0;
+	//left
+	if(side == leftMotorNumber) {
+		pos = I2C_GetEncoderPosition(MotorController,leftMotorDaisyChainLevel, leftMotorNumber);
+	}
+	//right
+	else if(side == rightMotorNumber) {
+		pos = I2C_GetEncoderPosition(MotorController,rightMotorDaisyChainLevel, rightMotorNumber);
+	}
+	return pos;
+}
+
+void SetEncValue(int side, long value, byte speed) {
+	//left
+	if(side == leftMotorNumber) {
+		I2C_SetEncoderPosition(MotorController, leftMotorDaisyChainLevel, leftMotorNumber, value, speed);
+	}
+	//right
+	else if(side == rightMotorNumber) {
+		I2C_SetEncoderPosition(MotorController, rightMotorDaisyChainLevel, rightMotorNumber, value, speed);
+	}
+}

@@ -18,6 +18,9 @@ const int scissorMultiplier = 99/128;
 //tank and omni drive. Not sure why we want it, but there it is
 bool OMNI=false;
 
+//Value for whether or not the robot is moving, helpful for continuous motion function
+bool SMoving = false;
+
 // global values to catch the values of the analog joysticks
 //renamed so that the code is more readible
 int rightJoystickX;
@@ -94,6 +97,19 @@ void allStop(){
 	}
 	Drive_allStop();
 }
+
+void turn180() {
+//	nMotorEncoder[mtr_S1_C1_1] = 0;
+//	nMotorEncoder[mtr_S1_C1_2] = 0;
+//	while(nMotorEncoder[mtr_S1_C1_1 < 1440 * number_rotations]) {
+//			Drive_turn(80, -80);
+//}
+	 int number_rotations = 2.5;
+	 long CurrentLeft = GetEncValue(1);
+	 long CurrentRight = GetEncValue(2);
+	 SetEncValue(1, CurrentLeft + 1440*number_rotations, (byte)95);
+	 SetEncValue(2, CurrentRight + 1440*number_rotations, (byte)-95);
+}
 //********************End Wrapper functions***************************
 
 //Left analog control will drive the Omni Drive (with the center wheel)
@@ -149,6 +165,9 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
+	//Sets threshold for moving forward and backward,
+	//makes it so that when moving both joysticks one direction it goes that direction
+	//The value 75 may be too high
 	if(leftJoystickY >= 75 && rightJoystickY >= 75) {
 		int avg = (leftJoystickY + rightJoystickY) / 2;
 		Drive_turn(avg,avg);
@@ -179,9 +198,12 @@ void driveJoyStickControl(){
 	// buttons come before analog joysticks
 
 	// If any of the letter buttons are pressed, register this as an all stop
-	if (joy1Btn(1) || joy1Btn(2) || joy1Btn(3) || joy1Btn(4)){
+	if (joy1Btn(1) || joy1Btn(2) || joy1Btn(3)){
 		allStop();
 	}
+	//180 degree turn
+	if(joy1Btn(4))
+		turn180();
 	// Top left shoulder button will spin the robot left
 	if (joy1Btn(5)){
 		spinLeft();
@@ -190,12 +212,15 @@ void driveJoyStickControl(){
 	if (joy1Btn(6)){
 		spinRight();
 	}
-	//Bottom left shoulder do nothing placeholder
+	//Bottom left shoulder, move forward at maximum speed
 	if (joy1Btn(7)){
+		Drive_turn(95, 95);
+		SMoving = true;
 	}
-	//Bottom right shoulder do nothing placeholder
-	if (joy1Btn(8))
-	{
+	//Bottom right shoulder, stop
+	if (joy1Btn(8)){
+		Drive_turn(0, 0);
+		allStop();
 	}
 	//back button do nothing placeholder
 	if (joy1Btn(9))
