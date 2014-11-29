@@ -25,12 +25,13 @@
 */
 #pragma config(Sensor, S1, , sensorI2CCustom)
 
-#include "GitHub/6157/Libraries/Motors.h"
-#include "GitHub/6157/Libraries/Servos.h"
+#include "../Libraries/Motors.h"
+#include "../Libraries/Servos.h"
 
 #include "JoystickDriver.c"
 
 int constrain(int x, int min, int max){
+	// constraining movment to a set of numbers between min and max
 	if (x > max)
 		return max;
 	if (x < min)
@@ -38,7 +39,9 @@ int constrain(int x, int min, int max){
 	return x;
 }
 
-int joymotor (int joy){
+int joymotor (int joy)
+{
+	// deadzone
 	if(joy > 7 || joy < -7)
 	{
 		int motor = joy * 100 / 127;
@@ -47,7 +50,7 @@ int joymotor (int joy){
 	{
 		return 0;
 	}
-	return constrain(motor,-100,100);
+	return constrain(motor,-100,100);// constrain function
 }
 
 task main()
@@ -72,7 +75,7 @@ task main()
 				servoangle = 0;
 		}
 
-		Servo_SetPosition(S4, 2, 1, servoangle);
+		Servos_SetPosition(S4, 2, 1, servoangle);
 		Motors_SetSpeed(S4, 1, 1, SpeedLeft);
 		Motors_SetSpeed(S4, 1, 2, SpeedRight);
 	}

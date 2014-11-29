@@ -15,14 +15,14 @@ void HandleSides()
 		if (joystick.joy1_y2 < -100) {
 			Speed = -100;
 		}
-		
+
 		if (joystick.joy1_y2 > 100) {
 			Speed = 100;
 		}
-		
+
 		I2C_SetMotorSpeed(S1, 1, 2, -Speed);
-		
-	} else {
+
+		} else {
 		I2C_SetMotorSpeed(S1, 1, 2, 0);
 	}
 
@@ -32,13 +32,14 @@ void HandleSides()
 		if (joystick.joy1_y1 < -100) {
 			Speed = -100;
 		}
-		
+
 		if (joystick.joy1_y1 > 100) {
 			Speed = 100;
 		}
 
 		I2C_SetMotorSpeed(S1, 1, 1, Speed);
-	} else {
+	}
+	else {
 		I2C_SetMotorSpeed(S1, 1, 1, 0);
 	}
 }
@@ -58,13 +59,27 @@ void HandleMiddle()
 		I2C_SetMotorSpeed(S1, 2, 2, 0);
 	}
 }
+void runScissorLift()
+{
+	int speed = 2;
+
+	if (joy1Btn(3))
+	{
+		I2C_SetMotorSpeed(S1,2,1,speed);
+	}
+	else if (joy1Btn(1))
+	{
+		I2C_SetMotorSpeed(S1,2,1,-speed);
+	}
+}
+
 
 task main()
 {
 	while(true)
 	{
 		getJoystickSettings(joystick);
-
+		runScissorLift();
 		HandleSides();
 		HandleMiddle();
 
