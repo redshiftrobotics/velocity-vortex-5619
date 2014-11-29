@@ -217,6 +217,7 @@ long GetEncValue(int side) {
 	return pos;
 }
 
+//Set encoder position and move to that position
 void SetEncValue(int side, long value, byte speed) {
 	//left
 	if(side == leftMotorNumber) {
@@ -225,5 +226,55 @@ void SetEncValue(int side, long value, byte speed) {
 	//right
 	else if(side == rightMotorNumber) {
 		I2C_SetEncoderPosition(MotorController, rightMotorDaisyChainLevel, rightMotorNumber, value, speed);
+	}
+}
+
+//Random number in range
+int randRange(int min, int max) {
+	return (rand() % (max-min)) + min;
+}
+
+void move77(int x) {
+		//Move fwd
+		if(x == 1) {
+
+		}
+		//Move bckwd
+		else if(x == -1) {
+
+		}
+		//turn fwd right
+		else if(x == 2) {
+
+		}
+		//turn fwd left
+		else if(x == 3) {
+
+		}
+		//turn bckwd right
+		else if(x == -3) {
+
+		}
+		//turn bckwd left
+		else if(x == -2) {
+
+		}
+
+}
+
+//Erroneous movement everywhere
+void randomMotion() {
+	int lastCommand = 0;
+	int currentCommand = 0;
+	const int thisSpd = 50;
+	while(true) {
+		lastCommand = currentCommand;
+		currentCommand = randRange(0, 5);
+		if(Motors_IsMoving(MotorController, rightMotorDaisyChainLevel, rightMotorNumber) != true || Motors_IsMoving(MotorController, leftMotorDaisyChainLevel, leftMotorNumber) != true) {
+				move77(-lastCommand);
+		}
+		else {
+				move77(currentCommand);
+		}
 	}
 }

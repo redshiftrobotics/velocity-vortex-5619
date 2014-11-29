@@ -221,8 +221,9 @@ void driveJoyStickControl(){
 	if (joy1Btn(8)){
 		Drive_turn(0, 0);
 		allStop();
+		SMoving = false;
 	}
-	//back button do nothing placeholder
+	//back button do nothing placeholde
 	if (joy1Btn(9))
 	{
 	}
