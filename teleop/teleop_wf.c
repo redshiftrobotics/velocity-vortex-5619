@@ -23,10 +23,10 @@ bool SMoving = false;
 
 // global values to catch the values of the analog joysticks
 //renamed so that the code is more readible
-int rightJoystickX;
-int rightJoystickY;
-int leftJoystickX;
-int leftJoystickY;
+int rightJoystickOneX;
+int rightJoystickOneY;
+int leftJoystickOneX;
+int leftJoystickOneY;
 
 //maxSpeed can be set to slow down the robot so that we don't have to
 //send a 100 speed to the motors  This value corresponds to the highest
@@ -59,20 +59,20 @@ void updateJoystick() {
 	// be used as power to the motors
 
 	// X value of right joystick from -128 to 127
-	rightJoystickX = (maxSpeed*joystick.joy2_x2)/128;
+	rightJoystickOneX = (maxSpeed*joystick.joy1_x2)/128;
 	// Y value of right joystick from -128 to 127
-	rightJoystickY = (maxSpeed*joystick.joy2_y2)/128;
+	rightJoystickOneY = (maxSpeed*joystick.joy1_y2)/128;
 	// X and Y joystick value from 128 to 127
-	leftJoystickY = (maxSpeed*joystick.joy1_y1)/128;
-	leftJoystickX = (maxSpeed*joystick.joy1_x1)/128;
+	leftJoystickOneY = (maxSpeed*joystick.joy1_y1)/128;
+	leftJoystickOneX = (maxSpeed*joystick.joy1_x1)/128;
 
 
 	//We are going to handle the dead head functionality in order to clean up the later
 	// code. So we will set joystick values to zero if they are within the deadhead zone
-	rightJoystickX=setDeadHead(rightJoystickX);
-	rightJoystickY=setDeadHead(rightJoystickY);
-	leftJoystickX=setDeadHead(leftJoystickX);
-	leftJoystickY=setDeadHead(leftJoystickY);
+	rightJoystickOneX=setDeadHead(rightJoystickOneX);
+	rightJoystickOneY=setDeadHead(rightJoystickOneY);
+	leftJoystickOneX=setDeadHead(leftJoystickOneX);
+	leftJoystickOneY=setDeadHead(leftJoystickOneY);
 }
 //********************************End joystick setup functions*****************
 
@@ -119,19 +119,19 @@ void leftOMNIAnalogControl() {
 	//This value catches an issue later on in the code where the cos function
 	//only returns a positive value.  This will adjust the direction.
 	int centerDirection = 1;  //1 is right, -1 is left
-	if (leftJoystickX<0)
+	if (leftJoystickOneX<0)
 	{
 		centerDirection=-1;
 	}
 
 	//This if-else will catch the divide by zero problem
-	if (leftJoystickX==0){
+	if (leftJoystickOneX==0){
 		centerPowerLevel=0;
 	}
 	else {
 		//No need to convert to convert to degrees since the cos below
 		//takes a radian value I THINK    TEST TEST
-		controllerAngleRad=atan(leftJoystickY/leftJoystickX);  //In radians
+		controllerAngleRad=atan(leftJoystickOneY/leftJoystickOneX);  //In radians
 		if (DEBUG){
 			writeDebugStreamLine("Controller Angle: %f", controllerAngleRad);
 		}
@@ -156,7 +156,7 @@ void leftOMNIAnalogControl() {
 		writeDebugStreamLine("centerPowerIs: %i",centerPowerLevel ); //TEST!!!
 		writeDebugStreamLine("controllerAngleRad: %i", controllerAngleRad);
 	}
-	Drive_driveOmni(leftJoystickY,centerPowerLevel);
+	Drive_driveOmni(leftJoystickOneY,centerPowerLevel);
 }
 
 //Only used when OMNI=false set by the "start" button
@@ -168,17 +168,16 @@ void tankAnalogControl() {
 	//Sets threshold for moving forward and backward,
 	//makes it so that when moving both joysticks one direction it goes that direction
 	//The value 75 may be too high
-	if(leftJoystickY >= 75 && rightJoystickY >= 75) {
-		int avg = (leftJoystickY + rightJoystickY) / 2;
+	if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
+		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
 		Drive_turn(avg,avg);
 	}
-	else if(leftJoystickY <= -75 && rightJoystickY <= -75) {
-		int avg = (leftJoystickY + rightJoystickY) / 2;
+	else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
+		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
 		Drive_turn(avg,avg);
 	}
 	else
-		Drive_turn(leftJoystickY,rightJoystickY);
-
+		Drive_turn(leftJoystickOneY,rightJoystickOneY);
 }
 //********************************************************************************
 //********************************************************************************
@@ -292,9 +291,9 @@ void operatorJoystickControl()
 		//reset encoders
 	}
 
-	if (abs(joystick.joy2_y1) > Threshold)
+	if (abs(joystick.joy2_x1) > Threshold)
 	{
-		Drive_scissorLift(joystick.joy2_y1*scissorMultiplier);
+		Drive_scissorLift(joystick.joy2_x1*scissorMultiplier);
 	}
 }
 //************************************End Driver/Operator Functions*******************************
