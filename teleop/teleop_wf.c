@@ -12,7 +12,7 @@ const int Threshold = 15;
 //spin during tank drive is handled differently by the y values of the analog.
 const int SpinSpeed = 65;
 
-const int scissorMultiplier = 99/128;
+const float scissorMultiplier = 99.0/128.0;
 
 //This value can be changed by the "start" button to switch between
 //tank and omni drive. Not sure why we want it, but there it is
@@ -291,9 +291,9 @@ void operatorJoystickControl()
 		//reset encoders
 	}
 
-	if (abs(joystick.joy2_x1) > Threshold)
+	if (abs(joystick.joy2_y1) > Threshold)
 	{
-		Drive_scissorLift(joystick.joy2_x1*scissorMultiplier);
+		Drive_scissorLift(joystick.joy2_y1*scissorMultiplier);
 	}
 }
 //************************************End Driver/Operator Functions*******************************
