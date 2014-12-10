@@ -168,15 +168,15 @@ void tankAnalogControl() {
 	//Sets threshold for moving forward and backward,
 	//makes it so that when moving both joysticks one direction it goes that direction
 	//The value 75 may be too high
-	//if(leftJoystickY >= 75 && rightJoystickY >= 75) {
-	//	int avg = (leftJoystickY + rightJoystickY) / 2;
-	//	Drive_turn(avg,avg);
-	//}
-	//else if(leftJoystickY <= -75 && rightJoystickY <= -75) {
-	//	int avg = (leftJoystickY + rightJoystickY) / 2;
-	//	Drive_turn(avg,avg);
-	//}
-	//else
+	if(leftJoystickY >= 75 && rightJoystickY >= 75) {
+		int avg = (leftJoystickY + rightJoystickY) / 2;
+		Drive_turn(avg,avg);
+	}
+	else if(leftJoystickY <= -75 && rightJoystickY <= -75) {
+		int avg = (leftJoystickY + rightJoystickY) / 2;
+		Drive_turn(avg,avg);
+	}
+	else
 		Drive_turn(leftJoystickY,rightJoystickY);
 
 }
