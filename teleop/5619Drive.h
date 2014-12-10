@@ -20,8 +20,10 @@ const int sweeperSpeed = 10; // TODO tune
 tSensors MotorController = S1;
 const int leftMotorDaisyChainLevel=2;
 const int rightMotorDaisyChainLevel=2;
+const int scissorMotorDaisyChainLevel=3;
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
+const int scissorMotorNumber=1;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
@@ -176,8 +178,7 @@ void Drive_sweeperOut()
 void Drive_scissorLift(int speed)
 {
 	// TODO: limit switches
-	Motors_SetSpeed(S1, 3, 1, speed);
-	Motors_SetSpeed(S1, 3, 2, -speed);
+	Motors_SetSpeed(S1, scissorMotorDaisyChainLevel, scissorMotorNumber, speed);
 }
 
 void Drive_scissorLiftUp()
