@@ -18,8 +18,8 @@ const int sweeperSpeed = 10; // TODO tune
 */
 
 tSensors MotorController = S1;
-const int leftMotorDaisyChainLevel=1;
-const int rightMotorDaisyChainLevel=1;
+const int leftMotorDaisyChainLevel=2;
+const int rightMotorDaisyChainLevel=2;
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
