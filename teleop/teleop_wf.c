@@ -268,31 +268,31 @@ void operatorJoystickControl()
 		//To be done
 	}
 	// Upper left shoulder button sweep balls INTO the robot
-	if (joy1Btn(5)){
+	if (joy2Btn(5)){
 		Drive_sweeperIn();
 	}
 	// Upper right shoulder button
-	if (joy1Btn(6)){
+	if (joy2Btn(6)){
 		//nothing
 	}
 	//Bottom left shoulder send balls OUT of the robot
-	if (joy1Btn(7)){
+	if (joy2Btn(7)){
 		Drive_sweeperOut();
 	}
 	//Bottom right shoulder release bucket
-	if (joy1Btn(8)){
+	if (joy2Btn(8)){
 		//bucket release
 	}
 	//back button do nothing placeholder
-	if (joy1Btn(9)){
+	if (joy2Btn(9)){
 	}
 	//do nothing placeholder
 	//Maybe reset encoders????
-	if (joy1Btn(10)){
+	if (joy2Btn(10)){
 		//reset encoders
 	}
 
-	if (abs(joystick.joy2_y1) > Threshold)
+	if (abs(joystick.joy2_y1) > Threshold) // TODO: make these use nice variable names
 	{
 		Drive_scissorLift(joystick.joy2_y1*scissorMultiplier);
 	}
