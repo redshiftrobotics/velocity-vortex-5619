@@ -9,7 +9,7 @@
 */
 
 const int scissorSpeed = 10; // TODO tune
-const int sweeperSpeed = 10; // TODO tune
+const int sweeperSpeed = 70;
 
 /*
 
@@ -18,12 +18,16 @@ const int sweeperSpeed = 10; // TODO tune
 */
 
 tSensors MotorController = S1;
+tSensors SweeperMotorController = S2;
+
 const int leftMotorDaisyChainLevel=2;
 const int rightMotorDaisyChainLevel=2;
 const int scissorMotorDaisyChainLevel=3;
+
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
 const int scissorMotorNumber=1;
+const int sweeperMotorNumber=1;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
@@ -156,7 +160,7 @@ void Drive_driveOmni(int inLineSpeed, int centerSpeed){
 
 void Drive_sweeper(int speed)
 {
-	Motors_SetSpeed(S1, 1, 1, speed); // TODO check these addresses
+	Motors_SetSpeed(SweeperMotorController, 1, SweeperMotorNumber, speed);
 }
 
 void Drive_sweeperIn()
