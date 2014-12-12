@@ -264,7 +264,7 @@ void operatorJoystickControl()
 	// If any of the letter buttons are pressed
 	//turn on the conveyor
 	//TO BE DONE: Some set should reverse the conveyor
-	if (joy1Btn(1) || joy1Btn(2) || joy1Btn(3) || joy1Btn(4)){
+	if (joy2Btn(1) || joy2Btn(2) || joy2Btn(3) || joy2Btn(4)){
 		//To be done
 	}
 	// Upper left shoulder button sweep balls INTO the robot
@@ -295,6 +295,8 @@ void operatorJoystickControl()
 	if (abs(joystick.joy2_y1) > Threshold) // TODO: make these use nice variable names
 	{
 		Drive_scissorLift(joystick.joy2_y1*scissorMultiplier);
+	} else {
+		Drive_scissorLift(0);
 	}
 }
 //************************************End Driver/Operator Functions*******************************
@@ -307,7 +309,6 @@ task main()
 
 	while(true)
 	{
-		// state machine loop
 		getJoystickSettings(joystick);
 		updateJoystick();
 		driveJoyStickControl();

@@ -160,7 +160,7 @@ void Drive_driveOmni(int inLineSpeed, int centerSpeed){
 
 void Drive_sweeper(int speed)
 {
-	Motors_SetSpeed(SweeperMotorController, 1, SweeperMotorNumber, speed);
+	Motors_SetSpeed(SweeperMotorController, 1, sweeperMotorNumber, speed);
 }
 
 void Drive_sweeperIn()
