@@ -27,7 +27,7 @@ const int scissorMotorDaisyChainLevel=3;
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
 const int scissorMotorNumber=1;
-const int sweeperMotorNumber=1;
+const int sweeperMotorNumber=2;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
@@ -171,6 +171,11 @@ void Drive_sweeperIn()
 void Drive_sweeperOut()
 {
 	Drive_sweeper(-sweeperSpeed); // TODO check sign
+}
+
+void Drive_sweeperStop()
+{
+	Drive_sweeper(0);
 }
 
 /*

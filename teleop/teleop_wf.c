@@ -261,33 +261,27 @@ void operatorJoystickControl()
 	// Question to test.  Should the statements be mutually exclusive
 	// Should we only handle one input per cycle?  Results could be strange TEST
 
-	// If any of the letter buttons are pressed
-	//turn on the conveyor
-	//TO BE DONE: Some set should reverse the conveyor
 	if (joy2Btn(1) || joy2Btn(2) || joy2Btn(3) || joy2Btn(4)){
 		//To be done
 	}
-	// Upper left shoulder button sweep balls INTO the robot
-	if (joy2Btn(5)){
+
+	// Right trigger runs the sweeper in,
+	//   left trigger runs the sweeper out,
+	//   otherwise turn the sweeper off
+	if (joy2Btn(8)){
 		Drive_sweeperIn();
 	}
-	// Upper right shoulder button
-	if (joy2Btn(6)){
-		//nothing
-	}
-	//Bottom left shoulder send balls OUT of the robot
-	if (joy2Btn(7)){
+	else if (joy2Btn(7))
+	{
 		Drive_sweeperOut();
 	}
-	//Bottom right shoulder release bucket
-	if (joy2Btn(8)){
-		//bucket release
+	else
+	{
+		Drive_sweeperStop();
 	}
-	//back button do nothing placeholder
-	if (joy2Btn(9)){
-	}
-	//do nothing placeholder
-	//Maybe reset encoders????
+
+	// do nothing placeholder
+	// Maybe reset encoders????
 	if (joy2Btn(10)){
 		//reset encoders
 	}
