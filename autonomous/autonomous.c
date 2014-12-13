@@ -38,7 +38,7 @@ task main()
 	AutoState State = ONRAMP;
 
 	clearDebugStream();
-	//waitForStart();
+	waitForStart();
 
 	while(true)
 	{
