@@ -1,6 +1,7 @@
 #pragma config(Sensor, S1, Motor, sensorI2CCustom)
 
 #include "../Libraries/Motors.h"
+#include "../Libraries/Servos.h"
 
 /*
 
@@ -23,11 +24,14 @@ tSensors SweeperMotorController = S2;
 const int leftMotorDaisyChainLevel=2;
 const int rightMotorDaisyChainLevel=2;
 const int scissorMotorDaisyChainLevel=3;
+const int servoControllerDaisyChainLevel=1;
 
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
 const int scissorMotorNumber=1;
 const int sweeperMotorNumber=2;
+const int grabberChannelNumber=6;
+const int ballArbiterChannelNumber=5;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
@@ -198,6 +202,38 @@ void Drive_scissorLiftUp()
 void Drive_scissorLiftDown()
 {
 	Drive_scissorLift(scissorSpeed); // TODO check whether this should be negative
+}
+
+/*
+
+ GRABBER CONTROL
+
+*/
+
+void Drive_grabberDown()
+{
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 150);
+}
+
+void Drive_grabberUp()
+{
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 100);
+}
+
+/*
+
+ BALL ARBITER CONTROL
+
+*/
+
+void Drive_arbiterDispense()
+{
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 150); // TODO
+}
+
+void Drive_arbiterQueue()
+{
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 100); // TODO
 }
 
 /*
