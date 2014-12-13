@@ -180,40 +180,19 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
-
-	bool connectedToFCS = leftJoystickOneY != 0 || rightJoystickOneY != 0;
-	if (connectedToFCS)
-	{
-		//Sets threshold for moving forward and backward,
-		//makes it so that when moving both joysticks one direction it goes that direction
-		//The value 75 may be too high
-		if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
-			int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-			Drive_turn(avg,avg);
-		}
-		else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
-			int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-			Drive_turn(avg,avg);
-		}
-		else
-		{
-			Drive_turn(leftJoystickOneY,rightJoystickOneY);
-		}
-
-		lastDataTick = tick;
-	} else {
-		// We're probably disconnected from the FCS.
-		if (lastDataTick < tick-10)
-		{
-			// Either the joysticks have somehow magically actually registered zero,
-			//   or we're running into more than temporary interference and are probably
-			//   permanently disconnected from the FCS. Therefore, stop the motors.
-			// Otherwise, we're not sure whether we're experiencing temporary interference
-			//   or not, so we'll do nothing to keep running the motors for now.
-			Drive_allStop();
-		}
+	//Sets threshold for moving forward and backward,
+	//makes it so that when moving both joysticks one direction it goes that direction
+	//The value 75 may be too high
+	if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
+		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
+		Drive_turn(avg,avg);
 	}
-
+	else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
+		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
+		Drive_turn(avg,avg);
+	}
+	else
+		Drive_turn(leftJoystickOneY,rightJoystickOneY);
 }
 //********************************************************************************
 //********************************************************************************
