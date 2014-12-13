@@ -33,6 +33,10 @@ int rightJoystickOneY;
 int leftJoystickOneX;
 int leftJoystickOneY;
 
+// Keeps track of the number of loop ticks.
+int tick = 0;
+int lastDataTick = 0;
+
 //maxSpeed can be set to slow down the robot so that we don't have to
 //send a 100 speed to the motors  This value corresponds to the highest
 //value sent to the motors.  SHOULD NEVER BE SET ABOVE 100
@@ -50,6 +54,12 @@ int setDeadHead(int coordinateValue){
 			return coordinateValue;
 		}
 }
+/** // TimB: Possible shortening using ternary operator:
+int setDeadHead(int coordinateValue)
+{
+	return ( abs(coordinateValue) >= Threshold ) ? coordinateValue : 0;
+}
+*/
 
 //Takes the values from the joystick and make appropriate mappings
 void updateJoystick() {
@@ -170,19 +180,40 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
-	//Sets threshold for moving forward and backward,
-	//makes it so that when moving both joysticks one direction it goes that direction
-	//The value 75 may be too high
-	if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
-		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-		Drive_turn(avg,avg);
+
+	bool connectedToFCS = leftJoystickOneY != 0 || rightJoystickOneY != 0;
+	if (connectedToFCS)
+	{
+		//Sets threshold for moving forward and backward,
+		//makes it so that when moving both joysticks one direction it goes that direction
+		//The value 75 may be too high
+		if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
+			int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
+			Drive_turn(avg,avg);
+		}
+		else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
+			int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
+			Drive_turn(avg,avg);
+		}
+		else
+		{
+			Drive_turn(leftJoystickOneY,rightJoystickOneY);
+		}
+
+		lastDataTick = tick;
+	} else {
+		// We're probably disconnected from the FCS.
+		if (lastDataTick < tick-10)
+		{
+			// Either the joysticks have somehow magically actually registered zero,
+			//   or we're running into more than temporary interference and are probably
+			//   permanently disconnected from the FCS. Therefore, stop the motors.
+			// Otherwise, we're not sure whether we're experiencing temporary interference
+			//   or not, so we'll do nothing to keep running the motors for now.
+			Drive_allStop();
+		}
 	}
-	else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
-		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-		Drive_turn(avg,avg);
-	}
-	else
-		Drive_turn(leftJoystickOneY,rightJoystickOneY);
+
 }
 //********************************************************************************
 //********************************************************************************
@@ -340,6 +371,7 @@ task main()
 		driveJoyStickControl();
 		operatorJoystickControl();
 
+		tick++;
 	}
 
 }

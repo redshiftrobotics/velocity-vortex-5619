@@ -228,12 +228,12 @@ void Drive_grabberUp()
 
 void Drive_arbiterDispense()
 {
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 90);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 180);
 }
 
 void Drive_arbiterQueue()
 {
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 0);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 20);
 }
 
 /*
