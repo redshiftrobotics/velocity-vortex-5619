@@ -24,6 +24,7 @@ bool SMoving = false;
 
 // Determines whether the ball arbiter is allowing balls to be dispensed or not.
 bool arbiterDispensing = false;
+bool arbiterToggleReleased = true;
 
 // global values to catch the values of the analog joysticks
 //renamed so that the code is more readible
@@ -266,9 +267,16 @@ void operatorJoystickControl()
 
 	// Button A triggers whether the ball arbiter is allowing balls to be
 	//   dispensed or not.
-	if (joy2Btn(2))
+	// arbiterToggleReleased ensures that the loop will not process the toggle
+	//   button until it has been released.
+	if (joy2Btn(2) && arbiterToggleReleased)
 	{
 		arbiterDispensing = !arbiterDispensing;
+		arbiterToggleReleased = false;
+	}
+	else if (!joy2Btn(2))
+	{
+		arbiterToggleReleased = true;
 	}
 
 	if (arbiterDispensing)
