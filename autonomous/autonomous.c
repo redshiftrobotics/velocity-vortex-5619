@@ -48,7 +48,7 @@ task main()
 		{
 			case ONRAMP:
 				MoveDownRamp();
-				State = KICKSTAND;
+				State = STOPPED;
 				break;
 			case MOVEFROMRAMP:
 				break;

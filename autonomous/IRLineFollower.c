@@ -65,8 +65,8 @@ bool IRLineFollow(tSensors IRport)
 }
 
 void MoveDownRamp() {
-	Drive_turn(50, 50);
-	Sleep(2200);
+	Drive_forward(50);
+	Sleep(2700);
 }
 
 void MoveToKickstand() {
