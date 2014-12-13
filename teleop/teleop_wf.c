@@ -22,6 +22,9 @@ bool OMNI=false;
 //Value for whether or not the robot is moving, helpful for continuous motion function
 bool SMoving = false;
 
+// Determines whether the ball arbiter is allowing balls to be dispensed or not.
+bool arbiterDispensing = false;
+
 // global values to catch the values of the analog joysticks
 //renamed so that the code is more readible
 int rightJoystickOneX;
@@ -261,8 +264,29 @@ void operatorJoystickControl()
 	// Question to test.  Should the statements be mutually exclusive
 	// Should we only handle one input per cycle?  Results could be strange TEST
 
-	if (joy2Btn(1) || joy2Btn(2) || joy2Btn(3) || joy2Btn(4)){
-		//To be done
+	// Button A triggers whether the ball arbiter is allowing balls to be
+	//   dispensed or not.
+	if (joy2Btn(2))
+	{
+		arbiterDispensing = !arbiterDispensing;
+	}
+
+	if (arbiterDispensing)
+	{
+		Drive_arbiterDispense();
+	} else {
+		Drive_arbiterQueue();
+	}
+
+	// Right bumper puts the grabber up,
+	//   left bumper puts the grabber down.
+	if (joy2Btn(6))
+	{
+		Drive_grabberUp();
+	}
+	else if (joy2Btn(5))
+	{
+		Drive_grabberDown();
 	}
 
 	// Right trigger runs the sweeper in,
