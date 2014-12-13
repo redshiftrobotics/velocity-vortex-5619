@@ -6,8 +6,8 @@
 #pragma config(Motor,  mtr_S1_C2_2,     LeftDrive,     tmotorTetrix, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C3_1,     Scissor,       tmotorTetrix, PIDControl, encoder)
 #pragma config(Motor,  mtr_S1_C3_2,     CenterDrive,   tmotorTetrix, PIDControl, encoder)
-#pragma config(Motor,  mtr_S2_C1_1,     Conveyer,      tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,     motorI,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,     Conveyer,      tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_1,     motorI,        tmotorTetrix, openLoop)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
@@ -30,7 +30,7 @@ task main()
 	int counter = nPgmTime;
 
 	while((nPgmTime - counter) < 2000){
-		motor[Conveyer] = 50;
+		motor[Conveyer] = 70;
 		wait1Msec(50);
 	}
 
