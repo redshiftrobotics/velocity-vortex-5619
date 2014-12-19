@@ -226,18 +226,19 @@ void driveJoyStickControl(){
 	if (joy1Btn(6)){
 		spinRight();
 	}
-	//Bottom left shoulder, move forward at maximum speed
-	if (joy1Btn(7)){
-		Drive_turn(95, 95);
-		SMoving = true;
+
+	// Right bumper puts the grabber up,
+	//   left bumper puts the grabber down.
+	if (joy1Btn(6))
+	{
+		Drive_grabberUp();
 	}
-	//Bottom right shoulder, stop
-	if (joy1Btn(8)){
-		Drive_turn(0, 0);
-		allStop();
-		SMoving = false;
+	else if (joy1Btn(5))
+	{
+		Drive_grabberDown();
 	}
-	//back button do nothing placeholde
+
+	//back button do nothing placeholder
 	if (joy1Btn(9))
 	{
 	}
@@ -294,17 +295,6 @@ void operatorJoystickControl()
 		Drive_arbiterDispense();
 	} else {
 		Drive_arbiterQueue();
-	}
-
-	// Right bumper puts the grabber up,
-	//   left bumper puts the grabber down.
-	if (joy2Btn(6))
-	{
-		Drive_grabberUp();
-	}
-	else if (joy2Btn(5))
-	{
-		Drive_grabberDown();
 	}
 
 	// Right trigger runs the sweeper in,
