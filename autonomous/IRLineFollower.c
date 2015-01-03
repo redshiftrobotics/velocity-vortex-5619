@@ -31,7 +31,7 @@
 
 const int regSpd = -5;
 const int turn = 2;
-const int threshold = 10;
+const int strengthThreshold = 280;
 int IRvalues[5];
 
 void strafeRight(tSensors port, int spd) {
@@ -50,6 +50,57 @@ void updateIR(tSensors port) {
 	}
 }
 
+void PrepareToDispense()
+{
+	Drive_spin180();
+	Drive_scissorLiftUp();
+	// TODO: this doesn't actually reach the center goal, but it requires physical changes to fix
+	Sleep(1000);
+	Drive_scissorLift(0);
+}
+
+int GetIRPosition(tSensors IRport)
+{
+	int strength;
+	int direction;
+	HTIRS2readEnhanced(IRport, direction, strength);
+
+	writeDebugStreamLine("Read IR: %i, %i", direction, strength);
+
+	return direction;
+}
+
+int GetIRFieldPosition(int IRdirection)
+{
+	if (IRdirection < 5 || IRdirection > 7)
+	{
+		// We can't determine the field position
+		writeDebugStreamLine("Couldn't determine center column position!")
+		return 1;
+	}
+
+	return IRdirection-4;
+}
+
+void MoveToIRPosition(int direction)
+{
+	switch(direction)
+	{
+		case 1:
+			//Drive_forward(50);
+			//Sleep(20);
+			PrepareToDispense();
+			break;
+		case 2:
+			Drive_turn(50, 25);
+			// TODO
+		case 3:
+			// IR is in FTC position 3
+		default:
+			// Do nothing
+	}
+}
+
 bool IRLineFollow(tSensors IRport)
 {
 	int strength;
@@ -61,7 +112,7 @@ bool IRLineFollow(tSensors IRport)
 
 	writeDebugStreamLine("Read IR: %i, %i", direction, strength);
 
-	return (strength < 550);
+	return (strength > strengthThreshold);
 }
 
 void MoveDownRamp() {
