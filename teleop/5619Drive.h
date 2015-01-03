@@ -9,7 +9,7 @@
 
 */
 
-const int scissorSpeed = 10; // TODO tune
+const int scissorSpeed = 25;
 const int sweeperSpeed = 70;
 
 /*
@@ -23,11 +23,13 @@ tSensors SweeperMotorController = S2;
 
 const int leftMotorDaisyChainLevel=2;
 const int rightMotorDaisyChainLevel=2;
+const int centerMotorDaisyChainLevel=3;
 const int scissorMotorDaisyChainLevel=3;
 const int servoControllerDaisyChainLevel=1;
 
 const int leftMotorNumber=1;
 const int rightMotorNumber=2;
+const int centerMotorNumber=2;
 const int scissorMotorNumber=1;
 const int sweeperMotorNumber=2;
 const int grabberChannelNumber=6;
@@ -74,7 +76,7 @@ void centerMotor(int spd){
 		Sleep(1000);
 	}
 	else {
-		Motors_SetSpeed(MotorController,2,2,spd);
+		Motors_SetSpeed(MotorController,centerMotorDaisyChainLevel,centerMotorNumber,spd);
 	}
 }
 //end wrapper functions
@@ -99,6 +101,7 @@ void Drive_spinLeft(int speed)
 	leftMotor(-speed);
 	rightMotor(-speed);
 }
+
 //*****************End Spin Functions******************************
 
 //turn is a catch all turn function that will act like a
@@ -196,12 +199,14 @@ void Drive_scissorLift(int speed)
 
 void Drive_scissorLiftUp()
 {
-	Drive_scissorLift(-scissorSpeed); // TODO check whether this should be negative
+	writeDebugStreamLine("Driving scissor lift up");
+	Drive_scissorLift(scissorSpeed);
 }
 
 void Drive_scissorLiftDown()
 {
-	Drive_scissorLift(scissorSpeed); // TODO check whether this should be negative
+	writeDebugStreamLine("Driving scissor lift down");
+	Drive_scissorLift(-scissorSpeed);
 }
 
 /*
@@ -212,11 +217,13 @@ void Drive_scissorLiftDown()
 
 void Drive_grabberDown()
 {
+	writeDebugStreamLine("Running grabber down");
 	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 150);
 }
 
 void Drive_grabberUp()
 {
+	writeDebugStreamLine("Running grabber up");
 	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 100);
 }
 
@@ -323,4 +330,14 @@ void randomMotion() {
 				move77(currentCommand);
 		}
 	}
+}
+
+// TODO: move this to a better place in this file
+
+void Drive_spin180()
+{
+	Drive_spinLeft(50);
+	// This value was dead-reckoned
+	Sleep(1160);
+	Drive_allStop();
 }
