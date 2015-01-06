@@ -9,6 +9,7 @@ Here's a basic overview of how autonomous works (assuming that we start from the
 3. Using the position, dead-reckon to somewhere on the field where we're facing the IR sensor
 4. Run the linefollower algorithm (based on Tim's sensor data) to close in on the goal
 5. Dispense
+6. Move to get the kickstand
 
 ## Tuning
 
