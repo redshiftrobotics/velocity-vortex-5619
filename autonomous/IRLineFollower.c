@@ -130,9 +130,12 @@ void MoveDownRamp() {
 }
 
 void MoveToKickstand() {
-	Drive_driveOmni(70, 0);
-	sleep(1500);
-	Drive_driveOmni(70, 0);
-	Sleep(900);
+	// Note: this is all backward because the robot orientation is flipped
+	Drive_spinRight90();
+	Drive_backward(50);
+	Sleep(750);
+	Drive_spinLeft90();
+	Drive_backward(50);
+	Sleep(1100);
 	Drive_allStop();
 }
