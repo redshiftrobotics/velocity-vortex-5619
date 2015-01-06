@@ -32,8 +32,8 @@ const int rightMotorNumber=2;
 const int centerMotorNumber=2;
 const int scissorMotorNumber=1;
 const int sweeperMotorNumber=2;
-const int grabberChannelNumber=6;
-const int ballArbiterChannelNumber=5;
+const int grabberChannelNumber=5;
+const int ballArbiterChannelNumber=6;
 //Notice that motor (S3,1,2) is wired backwards so a positive value is back
 // (S3,1,1) = left motors
 // (S3,1,2) = right motors (backward)
