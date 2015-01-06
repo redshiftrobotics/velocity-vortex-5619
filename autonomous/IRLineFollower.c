@@ -104,8 +104,20 @@ bool IRLineFollow(tSensors IRport)
 	int direction;
 	HTIRS2readEnhanced(IRport, direction, strength);
 	direction -= 5;
-	Drive_forward(regspd);
-	centerMotor(50*direction);
+	int rightSpeed, leftSpeed = 30;
+	const int speedAddition = 10;
+
+	// TODO: this logic needs to be tested
+	if (direction < 0)
+	{
+		// IR is to the left, increase the right motor speed
+		rightSpeed += speedAddition;
+	} else if (direction > 0) {
+		// IR is to the right, increase the left motor speed
+		leftSpeed += speedAddition;
+	}
+
+	Drive_turn(leftSpeed, rightSpeed);
 
 	writeDebugStreamLine("Read IR: %i, %i", direction, strength);
 
