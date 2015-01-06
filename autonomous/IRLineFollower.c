@@ -6,7 +6,7 @@
 
 /*
 
-	(C) Copyright 2014 Aidan Wood
+	(C) Copyright 2014 Aidan Wood, Alex Jordan
 
 	This file is part of the FTC team 5619 application code.
 
@@ -75,7 +75,7 @@ int GetIRFieldPosition(int IRdirection)
 	if (IRdirection < 5 || IRdirection > 7)
 	{
 		// We can't determine the field position
-		writeDebugStreamLine("Couldn't determine center column position!")
+		writeDebugStreamLine("Couldn't determine center column position!");
 		return 1;
 	}
 
@@ -89,13 +89,14 @@ void MoveToIRPosition(int direction)
 		case 1:
 			//Drive_forward(50);
 			//Sleep(20);
-			PrepareToDispense();
 			break;
 		case 2:
 			Drive_turn(50, 25);
 			// TODO
+			break;
 		case 3:
 			// IR is in FTC position 3
+			break;
 		default:
 			// Do nothing
 	}
