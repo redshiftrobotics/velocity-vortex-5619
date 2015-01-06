@@ -53,10 +53,6 @@ void updateIR(tSensors port) {
 void PrepareToDispense()
 {
 	Drive_spin180();
-	Drive_scissorLiftUp();
-	// TODO: this doesn't actually reach the center goal, but it requires physical changes to fix
-	Sleep(1000);
-	Drive_scissorLift(0);
 }
 
 int GetIRPosition(tSensors IRport)
