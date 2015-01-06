@@ -217,8 +217,9 @@ void Drive_scissorLiftDown()
 
 void Drive_grabberDown()
 {
+	// TODO: adjust this value for the new prototype. It needs to be just a bit lower (may need physical servo changes)
 	writeDebugStreamLine("Running grabber down");
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 150);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 180);
 }
 
 void Drive_grabberUp()
@@ -235,12 +236,14 @@ void Drive_grabberUp()
 
 void Drive_arbiterDispense()
 {
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 180);
+	//writeDebugStreamLine("Running arbiter down");
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 255);
 }
 
 void Drive_arbiterQueue()
 {
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 20);
+	//writeDebugStreamLine("Running arbiter up");
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 150);
 }
 
 /*
