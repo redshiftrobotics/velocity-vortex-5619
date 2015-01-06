@@ -335,12 +335,29 @@ void randomMotion() {
 	}
 }
 
-// TODO: move this to a better place in this file
+// TODO: move this to a better place in this file.
+//  Currently it needs to be here because of Drive_allStop().
 
 void Drive_spin180()
 {
 	Drive_spinLeft(50);
 	// This value was dead-reckoned
 	Sleep(1160);
+	Drive_allStop();
+}
+
+void Drive_spinLeft90()
+{
+	Drive_spinLeft(50);
+	// This value was dead-reckoned
+	Sleep(660);
+	Drive_allStop();
+}
+
+void Drive_spinRight90()
+{
+	Drive_spinRight(50);
+	// This value was dead-reckoned
+	Sleep(620);
 	Drive_allStop();
 }
