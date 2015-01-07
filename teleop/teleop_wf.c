@@ -217,15 +217,9 @@ void driveJoyStickControl(){
 		allStop();
 	}
 	//180 degree turn
-	if(joy1Btn(4))
+	if (joy1Btn(4))
+	{
 		turn180();
-	// Top left shoulder button will spin the robot left
-	if (joy1Btn(5)){
-		spinLeft();
-	}
-	// Top right shoulder botton will spin the robot right
-	if (joy1Btn(6)){
-		spinRight();
 	}
 
 	// Right bumper puts the grabber up,
