@@ -45,7 +45,7 @@ const tSensors IRport = S3;
 task main()
 {
 
-	typedef enum { ONRAMP, MOVEFROMRAMP, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
+	typedef enum { ONRAMP, MOVEFROMRAMP, MOVEFROMPARKINGZONE, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
 	AutoState State = LINEFOLLOWING;
 
 	clearDebugStream();
@@ -63,14 +63,16 @@ task main()
 				break;
 			case MOVEFROMRAMP:
 				break;
+			case MOVEFROMPARKINGZONE:
+				int position = GetIRFieldPosition(GetIRPosition(IRport));
+				writeDebugStreamLine("Center field position guess: %i", position);
+				MoveToIRPosition(position);
+				State = LINEFOLLOWING;
+				break;
 			case LINEFOLLOWING:
 				writeDebugStreamLine("Running loop: LINEFOLLOWING");
 
-				int position = 1;//GetIRFieldPosition(GetIRPosition(IRport));
-				writeDebugStreamLine("Center field position guess: %i", position);
-				MoveToIRPosition(position);
-
-				bool readyToChange = true;//IRLineFollow(IRport);
+				bool readyToChange = IRLineFollow(IRport);
 				if (readyToChange) {
 					State = DISPENSING;
 				}

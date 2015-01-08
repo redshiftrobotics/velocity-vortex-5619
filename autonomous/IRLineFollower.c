@@ -104,7 +104,8 @@ bool IRLineFollow(tSensors IRport)
 	int direction;
 	HTIRS2readEnhanced(IRport, direction, strength);
 	direction -= 5;
-	int rightSpeed, leftSpeed = 30;
+	int rightSpeed = 30;
+	int leftSpeed = 30;
 	const int speedAddition = 10;
 
 	// TODO: this logic needs to be tested
@@ -119,7 +120,8 @@ bool IRLineFollow(tSensors IRport)
 
 	Drive_turn(leftSpeed, rightSpeed);
 
-	writeDebugStreamLine("Read IR: %i, %i", direction, strength);
+	//writeDebugStreamLine("Read IR: %i, %i", direction, strength);
+	writeDebugStreamLine("Running motors at %i, %i", leftSpeed, rightSpeed);
 
 	return (strength > strengthThreshold);
 }
