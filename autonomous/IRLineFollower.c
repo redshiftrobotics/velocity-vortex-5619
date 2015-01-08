@@ -135,10 +135,10 @@ bool IRLineFollow(tSensors IRport)
 		leftSpeed += speedAddition;
 	}
 
-	Drive_turn(leftSpeed, rightSpeed);
+	Drive_turn(rightSpeed, leftSpeed);
 
 	//writeDebugStreamLine("Read IR: %i, %i", direction, strength);
-	writeDebugStreamLine("Running motors at %i, %i", leftSpeed, rightSpeed);
+	writeDebugStreamLine("Running motors at %i, %i", rightSpeed, leftSpeed);
 
 	return (strength > strengthThreshold);
 }
