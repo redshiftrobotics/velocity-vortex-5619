@@ -14,7 +14,7 @@ const int Threshold = 15;
 //spin during tank drive is handled differently by the y values of the analog.
 const int SpinSpeed = 65;
 
-const float scissorMultiplier = (99.0/128.0)*(20.0/100.0);
+const float scissorMultiplier = (99.0/128.0)*(70.0/100.0);
 
 //This value can be changed by the "start" button to switch between
 //tank and omni drive. Not sure why we want it, but there it is

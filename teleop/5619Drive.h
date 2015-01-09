@@ -218,7 +218,7 @@ void Drive_scissorLiftDown()
 void Drive_grabberDown()
 {
 	writeDebugStreamLine("Running grabber down");
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 80);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 15);
 }
 
 void Drive_grabberUp()
