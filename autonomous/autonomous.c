@@ -46,10 +46,10 @@ task main()
 {
 
 	typedef enum { ONRAMP, MOVEFROMRAMP, MOVEFROMPARKINGZONE, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
-	AutoState State = LINEFOLLOWING;
+	AutoState State = ONRAMP;
 
 	clearDebugStream();
-	//waitForStart();
+	waitForStart();
 
 	while(true)
 	{
