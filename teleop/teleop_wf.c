@@ -23,6 +23,8 @@ bool OMNI=false;
 //Value for whether or not the robot is moving, helpful for continuous motion function
 bool SMoving = false;
 
+bool grabberUp = true;
+
 // Determines whether the ball arbiter is allowing balls to be dispensed or not.
 bool arbiterDispensing = false;
 bool arbiterToggleReleased = true;
@@ -224,12 +226,15 @@ void driveJoyStickControl(){
 
 	// Right bumper puts the grabber up,
 	//   left bumper puts the grabber down.
-	if (joy1Btn(6))
+	if (joy1Btn(5))
+	{
+		grabberUp = !grabberUp;
+	}
+
+	if (grabberUp)
 	{
 		Drive_grabberUp();
-	}
-	else if (joy1Btn(5))
-	{
+	} else {
 		Drive_grabberDown();
 	}
 
