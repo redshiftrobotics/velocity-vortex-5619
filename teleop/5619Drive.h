@@ -218,7 +218,7 @@ void Drive_scissorLiftDown()
 void Drive_grabberDown()
 {
 	writeDebugStreamLine("Running grabber down");
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 15);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, grabberChannelNumber, 80);
 }
 
 void Drive_grabberUp()
@@ -242,7 +242,7 @@ void Drive_arbiterDispense()
 void Drive_arbiterQueue()
 {
 	//writeDebugStreamLine("Running arbiter up");
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 150);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 130);
 }
 
 /*
