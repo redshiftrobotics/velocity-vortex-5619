@@ -131,6 +131,26 @@ void MoveDownRamp() {
 	Sleep(2700);
 }
 
+void MoveDownRampAndGetTube() {
+	Drive_backward(50);
+	Drive_scissorLiftUp();
+	Sleep(2200);
+	Drive_scissorLift(0);
+	// Continue running the chassis motors
+	Sleep(2400);
+	Drive_forward(0);
+	Drive_arbiterDispense();
+	Sleep(750);
+	Drive_grabberDown();
+	Sleep(750);
+
+}
+
+void MoveToZone() {
+	Drive_forward(50);
+	Sleep(1900);
+}
+
 void MoveToKickstand() {
 	// Note: this is all backward because the robot orientation is flipped
 	Drive_spinRight90();

@@ -58,7 +58,7 @@ task main()
 		switch(State)
 		{
 			case ONRAMP:
-				MoveDownRamp();
+				MoveDownRampAndGetTube();
 				State = STOPPED;
 				break;
 			case MOVEFROMRAMP:
