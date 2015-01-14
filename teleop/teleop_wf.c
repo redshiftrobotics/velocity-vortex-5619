@@ -229,6 +229,7 @@ void driveJoyStickControl(){
 	if (joy1Btn(5))
 	{
 		grabberUp = !grabberUp;
+		Sleep(100);
 	}
 
 	if (grabberUp)
