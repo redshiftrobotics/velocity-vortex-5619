@@ -9,6 +9,11 @@
 //******************************Global Constants**********************************
 /*The threshold variable is the "dead head" for inconsistencies in the joystick*/
 const int Threshold = 15;
+
+
+// Set to one or 0.15 depending on whether "creep" is engaged
+float SpeedMultiplier = 1.00;
+
 //The spin of the robot in Omni mode will always be at the same speed since it uses
 //the shoulder buttons and not the analog
 //spin during tank drive is handled differently by the y values of the analog.
@@ -183,19 +188,30 @@ void tankAnalogControl() {
 	if (DEBUG){
 		writeDebugStreamLine("In tankAnalogControl");
 	}
+	float leftSpeed = 0;
+	float rightSpeed = 0;
 	//Sets threshold for moving forward and backward,
 	//makes it so that when moving both joysticks one direction it goes that direction
 	//The value 75 may be too high
 	if(leftJoystickOneY >= 75 && rightJoystickOneY >= 75) {
 		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-		Drive_turn(avg,avg);
+		leftSpeed = SpeedMultiplier*avg;
+		rightSpeed = SpeedMultiplier*avg;
+		Drive_turn(leftSpeed,rightSpeed);
 	}
 	else if(leftJoystickOneY <= -75 && rightJoystickOneY <= -75) {
 		int avg = (leftJoystickOneY + rightJoystickOneY) / 2;
-		Drive_turn(avg,avg);
+		leftSpeed = SpeedMultiplier*avg;
+		rightSpeed = SpeedMultiplier*avg;
+		Drive_turn(leftSpeed,rightSpeed);
 	}
 	else
-		Drive_turn(leftJoystickOneY,rightJoystickOneY);
+	{
+		leftSpeed = SpeedMultiplier*leftJoystickOneY;
+		rightSpeed = SpeedMultiplier*rightJoystickOneY;
+		Drive_turn(leftSpeed,rightSpeed);
+	}
+nxtDisplayCenteredTextLine(0, "%i, %i", leftSpeed, rightSpeed);
 }
 //********************************************************************************
 //********************************************************************************
@@ -222,6 +238,15 @@ void driveJoyStickControl(){
 	if (joy1Btn(4))
 	{
 		turn180();
+	}
+
+	if (joy1Btn(5)) //creep mode set
+	{
+		SpeedMultiplier = 0.15;
+	}
+	else
+	{
+		SpeedMultiplier = 1.0;
 	}
 
 	// Right bumper puts the grabber up,

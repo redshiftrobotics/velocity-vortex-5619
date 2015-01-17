@@ -11,7 +11,6 @@
 
 const int scissorSpeed = 25;
 const int sweeperSpeed = 70;
-
 /*
 
  BUS ADDRESS DATA
