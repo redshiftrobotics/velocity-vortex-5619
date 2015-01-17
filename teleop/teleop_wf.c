@@ -226,7 +226,7 @@ void driveJoyStickControl(){
 
 	// Right bumper puts the grabber up,
 	//   left bumper puts the grabber down.
-	if (joy1Btn(5))
+	if (joy1Btn(6))
 	{
 		grabberUp = !grabberUp;
 		Sleep(100);
