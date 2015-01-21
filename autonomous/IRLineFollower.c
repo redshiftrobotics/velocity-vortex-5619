@@ -131,13 +131,24 @@ void MoveDownRamp() {
 	Sleep(2700);
 }
 
+void RampAndTubeServos()
+{
+	// This needs to be called regularly because the bus times out
+	Drive_grabberUp();
+	Drive_arbiterQueue();
+}
+
 void MoveDownRampAndGetTube() {
+	RampAndTubeServos();
 	Drive_backward(50);
-	Drive_scissorLiftUp();
+	RampAndTubeServos();
+	//Drive_scissorLiftUp();
 	Sleep(2200);
-	Drive_scissorLift(0);
+	RampAndTubeServos();
+	//Drive_scissorLift(0);
 	// Continue running the chassis motors
-	Sleep(2400);
+	Sleep(2600);
+	RampAndTubeServos();
 	Drive_forward(0);
 	Drive_arbiterDispense();
 	Sleep(750);
