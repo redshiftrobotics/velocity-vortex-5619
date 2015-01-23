@@ -142,10 +142,10 @@ void MoveDownRampAndGetTube() {
 	RampAndTubeServos();
 	Drive_backward(50);
 	RampAndTubeServos();
-	//Drive_scissorLiftUp();
+	Drive_scissorLiftUp();
 	Sleep(2200);
 	RampAndTubeServos();
-	//Drive_scissorLift(0);
+	Drive_scissorLift(0);
 	// Continue running the chassis motors
 	Sleep(2600);
 	RampAndTubeServos();
