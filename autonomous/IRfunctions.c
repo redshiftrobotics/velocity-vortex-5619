@@ -43,3 +43,38 @@ int readIR2(tSensors link) {
 	IRvalue = 30*(10 - IRvalue);
 	return IRvalue;
 }
+
+int getSonarVal(tSensors link) {
+	int val = -1;
+	//ADD STUFF HERE
+	return val;
+}
+
+bool PIDController() {
+	int Kp = 60; //placeholder
+	int Ki = 60; //placeholder
+	int Kd = 60; //placeholder
+
+	int goal = 80; //placeholder
+
+	int lastError = 0;
+
+	int derivative = 0;
+	int Tp = 25;
+	int integral = 0;
+
+	int sonarVal = 0;
+	while(true) {
+		sonarVal = getSonarVal(S1); //placeholder
+    int error = sonarVal - goal;
+		derivative = error - lastError;
+		int turn = (Kp * error) + (Ki * integral) + (Kd * derivative);
+		integral += error;
+		turn /= 100;
+		int powRight = Tp - turn;
+		int powLeft = Tp + turn;
+		//Run right motor
+		//Run left motor
+		lastError = error;
+	}
+}
