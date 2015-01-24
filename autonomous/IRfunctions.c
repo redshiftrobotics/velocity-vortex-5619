@@ -1,5 +1,7 @@
 #include "../Libraries/Drivers/hitechnic-irseeker-v2.h"
 
+int turn = 0;
+
 void calcPower(int angle, int goal, float* power) {
 		float angle2 = angle * PI / 180;
 		power[0] = -goal * cos(angle2);
@@ -77,4 +79,5 @@ bool PIDController() {
 		//Run left motor
 		lastError = error;
 	}
+	return true;
 }

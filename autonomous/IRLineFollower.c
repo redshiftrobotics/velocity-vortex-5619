@@ -198,3 +198,27 @@ void MoveToKickstand() {
 	Sleep(1100);
 	Drive_allStop();
 }
+
+
+void followWall(tSensors sonar) {
+	int pVal = 0;
+	int cVal = 0;
+
+	int constantSpd = 40;
+
+	cVal = SensorValue[sonar];
+	pVal = cVal;
+
+	while(true) {
+		cVal = SensorValue[sonar];
+		int dif = cVal - pVal;
+		if(dif > 0) {
+				Drive_turn(constantSpd - dif, constantSpd + dif);
+		}
+		else if(dif < 0) {
+			Drive_turn(constantSpd + dif, constantSpd - dif);
+		}
+		pVal = cVal;
+	}
+
+}
