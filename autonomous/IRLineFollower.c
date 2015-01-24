@@ -83,12 +83,17 @@ void MoveToIRPosition(int direction)
 	switch(direction)
 	{
 		case 1:
-			//Drive_forward(50);
-			//Sleep(20);
+			Drive_forward(50);
+			Sleep(20);
+			Drive_forward(0);
 			break;
 		case 2:
-			Drive_turn(50, 25);
-			// TODO
+			Drive_turn(100, 30);
+			Sleep(750);
+			Drive_forward(100);
+			Sleep(500);
+			Drive_turn(30, 100);
+			Sleep(500);
 			break;
 		case 3:
 			// IR is in FTC position 3
