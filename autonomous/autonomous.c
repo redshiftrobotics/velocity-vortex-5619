@@ -46,7 +46,7 @@ task main()
 {
 
 	typedef enum { ONRAMP, MOVEFROMRAMP, MOVEFROMPARKINGZONE, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
-	AutoState State = ONRAMP;
+	AutoState State = MOVEFROMRAMP;
 
 	clearDebugStream();
 	//waitForStart();
@@ -59,9 +59,11 @@ task main()
 		{
 			case ONRAMP:
 				MoveDownRampAndGetTube();
-				State = STOPPED;
+				State = MOVEFROMRAMP;
 				break;
 			case MOVEFROMRAMP:
+				MoveTubesToParkingZone();
+				State = STOPPED;
 				break;
 			case MOVEFROMPARKINGZONE:
 				int position = GetIRFieldPosition(GetIRPosition(IRport));

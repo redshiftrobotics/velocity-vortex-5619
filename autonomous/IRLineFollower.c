@@ -157,6 +157,27 @@ void MoveDownRampAndGetTube() {
 
 }
 
+void MoveTubesToParkingZone()
+{
+	writeDebugStreamLine("Running MoveTubesToParkingZone()");
+	Drive_turn(50, 20);
+	writeDebugStreamLine("Running initial turn");
+	Sleep(600);
+	Drive_forward(100);
+	writeDebugStreamLine("Running straight line");
+	Sleep(500);
+	Drive_turn(20, 60);
+	writeDebugStreamLine("Running secondary turn");
+	Sleep(900);
+	Drive_forward(100);
+	writeDebugStreamLine("Running second straight line");
+	Sleep(1250);
+	writeDebugStreamLine("Running final turn");
+	Drive_turn(100, 10);
+	Sleep(750);
+	Drive_forward(0);
+}
+
 void MoveToZone() {
 	Drive_forward(50);
 	Sleep(1900);
