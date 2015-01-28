@@ -89,7 +89,7 @@ void MoveToIRPosition(int direction)
 			break;
 		case 2:
 			Drive_turn(100, 30);
-			Sleep(750);
+			Sleep(75 0);
 			Drive_forward(100);
 			Sleep(500);
 			Drive_turn(30, 100);

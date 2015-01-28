@@ -47,7 +47,7 @@ task main()
 {
 
 	typedef enum { ONRAMP, MOVEFROMRAMP, MOVEFROMPARKINGZONE, LINEFOLLOWING, DISPENSING, KICKSTAND, STOPPED } AutoState;
-	AutoState State = MOVEFROMRAMP;
+	AutoState State = MOVEFROMPARKINGZONE;
 
 	clearDebugStream();
 	//waitForStart();
@@ -67,14 +67,13 @@ task main()
 				State = STOPPED;
 				break;
 			case MOVEFROMPARKINGZONE:
-				int position = GetIRFieldPosition(GetIRPosition(IRport));
+				int position = 2;// GetIRFieldPosition(GetIRPosition(IRport));
 				writeDebugStreamLine("Center field position guess: %i", position);
 				MoveToIRPosition(position);
-				State = LINEFOLLOWING;
+				State = STOPPED;
 				break;
 			case LINEFOLLOWING:
 				writeDebugStreamLine("Running loop: LINEFOLLOWING");
-
 				bool readyToChange = IRLineFollow(IRport);
 				if (readyToChange) {
 					State = DISPENSING;
