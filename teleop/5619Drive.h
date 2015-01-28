@@ -190,6 +190,13 @@ void Drive_sweeperStop()
 
 */
 
+void Drive_scissorLiftInit()
+{
+	// Initialize the scissor lift with the proper encoder position
+	// This basically means that we drive the lift down until it hits the switch, then sample the encoder position
+
+}
+
 void Drive_scissorLift(int speed)
 {
 	// TODO: limit switches
