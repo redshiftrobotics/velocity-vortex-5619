@@ -89,7 +89,7 @@ void MoveToIRPosition(int direction)
 			break;
 		case 2:
 			Drive_turn(100, 30);
-			Sleep(75 0);
+			Sleep(75); //aj what did you mean by sleep(75 0)?
 			Drive_forward(100);
 			Sleep(500);
 			Drive_turn(30, 100);
@@ -201,24 +201,19 @@ void MoveToKickstand() {
 
 
 void followWall(tSensors sonar) {
-	int pVal = 0;
-	int cVal = 0;
 
-	int constantSpd = 40;
-
-	cVal = SensorValue[sonar];
-	pVal = cVal;
-
-	while(true) {
-		cVal = SensorValue[sonar];
-		int dif = cVal - pVal;
-		if(dif > 0) {
-				Drive_turn(constantSpd - dif, constantSpd + dif);
-		}
-		else if(dif < 0) {
-			Drive_turn(constantSpd + dif, constantSpd - dif);
-		}
-		pVal = cVal;
-	}
+		//cVal = SensorValue[sonar];
+		//writeDebugStreamLine("%i", SensorValue[sonar]);
+		//int dif = cVal - pVal;
+		//if(dif > 0) {
+		//		leftSpd + (dif*2.3);
+		//		rightSpd - (dif*2.3);
+		//}
+		//else if(dif < 0) {
+		//	leftSpd - (dif*2.3);
+		//	rightSpd + (dif*2.3);
+		//}
+		//pVal = cVal;
+		//Drive_turn(leftSpd, rightSpd);
 
 }
