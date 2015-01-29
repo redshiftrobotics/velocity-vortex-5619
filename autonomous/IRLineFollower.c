@@ -29,10 +29,22 @@
 
 #include "../teleop/5619Drive.h"
 
+
+bool wallFollowing = false;
 const int regSpd = -5;
 const int turn = 2;
 const int strengthThreshold = 280;
 int IRvalues[5];
+
+int var = 2.3;
+int wallspeed[2];
+
+
+int pVal = 0;
+int cVal = 0;
+
+bool FirstTimeWall = true;
+
 
 void strafeRight(tSensors port, int spd) {
 	I2C_SetMotorSpeed(port, 2, 2, (sbyte)spd);
@@ -143,12 +155,43 @@ void RampAndTubeServos()
 	Drive_arbiterQueue();
 }
 
-void MoveDownRampAndGetTube() {
+
+
+void followWall(tSensors sonar) {
+	while(true) {
+		cVal = SensorValue[sonar];
+		if(FirstTimeWall) {
+			wallspeed[0] = 50;
+			wallspeed[1] = 50;
+			pVal = cVal;
+			FirstTimeWall = false;
+		}
+		writeDebugStreamLine("%i", SensorValue[sonar]);
+		int dif = cVal - pVal;
+		if(dif > 0) {
+				wallspeed[0] += (dif*var);
+				wallspeed[1] -= (dif*var);
+		}
+		else if(dif < 0) {
+			wallspeed[0] -= (dif*var);
+			wallspeed[1] += (dif*var);
+		}
+		pVal = cVal;
+		writeDebugStreamLine("%i:%i", wallspeed[0], wallspeed[1]);
+		//Drive_turn(-leftSpd, -rightSpd);
+	}
+}
+
+void MoveDownRampAndGetTube(tSensors sonar) {
 	RampAndTubeServos();
-	Drive_backward(50);
+	followWall(sonar);
+	Drive_turn(-wallspeed[0], -wallspeed[1]);
+	//Drive_backward(50);
 	RampAndTubeServos();
 	Drive_scissorLiftUp();
 	Sleep(2200);
+	wallspeed[0] = 50;
+	wallspeed[1] = 50;
 	RampAndTubeServos();
 	Drive_scissorLift(0);
 	// Continue running the chassis motors
@@ -197,23 +240,4 @@ void MoveToKickstand() {
 	Drive_backward(50);
 	Sleep(1100);
 	Drive_allStop();
-}
-
-
-void followWall(tSensors sonar) {
-
-		//cVal = SensorValue[sonar];
-		//writeDebugStreamLine("%i", SensorValue[sonar]);
-		//int dif = cVal - pVal;
-		//if(dif > 0) {
-		//		leftSpd + (dif*2.3);
-		//		rightSpd - (dif*2.3);
-		//}
-		//else if(dif < 0) {
-		//	leftSpd - (dif*2.3);
-		//	rightSpd + (dif*2.3);
-		//}
-		//pVal = cVal;
-		//Drive_turn(leftSpd, rightSpd);
-
 }

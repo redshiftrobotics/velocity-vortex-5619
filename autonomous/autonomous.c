@@ -59,7 +59,7 @@ task main()
 		switch(State)
 		{
 			case ONRAMP:
-				MoveDownRampAndGetTube();
+				MoveDownRampAndGetTube(sonarSensor);
 				State = MOVEFROMRAMP;
 				break;
 			case MOVEFROMRAMP:
