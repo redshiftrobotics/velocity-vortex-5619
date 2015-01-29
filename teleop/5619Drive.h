@@ -1,11 +1,13 @@
 #pragma config(Sensor, S1, Motor, sensorI2CCustom)
+#pragma config(Sensor, S4,     HTPB,           sensorI2CCustom9V)
 
 #include "../Libraries/Motors.h"
 #include "../Libraries/Servos.h"
+#include "../Libraries/drivers/hitechnic-protoboard.h"
 
 /*
 
- SPEED PARAMETERS
+SPEED PARAMETERS
 
 */
 
@@ -13,7 +15,7 @@ const int scissorSpeed = 25;
 const int sweeperSpeed = 70;
 /*
 
- BUS ADDRESS DATA
+BUS ADDRESS DATA
 
 */
 
@@ -39,13 +41,22 @@ const int ballArbiterChannelNumber=6;
 
 /*
 
- DEBUG PARAMETERS
+DEBUG PARAMETERS
 
 */
 
 bool TESTBOT=false;
 bool DEBUG=false;
 
+/*
+
+GLOBAL STATE
+
+*/
+
+bool scissorInitializing = false;
+bool scissorInitialized = false;
+int scissorLowerEncoder;
 
 //**********************************************
 //Wrapper functions for left/right/center motors
@@ -160,7 +171,7 @@ void Drive_driveOmni(int inLineSpeed, int centerSpeed){
 
 /*
 
- SWEEPER CONTROL
+SWEEPER CONTROL
 
 */
 
@@ -186,20 +197,60 @@ void Drive_sweeperStop()
 
 /*
 
- SCISSOR LIFT CONTROL
+SCISSOR LIFT CONTROL
 
 */
 
-void Drive_scissorLiftInit()
+bool _Drive_scissorLiftGetLimitSwitch()
 {
-	// Initialize the scissor lift with the proper encoder position
-	// This basically means that we drive the lift down until it hits the switch, then sample the encoder position
+	// Returns true if the limit switch is pressed
 
+	int _chVal = 0;  // analog input
+
+	wait1Msec(2000);
+	// Setup all the digital IO ports as inputs (0x00) 000000 .
+	if (!HTPBsetupIO(HTPB, 0x00)) {
+		nxtDisplayTextLine(4, "ERROR!!");
+		wait1Msec(2000);
+		StopAllTasks();
+	}
+
+	eraseDisplay();
+
+	_chVal = HTPBreadADC(HTPB, 0, 10);  // get the value for ADC channel 0, we want a 10 bit answer
+	nxtDisplayTextLine(0, "A0: %d", _chVal);
+
+	wait1Msec(50);
+
+	if (/* TODO */ true)
+	{
+		return true;
+	} else {
+		return false;
+	}
+}
+
+bool _Drive_scissorLiftCheckEncoder()
+{
+	// Returns true if it's safe to run the scissor lift down any further
+	// TODO
+	return true;
 }
 
 void Drive_scissorLift(int speed)
 {
-	// TODO: limit switches
+	if (!scissorInitialized || !scissorInitializing)
+	{
+		writeDebugStreamLine("Program attempted to run the scissor lift before initializing it!");
+		writeDebugStreamLine("Cowardly refusing to risk damaging the motors.");
+		return;
+	}
+
+	if (!_Drive_scissorLiftCheckEncoder())
+	{
+		return;
+	}
+
 	Motors_SetSpeed(S1, scissorMotorDaisyChainLevel, scissorMotorNumber, speed);
 }
 
@@ -215,9 +266,28 @@ void Drive_scissorLiftDown()
 	Drive_scissorLift(-scissorSpeed);
 }
 
+void Drive_scissorLiftInit()
+{
+	// Initialize the scissor lift with the proper encoder position
+	// This basically means that we drive the lift down until it hits the switch, then sample the encoder position
+	scissorInitializing = true;
+
+	bool hitLimitSwitch = false;
+	if (!hitLimitSwitch)
+	{
+		Drive_scissorLiftDown();
+		hitLimitSwitch = _Drive_scissorLiftGetLimitSwitch();
+	}
+
+	Drive_scissorLift(0);
+	scissorLowerEncoder = Motors_GetPosition(S1, scissorMotorDaisyChainLevel, scissorMotorNumber);
+
+	scissorInitialized = true;
+}
+
 /*
 
- GRABBER CONTROL
+	GRABBER CONTROL
 
 */
 
@@ -235,7 +305,7 @@ void Drive_grabberUp()
 
 /*
 
- BALL ARBITER CONTROL
+BALL ARBITER CONTROL
 
 */
 
@@ -253,7 +323,7 @@ void Drive_arbiterQueue()
 
 /*
 
- MISCELLANEOUS
+MISCELLANEOUS
 
 */
 
@@ -296,30 +366,30 @@ int randRange(int min, int max) {
 }
 
 void move77(int x) {
-		//Move fwd
-		if(x == 1) {
+	//Move fwd
+	if(x == 1) {
 
-		}
-		//Move bckwd
-		else if(x == -1) {
+	}
+	//Move bckwd
+	else if(x == -1) {
 
-		}
-		//turn fwd right
-		else if(x == 2) {
+	}
+	//turn fwd right
+	else if(x == 2) {
 
-		}
-		//turn fwd left
-		else if(x == 3) {
+	}
+	//turn fwd left
+	else if(x == 3) {
 
-		}
-		//turn bckwd right
-		else if(x == -3) {
+	}
+	//turn bckwd right
+	else if(x == -3) {
 
-		}
-		//turn bckwd left
-		else if(x == -2) {
+	}
+	//turn bckwd left
+	else if(x == -2) {
 
-		}
+	}
 
 }
 
@@ -332,10 +402,10 @@ void randomMotion() {
 		lastCommand = currentCommand;
 		currentCommand = randRange(0, 5);
 		if(Motors_IsMoving(MotorController, rightMotorDaisyChainLevel, rightMotorNumber) != true || Motors_IsMoving(MotorController, leftMotorDaisyChainLevel, leftMotorNumber) != true) {
-				move77(-lastCommand);
+			move77(-lastCommand);
 		}
 		else {
-				move77(currentCommand);
+			move77(currentCommand);
 		}
 	}
 }
