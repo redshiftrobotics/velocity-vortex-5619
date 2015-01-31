@@ -13,6 +13,7 @@ SPEED PARAMETERS
 
 const int scissorSpeed = 25;
 const int sweeperSpeed = 70;
+
 /*
 
 BUS ADDRESS DATA
@@ -207,7 +208,6 @@ bool _Drive_scissorLiftGetLimitSwitch()
 
 	int _chVal = 0;  // analog input
 
-	wait1Msec(2000);
 	// Setup all the digital IO ports as inputs (0x00) 000000 .
 	if (!HTPBsetupIO(HTPB, 0x00)) {
 		nxtDisplayTextLine(4, "ERROR!!");
@@ -220,9 +220,7 @@ bool _Drive_scissorLiftGetLimitSwitch()
 	_chVal = HTPBreadADC(HTPB, 0, 10);  // get the value for ADC channel 0, we want a 10 bit answer
 	nxtDisplayTextLine(0, "A0: %d", _chVal);
 
-	wait1Msec(50);
-
-	if (/* TODO */ true)
+	if (_chVal > 512)
 	{
 		return true;
 	} else {
@@ -239,7 +237,9 @@ bool _Drive_scissorLiftCheckEncoder()
 
 void Drive_scissorLift(int speed)
 {
-	if (!scissorInitialized || !scissorInitializing)
+	// If either the scissor lift is initializing or it's initialized, then the inside statement evaluates to true.
+	//  So we invert the result so the error handling is only run if the inside evaluates to false.
+	if (!(!scissorInitialized || !scissorInitializing))
 	{
 		writeDebugStreamLine("Program attempted to run the scissor lift before initializing it!");
 		writeDebugStreamLine("Cowardly refusing to risk damaging the motors.");
@@ -273,7 +273,7 @@ void Drive_scissorLiftInit()
 	scissorInitializing = true;
 
 	bool hitLimitSwitch = false;
-	if (!hitLimitSwitch)
+	while (!hitLimitSwitch)
 	{
 		Drive_scissorLiftDown();
 		hitLimitSwitch = _Drive_scissorLiftGetLimitSwitch();
