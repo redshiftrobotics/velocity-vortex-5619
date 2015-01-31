@@ -160,6 +160,7 @@ void RampAndTubeServos()
 void followWall(tSensors sonar) {
 	while(true) {
 		cVal = SensorValue[sonar];
+		writeDebugStreamLine("%i", cVal);
 		if(FirstTimeWall) {
 			wallspeed[0] = 50;
 			wallspeed[1] = 50;
@@ -169,12 +170,12 @@ void followWall(tSensors sonar) {
 		writeDebugStreamLine("%i", SensorValue[sonar]);
 		int dif = cVal - pVal;
 		if(dif > 0) {
-				wallspeed[0] += (dif*var);
-				wallspeed[1] -= (dif*var);
+				wallspeed[0] += (abs(dif)*var);
+				wallspeed[1] -= (abs(dif)*var);
 		}
 		else if(dif < 0) {
-			wallspeed[0] -= (dif*var);
-			wallspeed[1] += (dif*var);
+			wallspeed[0] -= (abs(dif)*var);
+			wallspeed[1] += (abs(dif)*var);
 		}
 		pVal = cVal;
 		writeDebugStreamLine("%i:%i", wallspeed[0], wallspeed[1]);
@@ -185,8 +186,8 @@ void followWall(tSensors sonar) {
 void MoveDownRampAndGetTube(tSensors sonar) {
 	RampAndTubeServos();
 	followWall(sonar);
-	Drive_turn(-wallspeed[0], -wallspeed[1]);
-	//Drive_backward(50);
+	Drive_turn(wallspeed[0], wallspeed[1]);
+	Drive_backward(50);
 	RampAndTubeServos();
 	Drive_scissorLiftUp();
 	Sleep(2200);
@@ -197,7 +198,7 @@ void MoveDownRampAndGetTube(tSensors sonar) {
 	// Continue running the chassis motors
 	Sleep(2600);
 	RampAndTubeServos();
-	Drive_forward(0);
+	//Drive_forward(0);
 	Drive_arbiterDispense();
 	Sleep(750);
 	Drive_grabberDown();
