@@ -235,7 +235,7 @@ void Drive_grabberUp()
 void Drive_arbiterDispense()
 {
 	//writeDebugStreamLine("Running arbiter down");
-	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 170);
+	Servos_SetPosition(MotorController, servoControllerDaisyChainLevel, ballArbiterChannelNumber, 180);
 }
 
 void Drive_arbiterQueue()
