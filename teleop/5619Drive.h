@@ -232,7 +232,6 @@ bool _Drive_scissorLiftCheckEncoderUp()
 {
 	// Returns true if it's safe to run the scissor lift up any further
 
-	// TODO
 	if(Motors_GetPosition(S1, scissorMotorDaisyChainLevel, scissorMotorNumber) > 744+scissorLowerEncoder)
 	{
 		return false;
