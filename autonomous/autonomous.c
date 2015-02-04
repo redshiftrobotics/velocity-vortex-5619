@@ -50,6 +50,7 @@ task main()
 	AutoState State = MOVEFROMPARKINGZONE;
 
 	clearDebugStream();
+	Drive_scissorLiftInit();
 	//waitForStart();
 
 	while(true)
