@@ -370,6 +370,7 @@ void operatorJoystickControl()
 task main()
 {
 
+	Drive_scissorLiftInit();
 	waitForStart();
 	int pVal = 0;
 	int cVal = 0;
