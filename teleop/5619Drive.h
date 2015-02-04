@@ -228,10 +228,30 @@ bool _Drive_scissorLiftGetLimitSwitch()
 	}
 }
 
-bool _Drive_scissorLiftCheckEncoder()
+bool _Drive_scissorLiftCheckEncoderUp()
+{
+	// Returns true if it's safe to run the scissor lift up any further
+
+	// TODO
+	if(Motors_GetPosition(S1, scissorMotorDaisyChainLevel, scissorMotorNumber) > 99999999999)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool _Drive_scissorLiftCheckEncoderDown()
 {
 	// Returns true if it's safe to run the scissor lift down any further
-	// TODO
+	if (_Drive_scissorLiftGetLimitSwitch())
+	{
+		// We're at the bottom
+		scissorLowerEncoder = Motors_GetPosition(S1, scissorMotorDaisyChainLevel, scissorMotorNumber);
+
+		return false;
+	}
+
 	return true;
 }
 
@@ -239,15 +259,23 @@ void Drive_scissorLift(int speed)
 {
 	// If either the scissor lift is initializing or it's initialized, then the inside statement evaluates to true.
 	//  So we invert the result so the error handling is only run if the inside evaluates to false.
-	if (!(!scissorInitialized || !scissorInitializing))
+	if (!(scissorInitialized || scissorInitializing))
 	{
 		writeDebugStreamLine("Program attempted to run the scissor lift before initializing it!");
 		writeDebugStreamLine("Cowardly refusing to risk damaging the motors.");
 		return;
 	}
 
-	if (!_Drive_scissorLiftCheckEncoder())
+	if (speed < 0 && !_Drive_scissorLiftCheckEncoderDown())
 	{
+		// We're going down and the encoder checks failed
+		Drive_scissorLift(0);
+		return;
+	}
+	else if (speed > 0 && !_Drive_scissorLiftCheckEncoderUp())
+	{
+		// We're going up and the encoder checks failed
+		Drive_scissorLift(0);
 		return;
 	}
 
@@ -270,6 +298,8 @@ void Drive_scissorLiftInit()
 {
 	// Initialize the scissor lift with the proper encoder position
 	// This basically means that we drive the lift down until it hits the switch, then sample the encoder position
+
+	writeDebugStreamLine("Initializing the scissor lift.");
 	scissorInitializing = true;
 
 	bool hitLimitSwitch = false;
