@@ -57,6 +57,7 @@ GLOBAL STATE
 
 bool scissorInitializing = false;
 bool scissorInitialized = false;
+int scissorInitTime;
 int scissorLowerEncoder;
 
 //**********************************************
@@ -295,6 +296,8 @@ void Drive_scissorLiftDown()
 
 void Drive_scissorLiftInit()
 {
+	scissorInitTime = nPgmTime;
+
 	// Initialize the scissor lift with the proper encoder position
 	// This basically means that we drive the lift down until it hits the switch, then sample the encoder position
 
@@ -304,6 +307,11 @@ void Drive_scissorLiftInit()
 	bool hitLimitSwitch = false;
 	while (!hitLimitSwitch)
 	{
+		if (scissorInitTime+(3*1000) > nPgmTime)
+		{
+			break;
+		}
+
 		Drive_scissorLiftDown();
 		hitLimitSwitch = _Drive_scissorLiftGetLimitSwitch();
 	}
