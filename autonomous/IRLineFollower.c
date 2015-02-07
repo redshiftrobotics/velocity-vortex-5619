@@ -28,6 +28,7 @@
 */
 
 #include "../teleop/5619Drive.h"
+#include "IRfunctions.c"
 
 
 bool wallFollowing = false;
@@ -183,9 +184,38 @@ void followWall(tSensors sonar) {
 	}
 }
 
+void PIDController(tSensors sonar) {
+	int Kp = 1; //placeholder
+	int Ki = 1; //placeholder
+	int Kd = 1; //placeholder
+
+	int goal = SensorValue[sonar]; //placeholder
+
+	int lastError = 0;
+
+	int derivative = 0;
+	int Tp = 50;
+	int integral = 0;
+
+	int sonarVal = 0;
+	while(true) {
+		sonarVal = SensorValue[sonar];
+    int error = sonarVal - goal;
+		derivative = error - lastError;
+		int turn = (Kp * error) + (Ki * integral) + (Kd * derivative);
+		integral += error;
+		//turn /= 100;
+		wallspeed[1] = Tp - turn;
+		wallspeed[0] = Tp + turn;
+		//Run right motor
+		//Run left motor
+		lastError = error;
+	}
+}
+
 void MoveDownRampAndGetTube(tSensors sonar) {
 	RampAndTubeServos();
-	followWall(sonar);
+	PIDController(sonar); //CHECK IF SONAR VALUE IS GREATER THAN 0, NEEDS TESTING
 	Drive_turn(wallspeed[0], wallspeed[1]);
 	Drive_backward(50);
 	RampAndTubeServos();

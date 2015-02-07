@@ -57,7 +57,7 @@ bool PIDController() {
 	int Ki = 60; //placeholder
 	int Kd = 60; //placeholder
 
-	int goal = 80; //placeholder
+	int goal = 50; //placeholder
 
 	int lastError = 0;
 
