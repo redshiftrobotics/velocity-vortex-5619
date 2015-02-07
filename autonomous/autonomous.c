@@ -51,7 +51,7 @@ task main()
 
 	clearDebugStream();
 	Drive_scissorLiftInit();
-	waitForStart();
+	//waitForStart();
 
 	while(true)
 	{
