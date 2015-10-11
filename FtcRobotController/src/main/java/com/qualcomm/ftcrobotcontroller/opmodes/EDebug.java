@@ -50,11 +50,11 @@ public class EDebug extends OpMode {
 
 
 
-        String gamepad2LeftStickXText;
-        float gamepad2LeftStickX = gamepad1.left_trigger;
-        gamepad2LeftStickXText = Float.toString(gamepad2LeftStickX);
+       /* String gamepad1LeftTriggerText;
+        float gamepad1LeftStickX = gamepad1.left_trigger;
+        gamepad1LeftTrigger = Float.toString(gamepad2LeftStickX);
 
-        dt(gamepad2LeftStickXText);
+        dt(gamepad1LeftTrigger);*/
 
 
     }
