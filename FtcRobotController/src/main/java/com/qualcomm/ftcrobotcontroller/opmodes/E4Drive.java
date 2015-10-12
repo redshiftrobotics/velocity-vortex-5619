@@ -91,14 +91,19 @@ public class E4Drive extends OpMode {
         frontRightMotor.setPower(rightPower);
 
         backLeftMotor.setPower(leftPower);
+        backRightMotor.setPower(rightPower);
 
 
-        ///////////////////////////////////////////////////////////////////////////
 
+        //get the values from the gamepads
+        //note: pushing the stick all the way up returns -1,
+        //so we need to reverse the y values
         float ServoxValue = gamepad2.left_stick_x;
 
+        //clip the power values so that it only goes from 0 to 1
         ServoxValue = Range.clip(ServoxValue, 1, 0);
 
+        //set the power of the motors with the gamepad values
         leftServo.setPosition(ServoxValue);
         rightServo.setPosition(ServoxValue);
 
