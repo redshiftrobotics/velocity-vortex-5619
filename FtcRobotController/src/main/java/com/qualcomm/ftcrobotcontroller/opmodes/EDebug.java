@@ -22,7 +22,6 @@ public class EDebug extends OpMode {
     public void init() {
 
 
-            //telemetry.addData("1 Start", "init");
 
 
 

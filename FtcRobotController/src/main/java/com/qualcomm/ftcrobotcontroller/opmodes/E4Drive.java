@@ -1,11 +1,5 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-
-
-
-
-import android.os.SystemClock;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -21,13 +15,9 @@ public class E4Drive extends OpMode {
     DcMotor backRightMotor; //BACK RIGHT
 
 
-   //telemetry.addData("1", "init"); "
-   //(dt("Text");
 
-   // boolean debugActive = true;
-    boolean sledDown = false;
-    //Boolean aButton = gamepad1.a;
-   String teleConvert;
+
+    String teleConvert;
     int teleInt = 3;
 
 
@@ -47,11 +37,7 @@ public class E4Drive extends OpMode {
         telemetry.addData(teleConvert, text);
     }
 
-    public void sleep(long milsec)
-    {
-        SystemClock.sleep(milsec);
-        dt("Trying to sleep...");
-    }
+
 
 
     @Override
@@ -116,46 +102,6 @@ public class E4Drive extends OpMode {
         leftServo.setPosition(ServoxValue);
         rightServo.setPosition(ServoxValue);
 
-
-
-
-
-
-
-
-
-        ////////////////////////////////////////////////////////////////////////////
-
-        /*
-        if(gamepad1.a == true && sledDown == false)
-        {
-            leftServo.setPosition(1);
-            rightServo.setPosition(1);
-            dt("DOWN");
-            sledDown = true;
-            sleep(1000);
-        }
-
-        if(gamepad1.a == true && sledDown == true)
-        {
-            leftServo.setPosition(0);
-            rightServo.setPosition(0);
-            dt("UP");
-            sledDown = false;
-            sleep(1000);
-
-        }
-
-
-float lt1Convert;
-        float lt1 = gamepad2.left_trigger;
-
-        lt1Convert = Range.clip(lt1, 1, 0);
-
-        telemetry.addData("1 Start", "Raw: " + lt1);
-        telemetry.addData("2 Start", "Converted: " + lt1Convert);
-
-*/
 
     }
 
