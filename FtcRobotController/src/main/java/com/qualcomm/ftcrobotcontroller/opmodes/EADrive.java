@@ -5,26 +5,18 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-
-//Rember to register opmode in FtcOpModeRegister.java !
-public class E4Drive extends OpMode {
+/**
+ * Created by Eric Golde on 10/17/2015.
+ */
+public class EADrive extends OpMode {
 
     DcMotor frontLeftMotor; //FRONT LEFT
     DcMotor frontRightMotor; //FRONT RIGHT
     DcMotor backLeftMotor; //BACK LEFT
     DcMotor backRightMotor; //BACK RIGHT
 
-
-
-
     String teleConvert;
     int teleInt = 3;
-
-
-    Servo leftServo;
-    Servo rightServo;
-
-
 
 
     public void dt(String text)
@@ -36,15 +28,11 @@ public class E4Drive extends OpMode {
         //print to console new line
         telemetry.addData(teleConvert, text);
     }
-
-
-
-
-    @Override
     public void init() {
 
-            dt ("init loaded");
-        dt ("Test Drive Loaded:");
+
+        dt ("init loaded");
+        dt ("Arcade Drive Loaded:");
 
         frontLeftMotor = hardwareMap.dcMotor.get("left1");
         frontRightMotor = hardwareMap.dcMotor.get("right1");
@@ -54,12 +42,8 @@ public class E4Drive extends OpMode {
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backRightMotor.setDirection(DcMotor.Direction.REVERSE);
-      // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
+        // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
 
-        leftServo = hardwareMap.servo.get("servo1");
-        rightServo = hardwareMap.servo.get("servo2");
-
-        leftServo.setDirection(Servo.Direction.REVERSE); //fix direction
 
 
 
@@ -68,11 +52,10 @@ public class E4Drive extends OpMode {
 
 
 
-
-
     @Override
     public void loop() {
-        //get the values from the gamepads
+
+//get the values from the gamepads
         //note: pushing the stick all the way up returns -1,
         //so we need to reverse the y values
         float xValue = gamepad1.left_stick_x;
@@ -95,21 +78,14 @@ public class E4Drive extends OpMode {
         backRightMotor.setPower(rightPower);
 
 
-
-        //get the values from the gamepads
-        //note: pushing the stick all the way up returns -1,
-        //so we need to reverse the y values
-        float ServoxValue = gamepad2.left_stick_x;
-
-        //clip the power values so that it only goes from 0 to 1
-        ServoxValue = Range.clip(ServoxValue, 1, 0);
-
-        //set the power of the motors with the gamepad values
-        leftServo.setPosition(ServoxValue);
-        rightServo.setPosition(ServoxValue);
-
-
     }
 
+
+
+
 }
+
+
+
+
 

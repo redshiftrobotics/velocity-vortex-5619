@@ -1,31 +1,18 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-import com.qualcomm.ftcrobotcontroller.R;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-import android.widget.TextView;
-import android.widget.Toast;
+/**
+ * Created by Eric Golde on 10/17/2015.
+ */
+public class EFDrive extends OpMode {
 
-
-
-//Rember to register opmode in FtcOpModeRegister.java !
-public class EDebug extends OpMode {
-
-    Servo servo1;
 
     String teleConvert;
     int teleInt = 3;
 
-    public void init() {
-
-
-
-
-
-    }
 
     public void dt(String text)
     {
@@ -37,6 +24,17 @@ public class EDebug extends OpMode {
         telemetry.addData(teleConvert, text);
     }
 
+    public void init() {
+
+
+        dt("init loaded");
+        dt ("Final Drive Loaded:");
+
+
+    }
+
+
+
     @Override
     public void loop() {
 
@@ -46,8 +44,4 @@ public class EDebug extends OpMode {
 
 
 
-
-
-
 }
-
