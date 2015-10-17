@@ -18,11 +18,14 @@ public class EDebug extends OpMode {
 
     String teleConvert;
     int teleInt = 3;
+    boolean locked = false;
+    double speed = 1;
+    int timer = 0;
 
     public void init() {
 
 
-
+dt("Op mode loaded");
 
 
     }
@@ -40,14 +43,41 @@ public class EDebug extends OpMode {
     @Override
     public void loop() {
 
+        if (timer <= 2000)
+        {
+            timer++;
+        }
+        if (gamepad2.a == true && locked == false)
+        {
+            locked = true;
+           // dt("A Pressed!");
+            dt("Locked!");
+            dt("Restart OP Mode to unlock");
+        }
+        if (gamepad2.a == true && locked == true)
+        {
+           //dt("A Pressed!");
+           // dt("A is locked!");
+        }
+
+        if(gamepad2.right_bumper == true && speed == 1 && timer == 2000)
+        {
+           //speed = 0.9;
+            timer = 0;
+            dt("Every 2 seconds you should be able to pushthe button");
+            dt(" ");
+
+        }
+        else if(gamepad2.right_bumper == true && speed == 0.9)
+        {
+
+        }
+        //max 1
+        //min 0.5
+
 
 
     }
-
-
-
-
-
 
 }
 

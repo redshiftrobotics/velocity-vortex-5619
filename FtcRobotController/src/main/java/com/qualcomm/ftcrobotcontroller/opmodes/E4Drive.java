@@ -52,7 +52,7 @@ public class E4Drive extends OpMode {
         backRightMotor = hardwareMap.dcMotor.get("right2");
 
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        //backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backRightMotor.setDirection(DcMotor.Direction.REVERSE);
       // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
 
