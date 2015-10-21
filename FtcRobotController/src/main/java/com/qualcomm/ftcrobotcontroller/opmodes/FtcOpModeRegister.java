@@ -108,10 +108,10 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("[Debug] BACK LEFT", EBackLeft.class);
     //manager.register("[Debug] BACK RIGHT", EBackRight.class);
 
-    manager.register("Test Drive", E4Drive.class);
-    manager.register("Arcade Drive", EADrive.class);
+    manager.register("E4", E4Drive.class);
+    //manager.register("Arcade Drive", EADrive.class);
     manager.register("Tank Drive", ETDrive.class);
-    manager.register("Final Drive", EFDrive.class);
+    //manager.register("Final Drive", EFDrive.class);
     manager.register("Debug.class", EDebug.class);
 
     

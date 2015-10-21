@@ -1,11 +1,17 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
+import com.qualcomm.ftccommon.FtcEventLoop;
 import com.qualcomm.ftcrobotcontroller.R;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,24 +20,51 @@ import android.widget.Toast;
 //Rember to register opmode in FtcOpModeRegister.java !
 public class EDebug extends OpMode {
 
-    Servo servo1;
+
 
     String teleConvert;
-    int teleInt = 3;
-    boolean locked = false;
-    double speed = 1;
-    int timer = 0;
+    int teleInt = 1; //start from
+    double wait = 0.2; //WAIT TIME
 
+    double xPressed = 0;
+    ElapsedTime runtime = new ElapsedTime();
+    String startDate;
+    double startDatePlusTwoSec = runtime.time();
     public void init() {
 
 
-dt("Op mode loaded");
+        dt("Op mode loaded");
+        runtime.reset();
+        startDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
 
 
     }
+     //create empty time
 
-    public void dt(String text)
+    public boolean toggle ()
     {
+        if (runtime.time() >= startDatePlusTwoSec) {
+            boolean toggleSwitch = false;
+            boolean btnup = true;
+            startDatePlusTwoSec = runtime.time() + wait; //WAIT TIME
+//===================================================================================
+            if (gamepad1.right_bumper == true && btnup == true) {
+                toggleSwitch = !toggleSwitch;
+                btnup = false;
+
+
+            } else if (gamepad1.right_bumper == true && btnup == false) {
+                btnup = true;
+            }
+
+
+
+            return toggleSwitch;
+        }
+        return false;
+    }
+
+    public void dt(String text) {
         //make a new line
         teleInt++;
         //convert to string
@@ -43,41 +76,23 @@ dt("Op mode loaded");
     @Override
     public void loop() {
 
-        if (timer <= 2000)
+
+        if(toggle() == true)
         {
-            timer++;
-        }
-        if (gamepad2.a == true && locked == false)
-        {
-            locked = true;
-           // dt("A Pressed!");
-            dt("Locked!");
-            dt("Restart OP Mode to unlock");
-        }
-        if (gamepad2.a == true && locked == true)
-        {
-           //dt("A Pressed!");
-           // dt("A is locked!");
+            xPressed = xPressed + 0.1;
+            dt("Speed: " + xPressed);
         }
 
-        if(gamepad2.right_bumper == true && speed == 1 && timer == 2000)
+        if(xPressed >= 1)
         {
-           //speed = 0.9;
-            timer = 0;
-            dt("Every 2 seconds you should be able to pushthe button");
-            dt(" ");
-
+            xPressed = 0;
         }
-        else if(gamepad2.right_bumper == true && speed == 0.9)
-        {
-
-        }
-        //max 1
-        //min 0.5
 
 
 
     }
+
+
 
 }
 
