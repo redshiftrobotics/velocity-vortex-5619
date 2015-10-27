@@ -24,44 +24,37 @@ public class EDebug extends OpMode {
 
     String teleConvert;
     int teleInt = 1; //start from
-    double wait = 0.2; //WAIT TIME
 
-    double xPressed = 0;
-    ElapsedTime runtime = new ElapsedTime();
-    String startDate;
-    double startDatePlusTwoSec = runtime.time();
+
+
+
     public void init() {
-
-
         dt("Op mode loaded");
-        runtime.reset();
-        startDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
 
+        /*
+        if(buttn = false)
+        {
+        motor xyz -1.0
+        }
+
+
+
+
+
+         */
 
     }
-     //create empty time
 
+    boolean lastBttnState = false;
+    boolean toggleState = false;
     public boolean toggle ()
     {
-        if (runtime.time() >= startDatePlusTwoSec) {
-            boolean toggleSwitch = false;
-            boolean btnup = true;
-            startDatePlusTwoSec = runtime.time() + wait; //WAIT TIME
-//===================================================================================
-            if (gamepad1.right_bumper == true && btnup == true) {
-                toggleSwitch = !toggleSwitch;
-                btnup = false;
-
-
-            } else if (gamepad1.right_bumper == true && btnup == false) {
-                btnup = true;
-            }
-
-
-
-            return toggleSwitch;
+        if(gamepad1.b && !lastBttnState)
+        {
+            toggleState = !toggleState;
         }
-        return false;
+        lastBttnState = gamepad1.b;
+        return toggleState;
     }
 
     public void dt(String text) {
@@ -79,14 +72,22 @@ public class EDebug extends OpMode {
 
         if(toggle() == true)
         {
-            xPressed = xPressed + 0.1;
-            dt("Speed: " + xPressed);
+            telemetry.addData("Code ", "True");
+        }
+        else
+        {
+            telemetry.addData("Code ", "False");
+        }
+        if(gamepad1.b)
+        {
+            telemetry.addData("What ", "True");
+        }
+        else
+        {
+            telemetry.addData("What ", "False");
         }
 
-        if(xPressed >= 1)
-        {
-            xPressed = 0;
-        }
+
 
 
 

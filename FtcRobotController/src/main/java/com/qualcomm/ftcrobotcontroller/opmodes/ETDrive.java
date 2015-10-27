@@ -1,9 +1,8 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import android.util.Log;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 /**
@@ -14,13 +13,21 @@ public class ETDrive extends OpMode {
     String teleConvert;
     int teleInt = 3;
 
-    int snapshot;
+
+
+
 
     DcMotor frontLeftMotor; //FRONT LEFT
     DcMotor frontRightMotor; //FRONT RIGHT
     DcMotor backLeftMotor; //BACK LEFT
     DcMotor backRightMotor; //BACK RIGHT
-    DcMotor extendMotor; // arm
+    DcMotor extendMotor1; // arm
+    DcMotor extendMotor2; // arm
+    Servo clamp1;
+    Servo clamp2;
+    Servo hit1;
+    Servo hit2;
+
 
 
     public void dt(String text)
@@ -32,11 +39,33 @@ public class ETDrive extends OpMode {
         //print to console new line
         telemetry.addData(teleConvert, text);
     }
+    public void ct(String what, String text)
+    {
+        telemetry.addData(what, text);
+    }
+
+    public void printControls()
+    {
+        dt("Controller #1");
+        dt("    left joy: left side");
+        dt("    right joy: right side");
+        dt("");
+        dt("Controller #2");
+        dt("    left joy: Extend left claw assmbly");
+        dt("    right joy: Extend left claw assmbly");
+        dt("    left joy bttn: open / close left claw");
+        dt("    right joy bttn: open / close right claw");
+        dt("    lb: left servo open /close");
+        dt("    rb: right servo open / close");
+        dt("");
+
+    }
+
     public void init() {
 
+        dt("Tank Drive Selected!");
+        dt("Init Loading...");
 
-        dt ("init loaded");
-        dt ("Tank Drive Loaded:");
 
         frontLeftMotor = hardwareMap.dcMotor.get("left1");
         frontRightMotor = hardwareMap.dcMotor.get("right1");
@@ -48,18 +77,79 @@ public class ETDrive extends OpMode {
         backRightMotor.setDirection(DcMotor.Direction.REVERSE);
         // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
 
-        extendMotor = hardwareMap.dcMotor.get("extend");
+        extendMotor1 = hardwareMap.dcMotor.get("extend1");
+        extendMotor2 = hardwareMap.dcMotor.get("extend2");
+
+        clamp1 = hardwareMap.servo.get("clamp1");
+        clamp2 = hardwareMap.servo.get("clamp2");
+
+        hit1 = hardwareMap.servo.get("hit1");
+        hit2 = hardwareMap.servo.get("hit2");
+
+
+
+
+        dt ("Init Loaded!");
+        //dt ("Controls:");
+       // printControls();
+
 
 
 
     }
 
-
-
+///////////////////////////////////////////////////
+    boolean lastBttnStateOpenLeft = false;
+    boolean toggleStateOpenLeft = false;
+    public boolean toggleGrippersOpenLeft()
+    {
+        if(gamepad2.left_stick_button && !lastBttnStateOpenLeft)
+        {
+            toggleStateOpenLeft = !toggleStateOpenLeft;
+        }
+        lastBttnStateOpenLeft = gamepad2.left_stick_button;
+        return toggleStateOpenLeft;
+    }
+///////////////////////////////////////////////////////////////
+    boolean lastBttnStateOpenRight = false;
+    boolean toggleStateOpenRight = false;
+    public boolean toggleGrippersOpenRight()
+    {
+        if(gamepad2.right_stick_button && !lastBttnStateOpenRight)
+        {
+            toggleStateOpenRight = !toggleStateOpenRight;
+        }
+        lastBttnStateOpenRight = gamepad2.right_stick_button;
+        return toggleStateOpenRight;
+    }
+/////////////////////////////////////////////////////////////////
+    boolean lastBttnStateHitServoLeft = false;
+    boolean toggleStateHitServoLeft = false;
+    public boolean toggleHitServoLeft()
+    {
+        if(gamepad2.left_bumper && !lastBttnStateHitServoLeft)
+        {
+            toggleStateHitServoLeft = !toggleStateHitServoLeft;
+        }
+        lastBttnStateHitServoLeft = gamepad2.left_bumper;
+        return toggleStateHitServoLeft;
+    }
+/////////////////////////////////////////////////////////////////////
+    boolean lastBttnStateHitServoRight = false;
+    boolean toggleStateHitServoRight = false;
+    public boolean toggleHitServoRight()
+    {
+        if(gamepad2.right_bumper && !lastBttnStateHitServoRight)
+        {
+            toggleStateHitServoRight = !toggleStateHitServoRight;
+        }
+        lastBttnStateHitServoRight = gamepad2.right_bumper;
+        return toggleStateHitServoRight;
+    }
     @Override
     public void loop() {
 
-
+//================[Driver]=========================================================================
 //get the values from the gamepads
         //note: pushing the stick all the way up returns -1,
         //so we need to reverse the y values
@@ -81,15 +171,100 @@ public class ETDrive extends OpMode {
         backLeftMotor.setPower(xValue);
         backRightMotor.setPower(yValue);
 
+//=================================================================================================
 
-        if(gamepad1.right_bumper)
-        {
-            extendMotor.setPower(1);
+//====================[Gamepad2]===================================================================
+
+        //this is for making the controller #2 beable to do the sliders
+        float extendValueLeft = -gamepad2.left_stick_y;
+        float extendValueRight = -gamepad2.right_stick_y;
+
+
+
+        extendValueLeft = Range.clip(extendValueLeft, -1, 1);
+        extendValueRight = Range.clip(extendValueRight, -1, 1);
+
+
+        extendMotor1.setPower(extendValueLeft);
+        extendMotor2.setPower(extendValueRight);
+
+////////////////////////////////////////////////////////////////////
+        if(toggleGrippersOpenLeft() == true) {
+            ct("LeftGrip: ", "True");
         }
-        if(gamepad1.left_bumper)
+        else
         {
-           extendMotor.setPower(-1);
+            ct("LeftGrip: ", "False");
         }
+
+        if(toggleGrippersOpenRight() == true)
+        {
+            ct("RightGrip: ", "True");
+        }
+        else
+        {
+            ct("RightGrip: ", "False");
+        }
+////////////////////////////////////////////////////
+        if(toggleHitServoLeft() == true) {
+            ct("LeftHit: ", "True");
+            hit1.setPosition(0.50);
+        }
+        else
+        {
+            ct("LeftHit: ", "False");
+            hit1.setPosition(0);
+        }
+
+        if(toggleHitServoRight() == true)
+        {
+            ct("RightHit: ", "True");
+        }
+        else
+        {
+            ct("RightHit: ", "False");
+        }
+
+
+
+/////////////////////////////////////////////
+
+
+/*
+
+        if(gamepad2.right_bumper)
+        {
+            extendMotor1.setPower(1);
+            extendMotor2.setPower(1);
+        }
+         else if(gamepad2.left_bumper)
+        {
+            extendMotor1.setPower(-1);
+            extendMotor2.setPower(-1);
+        }
+        else
+        {
+            extendMotor1.setPower(0);
+            extendMotor2.setPower(0);
+        }
+
+
+        if(gamepad2.x)
+        {
+            //open
+            clamp1.setPosition(1);
+            clamp2.setPosition(0);
+        }
+        else if(gamepad2.b)
+        {
+            //close
+            clamp1.setPosition(0);
+            clamp2.setPosition(1);
+        }
+
+
+*/
+
 
     }
 

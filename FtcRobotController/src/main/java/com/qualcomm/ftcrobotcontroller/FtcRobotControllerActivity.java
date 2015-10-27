@@ -184,17 +184,13 @@ public class FtcRobotControllerActivity extends Activity {
 
 
     //==============================[ERIC CODE]=================================================
-    WebView mWebView;
+    //WebView mWebView;
 
-    mWebView = (WebView) findViewById(R.id.webView);  // identify the webview
-    mWebView.loadUrl("file:///android_asset/Eric/goathead2.gif"); //url from android_assets
-    WebSettings webSettings = mWebView.getSettings(); //register settings
-    webSettings.setTextZoom(10);
-    //webSettings.setJavaScriptEnabled(true); // make javascript enabled: why? BECAUSE I CAN :D
-    //mWebView.loadUrl("http://buttercraft.golde.org/SAAS/Piggie_bank.gif"); //url from a website
-    //  mWebView.loadUrl("file:///android_asset/Piggie_bank.gif"); //url from android_assets
+   // mWebView = (WebView) findViewById(R.id.webView);  // identify the webview
+    //mWebView.loadUrl("file:///android_asset/Eric/goathead2.gif"); //url from android_assets
 
-    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+
+    //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
     //==============================[END]=======================================================
   }
 
