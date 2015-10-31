@@ -4,6 +4,8 @@ import android.widget.Toast;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.LegacyModule;
+import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
@@ -31,6 +33,9 @@ public class ETDrive extends OpMode {
     Servo clamp2;
     Servo hit1;
     Servo hit2;
+
+	//LegacyModule lModule;
+	LightSensor lightSensor;
 
 
 
@@ -89,6 +94,9 @@ public class ETDrive extends OpMode {
 
         hit1 = hardwareMap.servo.get("hit1");
         hit2 = hardwareMap.servo.get("hit2");
+
+		//lModule = hardwareMap.legacyModule.get("Legacy Module 1");
+		lightSensor = hardwareMap.lightSensor.get("light");
 
 
 

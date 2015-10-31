@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 /**
@@ -20,6 +21,9 @@ public class EAuto extends OpMode {
     Servo clamp2;
     Servo hit1;
     Servo hit2;
+
+	//LegacyModule lModule;
+	LightSensor lightSensor;
 
 
     public void dt(String text)
@@ -63,6 +67,9 @@ public class EAuto extends OpMode {
 
         hit1 = hardwareMap.servo.get("hit1");
         hit2 = hardwareMap.servo.get("hit2");
+
+		//lModule = hardwareMap.legacyModule.get("Legacy Module 1");
+		lightSensor = hardwareMap.lightSensor.get("light");
 
         dt ("Init Loaded!");
 
