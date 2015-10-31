@@ -114,7 +114,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     manager.register("Tank Drive", ETDrive.class);
     manager.register("Debug.class", EDebug.class);
-
+    manager.register("Autonomous", EAuto.class);
     
   }
 }

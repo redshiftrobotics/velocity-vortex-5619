@@ -25,38 +25,6 @@ public class EDebug extends OpMode {
     String teleConvert;
     int teleInt = 1; //start from
 
-
-
-
-    public void init() {
-        dt("Op mode loaded");
-
-        /*
-        if(buttn = false)
-        {
-        motor xyz -1.0
-        }
-
-
-
-
-
-         */
-
-    }
-
-    boolean lastBttnState = false;
-    boolean toggleState = false;
-    public boolean toggle ()
-    {
-        if(gamepad1.b && !lastBttnState)
-        {
-            toggleState = !toggleState;
-        }
-        lastBttnState = gamepad1.b;
-        return toggleState;
-    }
-
     public void dt(String text) {
         //make a new line
         teleInt++;
@@ -66,27 +34,21 @@ public class EDebug extends OpMode {
         telemetry.addData(teleConvert, text);
     }
 
+
+    public void init() {
+        dt("Debug.class Selected!");
+        dt("Init Loading...");
+
+
+        dt ("Init Loaded!");
+    }
+
+
+
+
+
     @Override
     public void loop() {
-
-
-        if(toggle() == true)
-        {
-            telemetry.addData("Code ", "True");
-        }
-        else
-        {
-            telemetry.addData("Code ", "False");
-        }
-        if(gamepad1.b)
-        {
-            telemetry.addData("What ", "True");
-        }
-        else
-        {
-            telemetry.addData("What ", "False");
-        }
-
 
 
 

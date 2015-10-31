@@ -1,9 +1,13 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import android.widget.Toast;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
+
+
 
 /**
  * Created by Eric Golde on 10/17/2015.
@@ -190,39 +194,46 @@ public class ETDrive extends OpMode {
 
 ////////////////////////////////////////////////////////////////////
         if(toggleGrippersOpenLeft() == true) {
-            ct("LeftGrip: ", "True");
+            ct("LeftClaw: ", "Closed");
+            clamp1.setPosition(0.75);
         }
         else
         {
-            ct("LeftGrip: ", "False");
+            ct("LeftClaw: ", "Open");
+            clamp1.setPosition(0);
         }
 
         if(toggleGrippersOpenRight() == true)
         {
-            ct("RightGrip: ", "True");
+            ct("RightClaw: ", "Closed");
+            clamp2.setPosition(0.75);
         }
         else
         {
-            ct("RightGrip: ", "False");
+            ct("RightClaw: ", "Open");
+            clamp2.setPosition(0);
         }
 ////////////////////////////////////////////////////
         if(toggleHitServoLeft() == true) {
-            ct("LeftHit: ", "True");
+            ct("Hit1", "Open");
             hit1.setPosition(0.50);
         }
         else
         {
-            ct("LeftHit: ", "False");
+            ct("Hit1", "Closed");
             hit1.setPosition(0);
         }
 
         if(toggleHitServoRight() == true)
         {
-            ct("RightHit: ", "True");
+            ct("Hit2", "Open");
+            hit2.setPosition(0.50);
         }
         else
         {
-            ct("RightHit: ", "False");
+            ct("Hit2", "Closed");
+            hit2.setPosition(0);
+           // Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -230,40 +241,6 @@ public class ETDrive extends OpMode {
 /////////////////////////////////////////////
 
 
-/*
-
-        if(gamepad2.right_bumper)
-        {
-            extendMotor1.setPower(1);
-            extendMotor2.setPower(1);
-        }
-         else if(gamepad2.left_bumper)
-        {
-            extendMotor1.setPower(-1);
-            extendMotor2.setPower(-1);
-        }
-        else
-        {
-            extendMotor1.setPower(0);
-            extendMotor2.setPower(0);
-        }
-
-
-        if(gamepad2.x)
-        {
-            //open
-            clamp1.setPosition(1);
-            clamp2.setPosition(0);
-        }
-        else if(gamepad2.b)
-        {
-            //close
-            clamp1.setPosition(0);
-            clamp2.setPosition(1);
-        }
-
-
-*/
 
 
     }
