@@ -9,15 +9,17 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 //Rember to register opmode in FtcOpModeRegister.java !
-public class EricsTestOpMode extends OpMode {
+public class EricsTestOpMode extends EOpModeBase {
 
     DcMotor leftMotor1;
-    DcMotor rightMotor1;
-    DcMotor leftMotor2;
-    DcMotor rightMotor2;
+	DcMotor rightMotor1;
+	DcMotor leftMotor2;
+	DcMotor rightMotor2;
 
     @Override
     public void init() {
+		dt("EricsTestOpMode Selected!");
+		super.init();
         leftMotor1 = hardwareMap.dcMotor.get("left1");
         rightMotor1 = hardwareMap.dcMotor.get("right1");
 

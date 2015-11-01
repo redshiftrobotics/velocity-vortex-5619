@@ -12,18 +12,10 @@ public class ETDrive extends EOpModeBase {
 
 
 
-    public void init() {
-
+    public void init()
+	{
         dt("Tank Drive Selected!");
-        dt("Init Loading...");
-
 		super.init(); //calls the init funtion in EOpModeBase.class
-
-        dt ("Init Loaded!");
-
-
-
-
     }
 
 ///////////////////////////////////////////////////

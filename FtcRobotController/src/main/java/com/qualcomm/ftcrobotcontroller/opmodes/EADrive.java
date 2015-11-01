@@ -1,52 +1,16 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by Eric Golde on 10/17/2015.
  */
-public class EADrive extends OpMode {
+public class EADrive extends EOpModeBase {
 
-    DcMotor frontLeftMotor; //FRONT LEFT
-    DcMotor frontRightMotor; //FRONT RIGHT
-    DcMotor backLeftMotor; //BACK LEFT
-    DcMotor backRightMotor; //BACK RIGHT
-
-    String teleConvert;
-    int teleInt = 3;
-
-
-    public void dt(String text)
-    {
-        //make a new line
-        teleInt++;
-        //convert to string
-        teleConvert = Integer.toString(teleInt);
-        //print to console new line
-        telemetry.addData(teleConvert, text);
-    }
     public void init() {
+        dt ("Arcade Drive Selected!");
 
-
-        dt ("init loaded");
-        dt ("Arcade Drive Loaded:");
-
-        frontLeftMotor = hardwareMap.dcMotor.get("left1");
-        frontRightMotor = hardwareMap.dcMotor.get("right1");
-        backLeftMotor = hardwareMap.dcMotor.get("left2");
-        backRightMotor = hardwareMap.dcMotor.get("right2");
-
-        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        //backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotor.Direction.REVERSE);
-        //frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
-
-
-
-
+       	super.init();
 
     }
 

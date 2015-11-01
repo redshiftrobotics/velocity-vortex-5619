@@ -47,6 +47,8 @@ public abstract class EOpModeBase extends OpMode{
 
 	public void init()
 	{
+		dt("Init Loading...");//start
+
 		frontLeftMotor = hardwareMap.dcMotor.get("left1");
 		frontRightMotor = hardwareMap.dcMotor.get("right1");
 		backLeftMotor = hardwareMap.dcMotor.get("left2");
@@ -68,6 +70,8 @@ public abstract class EOpModeBase extends OpMode{
 
 		//lModule = hardwareMap.legacyModule.get("Legacy Module 1");
 		lightSensor = hardwareMap.lightSensor.get("light");
+
+		dt ("Init Loaded!"); //end
 	}
 
 

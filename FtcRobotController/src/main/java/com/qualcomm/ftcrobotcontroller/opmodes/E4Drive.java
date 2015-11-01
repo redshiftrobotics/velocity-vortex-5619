@@ -1,24 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
+
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 
 //Rember to register opmode in FtcOpModeRegister.java !
-public class E4Drive extends OpMode {
-
-    DcMotor frontLeftMotor; //FRONT LEFT
-    DcMotor frontRightMotor; //FRONT RIGHT
-    DcMotor backLeftMotor; //BACK LEFT
-    DcMotor backRightMotor; //BACK RIGHT
-
-
-
-
-    String teleConvert;
-    int teleInt = 3;
+public class E4Drive extends EOpModeBase  {
 
 
     Servo leftServo;
@@ -26,44 +14,16 @@ public class E4Drive extends OpMode {
 
 
 
-
-    public void dt(String text)
-    {
-        //make a new line
-        teleInt++;
-        //convert to string
-        teleConvert = Integer.toString(teleInt);
-        //print to console new line
-        telemetry.addData(teleConvert, text);
-    }
-
-
-
-
     @Override
     public void init() {
 
-            dt ("init loaded");
-        dt ("Test Drive Loaded:");
+		dt ("Test Drive Selected!");
 
-        frontLeftMotor = hardwareMap.dcMotor.get("left1");
-        frontRightMotor = hardwareMap.dcMotor.get("right1");
-        backLeftMotor = hardwareMap.dcMotor.get("left2");
-        backRightMotor = hardwareMap.dcMotor.get("right2");
-
-        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        //backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotor.Direction.REVERSE);
-      // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
+        super.init();
 
         leftServo = hardwareMap.servo.get("servo1");
         rightServo = hardwareMap.servo.get("servo2");
-
         leftServo.setDirection(Servo.Direction.REVERSE); //fix direction
-
-
-
-
     }
 
 

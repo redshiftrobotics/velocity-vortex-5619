@@ -1,15 +1,11 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
-//Rember to register opmode in FtcOpModeRegister.java !
-public class EBackRight extends OpMode {
+public class EBackRight extends EOpModeBase {
 
-    DcMotor backRightMotor;
 
     public void init() {
-        backRightMotor = hardwareMap.dcMotor.get("right2");
-        backRightMotor.setDirection(DcMotor.Direction.REVERSE);
+		dt("[Debug] BackRightTest Selected!");
+        super.init();
     }
 
     @Override
