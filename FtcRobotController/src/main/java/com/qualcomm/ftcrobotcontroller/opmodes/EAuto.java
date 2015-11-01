@@ -11,9 +11,6 @@ public class EAuto extends EOpModeBase {
 
         super.init();
 
-
-        dt("Ready?");
-        dt("Push the play button to start!");
     }
 
     @Override

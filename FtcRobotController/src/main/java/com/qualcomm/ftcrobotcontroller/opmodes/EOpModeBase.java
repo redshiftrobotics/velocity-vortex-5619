@@ -14,7 +14,7 @@ import android.widget.Toast;
 public abstract class EOpModeBase extends OpMode{
 
 	String teleConvert;
-	int teleInt = 3;
+	int teleInt = 0;
 
 	protected DcMotor frontLeftMotor; //FRONT LEFT
 	protected DcMotor frontRightMotor; //FRONT RIGHT

@@ -1,9 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-
 import com.qualcomm.robotcore.util.Range;
-
-
 
 /**
  * Created by Eric Golde on 10/17/2015.
@@ -152,16 +149,6 @@ public class ETDrive extends EOpModeBase {
 
         }
 
-
-
-/////////////////////////////////////////////
-
-
-
-
     }
-
-
-
 
 }
