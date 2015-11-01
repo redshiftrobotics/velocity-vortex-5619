@@ -104,7 +104,7 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("TestOpMode (BROKEN)", EricsTestOpMode.class);
     //manager.register("E4", E4Drive.class);
     //manager.register("Arcade Drive", EADrive.class);
-    //manager.register("Final Drive", EFDrive.class);
+
 
     //manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
     //manager.register("[Debug] FRONT RIGHT", EFrontRight.class);

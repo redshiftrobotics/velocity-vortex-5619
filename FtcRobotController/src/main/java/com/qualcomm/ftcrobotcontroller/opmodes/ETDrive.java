@@ -1,12 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import android.widget.Toast;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.LegacyModule;
-import com.qualcomm.robotcore.hardware.LightSensor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 
@@ -14,96 +8,18 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Eric Golde on 10/17/2015.
  */
-public class ETDrive extends OpMode {
-
-    String teleConvert;
-    int teleInt = 3;
+public class ETDrive extends EOpModeBase {
 
 
-
-
-
-    DcMotor frontLeftMotor; //FRONT LEFT
-    DcMotor frontRightMotor; //FRONT RIGHT
-    DcMotor backLeftMotor; //BACK LEFT
-    DcMotor backRightMotor; //BACK RIGHT
-    DcMotor extendMotor1; // arm
-    DcMotor extendMotor2; // arm
-    Servo clamp1;
-    Servo clamp2;
-    Servo hit1;
-    Servo hit2;
-
-	//LegacyModule lModule;
-	LightSensor lightSensor;
-
-
-
-    public void dt(String text)
-    {
-        //make a new line
-        teleInt++;
-        //convert to string
-        teleConvert = Integer.toString(teleInt);
-        //print to console new line
-        telemetry.addData(teleConvert, text);
-    }
-    public void ct(String what, String text)
-    {
-        telemetry.addData(what, text);
-    }
-
-    public void printControls()
-    {
-        dt("Controller #1");
-        dt("    left joy: left side");
-        dt("    right joy: right side");
-        dt("");
-        dt("Controller #2");
-        dt("    left joy: Extend left claw assmbly");
-        dt("    right joy: Extend left claw assmbly");
-        dt("    left joy bttn: open / close left claw");
-        dt("    right joy bttn: open / close right claw");
-        dt("    lb: left servo open /close");
-        dt("    rb: right servo open / close");
-        dt("");
-
-    }
 
     public void init() {
 
         dt("Tank Drive Selected!");
         dt("Init Loading...");
 
-
-        frontLeftMotor = hardwareMap.dcMotor.get("left1");
-        frontRightMotor = hardwareMap.dcMotor.get("right1");
-        backLeftMotor = hardwareMap.dcMotor.get("left2");
-        backRightMotor = hardwareMap.dcMotor.get("right2");
-
-        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-       // backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotor.Direction.REVERSE);
-        // frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
-
-        extendMotor1 = hardwareMap.dcMotor.get("extend1");
-        extendMotor2 = hardwareMap.dcMotor.get("extend2");
-
-        clamp1 = hardwareMap.servo.get("clamp1");
-        clamp2 = hardwareMap.servo.get("clamp2");
-
-        hit1 = hardwareMap.servo.get("hit1");
-        hit2 = hardwareMap.servo.get("hit2");
-
-		//lModule = hardwareMap.legacyModule.get("Legacy Module 1");
-		lightSensor = hardwareMap.lightSensor.get("light");
-
-
-
+		super.init(); //calls the init funtion in EOpModeBase.class
 
         dt ("Init Loaded!");
-        //dt ("Controls:");
-       // printControls();
 
 
 
@@ -241,7 +157,7 @@ public class ETDrive extends OpMode {
         {
             ct("Hit2", "Closed");
             hit2.setPosition(0);
-           // Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+
         }
 
 
