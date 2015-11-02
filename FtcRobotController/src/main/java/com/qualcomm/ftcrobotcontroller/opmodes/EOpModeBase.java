@@ -57,33 +57,199 @@ public abstract class EOpModeBase extends OpMode{
 	{
 		dt("Init Loading...");//start
 
-		legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
-		servoController1 = hardwareMap.servoController.get("Servo Controller 1");
-		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
-		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
-		dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
+		//prepare for a s**t load of try catches :/
 
-		frontLeftMotor = hardwareMap.dcMotor.get("left1");
-		frontRightMotor = hardwareMap.dcMotor.get("right1");
-		backLeftMotor = hardwareMap.dcMotor.get("left2");
-		backRightMotor = hardwareMap.dcMotor.get("right2");
+		try
+		{
+			legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Legacy Module 1");
+			throw e;
+		}
+
+		try
+		{
+			servoController1 = hardwareMap.servoController.get("Servo Controller 1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Servo Controller 1");
+			throw e;
+		}
+
+		try
+		{
+			dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Motor Controller 1");
+			throw e;
+		}
+
+		try
+		{
+			dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Motor Controller 2");
+			throw e;
+		}
+
+		try
+		{
+			dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Motor Controller 2");
+			throw e;
+		}
+
+		try
+		{
+			dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("Couldn't find Motor Controller 3");
+			throw e;
+		}
+
+		try
+		{
+			frontLeftMotor = hardwareMap.dcMotor.get("left1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: left1");
+			throw e;
+		}
+
+		try
+		{
+			frontRightMotor = hardwareMap.dcMotor.get("right1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: right1");
+			throw e;
+		}
+
+		try
+		{
+			backLeftMotor = hardwareMap.dcMotor.get("left2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: left2");
+			throw e;
+		}
+
+		try
+		{
+			backRightMotor = hardwareMap.dcMotor.get("right2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: right2");
+			throw e;
+		}
+
+		try
+		{
+			extendMotor1 = hardwareMap.dcMotor.get("extend1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: extend1");
+			throw e;
+		}
+
+		try
+		{
+			extendMotor2 = hardwareMap.dcMotor.get("extend2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: extend2");
+			throw e;
+		}
+
+		try
+		{
+			clamp1 = hardwareMap.servo.get("clamp1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: clamp1");
+			throw e;
+		}
+
+		try
+		{
+			clamp2 = hardwareMap.servo.get("clamp2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: clamp2");
+			throw e;
+		}
+
+		try
+		{
+			hit1 = hardwareMap.servo.get("hit1");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: hit1");
+			throw e;
+		}
+
+		try
+		{
+			hit2 = hardwareMap.servo.get("hit2");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: hit2");
+			throw e;
+		}
+
+		try
+		{
+			lightSensor = hardwareMap.lightSensor.get("light");
+		}
+		catch(RuntimeException e)
+		{
+			dt("An Error Occurred!!!");
+			dt("You need to add in your config: light");
+			throw e;
+		}
+
+		//god that was a LOT of try catches
 
 		frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-		// backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
 		backRightMotor.setDirection(DcMotor.Direction.REVERSE);
-		// frontRightMotor.setDirection(DcMotor.Direction.REVERSE); //CHANGED
-
-		extendMotor1 = hardwareMap.dcMotor.get("extend1");
-		extendMotor2 = hardwareMap.dcMotor.get("extend2");
-
-		clamp1 = hardwareMap.servo.get("clamp1");
-		clamp2 = hardwareMap.servo.get("clamp2");
-
-		hit1 = hardwareMap.servo.get("hit1");
-		hit2 = hardwareMap.servo.get("hit2");
-
-
-		lightSensor = hardwareMap.lightSensor.get("light");
 
 		dt ("Init Loaded!"); //end
 	}
