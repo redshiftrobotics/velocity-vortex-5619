@@ -38,7 +38,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
@@ -49,7 +48,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -74,9 +72,6 @@ import com.qualcomm.robotcore.wifi.WifiDirectAssistant;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
-
-import android.webkit.WebView; //ERIC
-import android.webkit.WebSettings; //ERIC
 
 public class FtcRobotControllerActivity extends Activity {
 
@@ -108,6 +103,12 @@ public class FtcRobotControllerActivity extends Activity {
   protected FtcRobotControllerService controllerService;
 
   protected FtcEventLoop eventLoop;
+
+	//===========================================[ERICS CODE HERE]=================================
+
+	public static FtcRobotControllerActivity mainActivity;
+
+	//=============================================================================================
 
   protected class RobotRestarter implements Restarter {
 
@@ -183,15 +184,12 @@ public class FtcRobotControllerActivity extends Activity {
     if (USE_DEVICE_EMULATION) { ModernRoboticsHardwareFactory.enableDeviceEmulation(); }
 
 
-    //==============================[ERIC CODE]=================================================
-    //WebView mWebView;
-
-   // mWebView = (WebView) findViewById(R.id.webView);  // identify the webview
-    //mWebView.loadUrl("file:///android_asset/Eric/goathead2.gif"); //url from android_assets
-
+    //==============================[ERICS CODE]=================================================
 
     //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
-    //==============================[END]=======================================================
+	  mainActivity = this;
+
+    //===========================================================================================
   }
 
   @Override

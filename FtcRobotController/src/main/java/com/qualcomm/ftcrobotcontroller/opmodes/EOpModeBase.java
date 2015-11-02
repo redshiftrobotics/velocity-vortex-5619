@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
@@ -37,6 +38,10 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotorController dcMotorController2;
 	protected DcMotorController dcMotorController3;
 
+	public void toast(String message)
+	{
+		Toast.makeText(FtcRobotControllerActivity.mainActivity.getBaseContext(), message, Toast.LENGTH_SHORT).show();
+	}
 	public void dt(String text)
 	{
 		//make a new line
@@ -45,6 +50,7 @@ public abstract class EOpModeBase extends OpMode{
 		teleConvert = Integer.toString(teleInt);
 		//print to console new line
 		telemetry.addData(teleConvert, text);
+		toast(text); //if this doesnt work then slash this out!
 	}
 
 	public void ct(String what, String text)
@@ -251,7 +257,10 @@ public abstract class EOpModeBase extends OpMode{
 		frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
 		backRightMotor.setDirection(DcMotor.Direction.REVERSE);
 
-		dt ("Init Loaded!"); //end
+		dt("Init Loaded!"); //end
+
+
+
 	}
 
 
