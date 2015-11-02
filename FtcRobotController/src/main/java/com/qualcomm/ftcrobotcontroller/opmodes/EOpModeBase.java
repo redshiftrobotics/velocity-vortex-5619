@@ -30,19 +30,25 @@ public abstract class EOpModeBase extends OpMode{
 	protected Servo clamp2; //clamp
 	protected Servo hit1; //hit
 	protected Servo hit2; //hit
-	protected LightSensor lightSensor;
+	protected LightSensor lightSensor; //line follower light sensor
 
-	protected LegacyModule legacyModule1;
-	protected ServoController servoController1;
-	protected DcMotorController dcMotorController1;
-	protected DcMotorController dcMotorController2;
-	protected DcMotorController dcMotorController3;
+	protected LegacyModule legacyModule1; //legacy module
+	protected ServoController servoController1; //servo controller
+	protected DcMotorController dcMotorController1; //motor controller 1
+	protected DcMotorController dcMotorController2; //motor controller 2
+	protected DcMotorController dcMotorController3; //motor controller 3
 
-	public void toast(String message)
+	public void toastShort(String message) //makes the toast on screen widget work in a simple way. SHORT LASTING WIDGET. Good for debug messages
 	{
 		Toast.makeText(FtcRobotControllerActivity.mainActivity.getBaseContext(), message, Toast.LENGTH_SHORT).show();
 	}
-	public void dt(String text)
+
+	public void toastLong(String message) //makes the toast on screen widget work in a simple way. LONG LASTING WIDGET. Good for simple error messages
+	{
+		Toast.makeText(FtcRobotControllerActivity.mainActivity.getBaseContext(), message, Toast.LENGTH_LONG).show();
+	}
+
+	public void dt(String text) //Debug text multiline. Usefull for a lot of output debugging
 	{
 		//make a new line
 		teleInt++;
@@ -50,10 +56,10 @@ public abstract class EOpModeBase extends OpMode{
 		teleConvert = Integer.toString(teleInt);
 		//print to console new line
 		telemetry.addData(teleConvert, text);
-		toast(text); //if this doesnt work then slash this out!
+		//toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
 	}
 
-	public void ct(String what, String text)
+	public void ct(String what, String text) //Debug text single line. Usefull for printing state changes
 	{
 		telemetry.addData(what, text);
 	}
@@ -64,6 +70,7 @@ public abstract class EOpModeBase extends OpMode{
 		dt("Init Loading...");//start
 
 		//prepare for a s**t load of try catches :/
+		//this is all for error checking
 
 		try
 		{
