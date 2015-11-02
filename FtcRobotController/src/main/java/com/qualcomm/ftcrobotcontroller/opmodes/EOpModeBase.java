@@ -2,9 +2,12 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.LegacyModule;
 import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ServoController;
+
 import android.widget.Toast;
 
 
@@ -22,12 +25,17 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotor backRightMotor; //BACK RIGHT
 	protected DcMotor extendMotor1; // arm
 	protected DcMotor extendMotor2; // arm
-	protected Servo clamp1;
-	protected Servo clamp2;
-	protected Servo hit1;
-	protected Servo hit2;
-	protected LegacyModule lModule;
+	protected Servo clamp1; //clamp
+	protected Servo clamp2; //clamp
+	protected Servo hit1; //hit
+	protected Servo hit2; //hit
 	protected LightSensor lightSensor;
+
+	protected LegacyModule legacyModule1;
+	protected ServoController servoController1;
+	protected DcMotorController dcMotorController1;
+	protected DcMotorController dcMotorController2;
+	protected DcMotorController dcMotorController3;
 
 	public void dt(String text)
 	{
@@ -49,6 +57,12 @@ public abstract class EOpModeBase extends OpMode{
 	{
 		dt("Init Loading...");//start
 
+		legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+		servoController1 = hardwareMap.servoController.get("Servo Controller 1");
+		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
+		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
+		dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
+
 		frontLeftMotor = hardwareMap.dcMotor.get("left1");
 		frontRightMotor = hardwareMap.dcMotor.get("right1");
 		backLeftMotor = hardwareMap.dcMotor.get("left2");
@@ -68,7 +82,7 @@ public abstract class EOpModeBase extends OpMode{
 		hit1 = hardwareMap.servo.get("hit1");
 		hit2 = hardwareMap.servo.get("hit2");
 
-		//lModule = hardwareMap.legacyModule.get("Legacy Module 1");
+
 		lightSensor = hardwareMap.lightSensor.get("light");
 
 		dt ("Init Loaded!"); //end
