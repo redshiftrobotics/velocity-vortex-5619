@@ -24,12 +24,12 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotor frontRightMotor; //FRONT RIGHT
 	protected DcMotor backLeftMotor; //BACK LEFT
 	protected DcMotor backRightMotor; //BACK RIGHT
-	protected DcMotor extendMotor1; // arm
-	protected DcMotor extendMotor2; // arm
-	protected Servo clamp1; //clamp
-	protected Servo clamp2; //clamp
-	protected Servo hit1; //hit
-	protected Servo hit2; //hit
+	protected DcMotor extendMotor1; // arm1
+	protected DcMotor extendMotor2; // arm2
+	protected Servo clamp1; //clamp1
+	protected Servo clamp2; //clamp2
+	protected Servo hit1; //hit1
+	protected Servo hit2; //hit2
 	protected LightSensor lightSensor; //line follower light sensor
 
 	protected LegacyModule legacyModule1; //legacy module
