@@ -93,7 +93,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
 	  */
 
-	//+++++++++++++++++++++++++++++[Eric's Op Mode Register]++++++++++++++++++++++++++++++++++++++++
+	//█████████████████[Eric's Op Mode Register]███████████████████████
 
 
 	/*                   BROKEN OPMODES
@@ -122,6 +122,6 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("Final Autonomous", EAuto.class);
       //manager.register("ESimpleAuto.class", ESimpleAuto.class);
       manager.register("Testing Autonomous OPMode Parts", EAutoTest.class);
-
+//█████████████████████████████████████████████████████████
   }
 }

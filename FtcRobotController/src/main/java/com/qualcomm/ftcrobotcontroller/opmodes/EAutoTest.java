@@ -20,7 +20,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 Paste in code here to test as part of testing a opmode. After it works paste it in the EAuto.java
 
 Look at ESimpleAuto.class for help!
-██████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████████
  */
 public class EAutoTest extends EOpModeBase {
 

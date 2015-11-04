@@ -71,6 +71,8 @@ public abstract class EOpModeBase extends OpMode{
 
 		//prepare for a s**t load of try catches :/
 		//this is all for error checking
+		//guess this wasnt needed :/
+
 
 		try
 		{
@@ -249,6 +251,8 @@ public abstract class EOpModeBase extends OpMode{
 		}
 
 		//god that was a LOT of try catches
+		//turns out they were not needed
+		//well, that was some nice good time wasted i guess :/
 
 		frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
 		backRightMotor.setDirection(DcMotor.Direction.REVERSE);
