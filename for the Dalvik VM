@@ -1,0 +1,1219 @@
+[33mcommit 3cfa6ccc7d950255a5a7ebaf3084609581d6db72[m
+Author: egold555 <eric@golde.org>
+Date:   Tue Nov 3 08:14:35 2015 -0800
+
+    Adding more comments...
+
+[33mcommit 58a17106d35e90347dddad881bc04ff460e2f53f[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 17:31:22 2015 -0800
+
+    Added more comments and adjusted Toast
+
+[33mcommit b30d6e13c78338670e061b87ff21e7563932fd85[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 17:09:21 2015 -0800
+
+    Added Toast widget! You can now easily make a on screen widget by calling
+     " toast (message); "
+
+[33mcommit fd4b280b380e2cbb49c28e32c65f22b8176e78a8[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 16:54:47 2015 -0800
+
+    Added a s**t load of try catches for error checking for every device connected to the phone.
+    Added error messages (that are better then FTC's error messages :D) to all of the try catches mentioned above. (NOTE: The messages will not appear on screen. It uses telemetry. Working on using the Toast notification for errors)
+
+[33mcommit 410111ce81187e840219705af609d7c7d3920762[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 16:32:07 2015 -0800
+
+    EOpModeBase: added some new controller names and registered them as a device even know i am probly not going to use them in my opmodes but there going to be used in the error checker
+    
+    Rest: Made comments look nicer and added more comments
+    
+    Activity: Changed version number
+
+[33mcommit d968cdf54c84f2d0334421b8953d2ee4abe02a2c[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 14:31:41 2015 -0800
+
+    Sorry! added a extra } to your code.
+
+[33mcommit 1a9e6b28564aca72ccb29c43f20af306829a3c0e[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 14:30:13 2015 -0800
+
+    Fixing up code and adding more and more comments so people can understand everything
+
+[33mcommit a240f26c9433b7aef5b00433777ccb1a0c867992[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 14:11:42 2015 -0800
+
+    Allplied the bace class i made earlyer to all my existing opmodes i have made
+
+[33mcommit b64efc98585fc93eb1250da1ee7894645478c27f[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Nov 1 13:56:51 2015 -0800
+
+    Made a base class for all of my other class files.
+
+[33mcommit 7813b33da5da181776274c86cf6e14e7551b8fc2[m
+Author: Noah Rose Ledesma <NoahRoseLedesma@seattleacademy.org>
+Date:   Sat Oct 31 14:05:55 2015 -0700
+
+    Append scale_motor_power
+    
+    Scaling function.
+
+[33mcommit 38450549b0ecefdeb27f4a97c136e19d4dcaac20[m
+Merge: 3663b4c d32f774
+Author: MadelineByrne <madelinebyrne@seattleacademy.org>
+Date:   Sat Oct 31 13:41:29 2015 -0700
+
+    Merge branch 'master' of https://github.com/redshiftrobotics/5619
+
+[33mcommit 3663b4c5948febc37c4c3e84d739f9791b7b9c6f[m
+Author: MadelineByrne <madelinebyrne@seattleacademy.org>
+Date:   Sat Oct 31 13:40:23 2015 -0700
+
+    add OpModeTest.java
+
+[33mcommit d32f7747f487423ee95d2993c5708d392285e1d0[m
+Author: egold555 <eric@golde.org>
+Date:   Sat Oct 31 12:34:46 2015 -0700
+
+    Finally now have everyones code!
+    On the 5619 repo!
+    
+    Added:
+    linefollow stuff and things
+    updating stuff and things.
+    (Very descriptive i know)
+
+[33mcommit 3ffd6b01985d01dd9860da1747428a970898d48e[m
+Merge: dd90a00 171eead
+Author: egold555 <eric@golde.org>
+Date:   Sat Oct 31 12:21:29 2015 -0700
+
+    Merge branch 'master' of https://github.com/redshiftrobotics/5619
+
+[33mcommit 171eead94177f63a0d612ff8cf4b65365bd81904[m
+Merge: 07e72de 4df777b
+Author: NoahRoseLedesma <noahroseledesma@seattleacademy.org>
+Date:   Sat Oct 31 12:15:43 2015 -0700
+
+    Merge branch 'master' of https://github.com/redshiftrobotics/5619
+
+[33mcommit 07e72deeebb25da708cdc4318998c0ad46129fc7[m
+Author: NoahRoseLedesma <noahroseledesma@seattleacademy.org>
+Date:   Sat Oct 31 12:13:27 2015 -0700
+
+    Add lineFollow.java
+
+[33mcommit dd90a00e896847565c4a7b9922640d384935ce36[m
+Author: egold555 <eric@golde.org>
+Date:   Sat Oct 31 11:59:28 2015 -0700
+
+    Working on  autonomous code.
+    took out unessary code that does nothing and takes up space
+
+[33mcommit 76c35b21ea0cc3b193e62939b5b3cff4bf813993[m
+Author: egold555 <eric@golde.org>
+Date:   Tue Oct 27 15:37:24 2015 -0700
+
+    Fixed version number -Facepalm-
+
+[33mcommit 0da860d68f55f6c060368d78bac4586259eb0fb3[m
+Author: egold555 <eric@golde.org>
+Date:   Tue Oct 27 14:08:43 2015 -0700
+
+    Killed the goat.
+    Changed the rotation.
+    fixed a lot of bugs
+    rerote telementry code
+
+[33mcommit ab87a7afd7987f9c77974f29483ba51256f722f8[m
+Author: egold555 <eric@golde.org>
+Date:   Tue Oct 20 17:52:03 2015 -0700
+
+    Fixed driving bug
+    GoatBot Invaded the app
+
+[33mcommit 688dad50022b983eda5d8b4a865b503a051bb99e[m
+Author: egold555 <eric@golde.org>
+Date:   Sat Oct 17 12:40:48 2015 -0700
+
+    Fixed driving bug
+
+[33mcommit 4a09a63550278d66ab2a4ead8e91e6e7ce2a19bc[m
+Author: egold555 <eric@golde.org>
+Date:   Sat Oct 17 11:14:11 2015 -0700
+
+    Version: 2.5.40
+    Added 3 OpModes:
+        EFDrive.class (Final Drive)
+        EADrive.class (Arcade Mode)
+        ETDrive.class (Tank Drive)
+    
+    Fixed Classed:
+        E4Drive.class (two joystick control)
+        Debug.class
+    
+    Renamed Classes:
+        E4Drive.class
+        Debug.class
+        EFDrive.class
+        EADrive.class
+        ETDrive.class
+        TestOpMode.class
+    
+     Added way more comments to class files
+
+[33mcommit 7ffd56705d236c22bb0a4d8b4e96dc1c04c102f1[m
+Author: egold555 <eric@golde.org>
+Date:   Mon Oct 12 08:12:43 2015 -0700
+
+    Added comments to my code and fixed the motor problem
+
+[33mcommit 207fe69263ff6996cf79770d462b4574e4ebf41d[m
+Author: egold555 <eric@golde.org>
+Date:   Mon Oct 12 08:06:43 2015 -0700
+
+    Taken out useless code that was commented out and random imports and code that did nothing
+
+[33mcommit 165ea2ccb1f5cd10d118eecefe153d0f6b0f259a[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Oct 11 12:22:35 2015 -0700
+
+    EDebug.java is broke. commented it out
+
+[33mcommit 91c553ec49259d934c6e8c6f913350fb82168f0f[m
+Author: egold555 <eric@golde.org>
+Date:   Sun Oct 11 12:11:39 2015 -0700
+
+    Initial commit
+
+[33mcommit 4df777bdbf3c4d5e41eb2ff9c79c487c1c2db10c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Oct 10 11:44:52 2015 -0700
+
+    Fix .editorconfig
+
+[33mcommit 463239c4576be49e19c5b0bfc353d908768fa008[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Sep 5 15:18:46 2015 -0700
+
+    Reset for the 2015-2016 season
+
+[33mcommit 2b6344c966d66b0c704f54853174d597983f9294[m
+Author: Aidan Wood <aidanwood5@outlook.com>
+Date:   Sat Feb 7 09:09:18 2015 -0800
+
+    pragma changes
+
+[33mcommit 03e3c35ad3aa1c954fee3d670d6fd8df47c4269d[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Feb 7 00:41:25 2015 -0800
+
+    last minute changes
+
+[33mcommit 4cfbd411c1723cd5b50f0273b285577290c8eed2[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Feb 6 20:24:32 2015 -0800
+
+    Update autonomous configs for competition
+
+[33mcommit 5ec46a780de72774676a628acb7d4fad42d5bfbb[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Feb 6 19:59:35 2015 -0800
+
+    Revert "Add a timeout to scissor lift init"
+    
+    This reverts commit 8da3e0aa3d3def0aa99ce44ebe55e87b0040def1.
+
+[33mcommit 8da3e0aa3d3def0aa99ce44ebe55e87b0040def1[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Feb 5 15:35:08 2015 -0800
+
+    Add a timeout to scissor lift init
+    
+    Still needs testing...
+
+[33mcommit bf4b74ea9f51bb2ec322d5310c7993038c565207[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Feb 4 15:18:04 2015 -0800
+
+    Fix the #pragma config()s to match final I2C wiring on the robot
+
+[33mcommit 9d270da3d4c0636fafce7b8ef928812d13b90cd4[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Feb 3 17:09:38 2015 -0800
+
+    Remove outdated TODO
+
+[33mcommit 2fa449e95fa3054a9b11454630a150075ae7d933[m
+Merge: af6affa 5e6f98e
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Feb 3 17:08:13 2015 -0800
+
+    Merge branch 'limit-switches'
+    
+    Finally. May not be safe going up, since the motor overshoots.
+    
+    Conflicts:
+    	teleop/teleop_wf.c
+
+[33mcommit af6affa8448995eb9f146b5ffab48622281afcef[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Jan 7 17:51:57 2015 -0800
+
+    Swap the order of Drive_turn IR call
+
+[33mcommit 5e6f98e9e85fd8e6da0ad9ac58b262eceb7e8a1b[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Feb 3 17:04:33 2015 -0800
+
+    Tune upper encoder limit
+
+[33mcommit 66e9ebb99740c172b4d3e3967a85f717d5e9063a[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Feb 3 16:54:46 2015 -0800
+
+    Initialize the scissor lift in teleop and autonomous
+
+[33mcommit c964b27230841a6b10c98c60ba9256c00e0e91a4[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Feb 3 16:53:35 2015 -0800
+
+    Commit final limit switch logic
+
+[33mcommit 5054276f2b33c9d39cdad42b0160d78cd5c18c8f[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Jan 30 18:42:04 2015 -0800
+
+    Rm the test file
+
+[33mcommit 3a24bf937d0a14b6caf4112a4cb2acb9a78c4e00[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Jan 30 18:38:59 2015 -0800
+
+    Limit switch bugfixes
+
+[33mcommit a34140c806e9f6bbcb39e930a9cfe0b8560cd24f[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Jan 30 18:30:45 2015 -0800
+
+    Whitespace
+
+[33mcommit 147cd52b4d802c3a92a5d709579ffaaf88c19211[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Jan 30 18:26:25 2015 -0800
+
+    Add Aidan's WIP followWall() changes
+
+[33mcommit f3889d628c9a24582165af269fb048224213d218[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Jan 30 18:16:57 2015 -0800
+
+    Adjust servo value
+    
+    Apparently the arbiter stopped dispensing, even though there were no
+    changes to either the software or that bit of the hardware. So,
+    adjust the values. Again.
+
+[33mcommit 9964d53b3497fdddffdaa181c52fd84673f665c0[m
+Author: Aidan Wood <aidanwood5@outlook.com>
+Date:   Thu Jan 29 15:43:56 2015 -0800
+
+    Make follow wall work, add it to teleop and autonomous
+    
+    Still need more testing on the wall follow
+
+[33mcommit 0170dd91d3dad70ba0d9dec0354b94d51f4f3b31[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Jan 28 17:58:13 2015 -0800
+
+    Add almost finished limit switch support
+    
+    Everything that remains is clearly marked TODO.
+
+[33mcommit e49c7f626d40e3cb08f2d821e77eddefe7af9c35[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Jan 28 15:55:28 2015 -0800
+
+    commit hello
+
+[33mcommit 4211e938d879a6b0704702ffa3bc452dcce5e43b[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Jan 28 15:45:14 2015 -0800
+
+    Start work on limit switches
+
+[33mcommit 58aaf7984bb5b0691e12f70f4b414e42cc2475c9[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Jan 27 17:04:46 2015 -0800
+
+    Misc. auto updates
+
+[33mcommit 647bf3a01d37a823037d8fe8da26d37dccb0dec2[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Jan 24 15:42:51 2015 -0800
+
+    add wall follow
+
+[33mcommit a1d20c98c4a5253b3a103c6fa37ca6526da8138a[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 24 15:41:59 2015 -0800
+
+    Add very WIP logic to move to IR positions
+
+[33mcommit f9dd34dded8f81c46ecc92a445bdca2c50dc720d[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 24 14:25:53 2015 -0800
+
+    Add logic to move to parking zone
+
+[33mcommit 6c6ee0a6569a1a3f530789375e493254822e4467[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Thu Jan 22 17:54:30 2015 -0800
+
+    Add Aidan's WIP sonar code
+
+[33mcommit afa819dbd47a7e11e29733accd7d3b524f138e21[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Thu Jan 22 17:04:14 2015 -0800
+
+    Uncomment scissor lift calls
+
+[33mcommit b9ff5378a72d54273256627ea3a5396b145fdf9a[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Thu Jan 22 15:40:57 2015 -0800
+
+    Comment out waitForStart() Add grabbertest -Aidan
+
+[33mcommit 5546cdea5a1a8d200829909871f88147ef0c8119[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 20 18:07:24 2015 -0800
+
+    Update copyright year
+
+[33mcommit 922f0bbc899b9a4a42863714ad2257355681d30d[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 20 18:05:46 2015 -0800
+
+    Improve ramp reliability somewhat
+
+[33mcommit b39ebe300fd2575afadb73e2ed268208b190f9c3[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 20 17:13:23 2015 -0800
+
+    Another small servo adjustment
+
+[33mcommit 32a70c733e08b29979bdace1851b960d91f52d69[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 20 17:12:47 2015 -0800
+
+    Correct servo values yet again
+
+[33mcommit 5997216e2b96c1a02f61f22b5d06fd7e41a9749a[m
+Author: gcronin <gcronin@seattleacademy.org>
+Date:   Sat Jan 17 14:04:53 2015 -0800
+
+    Creep Speed added on Button 6
+    
+    Tested and Works
+
+[33mcommit 1bafa4643d0dbdb49e0fffae005f850919ee322c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 17 11:39:40 2015 -0800
+
+    Switch grabber button
+
+[33mcommit a135e473dfa84f1795244254c37914ed2856a2ed[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Jan 13 17:57:11 2015 -0800
+
+    Adjust responsiveness of the new grabber controls
+
+[33mcommit 4355699b20716af114e25a3ea84b560c9ea5a346[m
+Author: gcronin <gcronin@seattleacademy.org>
+Date:   Tue Jan 13 17:52:50 2015 -0800
+
+    Revert "Revert "Make the grabber be controlled by only one button""
+    
+    This reverts commit 8cf7d0a16d37a9f173382cb2f02f459821b99765.
+
+[33mcommit 53f2f178e555b0edcbe776cbaf4234bca64631fd[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 13 17:51:20 2015 -0800
+
+    Adjust servo values (again)
+
+[33mcommit 19762356602ca567db931d6d1358478b7bf8a94f[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Jan 13 17:50:47 2015 -0800
+
+    Add logic to move to the tubes and dispense
+
+[33mcommit 8cf7d0a16d37a9f173382cb2f02f459821b99765[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Jan 10 13:17:42 2015 -0800
+
+    Revert "Make the grabber be controlled by only one button"
+    
+    This reverts commit 03ef24a1ee55544617c089639bce001f7f819dbe.
+
+[33mcommit 03ef24a1ee55544617c089639bce001f7f819dbe[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Jan 10 13:17:27 2015 -0800
+
+    Make the grabber be controlled by only one button
+
+[33mcommit 0b9ae99b1cd09aae92dfbe30930c848cb6027b68[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Jan 8 19:57:21 2015 -0800
+
+    Adjust grabber servo value; speed up the scissor lift
+
+[33mcommit 637b1913dcfcb99ff8c584d1415a2fd13a3facbe[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Jan 8 19:56:24 2015 -0800
+
+    Switch to the ramp logic, turn on waitForStart()
+
+[33mcommit 32fe3751713f7dac8b90f5aa39fe5c5768d53595[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Jan 7 17:50:02 2015 -0800
+
+    Bugfixes
+
+[33mcommit 155b7d0ad3ac3cb0a05d23cdc16684b67e88b6da[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Jan 6 17:46:17 2015 -0800
+
+    Adjust the servo position again
+
+[33mcommit fcc17af258212a9b848a2efb119abebc3e890a43[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Jan 6 17:13:35 2015 -0800
+
+    Adjust servo positions; style; disable spinning
+
+[33mcommit e4d00a5cfb9078f5c5b1faf0c25869586ed8c8b2[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 18:00:40 2015 -0800
+
+    Add kickstand logic
+
+[33mcommit ce0ecdb4302afe5ae60f6fd5fd2e0b23dd0cd93c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:59:42 2015 -0800
+
+    Add new try for the IR linefollower
+
+[33mcommit c63e417e53bab1c4fde6d0ad5a4ad14edeb4cfa7[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:58:50 2015 -0800
+
+    Take out the scissor lift logic in autonomous
+
+[33mcommit a82db8a8dae9f9fe3eaf765b91be47d9b5590753[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:58:04 2015 -0800
+
+    More spinning stuff
+
+[33mcommit 0543bf77034bc4cf7a67c4ade1033146f8fcb601[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:57:30 2015 -0800
+
+    Adjust ball arbiter/grabber servo positions
+    
+    Some still need some tuning...
+
+[33mcommit 84383fda86bd8391378b7cfe21b14460ccc45139[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:56:35 2015 -0800
+
+    Correct servo bus addresses
+
+[33mcommit fab9e6e2da308ba970b9bce2457f4115fdf528aa[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:55:35 2015 -0800
+
+    Note that we also do the kickstand in the docs
+
+[33mcommit 075a22bcdaace16973450668c3ecdea846028c6e[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Jan 5 17:39:31 2015 -0800
+
+    Add myself to copyright; add missing semicolon
+
+[33mcommit 5e1d587700bdeebadd0f1c1e256ffccf7f678baa[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 3 12:42:35 2015 -0800
+
+    Teleop bug fixes
+
+[33mcommit 54d29f89168d63ab42bb6603bda7eda89c9d83a0[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 3 12:41:18 2015 -0800
+
+    Bug fixes for the drive code; add utility Drive_spin180()
+
+[33mcommit 3e644a6543883cff9c4e81faa5a5ba94d8e96abe[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 3 12:38:15 2015 -0800
+
+    Add some documentation on the autonomous
+
+[33mcommit 424f16851599aaee655c251fe9ee28a33ea84840[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Jan 3 12:37:58 2015 -0800
+
+    Start fleshing out the autonomous
+
+[33mcommit 5278e5fda9ad286d894074abddaf05369e4e0fcb[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Dec 18 17:44:17 2014 -0800
+
+    Switch tube grabber control to the drive joystick
+
+[33mcommit 88b0d01eeb39613ca8bf79e8fd5a9310c40f4900[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Dec 13 14:07:03 2014 -0800
+
+    Rip out FCS compensation
+
+[33mcommit b6a8338f9af03a097326ef4b6346fb2dbac68b2f[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Dec 13 13:34:05 2014 -0800
+
+    Adjust servo values; compensate for FCS flakiness
+
+[33mcommit a220d17117702cefcf1b7b648df6f236e8866a72[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Dec 13 11:52:28 2014 -0800
+
+    Small fixes for the competition
+
+[33mcommit 1acf8d738cd5465bfe6b3ced449f5e2fd0c140ee[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 18:47:09 2014 -0800
+
+    Re-enable waitForStart() in preparation for the competition
+
+[33mcommit ed6e7153d8af912af8b7405f98b77c0bdcd48846[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 18:14:33 2014 -0800
+
+    Polish the ball arbiter logic
+
+[33mcommit ecf2a869a251d82fc8f7dd7aa315a66fc22f9822[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 17:34:25 2014 -0800
+
+    Add ball arbiter and grabber support to the teleop
+
+[33mcommit f5b21061750d011e7515e02de89842b18b0f7969[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 17:12:16 2014 -0800
+
+    Add ball arbiter and grabber support to the drive library
+    
+    The ball arbiter is the name I've given to the servo mounted on the top of
+    the scissor lift.
+
+[33mcommit bb79d1e1e5159a8baa0b2512c6fe30df5d5f33cd[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 16:57:52 2014 -0800
+
+    Fix sweeper support in the systems check
+
+[33mcommit 9fe94b9fbccd921a997066f7689a06a658b0bd88[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 16:56:03 2014 -0800
+
+    Remove obsolete scissor lift library
+
+[33mcommit cca2051cda710225297c3c0b6e6714e64c0f1b22[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 12 16:55:17 2014 -0800
+
+    Finalize sweeper support in teleop
+
+[33mcommit e7f2a5b85dbf5089cfca6ce8f4447ffae537b63c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Dec 11 17:21:03 2014 -0800
+
+    Small cosmetic changes; fix remaining scissor lift bugs
+
+[33mcommit 9bf9bba3d1ab895ded032fccce3bae8f5ccb5fcd[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Dec 11 17:18:10 2014 -0800
+
+    Move the system check into the right place
+
+[33mcommit 93b887a67b5ab759e2ec4adaa2c766669c26f754[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Dec 10 17:41:03 2014 -0800
+
+    Correct operator joystick button detection
+
+[33mcommit a3daafc3fdb36ba09c43c717fb833f0908528bfe[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Dec 10 17:25:46 2014 -0800
+
+    Hook up the sweeper in teleop
+
+[33mcommit e1eb9a8e0f254e742f8d369de2a8e4e64be02774[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Dec 10 17:25:16 2014 -0800
+
+    Tune sweeper support
+
+[33mcommit 62066cc71e81cf49e3ddf28dcf761671f1fdcaad[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Dec 9 20:34:11 2014 -0800
+
+    Fix up the scissor lift code, maybe?
+
+[33mcommit 6592f6527228963a4820d0e3a7521a5e851f3197[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Dec 9 17:00:06 2014 -0800
+
+    Fix left motor control to be on the correct joy
+
+[33mcommit 88a92ebf8dbdcc54ec540d79fc8b0ee1cdcbe9c1[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Dec 9 16:45:07 2014 -0800
+
+    Correct scissor lift bus addresses
+
+[33mcommit 359ce4d1b0748df384f5ac38d75fd31a27852e41[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Tue Dec 9 16:32:41 2014 -0800
+
+    uncomment
+
+[33mcommit e85b84302982e4fe7732ed05f486bb15f4376b00[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Dec 9 16:22:03 2014 -0800
+
+    Correct bus addresses for the new wiring
+
+[33mcommit cb24ff93fbc33d970846b6c67c7744103dd9bd82[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Tue Dec 9 16:18:02 2014 -0800
+
+    Comment out new tank drive to test
+
+[33mcommit 1d6528598ef829f528a74fa999e4be634086bab6[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Dec 9 15:36:58 2014 -0800
+
+    Remove obsolete teleop
+
+[33mcommit 3f089e87d4b93d24d8cd336c394cb233ada36a11[m
+Author: gcronin <gcronin@seattleacademy.org>
+Date:   Mon Dec 8 17:40:28 2014 -0800
+
+    Systems Check Added, Tested
+
+[33mcommit 387580b6a0f1ad116cb34a6ffc95cd634e4c6de2[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Dec 5 16:26:22 2014 -0800
+
+    Add kickstand parameters used for the first competition
+
+[33mcommit 272f4f4186869c948b55257de2765fd090a2ab3e[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 22 13:05:21 2014 -0800
+
+    Remove Willy's unused copy of the linefollower libraries
+
+[33mcommit 0fc389102a92640f72cb5a93fcd38195f42902e5[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 29 13:33:12 2014 -0800
+
+    One more time, updating submodule
+
+[33mcommit 17a96db358659f7067e5b7cc46ccf2f7de8c34b8[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 29 12:49:31 2014 -0800
+
+    2nd attempt to commit globally
+
+[33mcommit 7409d6f78dc4b13354689264620cc864105b1632[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 29 12:48:29 2014 -0800
+
+    Revert "Revert "Update submodule Libraries""
+    
+    This reverts commit 2be9f5ffef7b77016a7b8e58cede1e018ef6fa9c.
+
+[33mcommit 2be9f5ffef7b77016a7b8e58cede1e018ef6fa9c[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 29 12:48:07 2014 -0800
+
+    Revert "Update submodule Libraries"
+    
+    This reverts commit 8e7bc772ba13e217aa1f98674ec3b94495af5f3f.
+
+[33mcommit 8e7bc772ba13e217aa1f98674ec3b94495af5f3f[m
+Author: Aidan Wood <aidanwood5@outlook.com>
+Date:   Sat Nov 29 12:43:00 2014 -0800
+
+    Update submodule Libraries
+
+[33mcommit 465ce2c978873fdfcac29ad9f03b0866d450c209[m
+Author: Aidan Wood <aidanwood5@outlook.com>
+Date:   Sat Nov 29 12:39:05 2014 -0800
+
+    Old commits from Barkot/Samin?
+    
+    Not important, just so that no work is lost
+
+[33mcommit 307774368118c4f703f2ca66a85b066e580ed547[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 29 11:36:52 2014 -0800
+
+    Minor changes, add random movement
+
+[33mcommit 95e45ca1a502cc066a3b01453f6a715eaa46befc[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Fri Nov 28 14:23:35 2014 -0800
+
+    Add continuous forward motion, 180 turn w/ encoder stuff
+
+[33mcommit d4b786499455894ca82214c056a9f9bf1a386dfc[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 22 10:37:32 2014 -0800
+
+    Change angle
+
+[33mcommit 630242c3c18efb27a4f4fdd5e1a771b69ff0ab5c[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 22 10:31:25 2014 -0800
+
+    fix drive commands of autonomous, add move to kickstand
+
+[33mcommit b1272e32d87b87cb038e708b3f7a8a25bbe75255[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 22 09:55:30 2014 -0800
+
+    Add threshold
+
+[33mcommit 4594317394197b3ad4d5f8befda51038709c5ff9[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 22 09:47:52 2014 -0800
+
+    make default mode tank drive
+
+[33mcommit 50ac54cd04cc92d4a65f78cc29c5cb86743183b1[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 22 09:42:48 2014 -0800
+
+    Add note to the scissor lift library
+
+[33mcommit 8cab443423e5ce1af1cd47e4ab308b18af88b3c4[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 22 09:42:41 2014 -0800
+
+    Fix grabber joystick
+
+[33mcommit 6d9fd7d7f3e8f3646ce9c8b7785d3096257aff08[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 22 09:45:00 2014 -0800
+
+    Fix typo
+
+[33mcommit 3bc7a02260376a5fff4a753f7fc9acbbd50adcb5[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Nov 21 17:37:53 2014 -0800
+
+    Add scissor lift and sweeper control
+
+[33mcommit 3f11b26c9dbab57f7c94552503cbe8e825ab1566[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Fri Nov 21 16:26:51 2014 -0800
+
+    Add current WIP autonomous
+
+[33mcommit 5a665aa0781bf1bb4c5e861dfe1d2259ec993c68[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Thu Nov 20 17:26:21 2014 -0800
+
+    Rip out some obsolete library functions; style
+
+[33mcommit 99424ebba13f030e389c8e244e6d4d4edbb037f3[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Sun Nov 16 14:22:13 2014 -0800
+
+    Generalized maxSpeed from controller
+    
+    Also changed the sound played when changing modes
+
+[33mcommit 362b4bbdc6b6784338b3226c68deb25781ee1489[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Sat Nov 15 16:41:05 2014 -0800
+
+    Fixed center wheel direction
+    
+    Also set the spin speed higher
+
+[33mcommit f2c94c548593fda34f605a6e4e700cce50a69420[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Nov 19 15:19:46 2014 -0800
+
+    Add #pragma config to the scissor utils
+
+[33mcommit ef04eb6774bf9962010dc40b4e4c3e54ed33497c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 15 11:51:42 2014 -0800
+
+    Add utilities to test the scissor lift
+
+[33mcommit c6840c2e64d7d12ed43c9521b144b6316bb24f16[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Sat Nov 15 11:46:11 2014 -0800
+
+    Fixes x2 to x1 typo
+    
+    The wrong x value was being used from the joyStick.
+
+[33mcommit 19eb3f23f6e141f39424e203aff5748304811b2c[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Sat Nov 15 11:11:34 2014 -0800
+
+    Changed debug messages
+
+[33mcommit 09120d69af2afd4fa3e0c2c84f172f32087df672[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Nov 11 13:59:08 2014 -0800
+
+    Maybe fix up the teleop
+
+[33mcommit 18305e06e05aa28106563bf9a81d429a62d18200[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Tue Nov 11 13:58:52 2014 -0800
+
+    Use relative paths for library loading
+
+[33mcommit 6fd4e4f2f91c049388f06c47e2bf0f97cc251919[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Tue Nov 11 11:23:46 2014 -0800
+
+    Extremely minor teleop fixes
+
+[33mcommit 5d8cbcb179d3dcf1bff360e1d056bec09cc478cc[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Tue Nov 11 10:49:48 2014 -0800
+
+    More small fixes
+    
+    * Style
+    * Const correctness
+
+[33mcommit 33f4e06a052c3df0171c5ecaa1f3849dfb300954[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Tue Nov 11 10:39:44 2014 -0800
+
+    Minor changes to teleop_wf.c
+
+[33mcommit 4867b331c00ea974bc3cb1e21102e76dc483a28e[m
+Author: Willy Felton <wfelton@seattleacademy.org>
+Date:   Tue Nov 11 10:19:44 2014 -0800
+
+    Finish 5619Drive.h and teleop_wf.c
+
+[33mcommit 1cd83849ac99ac9c43b50dc937d1ae8e7bc72004[m
+Author: wfelton <wfelton@seattleacademy.org>
+Date:   Mon Nov 10 21:48:18 2014 -0800
+
+    Create 5619Drive.h
+    
+    New drive library for 5619 specific motor configuration.
+    Must check motor config for header file.
+    This is used in the new teleop_wf.c
+
+[33mcommit f4854fe218771a0502912830884091022c09e682[m
+Author: wfelton <wfelton@seattleacademy.org>
+Date:   Mon Nov 10 21:46:49 2014 -0800
+
+    Create teleop_wf
+    
+    New UNTESTED teleop program.  Uses new 5619Driver.h file for motor control.
+    MUST READ AND REVIEW AJ AND AIDAN!!
+
+[33mcommit 03e4980d7f003f5a5463515116e6ceda3d33a880[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 8 15:06:08 2014 -0800
+
+    shit to stuff
+
+[33mcommit 2ec6c986905d17bf210961cb115120d95920fd00[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Nov 8 14:30:33 2014 -0800
+
+    Update teleop w/ vectors
+
+[33mcommit 84df751519b470dd868634de8367e20b0e32dafd[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 8 14:40:12 2014 -0800
+
+    Correct motor direction code
+
+[33mcommit 180e0985c3403bac04ceeb3ad28a09664ffb9776[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Sat Nov 8 13:21:13 2014 -0800
+
+    Style changes; add some comments; small bugfixes
+
+[33mcommit c90f048d56cd306d9a53310f74403d095b01a6c7[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Wed Nov 5 17:11:36 2014 -0800
+
+    Fix copyright
+
+[33mcommit ce8b9cdd47f8dd9d4a87a5aca930d7f6385c30c2[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Tue Nov 4 15:19:51 2014 -0800
+
+    Finish teleop (untested), a few small bugs
+
+[33mcommit d9eb1aafc34504123737d198aec46c0fa14b0b86[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Nov 3 17:49:54 2014 -0800
+
+    add start of a teleop, make line follower and other smaller pieces on auto
+
+[33mcommit e3c015e8c5fe6bb3fafc5f098c465caac49f0683[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Nov 3 15:48:42 2014 -0800
+
+    even less confusing names...
+
+[33mcommit 0a4a5bed40c5f072b15d222a0918024cc4229ab7[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Nov 3 15:44:14 2014 -0800
+
+    Change names to make more sense
+
+[33mcommit 83b380879fb260cb3bfe4cd8f51c05841539aaf1[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Nov 3 15:40:43 2014 -0800
+
+    Make some changes, not everything works, made copy for original
+
+[33mcommit 85f55ba607aa05223c64e1c0ffd2371fd368771b[m
+Author: aidanwood <aidanwood5@outlook.com>
+Date:   Mon Nov 3 15:35:53 2014 -0800
+
+    Correct team name
+
+[33mcommit 4b5409a96e71c1944488f35de4a7fe55fab3661c[m
+Author: Alex Jordan <alex@strugee.net>
+Date:   Mon Nov 3 15:30:42 2014 -0800
+
+    Add skeleton linefollower autonomous
+
+[33mcommit 49ac863415265e60a8bf8d98f7a9521e1525a98b[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Thu Oct 30 17:48:24 2014 -0700
+
+    Make autonomous that can track and move to IR
+
+[33mcommit 9af22d621ecffc841fe0f84e1f55b9b34397e22b[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Tue Oct 21 16:47:46 2014 -0700
+
+    Add "useful" functions for our team file, comment some stuff
+
+[33mcommit a6556aa733a377dee012b7502c54eb268ba099ca[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Oct 20 10:29:59 2014 -0700
+
+    Add copy of IR from company-wide Experimental to 5619 Experimental
+    
+    For these purposes:
+    https://docs.google.com/document/d/1mwBH5NRGTYiUcSxr3SrY4J0-FsVtYYbiAVdY38PVdGk/edit
+
+[33mcommit df5af8b007560c46a6c483cf48e8672eaccd8aea[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Mon Oct 20 10:26:56 2014 -0700
+
+    change sonar tests
+    
+    forgot to sync this from a couple of weeks ago
+
+[33mcommit 147edfa81ee5933586704e0ffededec1a8c59914[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 11 12:16:31 2014 -0700
+
+    Add various bugfixes and debugging calls
+
+[33mcommit 88e7af9088cd5f7a410f38322bf1db51bd8adb3e[m
+Author: Tim Barnes <tim.barnes@gmail.com>
+Date:   Fri Oct 10 13:27:25 2014 -0700
+
+    Added an interactive IR sensor data collecting program
+
+[33mcommit 9182320368861a213fb47d1bf9c1b47651319982[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Wed Oct 8 17:56:52 2014 -0700
+
+    Just about finish up ArmSwing.c
+
+[33mcommit 7f6984a57eb2dcf4172c4f381307bceee0d675db[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 15:50:16 2014 -0700
+
+    Add ArmSwing.c
+
+[33mcommit 29c57e4d5bf9659d55cf558bbc61d6c59271aeba[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 15:02:14 2014 -0700
+
+    Revert "Add position locking"
+    
+    This reverts commit 7353baca1df70a39a1e620c9dc28142323a760a1.
+    
+    This is due to the fact that this code caused weird problems on
+    the robot.
+
+[33mcommit 7353baca1df70a39a1e620c9dc28142323a760a1[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 15:02:10 2014 -0700
+
+    Add position locking
+
+[33mcommit 4f9d40e7984ac84edd8a00d899f0db7b5bdfdeab[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 14:36:40 2014 -0700
+
+    Small changes to SlideDrive
+
+[33mcommit 3731c78b77aac78f0441771a2e3c7faaa796b269[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 12:20:50 2014 -0700
+
+    Even more bug fixes
+
+[33mcommit 2f7b04fc0bd0bb12e3202ea7a2af8ac33ef26de6[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 12:13:37 2014 -0700
+
+    Even more small adjustments
+
+[33mcommit a23321da12def7f894079114699e19e0a383345e[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 11:57:46 2014 -0700
+
+    Fix up SlideDrive.c
+    
+    - Fix center motor direction
+    - Fix motors continuing to run
+
+[33mcommit 682502319319033af2626798b1b33f52a022fbbc[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 11:41:22 2014 -0700
+
+    Add the proper #pragma config()s
+
+[33mcommit a14a8d0e2ee2fc54a6825c97a814a78165b212cd[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 11:37:53 2014 -0700
+
+    Small bugfixes to SlideDrive.c
+
+[33mcommit bbbcd313f57dc3d3b2b02ae8e10647a625802d1c[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Oct 4 11:30:54 2014 -0700
+
+    Add SlideDrive code
+
+[33mcommit e9728666d718552cfb3a3fc1e17cefc439cd682c[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Sep 30 17:49:42 2014 -0700
+
+    Add IR test results
+
+[33mcommit c650e8d7963ba37cc4ad886feb589721eba84930[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Sep 30 16:51:44 2014 -0700
+
+    fix a display problem in irtest.c
+
+[33mcommit ff33b2eaf82978ab76a3657fc9639fe31dd10d1f[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Sep 27 14:06:21 2014 -0700
+
+    add sonar test (untested)
+
+[33mcommit a67eac55b4bf0917c884e742243532d350c96b86[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Thu Sep 25 17:46:26 2014 -0700
+
+    improve irtest.c
+    
+    * add motion placeholders
+    * consolidate debug stream writes
+    * add tick tracking
+    * add onboard NXT debugging
+
+[33mcommit 872643f68640de0725176ac1089de2ef795998f1[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Thu Sep 25 16:18:31 2014 -0700
+
+    add slam article
+    
+    http://www.researchgate.net/publication/228374722_CoreSLAM_a_SLAM_Algorithm_in_less_than_200_lines_of_C_code/links/0912f5134a7837f5b8000000
+
+[33mcommit 51be7eb22f47b33d9aa425ab64a0c3d39eaffb65[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Sep 20 14:46:57 2014 -0700
+
+    add SLAM folder, basics pdf
+    
+    pdf from
+    http://ocw.mit.edu/courses/aeronautics-and-astronautics/16-412j-cognitive-robotics-spring-2005/projects/1aslam_blas_repo.pdf
+
+[33mcommit 4d39ff419ed4577fc83a59cfd0bae7672074b18e[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Sep 20 13:39:00 2014 -0700
+
+    correct folder spelling error
+    
+    changed "teliop" to "teleop". Does not affect includes
+
+[33mcommit 87665935f36583319b53df0d699e7bf165bf8ae4[m
+Author: aidanwood <aidanwood@seattleacademy.org>
+Date:   Sat Sep 20 13:13:15 2014 -0700
+
+    ir commits
+
+[33mcommit 87dd2d627b0871838e972df66f890c267a530c95[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Sep 20 13:01:30 2014 -0700
+
+    add .editorconfig
+
+[33mcommit 345426e2f0a0f21f0350731808dc3057152ff803[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Sep 13 11:47:49 2014 -0700
+
+    add basic repo layout
+
+[33mcommit 730b8d28a19b764a84c44e8aa5f17afc87362be9[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Sat Sep 13 11:43:50 2014 -0700
+
+    pull in the libraries
+
+[33mcommit b83e67aa7b8f9fa17e8abf28e04cf82cae6a7ff6[m
+Author: Alex Jordan <alexander3223098@gmail.com>
+Date:   Tue Sep 9 17:09:42 2014 -0700
+
+    Initial commit

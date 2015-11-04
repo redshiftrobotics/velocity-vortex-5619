@@ -6,8 +6,8 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 public class EAuto extends EOpModeBase {
 
     public void init() {
-        dt("**DOES NOTHING**");
-        dt("Autonomous Selected!");
+
+        dt("Final Autonomous Selected!");
 
         super.init();
 
