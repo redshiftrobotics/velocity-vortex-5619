@@ -17,9 +17,7 @@ public class EDebug extends EOpModeBase {
     public void loop() {
 
         /*
-       Use encoders here.
-       Follow pictures
-
+       Test stuff & things here!
          */
 
 

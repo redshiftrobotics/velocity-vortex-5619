@@ -118,17 +118,6 @@ public abstract class EOpModeBase extends OpMode{
 
 		try
 		{
-			dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
-		}
-		catch(RuntimeException e)
-		{
-			dt("An Error Occurred!!!");
-			dt("Couldn't find Motor Controller 2");
-			throw e;
-		}
-
-		try
-		{
 			dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
 		}
 		catch(RuntimeException e)
