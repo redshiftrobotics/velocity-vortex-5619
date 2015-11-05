@@ -29,20 +29,26 @@ public class EAutoTest extends EOpModeBase {
         dt("Testing Autonomous OPMode Parts Selected!");
 
         super.init();
-
     }
 
     @Override
-    public void loop() {
-
+    public void start()
+    {
         /*
-      Paste in code here to test as part of testing a opmode. After it works paste it in the EAuto.java
-
-Look at ESimpleAuto.class for help!
-
+        First state
          */
-
-
-
     }
+    @Override
+    public void loop()
+    {
+          /*
+         Loop for switching states and calling other loops
+          */
+    }
+
+    /*
+    ██████████████████████████████████████████████████████████████████████
+     */
+
+
 }

@@ -14,6 +14,18 @@ public class EDebug extends EOpModeBase {
     }
 
     @Override
+    public void start()
+    {
+
+    }
+
+    @Override
+    public void stop()
+    {
+
+    }
+
+    @Override
     public void loop() {
 
         /*

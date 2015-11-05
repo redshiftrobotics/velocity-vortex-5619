@@ -5,6 +5,8 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
  */
 public class EAuto extends EOpModeBase {
 
+    int state;
+
     public void init() {
 
         dt("Final Autonomous Selected!");
@@ -14,15 +16,23 @@ public class EAuto extends EOpModeBase {
     }
 
     @Override
-    public void loop() {
-
+    public void start()
+    {
         /*
-       Use encoders here.
-       Follow pictures
-
+        First state
          */
-
-
-
     }
+    @Override
+    public void loop()
+    {
+          /*
+         Loop for switching states and calling other loops
+          */
+    }
+
+    /*
+    ██████████████████████████████████████████████████████████████████████
+     */
+
+
 }
