@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.robotcore.hardware.DcMotorController;
+
 /**
  * Created by Eric Golde on 10/5/2015.
  */
@@ -24,6 +26,20 @@ Look at ESimpleAuto.class for help!
  */
 public class EAutoTest extends EOpModeBase {
 
+
+    int state;
+    final int ENCODER_CPR = 1120; //ANDY MARK MOTOR DONT CHANGE
+    final double GEAR_RATIO_WHEEL = 1;
+    final int DIAMETER_DRIVEWEEL = 60; //in mm
+    final double CIRCUMFRANCE_DRIVEWEEL = Math.PI * DIAMETER_DRIVEWEEL;
+    final double POWER_DRIVE7 = 0.5;
+
+
+
+    final int STATE_DRIVE_7_FEET = 1;
+    final int STATE_TURN_90_LEFT = 2;
+
+
     public void init() {
 
         dt("Testing Autonomous OPMode Parts Selected!");
@@ -34,21 +50,77 @@ public class EAutoTest extends EOpModeBase {
     @Override
     public void start()
     {
-        /*
-        First state
-         */
+        startDrive7();
     }
     @Override
     public void loop()
     {
-          /*
-         Loop for switching states and calling other loops
-          */
+          if(state == STATE_DRIVE_7_FEET)
+          {
+              loopDrive7();
+          }
+          else if(state == STATE_TURN_90_LEFT)
+          {
+              loopLeft90();
+          }
     }
 
     /*
     ██████████████████████████████████████████████████████████████████████
      */
+    final double DISTANCE_DRIVE7 = 2133.6; //in mm
+    final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
+    final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
+    public void startDrive7()
+    {
+        state = STATE_DRIVE_7_FEET;
+        ct("State", "STATE_DRIVE_7_FEET");
+
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
+        frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
+        frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
+        backLeftMotor.setTargetPosition(COUNTS_DRIVE7);
+        backRightMotor.setTargetPosition(COUNTS_DRIVE7);
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+
+        frontLeftMotor.setPower(POWER_DRIVE7);
+        frontRightMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7);
+        backRightMotor.setPower(POWER_DRIVE7);
+    }
+
+    public void loopDrive7()
+    {
+        int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
+        if(ENCODER_POS_DRIVE7 == COUNTS_DRIVE7)
+        {
+            startLeft90();
+        }
+    }
+
+    ////////////////////////////
+
+    public void startLeft90()
+    {
+        state = STATE_TURN_90_LEFT;
+
+        dt("DONE!");
+        ct("State", "STATE_TURN_90_LEFT");
+    }
+
+    public void loopLeft90()
+    {
+        dt("STATE_TURN_90_LEFT");
+    }
 
 }

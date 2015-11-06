@@ -5,17 +5,17 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Eric Golde on 10/17/2015.
  */
-public class ETDrive extends EOpModeBase {
+public class ETHigh extends EOpModeBase {
 
 
 
     public void init()
-	{
-        dt("Tank Drive Selected!");
-		super.init(); //calls the init funtion in EOpModeBase.class
+    {
+        dt("HIGH Tank Drive Selected!");
+        super.init(); //calls the init funtion in EOpModeBase.class
     }
 
-///////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
     boolean lastBttnStateOpenLeft = false;
     boolean toggleStateOpenLeft = false;
     public boolean toggleGrippersOpenLeft()
@@ -27,7 +27,7 @@ public class ETDrive extends EOpModeBase {
         lastBttnStateOpenLeft = gamepad2.left_stick_button;
         return toggleStateOpenLeft;
     }
-///////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////
     boolean lastBttnStateOpenRight = false;
     boolean toggleStateOpenRight = false;
     public boolean toggleGrippersOpenRight()
@@ -39,7 +39,7 @@ public class ETDrive extends EOpModeBase {
         lastBttnStateOpenRight = gamepad2.right_stick_button;
         return toggleStateOpenRight;
     }
-/////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////
     boolean lastBttnStateHitServoLeft = false;
     boolean toggleStateHitServoLeft = false;
     public boolean toggleHitServoLeft()
@@ -51,7 +51,7 @@ public class ETDrive extends EOpModeBase {
         lastBttnStateHitServoLeft = gamepad2.left_bumper;
         return toggleStateHitServoLeft;
     }
-/////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////
     boolean lastBttnStateHitServoRight = false;
     boolean toggleStateHitServoRight = false;
     public boolean toggleHitServoRight()
@@ -79,7 +79,7 @@ public class ETDrive extends EOpModeBase {
 
         //clip the power values so that it only goes from -1 to 1
         xValue = Range.clip(xValue, -1, 1);
-       yValue = Range.clip(yValue, -1, 1);
+        yValue = Range.clip(yValue, -1, 1);
 
         //set the power of the motors with the gamepad values
         frontLeftMotor.setPower(-xValue); //
