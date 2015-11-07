@@ -16,10 +16,12 @@ public class ETLow extends EOpModeBase {
         dt("LOW Tank Drive Selected!");
 		super.init(); //calls the init funtion in EOpModeBase.class
 
-        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
+
     }
 
     @Override
