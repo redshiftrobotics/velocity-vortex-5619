@@ -106,14 +106,14 @@ public class FtcOpModeRegister implements OpModeRegister {
 
 
 
-	/*                  DEBUG OPMODES
-
+	//                  DEBUG OPMODES
+/*
       manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
       manager.register("[Debug] BACK LEFT", EBackLeft.class);
       manager.register("[Debug] BACK RIGHT", EBackRight.class);
+*/
 
-	*/
 
 	//                  GOOD OPMODES
 
@@ -124,5 +124,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //manager.register("ESimpleAuto.class", ESimpleAuto.class);
       manager.register("Testing Autonomous OPMode Parts", EAutoTest.class);
 //█████████████████████████████████████████████████████████
+
+   manager.register("NLineFollow", lineFollow.class);
   }
 }

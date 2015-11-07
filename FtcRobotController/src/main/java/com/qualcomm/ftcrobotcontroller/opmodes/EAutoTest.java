@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
 /**
@@ -45,6 +46,15 @@ public class EAutoTest extends EOpModeBase {
         dt("Testing Autonomous OPMode Parts Selected!");
 
         super.init();
+
+        //frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        //frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
+
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
     }
 
     @Override
@@ -93,16 +103,31 @@ public class EAutoTest extends EOpModeBase {
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
 
-        frontLeftMotor.setPower(POWER_DRIVE7);
-        frontRightMotor.setPower(POWER_DRIVE7);
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
+
+
+        frontLeftMotor.setPower(-POWER_DRIVE7);
+        frontRightMotor.setPower(-POWER_DRIVE7);
         backLeftMotor.setPower(POWER_DRIVE7);
         backRightMotor.setPower(POWER_DRIVE7);
     }
 
     public void loopDrive7()
     {
+        ct("Drive7",Integer.toString(COUNTS_DRIVE7));
+
+        ct("CountsLeftFront", Integer.toString(frontLeftMotor.getCurrentPosition()));
+        ct("CountsRightFront", Integer.toString(frontRightMotor.getCurrentPosition()));
+        ct("CountsLeftBack", Integer.toString(backLeftMotor.getCurrentPosition()));
+        ct("CountsRightBack", Integer.toString(backRightMotor.getCurrentPosition()));
+
+
+
         int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
-        if(ENCODER_POS_DRIVE7 == COUNTS_DRIVE7)
+        if(ENCODER_POS_DRIVE7 < -COUNTS_DRIVE7)
         {
             startLeft90();
         }
@@ -116,6 +141,11 @@ public class EAutoTest extends EOpModeBase {
 
         dt("DONE!");
         ct("State", "STATE_TURN_90_LEFT");
+
+        frontLeftMotor.setPower(-0);
+        frontRightMotor.setPower(-0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void loopLeft90()
