@@ -69,31 +69,27 @@ public abstract class EOpModeBase extends OpMode{
 	{
 		dt("Init Loading...");//start
 
-		//prepare for a s**t load of try catches :/
-		//this is all for error checking
-		//guess this wasnt needed :/
+		
 
 
-		//legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
-		//servoController1 = hardwareMap.servoController.get("Servo Controller 1");
+		legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+		servoController1 = hardwareMap.servoController.get("Servo Controller 1");
 		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
-		//dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
-		//dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
+		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
+		dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
 		frontLeftMotor = hardwareMap.dcMotor.get("left1");
 		frontRightMotor = hardwareMap.dcMotor.get("right1");
-		////backLeftMotor = hardwareMap.dcMotor.get("left2");
-		//backRightMotor = hardwareMap.dcMotor.get("right2");
-		//extendMotor1 = hardwareMap.dcMotor.get("extend1");
-		//extendMotor2 = hardwareMap.dcMotor.get("extend2");
-		//clamp1 = hardwareMap.servo.get("clamp1");
-		//clamp2 = hardwareMap.servo.get("clamp2");
-		//hit1 = hardwareMap.servo.get("hit1");
-		//hit2 = hardwareMap.servo.get("hit2");
-		//lightSensor = hardwareMap.lightSensor.get("light");
+		backLeftMotor = hardwareMap.dcMotor.get("left2");
+		backRightMotor = hardwareMap.dcMotor.get("right2");
+		extendMotor1 = hardwareMap.dcMotor.get("extend1");
+		extendMotor2 = hardwareMap.dcMotor.get("extend2");
+		clamp1 = hardwareMap.servo.get("clamp1");
+		clamp2 = hardwareMap.servo.get("clamp2");
+		hit1 = hardwareMap.servo.get("hit1");
+		hit2 = hardwareMap.servo.get("hit2");
+		lightSensor = hardwareMap.lightSensor.get("light");
 
-		//god that was a LOT of try catches
-		//turns out they were not needed
-		//well, that was some nice good time wasted i guess :/
+
 
 		frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
 		frontLeftMotor.setDirection(DcMotor.Direction.FORWARD);
