@@ -38,15 +38,7 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotorController dcMotorController2; //motor controller 2
 	protected DcMotorController dcMotorController3; //motor controller 3
 
-	public void toastShort(String message) //makes the toast on screen widget work in a simple way. SHORT LASTING WIDGET. Good for debug messages
-	{
-		Toast.makeText(FtcRobotControllerActivity.mainActivity.getBaseContext(), message, Toast.LENGTH_SHORT).show();
-	}
 
-	public void toastLong(String message) //makes the toast on screen widget work in a simple way. LONG LASTING WIDGET. Good for simple error messages
-	{
-		Toast.makeText(FtcRobotControllerActivity.mainActivity.getBaseContext(), message, Toast.LENGTH_LONG).show();
-	}
 
 	public void dt(String text) //Debug text multiline. Usefull for a lot of output debugging
 	{
@@ -69,7 +61,7 @@ public abstract class EOpModeBase extends OpMode{
 	{
 		dt("Init Loading...");//start
 
-		
+
 
 
 		legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
