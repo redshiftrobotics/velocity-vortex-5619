@@ -25,7 +25,7 @@ Paste in code here to test as part of testing a opmode. After it works paste it 
 Look at ESimpleAuto.class for help!
 █████████████████████████████████████████████████████████████████████████
  */
-public class EDebug extends EOpModeBase {
+public class EAutoHigh extends EOpModeBase {
 
 
     int state;
@@ -43,7 +43,8 @@ public class EDebug extends EOpModeBase {
 
     public void init() {
 
-        dt("Testing Autonomous OPMode Parts Selected!");
+        dt("EAutoHigh Selected!");
+        dt("███ BROKEN ███");
 
         super.init();
 
@@ -52,8 +53,8 @@ public class EDebug extends EOpModeBase {
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
     }
 
     @Override
@@ -89,18 +90,18 @@ public class EDebug extends EOpModeBase {
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       // backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
         frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
-       // backLeftMotor.setTargetPosition(COUNTS_DRIVE7);
-       // backRightMotor.setTargetPosition(COUNTS_DRIVE7);
+        backLeftMotor.setTargetPosition(COUNTS_DRIVE7);
+        backRightMotor.setTargetPosition(COUNTS_DRIVE7);
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-       // backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-       // backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
@@ -109,8 +110,8 @@ public class EDebug extends EOpModeBase {
 
         frontLeftMotor.setPower(POWER_DRIVE7);
         frontRightMotor.setPower(POWER_DRIVE7);
-      //  backLeftMotor.setPower(POWER_DRIVE7);
-       // backRightMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7);
+        backRightMotor.setPower(POWER_DRIVE7);
     }
 
     public void loopDrive7()
@@ -119,8 +120,8 @@ public class EDebug extends EOpModeBase {
 
         ct("CountsLeftFront", Integer.toString(frontLeftMotor.getCurrentPosition()));
         ct("CountsRightFront", Integer.toString(frontRightMotor.getCurrentPosition()));
-       // ct("CountsLeftBack", Integer.toString(backLeftMotor.getCurrentPosition()));
-       // ct("CountsRightBack", Integer.toString(backRightMotor.getCurrentPosition()));
+        ct("CountsLeftBack", Integer.toString(backLeftMotor.getCurrentPosition()));
+        ct("CountsRightBack", Integer.toString(backRightMotor.getCurrentPosition()));
 
 
 
@@ -142,8 +143,8 @@ public class EDebug extends EOpModeBase {
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
-      //  backLeftMotor.setPower(0);
-      //  backRightMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void loopLeft90()

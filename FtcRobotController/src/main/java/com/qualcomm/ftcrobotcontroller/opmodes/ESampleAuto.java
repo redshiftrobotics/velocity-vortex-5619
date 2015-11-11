@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 /**
  * Created by Eric Golde on 10/5/2015.
  */
-public class ESimpleAuto extends EOpModeBase {
+public class ESampleAuto extends EOpModeBase {
 
     int state;
     final int STATE_DRIVE_7_FEET = 1;
