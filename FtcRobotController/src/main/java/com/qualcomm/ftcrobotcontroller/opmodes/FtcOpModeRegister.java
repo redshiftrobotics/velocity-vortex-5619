@@ -118,9 +118,9 @@ public class FtcOpModeRegister implements OpModeRegister {
 	//                  GOOD OPMODES
 
       manager.register("Low Drive", ETLow.class);
-      manager.register("High Drive", ETHigh.class);
+     // manager.register("High Drive", ETHigh.class);
       manager.register("Low Auto", EAutoLow.class);
-      manager.register("High Auto", EAutoHigh.class);
+      //manager.register("High Auto", EAutoHigh.class);
       //manager.register("Drive Robot", EOpenHouseSoccerBot.class);
 
 //█████████████████████████████████████████████████████████
