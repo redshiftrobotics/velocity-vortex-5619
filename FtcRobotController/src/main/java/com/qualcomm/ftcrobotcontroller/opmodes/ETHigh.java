@@ -82,8 +82,8 @@ public class ETHigh extends EOpModeBase {
         yValue = Range.clip(yValue, -1, 1);
 
         //set the power of the motors with the gamepad values
-        frontLeftMotor.setPower(-xValue); //
-        frontRightMotor.setPower(-yValue); //
+        frontLeftMotor.setPower(xValue); //
+        frontRightMotor.setPower(yValue); //
 
         backLeftMotor.setPower(xValue);
         backRightMotor.setPower(yValue);

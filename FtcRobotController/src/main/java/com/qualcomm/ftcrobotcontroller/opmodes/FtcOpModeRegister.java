@@ -98,9 +98,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
 	/*                   BROKEN OPMODES
 
-      manager.register("TestOpMode (BROKEN)", EricsTestOpMode.class);
-      manager.register("E4 (BROKEN)", E4Drive.class);
-      manager.register("Arcade Drive", EADrive.class);
+
 
 	*/
 
@@ -112,6 +110,8 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
       manager.register("[Debug] BACK LEFT", EBackLeft.class);
       manager.register("[Debug] BACK RIGHT", EBackRight.class);
+       manager.register("Debug.class", EDebug.class);
+      manager.register("DebugDrive.class", EDebugDriveTest.class);
 */
 
 
@@ -119,12 +119,12 @@ public class FtcOpModeRegister implements OpModeRegister {
 
       manager.register("Low Drive", ETLow.class);
       manager.register("High Drive", ETHigh.class);
-      manager.register("Debug.class", EDebug.class);
-      manager.register("Final Autonomous", EAuto.class);
-      //manager.register("ESimpleAuto.class", ESimpleAuto.class);
-      manager.register("Testing Autonomous OPMode Parts", EAutoTest.class);
+      manager.register("Low Auto", EAutoLow.class);
+      manager.register("High Auto", EAutoHigh.class);
+      //manager.register("Drive Robot", EOpenHouseSoccerBot.class);
+
 //█████████████████████████████████████████████████████████
 
-   manager.register("NLineFollow", lineFollow.class);
+   //manager.register("NLineFollow", lineFollow.class);
   }
 }

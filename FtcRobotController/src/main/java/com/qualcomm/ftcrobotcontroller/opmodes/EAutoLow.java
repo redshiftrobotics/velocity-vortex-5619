@@ -25,7 +25,7 @@ Paste in code here to test as part of testing a opmode. After it works paste it 
 Look at ESimpleAuto.class for help!
 █████████████████████████████████████████████████████████████████████████
  */
-public class EAutoTest extends EOpModeBase {
+public class EAutoLow extends EOpModeBase {
 
 
     int state;
@@ -43,12 +43,11 @@ public class EAutoTest extends EOpModeBase {
 
     public void init() {
 
-        dt("Testing Autonomous OPMode Parts Selected!");
+        dt("EAutoLow Selected!");
 
         super.init();
 
-        //frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        //frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
+
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -65,14 +64,14 @@ public class EAutoTest extends EOpModeBase {
     @Override
     public void loop()
     {
-          if(state == STATE_DRIVE_7_FEET)
-          {
-              loopDrive7();
-          }
-          else if(state == STATE_TURN_90_LEFT)
-          {
-              loopLeft90();
-          }
+        if(state == STATE_DRIVE_7_FEET)
+        {
+            loopDrive7();
+        }
+        else if(state == STATE_TURN_90_LEFT)
+        {
+            loopLeft90();
+        }
     }
 
     /*
@@ -91,26 +90,25 @@ public class EAutoTest extends EOpModeBase {
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
         frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
-        backLeftMotor.setTargetPosition(COUNTS_DRIVE7);
-        backRightMotor.setTargetPosition(COUNTS_DRIVE7);
+         backLeftMotor.setTargetPosition(COUNTS_DRIVE7);
+         backRightMotor.setTargetPosition(COUNTS_DRIVE7);
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
+         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
-        frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
 
 
-        frontLeftMotor.setPower(-POWER_DRIVE7);
-        frontRightMotor.setPower(-POWER_DRIVE7);
+
+        frontLeftMotor.setPower(POWER_DRIVE7);
+        frontRightMotor.setPower(POWER_DRIVE7);
         backLeftMotor.setPower(POWER_DRIVE7);
         backRightMotor.setPower(POWER_DRIVE7);
     }
@@ -127,7 +125,7 @@ public class EAutoTest extends EOpModeBase {
 
 
         int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
-        if(ENCODER_POS_DRIVE7 < -COUNTS_DRIVE7)
+        if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
         }
@@ -142,8 +140,8 @@ public class EAutoTest extends EOpModeBase {
         dt("DONE!");
         ct("State", "STATE_TURN_90_LEFT");
 
-        frontLeftMotor.setPower(-0);
-        frontRightMotor.setPower(-0);
+        frontLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
     }
