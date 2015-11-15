@@ -1,13 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-/**
- * Created by Madeline Byrne on 11/10/2015.
- */
+
 public class MoutainAuto extends EOpModeBase
 {
-    enum powerState {spowerHigh, spowerMedium, spowerLow};
+    enum powerState {spowerHigh, spowerMedium, spowerLow}
     powerState state;
     long tStart = System.currentTimeMillis();
     long tEnd = System.currentTimeMillis();
@@ -17,6 +16,8 @@ public class MoutainAuto extends EOpModeBase
     @Override
     public void init()
     {
+        //frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+        //frontRightMotor.setDirection(DcMotor.Direction.REVERSE);
         super.init();
         state=state.spowerLow;
     }
@@ -30,8 +31,8 @@ public class MoutainAuto extends EOpModeBase
     @Override
     public void loop()
     {
-        extendMotor1.setPower(.8);
-        extendMotor2.setPower(.8);
+        //extendMotor1.setPower(.8);
+        //extendMotor2.setPower(.8);
 
         switch (state)
         {
