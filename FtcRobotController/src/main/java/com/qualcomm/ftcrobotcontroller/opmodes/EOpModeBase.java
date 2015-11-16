@@ -30,9 +30,9 @@ public abstract class EOpModeBase extends OpMode{
 	protected Servo clamp2; //clamp2
 	protected Servo hit1; //hit1
 	protected Servo hit2; //hit2
-	protected LightSensor lightSensor; //line follower light sensor
+	//protected LightSensor lightSensor; //line follower light sensor
 
-	protected LegacyModule legacyModule1; //legacy module
+	//protected LegacyModule legacyModule1; //legacy module
 	protected ServoController servoController1; //servo controller
 	protected DcMotorController dcMotorController1; //motor controller 1
 	protected DcMotorController dcMotorController2; //motor controller 2
@@ -64,7 +64,7 @@ public abstract class EOpModeBase extends OpMode{
 
 
 
-		legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+		//legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
 		servoController1 = hardwareMap.servoController.get("Servo Controller 1");
 		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
 		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
@@ -79,7 +79,7 @@ public abstract class EOpModeBase extends OpMode{
 		clamp2 = hardwareMap.servo.get("clamp2");
 		hit1 = hardwareMap.servo.get("hit1");
 		hit2 = hardwareMap.servo.get("hit2");
-		lightSensor = hardwareMap.lightSensor.get("light");
+		//lightSensor = hardwareMap.lightSensor.get("light");
 
 
 

@@ -17,7 +17,7 @@ public class EOpenHouseSoccerBot extends OpMode {
      DcMotor left;
      DcMotor right;
 
-    LegacyModule legacyModule1; //legacy module
+    //LegacyModule legacyModule1; //legacy module
 
     public void dt(String text) //Debug text multiline. Usefull for a lot of output debugging
     {
@@ -42,7 +42,7 @@ public class EOpenHouseSoccerBot extends OpMode {
         left = hardwareMap.dcMotor.get("left");
         right = hardwareMap.dcMotor.get("right");
 
-        legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+        //legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
 
         right.setDirection(DcMotor.Direction.REVERSE);
         left.setDirection(DcMotor.Direction.FORWARD);
@@ -52,8 +52,8 @@ public class EOpenHouseSoccerBot extends OpMode {
     public void loop() {
 
 
-        float xValue = -gamepad1.left_stick_y;
-        float yValue = -gamepad1.right_stick_y;
+        float xValue = gamepad1.left_stick_y;
+        float yValue = gamepad1.right_stick_y;
 
 
 

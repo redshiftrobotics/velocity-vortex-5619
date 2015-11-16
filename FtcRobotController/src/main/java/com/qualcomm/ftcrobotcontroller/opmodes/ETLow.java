@@ -24,6 +24,31 @@ public class ETLow extends EOpModeBase {
 
     }
 
+    boolean lastBttnStateHitServoLeft = false;
+    boolean toggleStateHitServoLeft = false;
+    public boolean toggleHitServoLeft()
+    {
+        if(gamepad2.left_bumper && !lastBttnStateHitServoLeft)
+        {
+            toggleStateHitServoLeft = !toggleStateHitServoLeft;
+        }
+        lastBttnStateHitServoLeft = gamepad2.left_bumper;
+        return toggleStateHitServoLeft;
+    }
+    /////////////////////////////////////////////////////////////////////
+    boolean lastBttnStateHitServoRight = false;
+    boolean toggleStateHitServoRight = false;
+    public boolean toggleHitServoRight()
+    {
+        if(gamepad2.right_bumper && !lastBttnStateHitServoRight)
+        {
+            toggleStateHitServoRight = !toggleStateHitServoRight;
+        }
+        lastBttnStateHitServoRight = gamepad2.right_bumper;
+        return toggleStateHitServoRight;
+    }
+
+
     @Override
     public void loop() {
 
@@ -68,6 +93,31 @@ public class ETLow extends EOpModeBase {
 
 
 ////////////////////////////////////////////////////////////////////
+
+        if(toggleHitServoLeft() == true) {
+            ct("Hit1", "Open");
+            hit1.setPosition(1);
+        }
+        else
+        {
+            ct("Hit1", "Closed");
+            hit1.setPosition(0.50);
+        }
+
+        if(toggleHitServoRight() == true)
+        {
+            ct("Hit2", "Open");
+            hit2.setPosition(0);
+        }
+        else
+        {
+            ct("Hit2", "Closed");
+            hit2.setPosition(0.50);
+
+        }
+
+
+
 
 
     }
