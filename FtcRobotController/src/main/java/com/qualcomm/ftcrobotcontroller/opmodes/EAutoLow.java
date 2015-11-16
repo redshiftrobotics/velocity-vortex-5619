@@ -21,7 +21,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 
 
 
-Look at ESimpleAuto.class for help!
+
 █████████████████████████████████████████████████████████████████████████
  */
 public class EAutoLow extends EOpModeBase {
