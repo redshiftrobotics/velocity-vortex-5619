@@ -1,10 +1,14 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.robotcore.hardware.DcMotorController;
+
 /**
  * Created by Madeline Byrne on 11/15/2015.
  */
 public class MountainAutoState extends EOpModeBase
 {
+    final static double errorMarginWheels = 300;
+
     enum mountainStates {begining, stalledWheels, forwardDrive, climbing, badState}
     mountainStates state;
 
@@ -13,14 +17,14 @@ public class MountainAutoState extends EOpModeBase
 
     int previousFrontRightMotorPosition;
     int currentFrontRightMotorPosition;
-    
 
-    static final int errorMarginWheels = insert value BASED ON motor position value range;
+
+    //static final int errorMarginWheels = GET VALUES BASE ON RANGE
     boolean WheelsStalled(int currentPosition, int lastPosition)
     {
 
-        int UpperWheelErrorMargin = lastPosition + errorMarginWheels;
-        int LowerWheelErrorMargin = lastPosition - errorMarginWheels;
+        double UpperWheelErrorMargin = lastPosition + errorMarginWheels;
+        double LowerWheelErrorMargin = lastPosition - errorMarginWheels;
 
 
         if (currentPosition>LowerWheelErrorMargin && currentPosition<UpperWheelErrorMargin )
@@ -40,14 +44,14 @@ public class MountainAutoState extends EOpModeBase
             return mountainStates.begining;
         }
         //if motors have forward power
-        else if (frontLeftMotor.getPower() > 0 && frontRightMotor.getPower() >0 && backLeftMotor.getPower() > 0 && backRightMotor.getPower() > 0)
+        else if (frontLeftMotor.isBusy() && frontRightMotor.isBusy() && backLeftMotor.isBusy() && backRightMotor.isBusy())
         {
 
             //if motors are stalling
             if (WheelsStalled(currentFrontLeftMotorPosition, previousFrontLeftMotorPosition ) && WheelsStalled(currentFrontRightMotorPosition, previousFrontRightMotorPosition))
             {
                 //if arms have power
-                if( extendMotor1.getPower() >0 && extendMotor2.getPower() >0)
+                if( extendMotor1.isBusy() && extendMotor2.isBusy())
                 {
                     return mountainStates.climbing;
                 }
@@ -61,7 +65,7 @@ public class MountainAutoState extends EOpModeBase
             else
             {
                 //if arms have power
-                if( extendMotor1.getPower() >0 && extendMotor2.getPower() >0)
+                if( extendMotor1.isBusy() && extendMotor2.isBusy())
                 {
                     return mountainStates.climbing;
                 }
@@ -71,7 +75,7 @@ public class MountainAutoState extends EOpModeBase
         }
 
         //check if motors have power and arms dont
-        else if(frontLeftMotor.getPower() > 0 && frontRightMotor.getPower() >0 && backLeftMotor.getPower() > 0 && backRightMotor.getPower() > 0 && extendMotor1.getPower() == 0 && extendMotor2.getPower() == 0)
+        else if(frontLeftMotor.isBusy()&& frontRightMotor.isBusy() && backLeftMotor.isBusy() && backRightMotor.isBusy() && extendMotor1.getPower() == 0 && extendMotor2.getPower() == 0)
         {
             return mountainStates.forwardDrive;
         }
@@ -83,6 +87,10 @@ public class MountainAutoState extends EOpModeBase
     public void init()
     {
         super.init();
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
     }
 
 
@@ -91,9 +99,6 @@ public class MountainAutoState extends EOpModeBase
     {
         currentFrontLeftMotorPosition = frontLeftMotor.getCurrentPosition();
         currentFrontRightMotorPosition = frontRightMotor.getCurrentPosition();
-
-
-
 
         mountainStates state = getState();
         switch (state)
@@ -120,11 +125,11 @@ public class MountainAutoState extends EOpModeBase
     void DoBeginning()
     {
         telemetry.addData("State: ", "Begining");
-        TEST THESE VALUES
-        frontLeftMotor.setPower(.2);
-        frontRightMotor.setPower(.2);
-        backLeftMotor.setPower(.2);
-        backRightMotor.setPower(.2);
+        //TEST THESE VALUES
+        frontLeftMotor.setPower(.1);
+        frontRightMotor.setPower(.1);
+        backLeftMotor.setPower(.1);
+        backRightMotor.setPower(.1);
         telemetry.addData("Wheel Power: ", "20%");
 
     }
@@ -137,7 +142,7 @@ public class MountainAutoState extends EOpModeBase
     void DoStalledWheels()
     {
         telemetry.addData("State: ", "Wheels Stalled");
-        TEST THESES VALUSES
+        //TEST THESES VALUSES
         extendMotor1.setPower(.8);
         extendMotor2.setPower(.8);
         telemetry.addData("Arm Power: ", "80%");
