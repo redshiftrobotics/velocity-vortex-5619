@@ -91,20 +91,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("PushBotIrSeek", PushBotIrSeek.class);
       manager.register("PushBotSquare", PushBotSquare.class);
 
-	  */
-
-	//█████████████████[Eric's Op Mode Register]███████████████████████
-
-
-	/*                   BROKEN OPMODES
-
-
-
-	*/
-
-
-
-	//                  DEBUG OPMODES
+	  //////////////////////////////////////////////////////////////////////////////////////
 /*
       manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);

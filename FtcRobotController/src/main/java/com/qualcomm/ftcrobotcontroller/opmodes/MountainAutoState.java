@@ -13,7 +13,7 @@ public class MountainAutoState extends EOpModeBase
 
     int previousFrontRightMotorPosition;
     int currentFrontRightMotorPosition;
-    
+
 
     static final int errorMarginWheels = insert value BASED ON motor position value range;
     boolean WheelsStalled(int currentPosition, int lastPosition)
