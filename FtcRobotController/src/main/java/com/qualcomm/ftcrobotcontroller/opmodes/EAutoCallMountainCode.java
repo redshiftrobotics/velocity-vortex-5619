@@ -61,6 +61,7 @@ public class EAutoCallMountainCode {
 
     public void loop()
     {
+        dt("If you see this then you have sunceesfully called an partical opmode from a op mode!");
         //INPUT MADDYS LOOP AND OTHER FUNTIONS HERE!(DONT FORGET VARIABLES AS WELL)
     }
 }

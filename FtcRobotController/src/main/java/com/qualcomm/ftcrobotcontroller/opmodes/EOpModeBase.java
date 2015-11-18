@@ -37,7 +37,7 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotorController dcMotorController1; //motor controller 1
 	protected DcMotorController dcMotorController2; //motor controller 2
 	protected DcMotorController dcMotorController3; //motor controller 3
-
+	protected EAutoCallMountainCode mountainCode;
 
 
 	public void dt(String text) //Debug text multiline. Usefull for a lot of output debugging
@@ -90,7 +90,7 @@ public abstract class EOpModeBase extends OpMode{
 		extendMotor2.setDirection(DcMotor.Direction.REVERSE);
 		extendMotor1.setDirection(DcMotor.Direction.FORWARD);
 
-
+		mountainCode = new EAutoCallMountainCode(frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, extendMotor1, extendMotor2, telemetry);
 		dt("Init Loaded!"); //end
 
 

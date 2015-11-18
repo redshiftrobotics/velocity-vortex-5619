@@ -35,6 +35,8 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
+
     }
 
     @Override
@@ -118,17 +120,18 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
     {
         state = STATE_TURN_90_LEFT;
 
-        dt("DONE!");
-        ct("State", "STATE_TRIGGER_MADDY_OP_MODE");
+
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
+
+        mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        dt("STATE_TRIGGER_MADDY_OP_MODE");
+        mountainCode.loop();
     }
 }

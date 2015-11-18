@@ -58,7 +58,7 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
     /*
     ██████████████████████████████████████████████████████████████████████
      */
-    final double DISTANCE_DRIVE7 = 2133.6; //in mm (ajust)
+    final double DISTANCE_DRIVE7 = 1524; //in mm (ajust)
     final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
     final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
@@ -89,9 +89,9 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
 
 
         frontLeftMotor.setPower(POWER_DRIVE7);
-        frontRightMotor.setPower(POWER_DRIVE7);
+        frontRightMotor.setPower(POWER_DRIVE7 * 0.6);
         backLeftMotor.setPower(POWER_DRIVE7);
-        backRightMotor.setPower(POWER_DRIVE7);
+        backRightMotor.setPower(POWER_DRIVE7 * 0.6);
     }
 
     public void loopDrive7()
@@ -118,17 +118,18 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
     {
         state = STATE_TRIGGER_MADDY_OP_MODE;
 
-        dt("DONE!");
-        ct("State", "STATE_TRIGGER_MADDY_OP_MODE");
+
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
+
+        mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        dt("STATE_TRIGGER_MADDY_OP_MODE");
+        mountainCode.loop();
     }
 }

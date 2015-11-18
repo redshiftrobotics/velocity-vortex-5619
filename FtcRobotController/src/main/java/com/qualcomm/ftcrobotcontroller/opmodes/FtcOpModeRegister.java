@@ -103,19 +103,42 @@ public class FtcOpModeRegister implements OpModeRegister {
 
 
 	//                  GOOD OPMODES
-     // manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
-     // manager.register("BTeam-BRamp-Far", EAuto_BTeam_BRamp_Far.class);
+
+      //LOW OP MODES
+
+      //BLUE TEAM
+      //RED RAMP
+
       manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
-     // manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
+      //manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
+
+      //BLUE TEAM
+      //BLUE RAMP
+
+      manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
+      //manager.register("BTeam-BRamp-Far", EAuto_BTeam_BRamp_Far.class);
+
+
+      //RED TEAM
+      //BLUE RAMP
+
 
       manager.register("RTeam-BRamp-Close", EAuto_RTeam_BRamp_Close.class);
-     // manager.register("RTeam-BRamp-Far", EAuto_RTeam_BRamp_Far.class);
-     // manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
-     // manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
+      //manager.register("RTeam-BRamp-Far", EAuto_RTeam_BRamp_Far.class);
 
+
+      //RED TEAM
+      //RED RAMP
+
+      manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
+      //manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
+
+    //DRIVE
       manager.register("Low Drive", ETLow.class);
+
+      //HIGH OP MODES
      // manager.register("High Drive", ETHigh.class);
-      //manager.register("High Auto", EAutoHigh.class);
+
 
 
 //█████████████████████████████████████████████████████████
