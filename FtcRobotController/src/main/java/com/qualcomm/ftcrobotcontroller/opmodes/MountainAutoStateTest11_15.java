@@ -8,18 +8,16 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
     enum mountainStates {begining, stalledWheels, forwardDrive, climbing, badState}
     mountainStates state;
 
-    int previousFrontLeftMotorPosition;
-    int currentFrontLeftMotorPosition;
+    int previousBackLeftMotorPosition;
+    int currentBackLeftMotorPosition;
 
-    int previousFrontRightMotorPosition;
-    int currentFrontRightMotorPosition;
-
+    int previousBackRightMotorPosition;
+    int currentBackRightMotorPosition;
 
     static final double errorMarginWheels = 300;
 
     boolean WheelsStalled(int currentPosition, int lastPosition)
     {
-
         double UpperWheelErrorMargin = lastPosition + errorMarginWheels;
         double LowerWheelErrorMargin = lastPosition - errorMarginWheels;
 
@@ -45,18 +43,15 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
         {
 
             //if motors are stalling
-            if (WheelsStalled(currentFrontLeftMotorPosition, previousFrontLeftMotorPosition ) && WheelsStalled(currentFrontRightMotorPosition, previousFrontRightMotorPosition))
+            if (WheelsStalled(currentBackLeftMotorPosition, previousBackLeftMotorPosition ) && WheelsStalled(currentBackRightMotorPosition, previousBackRightMotorPosition))
             {
-                //if arms have power
-                if( extendMotor1.getPower() >0 && extendMotor2.getPower() >0)
-                {
-                    return mountainStates.climbing;
-                }
+//                //if arms have power
+//                if( extendMotor1.getPower() >0 && extendMotor2.getPower() >0)
+//                {
+//                    return mountainStates.climbing;
+//                }
                 //if arms don't have power
-                else
-                {
-                    return mountainStates.stalledWheels;
-                }
+                return mountainStates.stalledWheels;
             }
             //if motors aren't stalling
             else
@@ -69,6 +64,52 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
                 //if the arms dont have power
                 else return mountainStates.forwardDrive;
             }
+        }
+
+        else if (backLeftMotor.getPower() >0 && WheelsStalled(currentBackLeftMotorPosition,previousBackLeftMotorPosition))
+        {
+            frontLeftMotor.setPower(-.1);
+            frontRightMotor.setPower(-.1);
+            backLeftMotor.setPower(-.1);
+            backRightMotor.setPower(-.1);
+            try {
+                Thread.sleep(500);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            backRightMotor.setPower(0);
+            frontRightMotor.setPower(0);
+            frontLeftMotor.setPower(.1);
+            backLeftMotor.setPower(.1);
+            try {
+                Thread.sleep(500);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            return mountainStates.forwardDrive;
+        }
+
+        else if (frontRightMotor.getPower() >0 && WheelsStalled(currentBackRightMotorPosition, previousBackRightMotorPosition))
+        {
+            frontLeftMotor.setPower(-.1);
+            frontRightMotor.setPower(-.1);
+            backLeftMotor.setPower(-.1);
+            backRightMotor.setPower(-.1);
+            try {
+                Thread.sleep(500);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            backRightMotor.setPower(.1);
+            frontRightMotor.setPower(.1);
+            frontLeftMotor.setPower(0);
+            backLeftMotor.setPower(0);
+            try {
+                Thread.sleep(500);                 //1000 milliseconds is one second.
+            } catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            return mountainStates.forwardDrive;
         }
 
         //check if motors have power and arms dont
@@ -88,15 +129,14 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
         extendMotor2.setPower(0);
     }
 
-
     @Override
     public void loop()
     {
-        currentFrontLeftMotorPosition = frontLeftMotor.getCurrentPosition();
-        currentFrontRightMotorPosition = frontRightMotor.getCurrentPosition();
+        previousBackLeftMotorPosition=currentBackLeftMotorPosition;
+        previousBackRightMotorPosition=currentBackRightMotorPosition;
 
-
-
+        currentBackLeftMotorPosition = backLeftMotor.getCurrentPosition();
+        currentBackRightMotorPosition = backRightMotor.getCurrentPosition();
 
         mountainStates state = getState();
         switch (state)
@@ -123,6 +163,11 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
                 break;
         }
 
+        try {
+            Thread.sleep(100);                 //1000 milliseconds is one second.
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     void DoBeginning()
@@ -130,7 +175,7 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
         telemetry.addData("State: ", "Begining");
         //TEST THESE VALUES
         frontLeftMotor.setPower(.06);
-        frontRightMotor.setPower(.064);
+        frontRightMotor.setPower(.06);
         backLeftMotor.setPower(.06);
         backRightMotor.setPower(.06);
         telemetry.addData("Wheel Power: ", "4%");
@@ -164,8 +209,7 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
 
     void DoBadState()
     {
-        telemetry.addData("State: ", "Bad State - ERROR");
+        telemetry.addData("State: ", "Bad State - ERROR (we are fucked)");
         //WTF IS MY RECOVERY STRATEGY - TALK TO TEAM
     }
-
 }
