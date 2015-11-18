@@ -88,9 +88,9 @@ public class EAuto_RTeam_BRamp_Close extends EOpModeBase {
 
 
 
-        frontLeftMotor.setPower(POWER_DRIVE7);
+        frontLeftMotor.setPower(POWER_DRIVE7 * 0.4);
         frontRightMotor.setPower(POWER_DRIVE7);
-        backLeftMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7 * 0.4);
         backRightMotor.setPower(POWER_DRIVE7);
     }
 

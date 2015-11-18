@@ -19,21 +19,9 @@
     <bookmark url="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpenHouseSoccerBot.java" line="68" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbf73bf0-ff74-410f-af87-06ddf700252c" name="Default" comment="Trying to fix stuff">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHigh.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHigh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoLow.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoLow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_BRamp_Close.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_BRamp_Close.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_BRamp_Far.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_BRamp_Far.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Close.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Close.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Far.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Far.java" />
+    <list default="true" id="bbf73bf0-ff74-410f-af87-06ddf700252c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Far.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Far.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_RRamp_Close.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_RRamp_Close.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_RRamp_Far.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_RRamp_Far.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ftc_app-master.iws" />
@@ -62,11 +50,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FtcOpModeRegister.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FtcOpModeRegister.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2972441">
-              <caret line="110" column="45" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EAuto_RTeam_BRamp_Close.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7322835">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1605,10 +1603,10 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Far.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Far.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_BRamp_Close.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Close.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java" />
       </list>
     </option>
   </component>
@@ -2012,7 +2010,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447781374155</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="B-Team-RRamp-Close Works!&#10;(other stuff changed too appently)">
+      <created>1447809563849</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1447809563849</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2104,7 +2108,8 @@
     <MESSAGE value="Working on Autonomous opmodes. 8 of them.  &#10;And just in general, fixing up code and optmizations for driving team.&#10;Fixed servos!&#10;" />
     <MESSAGE value="Working more on Autonomous opmodes. Got the base of them done. Just now need to program them&#10;&#10;" />
     <MESSAGE value="Trying to fix stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to fix stuff" />
+    <MESSAGE value="B-Team-RRamp-Close Works!&#10;(other stuff changed too appently)" />
+    <option name="LAST_COMMIT_MESSAGE" value="B-Team-RRamp-Close Works!&#10;(other stuff changed too appently)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2155,6 +2160,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2209,6 +2217,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2412,6 +2423,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2419,6 +2431,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2426,6 +2441,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7097561">
           <caret line="90" column="44" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="44" />
+          <folding>
+            <element signature="e#3871#3872#0" expanded="true" />
+            <element signature="e#3920#3921#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2433,6 +2452,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7256098">
           <caret line="92" column="43" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2440,6 +2460,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="92" column="43" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2447,6 +2468,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18658537">
           <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2454,13 +2476,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17519686">
           <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19685039">
-          <caret line="92" column="45" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2485,8 +2501,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2972441">
-          <caret line="110" column="45" selection-start-line="110" selection-start-column="45" selection-end-line="110" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_RTeam_BRamp_Close.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7322835">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>

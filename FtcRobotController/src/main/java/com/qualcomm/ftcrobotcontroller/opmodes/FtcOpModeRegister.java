@@ -108,7 +108,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
      // manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
 
-     // manager.register("RTeam-BRamp-Close", EAuto_RTeam_BRamp_Close.class);
+      manager.register("RTeam-BRamp-Close", EAuto_RTeam_BRamp_Close.class);
      // manager.register("RTeam-BRamp-Far", EAuto_RTeam_BRamp_Far.class);
      // manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
      // manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
