@@ -18,8 +18,8 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
 
 
 
-    final int STATE_DRIVE_7_FEET = 1;
-    final int STATE_TURN_90_LEFT = 2;
+    final int STATE_DO_CURVE = 1;
+    final int STATE_TRIGGER_MADDY_OP_MODE = 2;
 
 
     public void init() {
@@ -45,11 +45,11 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
     @Override
     public void loop()
     {
-        if(state == STATE_DRIVE_7_FEET)
+        if(state == STATE_DO_CURVE)
         {
             loopDrive7();
         }
-        else if(state == STATE_TURN_90_LEFT)
+        else if(state == STATE_TRIGGER_MADDY_OP_MODE)
         {
             loopLeft90();
         }
@@ -58,14 +58,14 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
     /*
     ██████████████████████████████████████████████████████████████████████
      */
-    final double DISTANCE_DRIVE7 = 2133.6; //in mm
+    final double DISTANCE_DRIVE7 = 2133.6; //in mm (ajust)
     final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
     final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
     public void startDrive7()
     {
-        state = STATE_DRIVE_7_FEET;
-        ct("State", "STATE_DRIVE_7_FEET");
+        state = STATE_DO_CURVE;
+        ct("State", "STATE_DO_CURVE");
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -116,10 +116,10 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
 
     public void startLeft90()
     {
-        state = STATE_TURN_90_LEFT;
+        state = STATE_TRIGGER_MADDY_OP_MODE;
 
         dt("DONE!");
-        ct("State", "STATE_TURN_90_LEFT");
+        ct("State", "STATE_TRIGGER_MADDY_OP_MODE");
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
@@ -129,6 +129,6 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
 
     public void loopLeft90()
     {
-        dt("STATE_TURN_90_LEFT");
+        dt("STATE_TRIGGER_MADDY_OP_MODE");
     }
 }

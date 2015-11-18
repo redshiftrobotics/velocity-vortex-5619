@@ -65,7 +65,7 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
     public void startDrive7()
     {
         state = STATE_DRIVE_7_FEET;
-        ct("State", "STATE_DRIVE_7_FEET");
+        ct("State", "STATE_DO_CURVE");
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -89,9 +89,9 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
 
         frontLeftMotor.setPower(POWER_DRIVE7);
-        frontRightMotor.setPower(POWER_DRIVE7);
+        frontRightMotor.setPower(POWER_DRIVE7 * 0.4);
         backLeftMotor.setPower(POWER_DRIVE7);
-        backRightMotor.setPower(POWER_DRIVE7);
+        backRightMotor.setPower(POWER_DRIVE7 * 0.4);
     }
 
     public void loopDrive7()
@@ -119,7 +119,7 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         state = STATE_TURN_90_LEFT;
 
         dt("DONE!");
-        ct("State", "STATE_TURN_90_LEFT");
+        ct("State", "STATE_TRIGGER_MADDY_OP_MODE");
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
@@ -129,6 +129,6 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
     public void loopLeft90()
     {
-        dt("STATE_TURN_90_LEFT");
+        dt("STATE_TRIGGER_MADDY_OP_MODE");
     }
 }
