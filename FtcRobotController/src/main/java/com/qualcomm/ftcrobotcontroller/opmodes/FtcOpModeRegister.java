@@ -56,7 +56,7 @@ public class FtcOpModeRegister implements OpModeRegister {
      *
      * Uncomment any of the following lines if you want to register an op mode.
      */
-      manager.register("MountianAuto", MoutainAuto.class);
+
      /*
 	  manager.register("NullOp", NullOp.class)
 	  manager.register("K9TeleOp", K9TeleOp.class);
@@ -121,5 +121,6 @@ public class FtcOpModeRegister implements OpModeRegister {
 //█████████████████████████████████████████████████████████
 
    //manager.register("NLineFollow", lineFollow.class);
+      manager.register("madelinebyrne", MountainAutoStateTest11_15.class);
   }
 }

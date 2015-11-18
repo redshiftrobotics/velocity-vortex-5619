@@ -58,7 +58,7 @@ public class EAuto_RTeam_BRamp_Close extends EOpModeBase {
     /*
     ██████████████████████████████████████████████████████████████████████
      */
-    final double DISTANCE_DRIVE7 = 2133.6; //in mm
+    final double DISTANCE_DRIVE7 = 914.4; //in mm
     final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
     final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
@@ -105,7 +105,7 @@ public class EAuto_RTeam_BRamp_Close extends EOpModeBase {
 
 
 
-        int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
+        int ENCODER_POS_DRIVE7 = frontRightMotor.getCurrentPosition();
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
