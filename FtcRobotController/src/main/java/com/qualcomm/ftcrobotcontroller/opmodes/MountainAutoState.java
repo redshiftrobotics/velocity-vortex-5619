@@ -80,7 +80,15 @@ public class MountainAutoState extends EOpModeBase
             return mountainStates.forwardDrive;
         }
         //something is fucked up, basically an error  message
-        else return mountainStates.badState;
+        else
+        {
+            telemetry.addData("front left motor power: ", Double.toString(frontLeftMotor.getPower()));
+            telemetry.addData("front right motor power: ", Double.toString(frontRightMotor.getPower()));
+            telemetry.addData("back left motor power: ", Double.toString(backLeftMotor.getPower()));
+            telemetry.addData("back right motor power: ", Double.toString(backRightMotor.getPower()));
+            return mountainStates.badState;
+        }
+
     }
 
     @Override
@@ -91,34 +99,55 @@ public class MountainAutoState extends EOpModeBase
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        telemetry.addData("State: ", "Begining");
+        //TEST THESE VALUES
+        frontLeftMotor.setPower(.1);
+        //telemetry.addData("front left motor power: ", frontLeftMotor.getPower());
+
+        frontRightMotor.setPower(.1);
+        //telemetry.addData("front right motor power: ", frontRightMotor.getPower());
+
+        backLeftMotor.setPower(.1);
+        //telemetry.addData("back left motor power: ", backLeftMotor.getPower());
+
+        backRightMotor.setPower(.1);
+        //telemetry.addData("back right motor power: ", backRightMotor.getPower());
+        try
+        {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 
 
     @Override
     public void loop()
     {
-        currentFrontLeftMotorPosition = frontLeftMotor.getCurrentPosition();
-        currentFrontRightMotorPosition = frontRightMotor.getCurrentPosition();
+//        currentFrontLeftMotorPosition = frontLeftMotor.getCurrentPosition();
+//        currentFrontRightMotorPosition = frontRightMotor.getCurrentPosition();
 
-        mountainStates state = getState();
-        switch (state)
-        {
-            case begining:
-                DoBeginning();
-                break;
-            case forwardDrive:
-                DoForwardDrive();
-                break;
-            case stalledWheels:
-                DoStalledWheels();
-                break;
-            case climbing:
-                DoClimbing();
-                break;
-            case badState:
-                DoBadState();
-                break;
-        }
+//        mountainStates state = getState();
+//        switch (state)
+//        {
+//            case begining:
+//                DoBeginning();
+//                break;
+//            case forwardDrive:
+//                DoForwardDrive();
+//                break;
+//            case stalledWheels:
+//                DoStalledWheels();
+//                break;
+//            case climbing:
+//                DoClimbing();
+//                break;
+//            case badState:
+//                DoBadState();
+//                break;
+//        }
 
     }
 
@@ -127,11 +156,24 @@ public class MountainAutoState extends EOpModeBase
         telemetry.addData("State: ", "Begining");
         //TEST THESE VALUES
         frontLeftMotor.setPower(.1);
-        frontRightMotor.setPower(.1);
-        backLeftMotor.setPower(.1);
-        backRightMotor.setPower(.1);
-        telemetry.addData("Wheel Power: ", "20%");
+        //telemetry.addData("front left motor power: ", frontLeftMotor.getPower());
 
+        frontRightMotor.setPower(.1);
+        //telemetry.addData("front right motor power: ", frontRightMotor.getPower());
+
+        backLeftMotor.setPower(.1);
+        //telemetry.addData("back left motor power: ", backLeftMotor.getPower());
+
+        backRightMotor.setPower(.1);
+        //telemetry.addData("back right motor power: ", backRightMotor.getPower());
+        try
+        {
+            Thread.sleep(1000);                 //1000 milliseconds is one second.
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
     }
 
     void DoForwardDrive()
