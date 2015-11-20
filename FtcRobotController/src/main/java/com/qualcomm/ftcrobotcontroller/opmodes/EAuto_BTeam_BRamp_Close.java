@@ -29,7 +29,7 @@ public class EAuto_BTeam_BRamp_Close extends EOpModeBase{
         super.init();
 
 
-
+        
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);

@@ -92,13 +92,15 @@ public class FtcOpModeRegister implements OpModeRegister {
       manager.register("PushBotSquare", PushBotSquare.class);
 
 	  //////////////////////////////////////////////////////////////////////////////////////
-/*
+*/
+   /*
       manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
       manager.register("[Debug] BACK LEFT", EBackLeft.class);
       manager.register("[Debug] BACK RIGHT", EBackRight.class);
-       manager.register("Debug.class", EDebug.class);
-      manager.register("DebugDrive.class", EDebugDriveTest.class);
+     // manager.register("Debug.class", EDebug.class);
+    //  manager.register("DebugDrive.class", EDebugDriveTest.class);
+
 */
 
 
@@ -115,7 +117,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //BLUE TEAM
       //BLUE RAMP
 
-      manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
+     // manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
       //manager.register("BTeam-BRamp-Far", EAuto_BTeam_BRamp_Far.class);
 
 
@@ -130,7 +132,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //RED TEAM
       //RED RAMP
 
-      manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
+     // manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
       //manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
 
     //DRIVE
@@ -144,6 +146,6 @@ public class FtcOpModeRegister implements OpModeRegister {
 //█████████████████████████████████████████████████████████
 
    //manager.register("NLineFollow", lineFollow.class);
-      manager.register("madelinebyrne", MountainAutoStateTest11_15.class);
+    //  manager.register("madelinebyrne", MountainAutoStateTest11_15.class);
   }
 }

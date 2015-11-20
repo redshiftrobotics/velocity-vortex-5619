@@ -51,6 +51,8 @@ public abstract class EOpModeBase extends OpMode{
 		//toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
 	}
 
+
+
 	public void ct(String what, String text) //Debug text single line. Usefull for printing state changes
 	{
 		telemetry.addData(what, text);
