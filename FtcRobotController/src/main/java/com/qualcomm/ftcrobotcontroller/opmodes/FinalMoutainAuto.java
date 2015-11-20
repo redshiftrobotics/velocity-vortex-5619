@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.robotcore.hardware.DcMotor;
+
 /**
  * Created by Madeline Byrne on 11/19/2015.
  */
@@ -7,7 +9,7 @@ public class FinalMoutainAuto extends EOpModeBase
 {
     Long StartTime;
     long TimeElapsed;
-    enum mountainStates {beginning, forwardDrive, climbing, stop}
+    enum mountainStates {beginning, forwardDrive, climbing}
     mountainStates state;
 
     @Override
@@ -24,7 +26,7 @@ public class FinalMoutainAuto extends EOpModeBase
     {
         TimeElapsed = System.currentTimeMillis()-StartTime;
 
-        if(TimeElapsed> 5000)
+        if(TimeElapsed> 3000)
         {
             state = mountainStates.climbing;
         }
@@ -39,21 +41,7 @@ public class FinalMoutainAuto extends EOpModeBase
                 break;
             case climbing:
                 DoClimbing();
-            case stop:
-                DoStop();
         }
-    }
-
-    void DoStop()
-    {
-        telemetry.addData("State: ", "Stop");
-        extendMotor1.setPower(0);
-        extendMotor2.setPower(0);
-        frontRightMotor.setPower(0);
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        backRightMotor.setPower(0);
-        telemetry.addData("All Motors Stopped", ".");
     }
 
     void DoBeginning() {
@@ -75,6 +63,8 @@ public class FinalMoutainAuto extends EOpModeBase
 
     void DoClimbing()
     {
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
+        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
         extendMotor2.setPower(.3);
         extendMotor1.setPower(.3);
         telemetry.addData("State: ", "Climbing");
