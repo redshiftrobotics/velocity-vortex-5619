@@ -14,19 +14,19 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
     int previousBackRightMotorPosition;
     int currentBackRightMotorPosition;
 
-    static final double errorMarginWheels = 300;
+    static final double errorMarginWheels = 1;
 
     boolean WheelsStalled(int currentPosition, int lastPosition)
     {
-        double UpperWheelErrorMargin = lastPosition + errorMarginWheels;
-        double LowerWheelErrorMargin = lastPosition - errorMarginWheels;
+//        double UpperWheelErrorMargin = lastPosition + errorMarginWheels;
+//        double LowerWheelErrorMargin = lastPosition - errorMarginWheels;
 
-
-        if (currentPosition>LowerWheelErrorMargin && currentPosition<UpperWheelErrorMargin )
-        {
-            return true;
-        }
-        else return false;
+            return false;
+//        if (currentPosition>LowerWheelErrorMargin && currentPosition<UpperWheelErrorMargin )
+//        {
+//            return true;
+//        }
+//        else return false;
     }
 
 
@@ -45,12 +45,6 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
             //if motors are stalling
             if (WheelsStalled(currentBackLeftMotorPosition, previousBackLeftMotorPosition ) && WheelsStalled(currentBackRightMotorPosition, previousBackRightMotorPosition))
             {
-//                //if arms have power
-//                if( extendMotor1.getPower() >0 && extendMotor2.getPower() >0)
-//                {
-//                    return mountainStates.climbing;
-//                }
-                //if arms don't have power
                 return mountainStates.stalledWheels;
             }
             //if motors aren't stalling
@@ -72,20 +66,12 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
             frontRightMotor.setPower(-.1);
             backLeftMotor.setPower(-.1);
             backRightMotor.setPower(-.1);
-            try {
-                Thread.sleep(500);                 //1000 milliseconds is one second.
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+
             backRightMotor.setPower(0);
             frontRightMotor.setPower(0);
             frontLeftMotor.setPower(.1);
-            backLeftMotor.setPower(.1);
-            try {
-                Thread.sleep(500);                 //1000 milliseconds is one second.
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+            backLeftMotor.setPower(0);
+
             return mountainStates.forwardDrive;
         }
 
@@ -95,20 +81,11 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
             frontRightMotor.setPower(-.1);
             backLeftMotor.setPower(-.1);
             backRightMotor.setPower(-.1);
-            try {
-                Thread.sleep(500);                 //1000 milliseconds is one second.
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
+
             backRightMotor.setPower(.1);
             frontRightMotor.setPower(.1);
             frontLeftMotor.setPower(0);
             backLeftMotor.setPower(0);
-            try {
-                Thread.sleep(500);                 //1000 milliseconds is one second.
-            } catch(InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
             return mountainStates.forwardDrive;
         }
 
@@ -125,8 +102,7 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
     public void init()
     {
         super.init();
-        extendMotor1.setPower(0);
-        extendMotor2.setPower(0);
+        state = mountainStates.begining;
     }
 
     @Override
@@ -163,21 +139,17 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
                 break;
         }
 
-        try {
-            Thread.sleep(100);                 //1000 milliseconds is one second.
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+
     }
 
     void DoBeginning()
     {
         telemetry.addData("State: ", "Begining");
         //TEST THESE VALUES
-        frontLeftMotor.setPower(.06);
-        frontRightMotor.setPower(.06);
-        backLeftMotor.setPower(.06);
-        backRightMotor.setPower(.06);
+        frontLeftMotor.setPower(.2);
+        frontRightMotor.setPower(.2);
+        backLeftMotor.setPower(.2);
+        backRightMotor.setPower(.2);
         telemetry.addData("Wheel Power: ", "4%");
 
     }
@@ -190,15 +162,13 @@ public class MountainAutoStateTest11_15 extends EOpModeBase
     void DoStalledWheels()
     {
         telemetry.addData("State: ", "Wheels Stalled");
+        telemetry.addData("Wheels Stalled back left: current ", currentBackLeftMotorPosition);
+        telemetry.addData(" wheel stalled back left previous: ", previousBackLeftMotorPosition);
+        telemetry.addData("wheel stalled back right: current", currentBackRightMotorPosition );
+        telemetry.addData("wheel stalled back right: previous", previousBackRightMotorPosition);
         //TEST THESES VALUSES
-        extendMotor1.setPower(.8);
-        extendMotor2.setPower(.8);
-        telemetry.addData("Arm Power: ", "80%");
-        frontRightMotor.setPower(.3);
-        frontLeftMotor.setPower(.3);
-        backRightMotor.setPower(.3);
-        backLeftMotor.setPower(.3);
-        telemetry.addData("Wheel Power: ", "30%");
+        extendMotor1.setPower(-.5);
+        extendMotor2.setPower(-.5);
     }
 
     void DoClimbing()
