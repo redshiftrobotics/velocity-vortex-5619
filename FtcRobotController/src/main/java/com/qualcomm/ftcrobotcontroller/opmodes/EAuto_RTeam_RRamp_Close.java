@@ -58,14 +58,14 @@ public class EAuto_RTeam_RRamp_Close extends EOpModeBase {
     /*
     ██████████████████████████████████████████████████████████████████████
      */
-    final double DISTANCE_DRIVE7 = 2133.6; //in mm
+    final double DISTANCE_DRIVE7 = 1524; //in mm
     final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
     final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
     public void startDrive7()
     {
         state = STATE_DRIVE_7_FEET;
-        ct("State", "STATE_DRIVE_7_FEET");
+        ct("State", "STATE_DO_CURVE");
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -88,9 +88,9 @@ public class EAuto_RTeam_RRamp_Close extends EOpModeBase {
 
 
 
-        frontLeftMotor.setPower(POWER_DRIVE7);
+        frontLeftMotor.setPower(POWER_DRIVE7 * 0.6);
         frontRightMotor.setPower(POWER_DRIVE7);
-        backLeftMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7 * 0.6);
         backRightMotor.setPower(POWER_DRIVE7);
     }
 
@@ -118,17 +118,18 @@ public class EAuto_RTeam_RRamp_Close extends EOpModeBase {
     {
         state = STATE_TURN_90_LEFT;
 
-        dt("DONE!");
-        ct("State", "STATE_TURN_90_LEFT");
+
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
+
+        mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        dt("STATE_TURN_90_LEFT");
+        mountainCode.loop();
     }
 }
