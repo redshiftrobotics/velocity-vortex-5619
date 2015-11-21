@@ -117,14 +117,11 @@ public class EAutoCallMountainCode {
     }
 
     void DoClimbing() {
-        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
-        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
-        extendMotor2.setPower(.5);
-        extendMotor1.setPower(.55);
-        frontLeftMotor.setPower(.3);
-        frontRightMotor.setPower(.3);
-        backRightMotor.setPower(.3);
-        backLeftMotor.setPower(.3);
+        //extendMotor2.setDirection(DcMotor.Direction.FORWARD);
+       // extendMotor1.setDirection(DcMotor.Direction.REVERSE);
+       // extendMotor2.setPower(.5);
+        //extendMotor1.setPower(.55);
+
         telemetry.addData("State: ", "Climbing");
     }
 }
