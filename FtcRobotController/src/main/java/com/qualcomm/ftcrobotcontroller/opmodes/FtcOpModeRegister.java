@@ -56,7 +56,7 @@ public class FtcOpModeRegister implements OpModeRegister {
      *
      * Uncomment any of the following lines if you want to register an op mode.
      */
-    manager.register("Final Mountain Autonomous", FinalMoutainAuto.class);
+    //manager.register("Final Mountain Autonomous", FinalMountainAuto.class);
      /*
 	  manager.register("NullOp", NullOp.class)
 	  manager.register("K9TeleOp", K9TeleOp.class);

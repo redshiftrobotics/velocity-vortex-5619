@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by Madeline Byrne on 11/19/2015.
  */
-public class FinalMoutainAuto extends EOpModeBase
+public class FinalMountainAuto extends EOpModeBase
 {
-    Long StartTime;
+    long StartTime;
     long TimeElapsed;
     enum mountainStates {beginning, forwardDrive, climbing}
     mountainStates state;
@@ -16,8 +16,13 @@ public class FinalMoutainAuto extends EOpModeBase
     public void init()
     {
         super.init();
-        StartTime = System.currentTimeMillis();
+        extendMotor1.setPower(0);
+        extendMotor2.setPower(0);
         state = mountainStates.beginning;
+    }
+    public void start()
+    {
+        StartTime = System.currentTimeMillis();
     }
 
 
@@ -65,8 +70,8 @@ public class FinalMoutainAuto extends EOpModeBase
     {
         extendMotor2.setDirection(DcMotor.Direction.FORWARD);
         extendMotor1.setDirection(DcMotor.Direction.REVERSE);
-        extendMotor2.setPower(.3);
-        extendMotor1.setPower(.3);
+        extendMotor2.setPower(.1);
+        extendMotor1.setPower(.15);
         telemetry.addData("State: ", "Climbing");
     }
 }

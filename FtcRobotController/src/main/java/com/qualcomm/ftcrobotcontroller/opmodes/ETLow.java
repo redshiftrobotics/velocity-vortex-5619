@@ -21,7 +21,8 @@ public class ETLow extends EOpModeBase {
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
 
-
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
+        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
     }
 
     boolean lastBttnStateHitServoLeft = false;

@@ -87,6 +87,9 @@ public class EAuto_RTeam_BRamp_Close extends EOpModeBase {
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
 
 
 
