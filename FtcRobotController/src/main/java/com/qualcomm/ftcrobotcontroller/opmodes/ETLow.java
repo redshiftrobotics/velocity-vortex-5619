@@ -65,15 +65,15 @@ public class ETLow extends EOpModeBase {
 
 
         //clip the power values so that it only goes from -1 to 1
-        xValue = Range.clip(xValue, -1, 1);
-       yValue = Range.clip(yValue, -1, 1);
+        xValue = Range.clip(xValue, -1, 1); //-1 - 1
+       yValue = Range.clip(yValue, -1, 1); //-1 - 1
 
         //set the power of the motors with the gamepad values
-        frontLeftMotor.setPower(xValue); //
-        frontRightMotor.setPower(yValue); //
+        frontLeftMotor.setPower(xValue / 2); //
+        frontRightMotor.setPower(yValue / 2); //
 
-        backLeftMotor.setPower(xValue);
-        backRightMotor.setPower(yValue);
+        backLeftMotor.setPower(xValue / 2);
+        backRightMotor.setPower(yValue / 2);
 
 //=================================================================================================
 

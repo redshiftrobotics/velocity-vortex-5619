@@ -28,7 +28,7 @@ public class EAutoCallMountainCode {
     long StartTime;
     long TimeElapsed;
 
-    enum mountainStates {beginning, forwardDrive, climbing}
+    enum mountainStates {beginning, forwardDrive, climbing, stop}
 
     mountainStates state;
 
@@ -74,19 +74,26 @@ public class EAutoCallMountainCode {
 
     public void loop() {
         TimeElapsed = System.currentTimeMillis() - StartTime;
-
-        if (TimeElapsed > 3000) {
+        if (TimeElapsed>6300)
+        {
+            state = mountainStates.stop;
+        }
+        else if (TimeElapsed>6000)
+        {
+            extendMotor2.setPower(.55);
+            extendMotor1.setPower(.5);
+            //frontLeftMotor.setPower(0);
+            //frontRightMotor.setPower(0);
+            //backLeftMotor.setPower(0);
+            //backRightMotor.setPower(0);
+        }
+        else if (TimeElapsed > 3000) {
             state = mountainStates.climbing;
         }
-        if (TimeElapsed>4000)
-        {
-            extendMotor2.setPower(0);
-            extendMotor1.setPower(0);
-            frontLeftMotor.setPower(0);
-            frontRightMotor.setPower(0);
-            backLeftMotor.setPower(0);
-            backRightMotor.setPower(0);
-        }
+
+
+
+
 
         switch (state) {
             case beginning:
@@ -97,6 +104,10 @@ public class EAutoCallMountainCode {
                 break;
             case climbing:
                 DoClimbing();
+                break;
+            case stop:
+                DoStop();
+                break;
         }
     }
 
@@ -116,12 +127,26 @@ public class EAutoCallMountainCode {
         telemetry.addData("State: ", "Forward Drive");
     }
 
+    void DoStop()
+    {
+        telemetry.addData("State: ", "Stop");
+        extendMotor1.setPower(0);
+        extendMotor2.setPower(0);
+        frontLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
+    }
+
     void DoClimbing() {
-        //extendMotor2.setDirection(DcMotor.Direction.FORWARD);
-       // extendMotor1.setDirection(DcMotor.Direction.REVERSE);
-       // extendMotor2.setPower(.5);
-        //extendMotor1.setPower(.55);
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
+       extendMotor1.setDirection(DcMotor.Direction.REVERSE);
+       extendMotor2.setPower(.5);
+        extendMotor1.setPower(.55);
+
 
         telemetry.addData("State: ", "Climbing");
+
+
     }
 }
