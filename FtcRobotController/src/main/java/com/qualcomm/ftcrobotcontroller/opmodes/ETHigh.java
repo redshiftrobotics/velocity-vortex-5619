@@ -12,19 +12,27 @@ public class ETHigh extends EOpModeBase {
 
     public void init() {
         dt("HIGH Tank Drive Selected!");
-        tts("I am ready to drive");
+        tts("Ready to drive!");
         super.init(); //calls the init funtion in EOpModeBase.class
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
 
         extendMotor2.setDirection(DcMotor.Direction.FORWARD);
         extendMotor1.setDirection(DcMotor.Direction.REVERSE);
 
-        lift1.setPosition(0);
-        lift2.setPosition(0);
+
+
+    //    lift1.setPosition(0);
+    //    lift2.setPosition(0);
     }
 
     double lift1Pos = 0;
@@ -88,8 +96,8 @@ public class ETHigh extends EOpModeBase {
         extendValueRight = Range.clip(extendValueRight, -1, 1);
 
 
-        extendMotor1.setPower(extendValueLeft);
-        extendMotor2.setPower(extendValueRight);
+        extendMotor1.setPower(extendValueLeft * 0.7);
+        extendMotor2.setPower(extendValueRight * 0.7);
 
 
         if (toggleHitServoLeft() == true) {
@@ -148,6 +156,10 @@ public class ETHigh extends EOpModeBase {
 
 
         }
+
+
+        telemetry.addData("Left Arm", extendMotor1.getCurrentPosition());
+        telemetry.addData("Right Arm", extendMotor2.getCurrentPosition());
 
     }
 }
