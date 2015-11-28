@@ -1,15 +1,10 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.hardware.LegacyModule;
-import com.qualcomm.robotcore.hardware.LightSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
-
-import android.widget.Toast;
 
 
 /**
@@ -26,8 +21,8 @@ public abstract class EOpModeBase extends OpMode{
 	protected DcMotor backRightMotor; //BACK RIGHT
 	protected DcMotor extendMotor1; // arm1
 	protected DcMotor extendMotor2; // arm2
-	protected Servo clamp1; //clamp1
-	protected Servo clamp2; //clamp2
+	protected Servo lift1; //
+	protected Servo lift2; //
 	protected Servo hit1; //hit1
 	protected Servo hit2; //hit2
 	//protected LightSensor lightSensor; //line follower light sensor
@@ -68,19 +63,20 @@ public abstract class EOpModeBase extends OpMode{
 
 		//legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
 		servoController1 = hardwareMap.servoController.get("Servo Controller 1");
-		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller 1");
-		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller 2");
-		dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller 3");
+		dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller Arm");
+		dcMotorController2 = hardwareMap.dcMotorController.get("Motor Controller Back");
+		dcMotorController3 = hardwareMap.dcMotorController.get("Motor Controller Front");
 		frontLeftMotor = hardwareMap.dcMotor.get("left1");
 		frontRightMotor = hardwareMap.dcMotor.get("right1");
 		backLeftMotor = hardwareMap.dcMotor.get("left2");
 		backRightMotor = hardwareMap.dcMotor.get("right2");
 		extendMotor1 = hardwareMap.dcMotor.get("extend1");
 		extendMotor2 = hardwareMap.dcMotor.get("extend2");
-		clamp1 = hardwareMap.servo.get("clamp1");
-		clamp2 = hardwareMap.servo.get("clamp2");
+		lift1 = hardwareMap.servo.get("lift1");
+		lift2 = hardwareMap.servo.get("lift2");
 		hit1 = hardwareMap.servo.get("hit1");
 		hit2 = hardwareMap.servo.get("hit2");
+
 		//lightSensor = hardwareMap.lightSensor.get("light");
 
 
