@@ -12,6 +12,7 @@ public class ETHigh extends EOpModeBase {
 
     public void init() {
         dt("HIGH Tank Drive Selected!");
+        tts("I am ready to drive");
         super.init(); //calls the init funtion in EOpModeBase.class
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);

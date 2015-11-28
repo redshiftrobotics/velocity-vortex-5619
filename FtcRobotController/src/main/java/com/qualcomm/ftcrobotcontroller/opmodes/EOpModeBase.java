@@ -1,5 +1,8 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import android.speech.tts.TextToSpeech;
+
+import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
@@ -53,10 +56,17 @@ public abstract class EOpModeBase extends OpMode{
 		telemetry.addData(what, text);
 	}
 
+    public void tts(String text)
+    {
+        FtcRobotControllerActivity.t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
 
 	public void init()
 	{
 		dt("Init Loading...");//start
+
+
 
 
 

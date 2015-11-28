@@ -44,6 +44,7 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
+import android.speech.tts.TextToSpeech;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,6 +75,7 @@ import com.qualcomm.robotcore.wifi.WifiDirectAssistant;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.util.Locale;
 
 public class FtcRobotControllerActivity extends Activity {
 
@@ -109,7 +111,7 @@ public class FtcRobotControllerActivity extends Activity {
 	//===========================================[ERICS CODE HERE]=================================
 
 	public static FtcRobotControllerActivity mainActivity;
-
+   public static TextToSpeech t1;
 	//=============================================================================================
 
   protected class RobotRestarter implements Restarter {
@@ -147,8 +149,10 @@ public class FtcRobotControllerActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     setContentView(R.layout.activity_ftc_controller);
+//ERIC
 
-    utility = new Utility(this);
+//ERIC
+      utility = new Utility(this);
     context = this;
     entireScreenLayout = (LinearLayout) findViewById(R.id.entire_screen);
     buttonMenu = (ImageButton) findViewById(R.id.menu_buttons);
@@ -191,7 +195,17 @@ public class FtcRobotControllerActivity extends Activity {
     //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
 	  mainActivity = this;
 
+      t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+          @Override
+          public void onInit(int status) {
+              if(status != TextToSpeech.ERROR) {
+                  t1.setLanguage(Locale.UK);
+                  //t1.setLanguage(Locale.CANADA);
 
+
+              }
+          }
+      });
 
     //===========================================================================================
   }
@@ -199,6 +213,11 @@ public class FtcRobotControllerActivity extends Activity {
   @Override
   protected void onStart() {
     super.onStart();
+
+      //eric
+      //t1.speak("Hello World", TextToSpeech.QUEUE_FLUSH, null);
+
+      //eric
 
     // save 4MB of logcat to the SD card
     RobotLog.writeLogcatToDisk(this, 4 * 1024);
