@@ -10,9 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 public class ETHigh extends EOpModeBase {
 
 
-
-    public void init()
-    {
+    public void init() {
         dt("HIGH Tank Drive Selected!");
         super.init(); //calls the init funtion in EOpModeBase.class
 
@@ -33,10 +31,9 @@ public class ETHigh extends EOpModeBase {
 
     boolean lastBttnStateHitServoLeft = false;
     boolean toggleStateHitServoLeft = false;
-    public boolean toggleHitServoLeft()
-    {
-        if(gamepad2.left_bumper && !lastBttnStateHitServoLeft)
-        {
+
+    public boolean toggleHitServoLeft() {
+        if (gamepad2.left_bumper && !lastBttnStateHitServoLeft) {
             toggleStateHitServoLeft = !toggleStateHitServoLeft;
         }
         lastBttnStateHitServoLeft = gamepad2.left_bumper;
@@ -45,10 +42,9 @@ public class ETHigh extends EOpModeBase {
 
     boolean lastBttnStateHitServoRight = false;
     boolean toggleStateHitServoRight = false;
-    public boolean toggleHitServoRight()
-    {
-        if(gamepad2.right_bumper && !lastBttnStateHitServoRight)
-        {
+
+    public boolean toggleHitServoRight() {
+        if (gamepad2.right_bumper && !lastBttnStateHitServoRight) {
             toggleStateHitServoRight = !toggleStateHitServoRight;
         }
         lastBttnStateHitServoRight = gamepad2.right_bumper;
@@ -82,11 +78,9 @@ public class ETHigh extends EOpModeBase {
         backRightMotor.setPower(yValue);
 
 
-
         //this is for making the controller #2 beable to do the sliders
         float extendValueLeft = -gamepad2.left_stick_y;
         float extendValueRight = -gamepad2.right_stick_y;
-
 
 
         extendValueLeft = Range.clip(extendValueLeft, -1, 1);
@@ -97,59 +91,62 @@ public class ETHigh extends EOpModeBase {
         extendMotor2.setPower(extendValueRight);
 
 
-
-        if(toggleHitServoLeft() == true) {
+        if (toggleHitServoLeft() == true) {
             ct("Hit1", "Open");
             hit1.setPosition(1);
-        }
-        else
-        {
+        } else {
             ct("Hit1", "Closed");
             hit1.setPosition(0.50);
         }
 
-        if(toggleHitServoRight() == true)
-        {
+        if (toggleHitServoRight() == true) {
             ct("Hit2", "Open");
             hit2.setPosition(0);
-        }
-        else
-        {
+        } else {
             ct("Hit2", "Closed");
             hit2.setPosition(0.50);
 
         }
 
-        if(gamepad2.y)
-        {
-            if(lift2Pos >= 0.9)
-            {
-                dt("LOWER POS");
-            }
-            else
-            {
-                lift2Pos = lift2Pos + 0.10;
-                lift2.setPosition(+0.10);
+        if (gamepad2.dpad_up) {
+            if (lift2Pos >= 0.9) {
+                dt("Y LOW");
+            } else {
+                lift2Pos = lift2Pos + .01;
+                lift2.setPosition(lift2Pos);
             }
 
         }
-        if(gamepad2.a)
-        {
-            if(lift2Pos <= 0.1)
-            {
-                dt("LOWER POS");
+        if (gamepad2.dpad_down) {
+            if (lift2Pos <= 0.5) {
+                dt("A LOW");
+            } else {
+                lift2Pos = lift2Pos + -.01;
+                lift2.setPosition(lift2Pos);
             }
-            else
-            {
-                lift2Pos = lift2Pos + -0.10;
-                lift2.setPosition(-0.10);
+
+
+            if (gamepad2.y) {
+                if (lift2Pos <= 0.5) {
+                    dt("A LOW");
+                } else {
+                    lift2Pos = lift2Pos + -.01;
+                    lift2.setPosition(lift2Pos);
+                }
+
+            }
+            if (gamepad2.a) {
+
+                if (lift2Pos >= 0.9) {
+                    dt("Y LOW");
+                } else {
+                    lift2Pos = lift2Pos + .01;
+                    lift2.setPosition(lift2Pos);
+                }
             }
 
 
         }
-
-
 
     }
-
 }
