@@ -10,6 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 public class ETHigh extends EOpModeBase {
 
 
+
     public void init() {
         dt("HIGH Tank Drive Selected!");
         tts("Ready to drive!");
@@ -30,9 +31,8 @@ public class ETHigh extends EOpModeBase {
         extendMotor1.setDirection(DcMotor.Direction.REVERSE);
 
 
-
-    //    lift1.setPosition(0);
-    //    lift2.setPosition(0);
+        //    lift1.setPosition(0);
+        //    lift2.setPosition(0);
     }
 
     double lift1Pos = 0;
@@ -128,38 +128,47 @@ public class ETHigh extends EOpModeBase {
         }
         if (gamepad2.dpad_down) {
             if (lift2Pos <= 0.5) {
-                dt("A LOW");
+                dt("DPAD_DOWN LOW");
             } else {
                 lift2Pos = lift2Pos + -.01;
                 lift2.setPosition(lift2Pos);
             }
 
-
-            if (gamepad2.y) {
-                if (lift2Pos <= 0.5) {
-                    dt("A LOW");
-                } else {
-                    lift2Pos = lift2Pos + -.01;
-                    lift2.setPosition(lift2Pos);
-                }
-
-            }
-            if (gamepad2.a) {
-
+            if (gamepad2.dpad_down) {
                 if (lift2Pos >= 0.9) {
-                    dt("Y LOW");
+                    dt("DPAD_UP LOW");
                 } else {
                     lift2Pos = lift2Pos + .01;
                     lift2.setPosition(lift2Pos);
                 }
+
+
+                if (gamepad2.y) {
+                    if (lift2Pos <= 0.5) {
+                        dt("A LOW");
+                    } else {
+                        lift2Pos = lift2Pos + -.01;
+                        lift2.setPosition(lift2Pos);
+                    }
+
+                }
+                if (gamepad2.a) {
+
+                    if (lift2Pos >= 0.9) {
+                        dt("Y LOW");
+                    } else {
+                        lift2Pos = lift2Pos + .01;
+                        lift2.setPosition(lift2Pos);
+                    }
+                }
+
+
             }
 
 
+            telemetry.addData("Left Arm", extendMotor1.getCurrentPosition());
+            telemetry.addData("Right Arm", extendMotor2.getCurrentPosition());
+
         }
-
-
-        telemetry.addData("Left Arm", extendMotor1.getCurrentPosition());
-        telemetry.addData("Right Arm", extendMotor2.getCurrentPosition());
-
     }
 }

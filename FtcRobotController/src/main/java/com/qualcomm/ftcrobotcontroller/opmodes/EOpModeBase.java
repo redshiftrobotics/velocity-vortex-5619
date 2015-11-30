@@ -18,6 +18,8 @@ public abstract class EOpModeBase extends OpMode{
 	String teleConvert;
 	int teleInt = 0;
 
+    boolean useTTS = true; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
+
 	protected DcMotor frontLeftMotor; //FRONT LEFT
 	protected DcMotor frontRightMotor; //FRONT RIGHT
 	protected DcMotor backLeftMotor; //BACK LEFT
@@ -48,17 +50,67 @@ public abstract class EOpModeBase extends OpMode{
 		telemetry.addData(teleConvert, text);
 		//toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
 	}
+    public void dt(int text) //Debug text multiline. Usefull for a lot of output debugging
+    {
+        //make a new line
+        teleInt++;
+        //convert to string
+        teleConvert = Integer.toString(teleInt);
+        //print to console new line
+        telemetry.addData(teleConvert, text);
+        //toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
+    }
+    public void dt(float text) //Debug text multiline. Usefull for a lot of output debugging
+    {
+        //make a new line
+        teleInt++;
+        //convert to string
+        teleConvert = Integer.toString(teleInt);
+        //print to console new line
+        telemetry.addData(teleConvert, text);
+        //toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
+    }
+    public void dt(double text) //Debug text multiline. Usefull for a lot of output debugging
+    {
+        //make a new line
+        teleInt++;
+        //convert to string
+        teleConvert = Integer.toString(teleInt);
+        //print to console new line
+        telemetry.addData(teleConvert, text);
+        //toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
+    }
 
 
 
 	public void ct(String what, String text) //Debug text single line. Usefull for printing state changes
-	{
-		telemetry.addData(what, text);
-	}
-
+    {
+        telemetry.addData(what, text);
+    }
+    public void ct(String what, int text) //Debug text single line. Usefull for printing state changes
+    {
+        telemetry.addData(what, text);
+    }
+    public void ct(String what, double text) //Debug text single line. Usefull for printing state changes
+    {
+        telemetry.addData(what, text);
+    }
+    public void ct(String what, float text) //Debug text single line. Usefull for printing state changes
+    {
+        telemetry.addData(what, text);
+    }
     public void tts(String text)
     {
-        FtcRobotControllerActivity.t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+        if(useTTS)
+        {
+            FtcRobotControllerActivity.t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+            dt("TTS: " + text);
+        }
+        else
+        {
+            dt("TTS: " + text);
+        }
+
     }
 
 
