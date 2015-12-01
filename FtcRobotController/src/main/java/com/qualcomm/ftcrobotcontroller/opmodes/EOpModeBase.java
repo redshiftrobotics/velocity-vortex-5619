@@ -147,8 +147,8 @@ public abstract class EOpModeBase extends OpMode{
 		frontLeftMotor.setDirection(DcMotor.Direction.FORWARD);
 		backRightMotor.setDirection(DcMotor.Direction.REVERSE);
 		backLeftMotor.setDirection(DcMotor.Direction.FORWARD);
-		extendMotor2.setDirection(DcMotor.Direction.REVERSE);
-		extendMotor1.setDirection(DcMotor.Direction.FORWARD);
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
+        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
 
 		mountainCode = new EAutoCallMountainCode(frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, extendMotor1, extendMotor2, telemetry);
 		dt("Init Loaded!"); //end

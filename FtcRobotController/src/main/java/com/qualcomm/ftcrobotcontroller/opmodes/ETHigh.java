@@ -15,17 +15,31 @@ public class ETHigh extends EOpModeBase {
         dt("HIGH Tank Drive Selected!");
         tts("Ready to drive!");
         super.init(); //calls the init funtion in EOpModeBase.class
+
         extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-
         extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         extendMotor2.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
 
+
+
+
+        //extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         extendMotor2.setDirection(DcMotor.Direction.FORWARD);
         extendMotor1.setDirection(DcMotor.Direction.REVERSE);
@@ -96,8 +110,8 @@ public class ETHigh extends EOpModeBase {
         extendValueRight = Range.clip(extendValueRight, -1, 1);
 
 
-        extendMotor1.setPower(extendValueLeft * 0.7);
-        extendMotor2.setPower(extendValueRight * 0.7);
+        extendMotor1.setPower(extendValueLeft * 0.2);
+        extendMotor2.setPower(extendValueRight * 0.2);
 
 
         if (toggleHitServoLeft() == true) {
@@ -119,13 +133,14 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.dpad_up) {
             if (lift2Pos >= 0.9) {
-                dt("Y LOW");
+                dt("DPAD_UP_LOW");
             } else {
                 lift2Pos = lift2Pos + .01;
                 lift2.setPosition(lift2Pos);
             }
 
         }
+
         if (gamepad2.dpad_down) {
             if (lift2Pos <= 0.5) {
                 dt("DPAD_DOWN LOW");
@@ -134,41 +149,33 @@ public class ETHigh extends EOpModeBase {
                 lift2.setPosition(lift2Pos);
             }
 
-            if (gamepad2.dpad_down) {
-                if (lift2Pos >= 0.9) {
-                    dt("DPAD_UP LOW");
-                } else {
-                    lift2Pos = lift2Pos + .01;
-                    lift2.setPosition(lift2Pos);
-                }
-
-
-                if (gamepad2.y) {
-                    if (lift2Pos <= 0.5) {
-                        dt("A LOW");
-                    } else {
-                        lift2Pos = lift2Pos + -.01;
-                        lift2.setPosition(lift2Pos);
-                    }
-
-                }
-                if (gamepad2.a) {
-
-                    if (lift2Pos >= 0.9) {
-                        dt("Y LOW");
-                    } else {
-                        lift2Pos = lift2Pos + .01;
-                        lift2.setPosition(lift2Pos);
-                    }
-                }
-
-
-            }
-
-
-            telemetry.addData("Left Arm", extendMotor1.getCurrentPosition());
-            telemetry.addData("Right Arm", extendMotor2.getCurrentPosition());
-
         }
+
+        if (gamepad2.y) {
+            if (lift2Pos <= 0.5) {
+                dt("Y LOW");
+            } else {
+                lift2Pos = lift2Pos + -.01;
+                lift2.setPosition(lift2Pos);
+            }
+        }
+
+        if (gamepad2.a) {
+            if (lift2Pos >= 0.9) {
+                dt("A LOW");
+            } else {
+                lift2Pos = lift2Pos + .01;
+                lift2.setPosition(lift2Pos);
+            }
+        }
+
+        ct("Left Arm", extendMotor1.getCurrentPosition());
+        ct("Right Drive", extendMotor2.getCurrentPosition());
+
+        ct("Front Left", frontLeftMotor.getCurrentPosition());
+        ct("Front Right", frontRightMotor.getCurrentPosition());
+        ct("Back Left", backLeftMotor.getCurrentPosition());
+        ct("Back Right", backRightMotor.getCurrentPosition());
     }
 }
+
