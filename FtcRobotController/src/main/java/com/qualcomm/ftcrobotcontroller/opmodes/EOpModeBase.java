@@ -101,18 +101,37 @@ public abstract class EOpModeBase extends OpMode{
     }
     public void tts(String text)
     {
+        dt("TTS: " + text);
         if(useTTS)
         {
             FtcRobotControllerActivity.t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-            dt("TTS: " + text);
         }
-        else
-        {
-            dt("TTS: " + text);
-        }
-
     }
 
+    public void tts(int text)
+    {
+        dt("TTS: " + text);
+        if(useTTS)
+        {
+            FtcRobotControllerActivity.t1.speak(Integer.toString(text), TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
+    public void tts(float text)
+    {
+        dt("TTS: " + text);
+        if(useTTS)
+        {
+            FtcRobotControllerActivity.t1.speak(Float.toString(text), TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
+    public void tts(double text)
+    {
+        dt("TTS: " + text);
+        if(useTTS)
+        {
+            FtcRobotControllerActivity.t1.speak(Double.toString(text), TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
 
 	public void init()
 	{

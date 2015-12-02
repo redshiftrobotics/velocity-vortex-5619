@@ -2,6 +2,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 /**
@@ -9,7 +10,8 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ETHigh extends EOpModeBase {
 
-
+    double lift1Pos = 0.6;
+    double lift2Pos = 0.2;
 
     public void init() {
         dt("HIGH Tank Drive Selected!");
@@ -45,12 +47,13 @@ public class ETHigh extends EOpModeBase {
         extendMotor1.setDirection(DcMotor.Direction.REVERSE); //already in opmodebase
 
 
-        //    lift1.setPosition(0);
-        //    lift2.setPosition(0);
+            lift1.setPosition(lift1Pos);
+            lift2.setPosition(lift2Pos);
+
+
     }
 
-    double lift1Pos = 0;
-    double lift2Pos = 0;
+
 
     boolean lastBttnStateHitServoLeft = false;
     boolean toggleStateHitServoLeft = false;
@@ -130,7 +133,7 @@ public class ETHigh extends EOpModeBase {
             hit2.setPosition(0.50);
 
         }
-
+/*
         if (gamepad2.dpad_up) {
             if (lift1Pos >= 0.9) {
                 dt("DPAD_UP_LOW");
@@ -153,29 +156,34 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.y) {
             if (lift2Pos <= 0.5) {
-                dt("Y LOW");
+                dt("Y HIGH");
+
             } else {
                 lift2Pos = lift2Pos + -.01;
                 lift2.setPosition(lift2Pos);
+
             }
         }
 
         if (gamepad2.a) {
             if (lift2Pos >= 0.9) {
                 dt("A LOW");
+
             } else {
                 lift2Pos = lift2Pos + .01;
                 lift2.setPosition(lift2Pos);
+
+
             }
         }
-
+*/
         ct("Left Arm", extendMotor1.getCurrentPosition());
         ct("Right Drive", extendMotor2.getCurrentPosition());
 
-        ct("Front Left", frontLeftMotor.getCurrentPosition());
-        ct("Front Right", frontRightMotor.getCurrentPosition());
+        ct("Front Left", frontLeftMotor.getCurrentPosition()); //no incoder yet
+        ct("Front Right", frontRightMotor.getCurrentPosition()); //no incoder yet
         ct("Back Left", backLeftMotor.getCurrentPosition());
-        ct("Back Right", backRightMotor.getCurrentPosition());
+        ct("Back Right", backRightMotor.getCurrentPosition()); //no incoder nyet
     }
 }
 
