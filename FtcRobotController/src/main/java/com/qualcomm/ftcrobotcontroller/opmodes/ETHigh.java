@@ -41,8 +41,8 @@ public class ETHigh extends EOpModeBase {
         //backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         //backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
-        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
-        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD); //not needed
+        extendMotor1.setDirection(DcMotor.Direction.REVERSE); //already in opmodebase
 
 
         //    lift1.setPosition(0);
@@ -132,21 +132,21 @@ public class ETHigh extends EOpModeBase {
         }
 
         if (gamepad2.dpad_up) {
-            if (lift2Pos >= 0.9) {
+            if (lift1Pos >= 0.9) {
                 dt("DPAD_UP_LOW");
             } else {
-                lift2Pos = lift2Pos + .01;
-                lift2.setPosition(lift2Pos);
+                lift1Pos = lift2Pos + .01;
+                lift1.setPosition(lift1Pos);
             }
 
         }
 
         if (gamepad2.dpad_down) {
-            if (lift2Pos <= 0.5) {
+            if (lift1Pos <= 0.5) {
                 dt("DPAD_DOWN LOW");
             } else {
-                lift2Pos = lift2Pos + -.01;
-                lift2.setPosition(lift2Pos);
+                lift1Pos = lift1Pos + -.01;
+                lift1.setPosition(lift1Pos);
             }
 
         }
