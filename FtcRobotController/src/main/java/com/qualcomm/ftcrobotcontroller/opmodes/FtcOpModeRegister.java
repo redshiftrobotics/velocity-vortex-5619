@@ -111,7 +111,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //BLUE TEAM
       //RED RAMP
 
-     // manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
+      manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
       //manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
 
       //BLUE TEAM
@@ -136,7 +136,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
 
     //DRIVE
-      manager.register("Low Drive", ETLow.class);
+     // manager.register("Low Drive", ETLow.class);
       manager.register("High Drive", ETHigh.class);
 
       //HIGH OP MODES

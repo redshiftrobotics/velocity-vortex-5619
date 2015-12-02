@@ -110,7 +110,7 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
 
 
-        int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
+        int ENCODER_POS_DRIVE7 = backLeftMotor.getCurrentPosition();
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
@@ -130,11 +130,11 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
 
-        mountainCode.init();
+      //  mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        mountainCode.loop();
+        //mountainCode.loop();
     }
 }

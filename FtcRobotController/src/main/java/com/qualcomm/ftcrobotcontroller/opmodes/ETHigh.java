@@ -17,14 +17,14 @@ public class ETHigh extends EOpModeBase {
         dt("HIGH Tank Drive Selected!");
         tts("Ready to drive!");
         super.init(); //calls the init funtion in EOpModeBase.class
-
+/*
         extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-
+*/
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
@@ -36,12 +36,12 @@ public class ETHigh extends EOpModeBase {
 
 
 
-        //extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         //frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         //frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       // backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         extendMotor2.setDirection(DcMotor.Direction.FORWARD); //not needed
         extendMotor1.setDirection(DcMotor.Direction.REVERSE); //already in opmodebase
