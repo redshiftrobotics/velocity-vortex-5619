@@ -18,7 +18,7 @@ public abstract class EOpModeBase extends OpMode{
 	String teleConvert;
 	int teleInt = 0;
 
-    boolean useTTS = true; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
+    boolean useTTS = false; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
 
 	protected DcMotor frontLeftMotor; //FRONT LEFT
 	protected DcMotor frontRightMotor; //FRONT RIGHT
