@@ -133,50 +133,62 @@ public class ETHigh extends EOpModeBase {
             hit2.setPosition(0.50);
 
         }
-/*
+
+
+
         if (gamepad2.dpad_up) {
-            if (lift1Pos >= 0.9) {
-                dt("DPAD_UP_LOW");
-            } else {
-                lift1Pos = lift2Pos + .01;
+            //left up
+            if(lift1Pos >= 1)
+            {
+                lift1Pos = 1;
+                lift1.setPosition(lift1Pos);
+            }
+            else{
+                lift1Pos = lift1Pos + 0.1;
                 lift1.setPosition(lift1Pos);
             }
 
         }
 
         if (gamepad2.dpad_down) {
-            if (lift1Pos <= 0.5) {
-                dt("DPAD_DOWN LOW");
-            } else {
-                lift1Pos = lift1Pos + -.01;
+            //left down
+            if(lift1Pos <= 0.6)
+            {
+                lift1Pos = 0.6;
                 lift1.setPosition(lift1Pos);
             }
-
+            else{
+                lift1Pos = lift1Pos - 0.1;
+                lift1.setPosition(lift1Pos);
+            }
         }
 
         if (gamepad2.y) {
-            if (lift2Pos <= 0.5) {
-                dt("Y HIGH");
-
-            } else {
-                lift2Pos = lift2Pos + -.01;
+            //right up
+            if(lift2Pos >= 0)
+            {
+                lift2Pos = 0;
                 lift2.setPosition(lift2Pos);
-
+            }
+            else{
+                lift2Pos = lift2Pos - 0.05;
+                lift2.setPosition(lift2Pos);
             }
         }
 
         if (gamepad2.a) {
-            if (lift2Pos >= 0.9) {
-                dt("A LOW");
-
-            } else {
-                lift2Pos = lift2Pos + .01;
+            //right down
+            if(lift2Pos <= 0.2)
+            {
+                lift2Pos = 0.2;
                 lift2.setPosition(lift2Pos);
-
-
+            }
+            else{
+                lift2Pos = lift2Pos + 0.05;
+                lift2.setPosition(lift2Pos);
             }
         }
-*/
+
         ct("Left Arm", extendMotor1.getCurrentPosition());
         ct("Right Drive", extendMotor2.getCurrentPosition());
 
