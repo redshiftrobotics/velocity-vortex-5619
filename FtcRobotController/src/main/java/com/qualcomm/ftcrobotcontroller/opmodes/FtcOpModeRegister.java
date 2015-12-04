@@ -139,7 +139,7 @@ public class FtcOpModeRegister implements OpModeRegister {
      // manager.register("Low Drive", ETLow.class);
       manager.register("High Drive", ETHigh.class);
       manager.register("Arm Test", ArmTest.class);
-      manager.register("Space Jam", EParty.class);
+     // manager.register("Space Jam", EParty.class);
 
       //HIGH OP MODES
      // manager.register("High Drive", ETHigh.class);
