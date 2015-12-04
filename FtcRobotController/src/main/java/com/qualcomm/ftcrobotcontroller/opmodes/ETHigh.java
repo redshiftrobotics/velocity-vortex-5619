@@ -1,5 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import android.hardware.Sensor;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,7 +13,14 @@ import com.qualcomm.robotcore.util.Range;
 public class ETHigh extends EOpModeBase {
 
     double lift1Pos = 0.6;
-    double lift2Pos = 0.2;
+    double lift2Pos = 0.5;
+
+    final int ENCODER_CPR = 1120; //ANDY MARK MOTOR DONT CHANGE
+    final double GEAR_RATIO_WHEEL = 1;
+    final double DIAMETER_DRIVEWEEL = 57; //in mm //MILIMETERS ARE THE SMALL TICKS ON THE CENMETER DONT FORGET
+    final double CIRCUMFRANCE_DRIVEWEEL = Math.PI * DIAMETER_DRIVEWEEL;
+
+
 
     public void init() {
         dt("HIGH Tank Drive Selected!");
@@ -132,11 +141,11 @@ public class ETHigh extends EOpModeBase {
             hit1.setPosition(0.50);
         }
 
-        if (toggleHitServoRight() == true) {
-            ct("Hit2", "Open");
+        if (toggleHitServoRight() == false) {
+            ct("Hit2", "Closed");
             hit2.setPosition(0);
         } else {
-            ct("Hit2", "Closed");
+            ct("Hit2", "Open");
             hit2.setPosition(0.50);
 
         }
@@ -185,22 +194,22 @@ public class ETHigh extends EOpModeBase {
             else{
 
                 lift2.setPosition(lift2Pos);
-                lift2Pos = lift2Pos - 0.05;
+                lift2Pos = lift2Pos - 0.1;
             }
         }
 
         if (gamepad2.a) {
             //right down
-            if(lift2Pos <= 0.2)
+            if(lift2Pos <= 0.5)
             {
-                lift2Pos = 0.2;
+                lift2Pos = 0.5;
                 lift2.setPosition(lift2Pos);
 
             }
             else{
 
                 lift2.setPosition(lift2Pos);
-                lift2Pos = lift2Pos + 0.05;
+                lift2Pos = lift2Pos + 0.1;
             }
         }
 

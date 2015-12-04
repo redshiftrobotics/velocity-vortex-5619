@@ -28,10 +28,17 @@ public class MountainAutoHigh extends EOpModeBase
 
         TimeElapsed = System.currentTimeMillis() - StartTime;
 
+<<<<<<< HEAD
 //        if (TimeElapsed> SET THIS FUCKING TIME)
 //        {
 //            state = mountainStates.extendArms;
 //        }
+=======
+        if (TimeElapsed> /*SET THIS FUCKING TIME*/0)
+        {
+            state = mountainStates.extendArms;
+        }
+>>>>>>> e0dad5072e6530c8bcdb1bd57660ca9cd4295b70
 
         switch (state)
         {
@@ -75,13 +82,26 @@ public class MountainAutoHigh extends EOpModeBase
     {
         hit1.setPosition(.5);
         hit2.setPosition(.5);
+<<<<<<< HEAD
         //TEST THIS SHIT^^^^
         //EXTEND ARMS -- ASK ERIC ABOUT VALUES AND SHIT
+=======
+        /*
+        TEST THIS SHIT^^^^
+        EXTEND ARMS -- ASK ERIC ABOUT VALUES AND SHIT
+        */
+>>>>>>> e0dad5072e6530c8bcdb1bd57660ca9cd4295b70
     }
 
     void DoCatchArmOnBar()
     {
     //lower arms
+<<<<<<< HEAD
+=======
+        /*
+        FIGURE OUT HOW TO SENSE IF WE HIT THE BAR
+        */
+>>>>>>> e0dad5072e6530c8bcdb1bd57660ca9cd4295b70
     }
 
     void DoPullUp()
