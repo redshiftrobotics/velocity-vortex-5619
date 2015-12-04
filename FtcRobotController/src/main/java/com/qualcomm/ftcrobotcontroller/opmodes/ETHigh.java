@@ -133,11 +133,11 @@ public class ETHigh extends EOpModeBase {
         extendMotor2.setPower(extendValueRight * 0.2);
 
 
-        if (toggleHitServoLeft() == true) {
-            ct("Hit1", "Open");
+        if (toggleHitServoLeft() == false) {
+            ct("Hit1", "Closed");
             hit1.setPosition(1);
         } else {
-            ct("Hit1", "Closed");
+            ct("Hit1", "Open");
             hit1.setPosition(0.50);
         }
 
