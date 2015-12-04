@@ -20,9 +20,10 @@ public class EParty extends EOpModeBase {
     MediaPlayer mediaPlayer;
     Uri song = Uri.fromFile(new File("assets/Eric/party.mp3"));
     Random random = new Random();
-    int maxStates = 4;
+    int maxStates = 7;
 
     double lastTime;
+    boolean hasBeen12Sec = false;
 
 
     public void init()
@@ -41,57 +42,56 @@ public class EParty extends EOpModeBase {
 
     public void loop()
     {
+        telemetry.addData("hasBeen12Sec", hasBeen12Sec);
         int s = random.nextInt(maxStates);
-
-        if(s == 0)
-        {
-            frontLeftMotor.setPower(1);
-            frontRightMotor.setPower(1);
-            backLeftMotor.setPower(1);
-            backRightMotor.setPower(1);
-        }
-        else if(s == 1)
-        {
-            double d = random.nextDouble() * 0.5;
-            hit1.setPosition(d);
-        }
-        else if(s == 1)
-        {
-            double e = random.nextDouble() * 0.5 + 0.5;
-            hit2.setPosition(e);
-        }
-        else if(s == 2)
-        {
-            double f = random.nextDouble() * 0.5;
-            lift1.setPosition(f);
-        }
-        else if(s == 3)
-        {
-            double g = random.nextDouble() * 0.5 + 0.5;
-            lift2.setPosition(g);
-        }
-        else if(s == 4)
-        {
-            frontLeftMotor.setPower(1);
-            backLeftMotor.setPower(1);
-            frontRightMotor.setPower(-1);
-            backRightMotor.setPower(-1);
-        }
-        else if(s == 5)
-        {
-            frontLeftMotor.setPower(-1);
-            backLeftMotor.setPower(-1);
-            frontRightMotor.setPower(1);
-            backRightMotor.setPower(1);
-        }
+        if(hasBeen12Sec) { //after 12 sec do this so it doesnt start untill something
 
 
+            if (s == 0) {
+                frontLeftMotor.setPower(1);
+                frontRightMotor.setPower(1);
+                backLeftMotor.setPower(1);
+                backRightMotor.setPower(1);
+            } else if (s == 1) {
+                double d = random.nextDouble() * 0.5;
+                hit1.setPosition(d);
+            } else if (s == 2) {
+                double e = random.nextDouble() * 0.5 + 0.5;
+                hit2.setPosition(e);
+            } else if (s == 3) {
+                double f = random.nextDouble() * 0.5;
+                lift1.setPosition(f);
+            } else if (s == 4) {
+                double g = random.nextDouble() * 0.5 + 0.5;
+                lift2.setPosition(g);
+            } else if (s == 5) {
+                frontLeftMotor.setPower(1);
+                backLeftMotor.setPower(1);
+                frontRightMotor.setPower(-1);
+                backRightMotor.setPower(-1);
+            } else if (s == 6) {
+                frontLeftMotor.setPower(-1);
+                backLeftMotor.setPower(-1);
+                frontRightMotor.setPower(1);
+                backRightMotor.setPower(1);
+            }
+
+        }
 
         double time  = this.getRuntime();
         if (time - lastTime > 1) {
             everySec();
             lastTime = time;
         }
+        double after8sec  = this.getRuntime();
+        if (after8sec - lastTime > 12) {
+            if(hasBeen12Sec = false)
+            {
+                hasBeen12Sec = true;
+            }
+            lastTime = after8sec;
+        }
+
 
 
     }
