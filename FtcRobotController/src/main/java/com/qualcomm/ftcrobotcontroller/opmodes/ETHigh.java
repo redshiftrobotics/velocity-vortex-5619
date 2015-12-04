@@ -12,6 +12,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ETHigh extends EOpModeBase {
 
+    //
     double lift1Pos = 0.6;
     double lift2Pos = 0.5;
 

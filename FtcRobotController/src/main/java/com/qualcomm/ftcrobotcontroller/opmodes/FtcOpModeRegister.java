@@ -143,7 +143,7 @@ public class FtcOpModeRegister implements OpModeRegister {
       //HIGH OP MODES
      // manager.register("High Drive", ETHigh.class);
 
-
+     // manager.register("Servo Test", EServoTest.class);
 
 //█████████████████████████████████████████████████████████
 
