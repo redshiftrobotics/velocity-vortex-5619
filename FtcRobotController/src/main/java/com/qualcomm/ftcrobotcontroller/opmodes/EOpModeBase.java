@@ -210,6 +210,15 @@ public abstract class EOpModeBase extends OpMode {
         lift2.setPosition(0.5);
     }
 
+    public double getLeftTapePos()
+    {
+       return extendMotor1.getCurrentPosition() / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+    }
+    public double getRightTapePos()
+    {
+        return extendMotor2.getCurrentPosition() / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+    }
+
     public void init() {
         dt("Init Loading...");//start
 
