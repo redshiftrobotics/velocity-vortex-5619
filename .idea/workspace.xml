@@ -17,9 +17,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/raw/ymca.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EPartyYMCA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="5619.iws" />
@@ -61,22 +59,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FtcOpModeRegister.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FtcOpModeRegister.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24009901">
-              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state vertical-scroll-proportion="-28.6875">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EOpModeBase.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EOpModeBase.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-              <folding />
+            <state vertical-scroll-proportion="0.62738097">
+              <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+              <folding>
+                <element signature="e#1775#1776#0" expanded="true" />
+                <element signature="e#1815#1816#0" expanded="true" />
+                <element signature="e#1850#1851#0" expanded="true" />
+                <element signature="e#1890#1891#0" expanded="true" />
+                <element signature="e#1928#1929#0" expanded="true" />
+                <element signature="e#1968#1969#0" expanded="true" />
+                <element signature="e#2005#2006#0" expanded="true" />
+                <element signature="e#2045#2046#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1454,11 +1461,11 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EResetAll.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighRed.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EPartyYMCA.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" />
       </list>
     </option>
   </component>
@@ -1894,7 +1901,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449351864259</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Robot will now do the YMCA dance.">
+      <created>1449352444913</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1449352444913</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1956,7 +1969,8 @@
     <MESSAGE value="Made 2 funtions to get the inches pos on the tape measure. Dont know if it works but i hope it does" />
     <MESSAGE value="Renamed Some of my classes and removed useless classes i made" />
     <MESSAGE value="Merge branch 'master' of https://github.com/redshiftrobotics/5619&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/redshiftrobotics/5619&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
+    <MESSAGE value="Robot will now do the YMCA dance." />
+    <option name="LAST_COMMIT_MESSAGE" value="Robot will now do the YMCA dance." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1986,7 +2000,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
+          <folding>
+            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="e#1815#1816#0" expanded="true" />
+            <element signature="e#1850#1851#0" expanded="true" />
+            <element signature="e#1890#1891#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+            <element signature="e#1968#1969#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2099,14 +2122,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EPartyYMCA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2119,9 +2134,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24009901">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state vertical-scroll-proportion="-28.6875">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62738097">
+          <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+          <folding>
+            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="e#1815#1816#0" expanded="true" />
+            <element signature="e#1850#1851#0" expanded="true" />
+            <element signature="e#1890#1891#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+            <element signature="e#1968#1969#0" expanded="true" />
+            <element signature="e#2005#2006#0" expanded="true" />
+            <element signature="e#2045#2046#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
