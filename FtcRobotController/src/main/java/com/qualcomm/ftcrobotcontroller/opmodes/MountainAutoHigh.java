@@ -80,36 +80,41 @@ public class MountainAutoHigh extends EOpModeBase
 
     void DoExtendArms()
     {
-        hit1.setPosition(.5);
-        hit2.setPosition(.5);
+        //SET ARMS TO GOT SLIGHTLY ABOVE CHURRO (TEST VALUES)
+        lift1.setPosition(.5);
+        lift2.setPosition(.5);
 
-        //TEST THIS SHIT^^^^
-        //EXTEND ARMS -- ASK ERIC ABOUT VALUES AND SHIT
+        moveLeftArmBlahInches(24);
+        moveRightArmBlahInches(24);
 
-        /*
-        TEST THIS SHIT^^^^
-        EXTEND ARMS -- ASK ERIC ABOUT VALUES AND SHIT
-        */
-
+        telemetry.addData("State: ", "Extend Arms");
+        state = mountainStates.catchArmOnBar;
     }
 
     void DoCatchArmOnBar()
     {
-    //lower arms
-
-        /*
-        FIGURE OUT HOW TO SENSE IF WE HIT THE BAR
-        */
+        //SET ARMS SLOWIY DOWN TILL THE CATCH CHURROS (TEST VALUES)
+        hit1.setPosition(.5);
+        hit2.setPosition(.5);
+        telemetry.addData("State: ", "Catch on arm bar");
+        state =  mountainStates.pullUp;
 
     }
 
     void DoPullUp()
     {
-
+        //pull up to (midzone??)
+        moveRightArmBlahInches(-20);
+        moveLeftArmBlahInches(-20);
     }
 
     void DoStop()
     {
-
+        frontLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
+        extendMotor1.setPower(0);
+        extendMotor2.setPower(0);
     }
 }
