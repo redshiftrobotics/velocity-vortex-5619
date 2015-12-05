@@ -93,7 +93,52 @@ public class FtcOpModeRegister implements OpModeRegister {
 
 	  //////////////////////////////////////////////////////////////////////////////////////
 */
-   /*
+
+/*
+
+	                 GOOD OPMODES
+
+      LOW OP MODES
+
+      BLUE TEAM
+      RED RAMP
+
+      manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
+      manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
+
+      BLUE TEAM
+      BLUE RAMP
+
+      manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
+      manager.register("BTeam-BRamp-Far", EAuto_BTeam_BRamp_Far.class);
+
+
+      RED TEAM
+      BLUE RAMP
+
+
+     manager.register("RTeam-BRamp-Close", EAuto_RTeam_BRamp_Close.class);
+     manager.register("RTeam-BRamp-Far", EAuto_RTeam_BRamp_Far.class);
+
+
+      RED TEAM
+      RED RAMP
+
+      manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
+      manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
+*/
+    //DRIVE
+     // manager.register("Low Drive", ETLow.class);
+      manager.register("High Drive", ETHigh.class);
+      manager.register("Arm Test", ArmTest.class);
+      manager.register("Space Jam", EParty.class);
+
+      manager.register("Blue Team", EAuto_BTeam_RRamp_Close.class);
+      manager.register("Red Team", EAuto_RTeam_BRamp_Close.class);
+
+
+      manager.register("RESET (In case of bugs run)", EResetAll.class);
+     /*
       manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
       manager.register("[Debug] BACK LEFT", EBackLeft.class);
@@ -104,54 +149,10 @@ public class FtcOpModeRegister implements OpModeRegister {
 */
 
 
-	//                  GOOD OPMODES
-
-      //LOW OP MODES
-
-      //BLUE TEAM
-      //RED RAMP
-
-     // manager.register("BTeam-RRamp-Close", EAuto_BTeam_RRamp_Close.class);
-      //manager.register("BTeam-RRamp-Far", EAuto_BTeam_RRamp_Far.class);
-
-      //BLUE TEAM
-      //BLUE RAMP
-
-     // manager.register("BTeam-BRamp-Close", EAuto_BTeam_BRamp_Close.class);
-      //manager.register("BTeam-BRamp-Far", EAuto_BTeam_BRamp_Far.class);
-
-
-      //RED TEAM
-      //BLUE RAMP
-
-
-     // manager.register("RTeam-BRamp-Close", EAuto_RTeam_BRamp_Close.class);
-      //manager.register("RTeam-BRamp-Far", EAuto_RTeam_BRamp_Far.class);
-
-
-      //RED TEAM
-      //RED RAMP
-
-     // manager.register("RTeam-RRamp-Close", EAuto_RTeam_RRamp_Close.class);
-      //manager.register("RTeam-RRamp-Far", EAuto_RTeam_RRamp_Far.class);
-
-    //DRIVE
-     // manager.register("Low Drive", ETLow.class);
-      manager.register("High Drive", ETHigh.class);
-      manager.register("Arm Test", ArmTest.class);
-      manager.register("Space Jam", EParty.class);
-
-      manager.register("Blue Team", EAuto_BTeam_RRamp_Close.class);
-      manager.register("Red Team", EAuto_RTeam_BRamp_Close.class);
-
-      //HIGH OP MODES
-
-
-     // manager.register("Servo Test", EServoTest.class);
 
 
 
-   //manager.register("NLineFollow", lineFollow.class);
-    //  manager.register("madelinebyrne", MountainAutoStateTest11_15.class);
+
+
   }
 }
