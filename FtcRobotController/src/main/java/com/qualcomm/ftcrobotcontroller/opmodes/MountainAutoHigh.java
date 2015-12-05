@@ -93,7 +93,7 @@ public class MountainAutoHigh extends EOpModeBase
         moveRightArmBlahInches(24);
 
         telemetry.addData("State: ", "Extend Arms");
-        
+
 
         state= mountainStates.extendingArms;
     }
