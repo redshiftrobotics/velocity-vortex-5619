@@ -130,11 +130,11 @@ public class EAuto_RTeam_BRamp_Close extends EOpModeBase {
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
 
-        mountainCode.init();
+       // mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        mountainCode.loop();
+       // mountainCode.loop();
     }
 }
