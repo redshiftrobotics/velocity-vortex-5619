@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Eric Golde on 11/14/2015.
  */
-public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
+public class EAutoLowRed extends EOpModeBase {
 
 
 
@@ -24,16 +24,16 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
     public void init() {
 
-        dt("EAuto-BlueTeam-RedRamp-Close Selected!");
+        dt("EAuto-RedTeam-BlueRamp-Close Selected");
 
         super.init();
 
 
 
 
-       frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
 
@@ -70,10 +70,10 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         ct("State", "STATE_DO_CURVE");
 
 
-       frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
         frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
@@ -93,10 +93,10 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
 
 
-        frontLeftMotor.setPower(POWER_DRIVE7);
-        frontRightMotor.setPower(POWER_DRIVE7 * 0.4);
-        backLeftMotor.setPower(POWER_DRIVE7);
-        backRightMotor.setPower(POWER_DRIVE7 * 0.4);
+        frontLeftMotor.setPower(POWER_DRIVE7 * 0.4);
+        frontRightMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7 * 0.4);
+        backRightMotor.setPower(POWER_DRIVE7);
     }
 
     public void loopDrive7()
@@ -110,7 +110,7 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
 
 
-        int ENCODER_POS_DRIVE7 = backLeftMotor.getCurrentPosition();
+        int ENCODER_POS_DRIVE7 = frontRightMotor.getCurrentPosition();
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
@@ -130,11 +130,11 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
 
-      //  mountainCode.init();
+       // mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        //mountainCode.loop();
+       // mountainCode.loop();
     }
 }

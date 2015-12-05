@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Eric Golde on 11/14/2015.
  */
-public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
+public class EAutoHighRed extends EOpModeBase {
 
 
 
@@ -24,7 +24,7 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
 
     public void init() {
 
-        dt("EAuto-BlueTeam-RedRamp-Far Selected!");
+        dt("EAuto-RedTeam-BlueRamp-Close Selected");
 
         super.init();
 
@@ -35,6 +35,8 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
+
     }
 
     @Override
@@ -58,7 +60,7 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
     /*
     ██████████████████████████████████████████████████████████████████████
      */
-    final double DISTANCE_DRIVE7 = 2133.6; //in mm
+    final double DISTANCE_DRIVE7 = 914.4; //in mm
     final double ROTATIONS_DRIVE7 = DISTANCE_DRIVE7 / CIRCUMFRANCE_DRIVEWEEL;
     final int COUNTS_DRIVE7 = (int)(ENCODER_CPR * ROTATIONS_DRIVE7 * GEAR_RATIO_WHEEL);
 
@@ -85,12 +87,15 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
 
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
 
 
 
-        frontLeftMotor.setPower(POWER_DRIVE7);
+        frontLeftMotor.setPower(POWER_DRIVE7 * 0.4);
         frontRightMotor.setPower(POWER_DRIVE7);
-        backLeftMotor.setPower(POWER_DRIVE7);
+        backLeftMotor.setPower(POWER_DRIVE7 * 0.4);
         backRightMotor.setPower(POWER_DRIVE7);
     }
 
@@ -105,7 +110,7 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
 
 
 
-        int ENCODER_POS_DRIVE7 = frontLeftMotor.getCurrentPosition();
+        int ENCODER_POS_DRIVE7 = frontRightMotor.getCurrentPosition();
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
@@ -118,17 +123,18 @@ public class EAuto_BTeam_RRamp_Far extends EOpModeBase{
     {
         state = STATE_TURN_90_LEFT;
 
-        dt("DONE!");
-        ct("State", "STATE_TRIGGER_MADDY_OP_MODE");
+
 
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
+
+        // mountainCode.init();
     }
 
     public void loopLeft90()
     {
-        dt("STATE_TRIGGER_MADDY_OP_MODE");
+        // mountainCode.loop();
     }
 }

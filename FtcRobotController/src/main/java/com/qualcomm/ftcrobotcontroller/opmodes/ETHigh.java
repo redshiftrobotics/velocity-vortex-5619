@@ -25,6 +25,8 @@ public class ETHigh extends EOpModeBase {
         tts("Ready to drive!");
 
 
+
+
         super.init(); //calls the init funtion in EOpModeBase.class
 
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
