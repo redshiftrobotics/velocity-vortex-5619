@@ -213,7 +213,7 @@ public abstract class EOpModeBase extends OpMode {
     public void init() {
         dt("Init Loading...");//start
 
-
+//
         //legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
         servoController1 = hardwareMap.servoController.get("Servo Controller 1");
         dcMotorController1 = hardwareMap.dcMotorController.get("Motor Controller Arm");
