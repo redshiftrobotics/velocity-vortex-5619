@@ -1,8 +1,12 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
+import com.qualcomm.ftcrobotcontroller.R;
+
 import java.io.File;
 import java.io.InputStream;
 import java.util.Random;
@@ -19,8 +23,8 @@ import java.util.Random;
 public class EParty extends EOpModeBase {
 
     MediaPlayer mediaPlayer;
-    InputStream stream = getClass().getClassLoader().getResourceAsStream("Eric/Party.mp3");
-    Uri song = Uri.fromFile(new File());
+
+
 
 
     Random random = new Random();
@@ -30,30 +34,36 @@ public class EParty extends EOpModeBase {
 
     boolean hasBeen12Sec = false;
 
+    int s = 0;
+
 
     public void init()
     {
-        dt("Song: " + song.toString());
+
         super.init();
-        mediaPlayer = MediaPlayer.create(FtcRobotControllerActivity.mainActivity, song);
+
 
 
     }
-    public void start()
-    {
+    public void start() {
         dt("Playing Musixc");
-        dt("Song: " + song.toString());
-        //mediaPlayer.start();
+
 
         lastTime = getRuntime();
+
+        mediaPlayer = MediaPlayer.create(FtcRobotControllerActivity.mainActivity, R.raw.party);
+        mediaPlayer.start();
+
+
+
     }
 
     public void loop()
     {
 
         telemetry.addData("hasBeen12Sec", hasBeen12Sec);
-        int s = random.nextInt(maxStates);
-        if(true) { //after 12 sec do this so it doesnt start untill something
+
+        if(false) { //after 12 sec do this so it doesnt start untill something
 
 
             if (s == 0) {
@@ -90,6 +100,7 @@ public class EParty extends EOpModeBase {
         double time  = this.getRuntime();
         if (time - lastTime > 1) {
             everySec();
+            s = random.nextInt(maxStates);
             lastTime = time;
         }
         double after8sec  = this.getRuntime();
@@ -116,6 +127,7 @@ public class EParty extends EOpModeBase {
 
     public void stop()
     {
+        mediaPlayer.stop();
         everySec();
         lift1.setPosition(0.6);
         lift2.setPosition(0.5);
@@ -125,4 +137,9 @@ public class EParty extends EOpModeBase {
 
 
 
-}
+
+    }
+
+
+
+
