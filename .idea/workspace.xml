@@ -16,12 +16,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="Party works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!">
-      <change type="DELETED" beforePath="C:\Users\SAAS Student\Documents\ROBOTICS\AndroidStudio\5619\FtcRobotController\src\main\assets\Eric\Party.mp3" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Close.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAuto_BTeam_RRamp_Close.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" />
+    <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EParty.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EParty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="5619.iws" />
@@ -86,8 +82,8 @@
       <file leaf-file-name="EParty.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EParty.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3837472">
-              <caret line="107" column="12" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.69074494">
+              <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1841,7 +1837,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449273648549</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed a TON of things.&#10;Added a lot of nice funtions for autonomus &#10;Fixed party again&#10;Added math conversions for the motors&#10;Fix servo spazzums&#10;&#10;Added more hugs">
+      <created>1449296566218</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1449296566218</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1895,7 +1897,8 @@
     <MESSAGE value="update to party mode" />
     <MESSAGE value="party doesnt work. dont use it" />
     <MESSAGE value="Party works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Party works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
+    <MESSAGE value="Fixed a TON of things.&#10;Added a lot of nice funtions for autonomus &#10;Fixed party again&#10;Added math conversions for the motors&#10;Fix servo spazzums&#10;&#10;Added more hugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a TON of things.&#10;Added a lot of nice funtions for autonomus &#10;Fixed party again&#10;Added math conversions for the motors&#10;Fix servo spazzums&#10;&#10;Added more hugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1980,8 +1983,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EParty.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3837472">
-          <caret line="107" column="12" selection-start-line="107" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.69074494">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

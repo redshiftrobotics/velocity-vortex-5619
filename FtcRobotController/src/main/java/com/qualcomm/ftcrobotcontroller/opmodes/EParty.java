@@ -105,7 +105,7 @@ public class EParty extends EOpModeBase {
         double time = this.getRuntime();
         if (time - lastTime > 1000) {
             everySec();
-            
+
             lastTime = time;
         }
         double after8sec = this.getRuntime();
