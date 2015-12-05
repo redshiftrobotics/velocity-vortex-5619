@@ -39,13 +39,13 @@ import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
  */
 public class FtcOpModeRegister implements OpModeRegister {
 
-  /**
-   * The Op Mode Manager will call this method when it wants a list of all
-   * available op modes. Add your op mode to the list to enable it.
-   *
-   * @param manager op mode manager
-   */
-  public void register(OpModeManager manager) {
+    /**
+     * The Op Mode Manager will call this method when it wants a list of all
+     * available op modes. Add your op mode to the list to enable it.
+     *
+     * @param manager op mode manager
+     */
+    public void register(OpModeManager manager) {
 
     /*
      * register your op modes here.
@@ -56,9 +56,9 @@ public class FtcOpModeRegister implements OpModeRegister {
      *
      * Uncomment any of the following lines if you want to register an op mode.
      */
-    //manager.register("Final Mountain Autonomous", FinalMountainAuto.class);
+        //manager.register("Final Mountain Autonomous", FinalMountainAuto.class);
      /*
-	  manager.register("NullOp", NullOp.class)
+      manager.register("NullOp", NullOp.class)
 	  manager.register("K9TeleOp", K9TeleOp.class);
 	  manager.register ("PushBotAuto", PushBotAuto.class);
 	  manager.register ("PushBotManual", PushBotManual.class)
@@ -95,24 +95,20 @@ public class FtcOpModeRegister implements OpModeRegister {
 */
 
 
+        //DRIVE
+        // manager.register("Low Drive", ETLow.class);
+        manager.register("High Drive", ETHigh.class);
+        manager.register("Blue Team", EAutoHighBlue.class);
+        manager.register("Red Team", EAutoHighRed.class);
+
+        manager.register("Dance-Space Jam", EParty.class);
+        manager.register("Dance-YMCA", EPartyYMCA.class);
 
 
-
-    //DRIVE
-     // manager.register("Low Drive", ETLow.class);
-      manager.register("High Drive", ETHigh.class);
-      manager.register("Arm Test", ArmTest.class);
-      manager.register("Dance-Space Jam", EParty.class);
-      manager.register("Dance-YMCA", EPartyYMCA.class);
-
-      manager.register("Blue Team", EAutoHighBlue.class);
-      manager.register("Red Team", EAutoHighRed.class);
-
-
-      manager.register("RESET (In case of bugs run)", EResetAll.class);
+        //manager.register("RESET (In case of bugs run)", EResetAll.class);
 
       /*
-
+// manager.register("Arm Test", ArmTest.class);
       manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
       manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
       manager.register("[Debug] BACK LEFT", EBackLeft.class);
@@ -123,10 +119,5 @@ public class FtcOpModeRegister implements OpModeRegister {
 */
 
 
-
-
-
-
-
-  }
+    }
 }
