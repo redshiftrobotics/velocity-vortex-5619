@@ -10,8 +10,11 @@ import com.qualcomm.robotcore.robocol.Telemetry;
  */
 public class MountainAutoHigh extends EOpModeBase
 {
-    enum mountainStates {beginning, forwardDrive, extendArms, catchArmOnBar, pullUp, stop}
+    enum mountainStates {beginning, forwardDrive, extendArms, catchArmOnBar, pullUp, pullingUp, stop, extendingArms}
     mountainStates state;
+
+    boolean armsOut = false;
+
 
     long StartTime;
     long TimeElapsed;
@@ -20,7 +23,7 @@ public class MountainAutoHigh extends EOpModeBase
     public void init()
     {
         StartTime = System.currentTimeMillis();
-        state = mountainStates.forwardDrive;
+        state = mountainStates.beginning;
     }
     @Override
     public void loop()
@@ -29,14 +32,10 @@ public class MountainAutoHigh extends EOpModeBase
         TimeElapsed = System.currentTimeMillis() - StartTime;
 
 
-//        if (TimeElapsed> SET THIS FUCKING TIME)
-//        {
-//            state = mountainStates.extendArms;
-//        }
-
-        if (TimeElapsed> /*SET THIS FUCKING TIME*/0)
+        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
         {
             state = mountainStates.extendArms;
+            armsOut = true;
         }
 
 
@@ -51,11 +50,17 @@ public class MountainAutoHigh extends EOpModeBase
             case extendArms:
                 DoExtendArms();
                 break;
+            case extendingArms:
+                DoExtendingArms();
+                break;
             case catchArmOnBar:
                 DoCatchArmOnBar();
                 break;
             case pullUp:
                 DoPullUp();
+                break;
+            case pullingUp:
+                DoPullingUp();
                 break;
             case stop:
                 DoStop();
@@ -88,14 +93,25 @@ public class MountainAutoHigh extends EOpModeBase
         moveRightArmBlahInches(24);
 
         telemetry.addData("State: ", "Extend Arms");
-        state = mountainStates.catchArmOnBar;
+        
+
+        state= mountainStates.extendingArms;
+    }
+
+    void DoExtendingArms()
+    {
+        if (getLeftTapePos()>= 24 && getRightTapePos()>= 24)
+        {
+            state = mountainStates.catchArmOnBar;
+        }
+        telemetry.addData("State: ", "Extending Arms Currently");
     }
 
     void DoCatchArmOnBar()
     {
         //SET ARMS SLOWIY DOWN TILL THE CATCH CHURROS (TEST VALUES)
-        hit1.setPosition(.5);
-        hit2.setPosition(.5);
+        lift1.setPosition(.5);
+        lift2.setPosition(.5);
         telemetry.addData("State: ", "Catch on arm bar");
         state =  mountainStates.pullUp;
 
@@ -104,12 +120,27 @@ public class MountainAutoHigh extends EOpModeBase
     void DoPullUp()
     {
         //pull up to (midzone??)
+       //POSSIBLY CHANGE WHEEL SPEED/POWER
         moveRightArmBlahInches(-20);
         moveLeftArmBlahInches(-20);
+
+        telemetry.addData("State:", "Do Pull Up");
+
+        state = mountainStates.pullingUp;
+    }
+
+    void DoPullingUp()
+    {
+       telemetry.addData("State:", "Currently Doing Pull Up");
+        if(getLeftTapePos()<= 5 && getRightTapePos()<= 5)
+        {
+            state = mountainStates.stop;
+        }
     }
 
     void DoStop()
     {
+        telemetry.addData("State: ", "Stopped");
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
