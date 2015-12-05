@@ -4,6 +4,7 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+
 import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.ftcrobotcontroller.R;
 
@@ -25,26 +26,25 @@ public class EParty extends EOpModeBase {
     MediaPlayer mediaPlayer;
 
 
-
-
     Random random = new Random();
     int maxStates = 7;
 
     double lastTime;
+    double lastTime8;
+    double lastTime100;
 
     boolean hasBeen12Sec = false;
 
     int s = 0;
 
 
-    public void init()
-    {
+    public void init() {
 
         super.init();
 
 
-
     }
+
     public void start() {
         dt("Playing Musixc");
 
@@ -55,15 +55,13 @@ public class EParty extends EOpModeBase {
         mediaPlayer.start();
 
 
-
     }
 
-    public void loop()
-    {
+    public void loop() {
 
         telemetry.addData("hasBeen12Sec", hasBeen12Sec);
 
-        if(false) { //after 12 sec do this so it doesnt start untill something
+        if (hasBeen12Sec) { //after 12 sec do this so it doesnt start untill something
 
 
             if (s == 0) {
@@ -97,48 +95,51 @@ public class EParty extends EOpModeBase {
 
         }
 
-        double time  = this.getRuntime();
-        if (time - lastTime > 1) {
-            everySec();
+        double time100 = this.getRuntime();
+        if (time100 - lastTime100 > 100) {
+
             s = random.nextInt(maxStates);
+            lastTime100 = time;
+        }
+
+        double time = this.getRuntime();
+        if (time - lastTime > 1000) {
+            everySec();
+            
             lastTime = time;
         }
-        double after8sec  = this.getRuntime();
+        double after8sec = this.getRuntime();
 
-        if (after8sec - lastTime > 12) {
-            if(hasBeen12Sec = false)
-            {
+        if (after8sec - lastTime8 > 12) {
+            if (hasBeen12Sec == false) {
                 hasBeen12Sec = true;
             }
-            lastTime = after8sec;
+            lastTime8 = after8sec;
         }
-
 
 
     }
 
-    public void everySec()
-    {
+    public void everySec() {
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
     }
 
-    public void stop()
-    {
+    public void stop() {
         mediaPlayer.stop();
         everySec();
-        lift1.setPosition(0.6);
-        lift2.setPosition(0.5);
-        hit1.setPosition(0);
-        hit2.setPosition(1);
+        resetHitLeft();
+        resetHitRight();
+        resetArmHeightLeft();
+        resetArmHeightRight();
+        resetArmLeft();
+        resetArmRight();
     }
 
 
-
-
-    }
+}
 
 
 

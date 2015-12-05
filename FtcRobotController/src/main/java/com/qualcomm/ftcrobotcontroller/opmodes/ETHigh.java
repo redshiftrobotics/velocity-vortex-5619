@@ -16,60 +16,62 @@ public class ETHigh extends EOpModeBase {
     double lift1Pos = 0.6;
     double lift2Pos = 0.5;
 
-    final int ENCODER_CPR = 1120; //ANDY MARK MOTOR DONT CHANGE
-    final double GEAR_RATIO_WHEEL = 1;
-    final double DIAMETER_DRIVEWEEL = 57; //in mm //MILIMETERS ARE THE SMALL TICKS ON THE CENMETER DONT FORGET
-    final double CIRCUMFRANCE_DRIVEWEEL = Math.PI * DIAMETER_DRIVEWEEL;
 
 
 
+    @Override
     public void init() {
         dt("HIGH Tank Drive Selected!");
         tts("Ready to drive!");
+
+
         super.init(); //calls the init funtion in EOpModeBase.class
-/*
-        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
         frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-*/
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
-        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+        resetArmLeft();
+        resetArmRight();
+        resetArmHeightLeft();
+        resetArmHeightRight();
+        resetHitLeft();
+        resetHitRight();
+
+        lift1.setPosition(lift1Pos);
+        lift2.setPosition(lift2Pos);
+        hit1.setPosition(1);
+        hit2.setPosition(0);
+
+
+
+
+    }
+
+    @Override
+    public void start() {
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
+
+        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+        backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         extendMotor2.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
 
 
 
-
-        //extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       // extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       // backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-       // backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-
-        extendMotor2.setDirection(DcMotor.Direction.FORWARD); //not needed
-        extendMotor1.setDirection(DcMotor.Direction.REVERSE); //already in opmodebase
-
-
-        //extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        // extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        //frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        // backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        // backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-
-            lift1.setPosition(lift1Pos);
-            lift2.setPosition(lift2Pos);
-
-
     }
-
 
 
     boolean lastBttnStateHitServoLeft = false;
@@ -152,16 +154,13 @@ public class ETHigh extends EOpModeBase {
         }
 
 
-
         if (gamepad2.dpad_up) {
             //left up
-            if(lift1Pos >= 1)
-            {
+            if (lift1Pos >= 1) {
                 lift1Pos = 1;
                 lift1.setPosition(lift1Pos);
 
-            }
-            else{
+            } else {
 
                 lift1.setPosition(lift1Pos);
                 lift1Pos = lift1Pos + 0.01;
@@ -171,13 +170,11 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.dpad_down) {
             //left down
-            if(lift1Pos <= 0.6)
-            {
+            if (lift1Pos <= 0.6) {
                 lift1Pos = 0.6;
                 lift1.setPosition(lift1Pos);
 
-            }
-            else{
+            } else {
 
                 lift1.setPosition(lift1Pos);
                 lift1Pos = lift1Pos - 0.01;
@@ -186,13 +183,11 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.y) {
             //right up
-            if(lift2Pos <= 0)
-            {
+            if (lift2Pos <= 0) {
                 lift2Pos = 0;
                 lift2.setPosition(lift2Pos);
 
-            }
-            else{
+            } else {
 
                 lift2.setPosition(lift2Pos);
                 lift2Pos = lift2Pos - 0.01;
@@ -201,13 +196,11 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.a) {
             //right down
-            if(lift2Pos >= 0.5)
-            {
+            if (lift2Pos >= 0.5) {
                 lift2Pos = 0.5;
                 lift2.setPosition(lift2Pos);
 
-            }
-            else{
+            } else {
 
                 lift2.setPosition(lift2Pos);
                 lift2Pos = lift2Pos + 0.01;
@@ -216,12 +209,12 @@ public class ETHigh extends EOpModeBase {
 
 
         ct("Left Arm", extendMotor1.getCurrentPosition());
-        ct("Right Drive", extendMotor2.getCurrentPosition());
+        ct("Right Arm", extendMotor2.getCurrentPosition());
 
-        ct("Front Left", frontLeftMotor.getCurrentPosition()); //no incoder yet
-        ct("Front Right", frontRightMotor.getCurrentPosition()); //no incoder yet
+        // ct("Front Left", frontLeftMotor.getCurrentPosition()); //no incoder yet
+        // ct("Front Right", frontRightMotor.getCurrentPosition()); //no incoder yet
         ct("Back Left", backLeftMotor.getCurrentPosition());
-        ct("Back Right", backRightMotor.getCurrentPosition()); //no incoder nyet
+        //ct("Back Right", backRightMotor.getCurrentPosition()); //no incoder nyet
 
         ct("lift1Pos", lift1Pos);
         ct("lift2Pos", lift2Pos);

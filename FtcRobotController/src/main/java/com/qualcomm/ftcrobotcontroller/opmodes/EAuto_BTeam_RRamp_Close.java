@@ -31,9 +31,9 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
 
 
 
-        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
 
@@ -70,10 +70,10 @@ public class EAuto_BTeam_RRamp_Close extends EOpModeBase{
         ct("State", "STATE_DO_CURVE");
 
 
-        frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       frontLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+       backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
         frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
