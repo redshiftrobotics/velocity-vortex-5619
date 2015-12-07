@@ -6,6 +6,7 @@ import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.LegacyModule;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 
@@ -36,8 +37,8 @@ public abstract class EOpModeBase extends OpMode {
     protected Servo hit2; //hit2
     //protected LightSensor lightSensor; //line follower light sensor
 
-    //protected LegacyModule legacyModule1; //legacy module
-    protected ServoController servoController1; //servo controller
+    protected LegacyModule legacyModule1; //legacy module
+    //protected ServoController servoController1; //servo controller
     protected DcMotorController dcMotorController1; //motor controller 1
     protected DcMotorController dcMotorController2; //motor controller 2
     protected DcMotorController dcMotorController3; //motor controller 3
@@ -295,15 +296,15 @@ public abstract class EOpModeBase extends OpMode {
 
 //if(Debug){dt("");}
 
-        //if (Debug) {
-        //  dt("Starting To Register: legacyModule1 = hardwareMap.legacyModule.get(\"Legacy Module 1\");");
-        // }
-        //legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
-        //if(Debug){dt("Finished!");}
+        if (Debug) {
+          dt("Starting To Register: legacyModule1 = hardwareMap.legacyModule.get(\"Legacy Module 1\");");
+         }
+        legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
+        if(Debug){dt("Finished!");}
         if (Debug) {
             dt("Starting To Register: servoController1 = hardwareMap.servoController.get(\"Servo Controller 1\");");
         }
-        servoController1 = hardwareMap.servoController.get("Servo Controller 1");
+       // servoController1 = hardwareMap.servoController.get("Servo Controller 1");
         if (Debug) {
             dt("Finished!");
         }
