@@ -302,7 +302,7 @@ public abstract class EOpModeBase extends OpMode {
         legacyModule1 = hardwareMap.legacyModule.get("Legacy Module 1");
         if(Debug){dt("Finished!");}
         if (Debug) {
-            dt("Starting To Register: servoController1 = hardwareMap.servoController.get(\"Servo Controller 1\");");
+            //dt("Starting To Register: servoController1 = hardwareMap.servoController.get(\"Servo Controller 1\");");
         }
        // servoController1 = hardwareMap.servoController.get("Servo Controller 1");
         if (Debug) {
