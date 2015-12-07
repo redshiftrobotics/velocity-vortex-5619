@@ -17,7 +17,7 @@ public abstract class EOpModeBase extends OpMode {
 
     String teleConvert;
     int teleInt = 0;
-
+//
     boolean useTTS = false; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
     public static boolean Debug = false; //outputs a lot of text for debugging purpuses
 
