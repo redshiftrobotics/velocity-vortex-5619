@@ -19,7 +19,7 @@ public abstract class EOpModeBase extends OpMode {
     int teleInt = 0;
 
     boolean useTTS = false; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
-    public static boolean Debug = true; //outputs a lot of text for debugging purpuses
+    public static boolean Debug = false; //outputs a lot of text for debugging purpuses
 
     final int ENCODER_CPR = 1120; //ANDY MARK MOTOR DONT CHANGE
     final double TAPE_MEASURE_INCH_PER_ROTATION = 5.25;
