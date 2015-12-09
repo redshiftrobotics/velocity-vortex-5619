@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version: 4.1.3"
+        android:text="Version: 4.1.7"
         android:id="@+id/textVersion"
         android:textColor="@android:color/holo_blue_light"
         android:layout_alignBottom="@+id/menu_buttons"

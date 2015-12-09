@@ -14,7 +14,7 @@ public class ETHigh extends EOpModeBase {
 
     //
     double lift1Pos = 0.6;
-    double lift2Pos = 0.5;
+    double lift2Pos = 0.35;
 
 
 
@@ -45,8 +45,8 @@ public class ETHigh extends EOpModeBase {
 
         lift1.setPosition(lift1Pos);
         lift2.setPosition(lift2Pos);
-        hit1.setPosition(1);
-        hit2.setPosition(0);
+        //hit1.setPosition(1);
+        //hit2.setPosition(0.2);
 
 
 
@@ -118,11 +118,14 @@ public class ETHigh extends EOpModeBase {
         yValue = Range.clip(yValue, -1, 1);
 
         //set the power of the motors with the gamepad values
-        frontLeftMotor.setPower(xValue); //
-        frontRightMotor.setPower(yValue); //
 
-        backLeftMotor.setPower(xValue);
-        backRightMotor.setPower(yValue);
+
+        double amountToSlowDownTheDrivingSpeed = 0.5;
+        frontLeftMotor.setPower(xValue * amountToSlowDownTheDrivingSpeed); //
+        frontRightMotor.setPower(yValue * amountToSlowDownTheDrivingSpeed); //
+
+        backLeftMotor.setPower(xValue * amountToSlowDownTheDrivingSpeed);
+        backRightMotor.setPower(yValue * amountToSlowDownTheDrivingSpeed);
 
 
         //this is for making the controller #2 beable to do the sliders
@@ -134,8 +137,9 @@ public class ETHigh extends EOpModeBase {
         extendValueRight = Range.clip(extendValueRight, -1, 1);
 
 
-        extendMotor1.setPower(extendValueLeft * 0.2);
-        extendMotor2.setPower(extendValueRight * 0.2);
+
+        extendMotor1.setPower(extendValueLeft);
+        extendMotor2.setPower(extendValueRight);
 
 
         if (toggleHitServoLeft() == false) {
@@ -185,8 +189,8 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.y) {
             //right up
-            if (lift2Pos <= 0) {
-                lift2Pos = 0;
+            if (lift2Pos <= 0.35) {
+                lift2Pos = 0.35;
                 lift2.setPosition(lift2Pos);
 
             } else {

@@ -38,6 +38,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.hardware.usb.UsbManager;
 import android.os.BatteryManager;
@@ -192,7 +193,7 @@ public class FtcRobotControllerActivity extends Activity {
 
     //==============================[ERICS CODE]=================================================
 
-    //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
 	  mainActivity = this;
 
       t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {

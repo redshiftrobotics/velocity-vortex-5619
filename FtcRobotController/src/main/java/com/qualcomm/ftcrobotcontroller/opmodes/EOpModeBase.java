@@ -425,12 +425,12 @@ public abstract class EOpModeBase extends OpMode {
             dt("Finished!");
         }
         if(Debug){dt("Starting To Proses: extendMotor2.setDirection(DcMotor.Direction.REVERSE);");}
-        extendMotor2.setDirection(DcMotor.Direction.REVERSE);
+        extendMotor2.setDirection(DcMotor.Direction.FORWARD);
         if (Debug) {
             dt("Finished!");
         }
         if(Debug){dt("Starting To Proses: extendMotor1.setDirection(DcMotor.Direction.FORWARD);");}
-        extendMotor1.setDirection(DcMotor.Direction.FORWARD);
+        extendMotor1.setDirection(DcMotor.Direction.REVERSE);
         if (Debug) {
             dt("Finished!");
         }

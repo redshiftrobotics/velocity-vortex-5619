@@ -101,8 +101,9 @@ public class FtcOpModeRegister implements OpModeRegister {
         manager.register("Blue Team", EAutoHighBlue.class);
         manager.register("Red Team", EAutoHighRed.class);
 
-        manager.register("Dance-Space Jam", EParty.class);
-        manager.register("Dance-YMCA", EPartyYMCA.class);
+       //manager.register("Everybody should do the YMCA now!", EPartyYMCA.class);
+       // manager.register("Dance-Space Jam", EParty.class);
+        //manager.register("Dance-YMCA", EPartyYMCA.class);
 
 
         //manager.register("RESET (In case of bugs run)", EResetAll.class);
