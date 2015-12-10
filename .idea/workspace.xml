@@ -18,8 +18,6 @@
   <component name="ChangeListManager">
     <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/FtcRobotControllerActivity.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/FtcRobotControllerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="5619.iws" />
@@ -93,8 +91,8 @@
       <file leaf-file-name="ETHigh.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28132388">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state vertical-scroll-proportion="2.6524823">
+              <caret line="191" column="29" selection-start-line="191" selection-start-column="29" selection-end-line="191" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -1949,7 +1947,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449626914807</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next">
+      <created>1449706113899</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1449706113899</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2019,7 +2023,8 @@
     <MESSAGE value="final EOPModeBase for COMP" />
     <MESSAGE value="Fixed to compinsate the errors because of the broken motor and servo controllers." />
     <MESSAGE value="hope this works. dont know. servos being meen. robot hates me." />
-    <option name="LAST_COMMIT_MESSAGE" value="hope this works. dont know. servos being meen. robot hates me." />
+    <MESSAGE value="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next" />
+    <option name="LAST_COMMIT_MESSAGE" value="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2208,8 +2213,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28132388">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state vertical-scroll-proportion="2.6524823">
+          <caret line="191" column="29" selection-start-line="191" selection-start-column="29" selection-end-line="191" selection-end-column="29" />
           <folding />
         </state>
       </provider>
