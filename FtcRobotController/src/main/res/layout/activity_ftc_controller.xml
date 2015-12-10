@@ -33,16 +33,6 @@
       android:textSize="16sp"
       android:textStyle="bold"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Version: 4.1.8"
-        android:id="@+id/textVersion"
-        android:textColor="@android:color/holo_blue_light"
-        android:layout_alignLeft="@+id/textDeviceName"
-        android:layout_alignStart="@+id/textDeviceName"
-        android:layout_centerInParent="true" />
-
   </RelativeLayout>
   <!-- end of black bar -->
 
@@ -63,32 +53,38 @@
       android:id="@+id/textWifiDirectStatus"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="" />
+      android:text=""
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
       android:id="@+id/textRobotStatus"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/textWifiDirectStatus"
-      android:text="" />
+        android:text=""
+        android:layout_below="@+id/textWifiDirectStatus"
+        android:layout_alignParentRight="true" />
 
     <TextView
       android:id="@+id/textOpMode"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/textRobotStatus"
-      android:text="" />
+        android:text=""
+        android:layout_below="@+id/textRobotStatus"
+        android:layout_alignParentRight="true" />
 
     <TextView
       android:id="@+id/textErrorMessage"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_below="@+id/textOpMode"
-      android:textColor="#990000"
+        android:textColor="#990000"
       android:textStyle="bold"
       android:minLines="2"
       android:maxLines="4"
-      android:text="" />
+      android:text=""
+        android:layout_below="@+id/textOpMode"
+        android:layout_alignParentRight="true" />
 
     <TextView
       android:id="@+id/textGamepad1"
@@ -127,8 +123,20 @@
         android:background="@color/black"
         android:padding="15dp"
         android:adjustViewBounds="true"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/textWifiDirectStatus"
         android:layout_centerHorizontal="true" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Version: 4.1.9"
+          android:id="@+id/textVersion"
+          android:textColor="@android:color/holo_blue_light"
+          android:layout_marginLeft="31dp"
+          android:layout_marginStart="31dp"
+          android:layout_alignTop="@+id/menu_buttons"
+          android:layout_toRightOf="@+id/menu_buttons"
+          android:layout_toEndOf="@+id/menu_buttons" />
 
   </RelativeLayout>
 </LinearLayout>
