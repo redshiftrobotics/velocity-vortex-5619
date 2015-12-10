@@ -91,8 +91,8 @@
       <file leaf-file-name="ETHigh.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.6524823">
-              <caret line="191" column="29" selection-start-line="191" selection-start-column="29" selection-end-line="191" selection-end-column="29" />
+            <state vertical-scroll-proportion="-0.30609757">
+              <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1953,7 +1953,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449706113899</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;">
+      <created>1449706912359</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1449706912359</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1971,7 +1977,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4654162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4654162" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2024,7 +2030,8 @@
     <MESSAGE value="Fixed to compinsate the errors because of the broken motor and servo controllers." />
     <MESSAGE value="hope this works. dont know. servos being meen. robot hates me." />
     <MESSAGE value="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next" />
-    <option name="LAST_COMMIT_MESSAGE" value="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next" />
+    <MESSAGE value="██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;██ BROKEN CODE ██&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2192,6 +2199,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/FtcRobotControllerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="200" column="42" selection-start-line="200" selection-start-column="42" selection-end-line="200" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2203,18 +2218,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/FtcRobotControllerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="200" column="42" selection-start-line="200" selection-start-column="42" selection-end-line="200" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6524823">
-          <caret line="191" column="29" selection-start-line="191" selection-start-column="29" selection-end-line="191" selection-end-column="29" />
+        <state vertical-scroll-proportion="-0.30609757">
+          <caret line="172" column="13" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
           <folding />
         </state>
       </provider>

@@ -183,7 +183,7 @@ public class ETHigh extends EOpModeBase {
             } else {
 
                 lift1.setPosition(lift1Pos);
-                lift1Pos = lift1Pos + 0.01;
+                lift1Pos = lift1Pos - 0.01;
             }
         }
 
@@ -209,7 +209,7 @@ public class ETHigh extends EOpModeBase {
             } else {
 
                 lift2.setPosition(lift2Pos);
-                lift2Pos = lift2Pos - 0.01;
+                lift2Pos = lift2Pos + 0.01;
             }
         }
 
