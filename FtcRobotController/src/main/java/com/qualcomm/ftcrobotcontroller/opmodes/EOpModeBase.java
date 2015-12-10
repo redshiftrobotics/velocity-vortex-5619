@@ -43,6 +43,7 @@ public abstract class EOpModeBase extends OpMode {
     protected DcMotorController dcMotorController2; //motor controller 2
     protected DcMotorController dcMotorController3; //motor controller 3
     protected EAutoCallMountainCode mountainCode;
+    protected EAutoCallMountainCodeHigh mountainCodeHigh;
 
 
     public void dl(String text) {

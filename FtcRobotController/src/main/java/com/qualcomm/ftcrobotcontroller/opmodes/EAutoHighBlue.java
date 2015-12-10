@@ -103,10 +103,16 @@ public class EAutoHighBlue extends EOpModeBase{
     {
         ct("Drive7",Integer.toString(COUNTS_DRIVE7));
 
-        ct("CountsLeftFront", Integer.toString(frontLeftMotor.getCurrentPosition()));
-        ct("CountsRightFront", Integer.toString(frontRightMotor.getCurrentPosition()));
-        ct("CountsLeftBack", Integer.toString(backLeftMotor.getCurrentPosition()));
-        ct("CountsRightBack", Integer.toString(backRightMotor.getCurrentPosition()));
+        ct("Left Arm", extendMotor1.getCurrentPosition());
+        ct("Right Arm", extendMotor2.getCurrentPosition());
+
+        ct("Front Left", frontLeftMotor.getCurrentPosition());
+        ct("Front Right", frontRightMotor.getCurrentPosition());
+        ct("Back Left", backLeftMotor.getCurrentPosition());
+        ct("Back Right", backRightMotor.getCurrentPosition());
+
+        //ct("lift1Pos", lift1Pos);
+        //ct("lift2Pos", lift2Pos);
 
 
 
@@ -130,11 +136,13 @@ public class EAutoHighBlue extends EOpModeBase{
         backLeftMotor.setPower(0);
         backRightMotor.setPower(0);
 
-        //  mountainCode.init();
+        dt("Calling Maddy's Code Now!");
+        mountainCodeHigh.init();
+        dt("Done Calling Code!");
     }
 
     public void loopLeft90()
     {
-        //mountainCode.loop();
+        mountainCodeHigh.loop();
     }
 }

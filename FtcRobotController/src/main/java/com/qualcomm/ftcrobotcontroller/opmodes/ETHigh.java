@@ -217,10 +217,10 @@ public class ETHigh extends EOpModeBase {
         ct("Left Arm", extendMotor1.getCurrentPosition());
         ct("Right Arm", extendMotor2.getCurrentPosition());
 
-        // ct("Front Left", frontLeftMotor.getCurrentPosition()); //no incoder yet
-        // ct("Front Right", frontRightMotor.getCurrentPosition()); //no incoder yet
+        ct("Front Left", frontLeftMotor.getCurrentPosition());
+        ct("Front Right", frontRightMotor.getCurrentPosition());
         ct("Back Left", backLeftMotor.getCurrentPosition());
-        //ct("Back Right", backRightMotor.getCurrentPosition()); //no incoder nyet
+        ct("Back Right", backRightMotor.getCurrentPosition());
 
         ct("lift1Pos", lift1Pos);
         ct("lift2Pos", lift2Pos);
