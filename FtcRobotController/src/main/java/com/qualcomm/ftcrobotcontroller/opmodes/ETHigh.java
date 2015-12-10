@@ -14,7 +14,7 @@ public class ETHigh extends EOpModeBase {
 
     //
     double lift1Pos = 0.6;
-    double lift2Pos = 0.35;
+    double lift2Pos = 0.5;
 
 
 
@@ -183,14 +183,14 @@ public class ETHigh extends EOpModeBase {
             } else {
 
                 lift1.setPosition(lift1Pos);
-                lift1Pos = lift1Pos - 0.01;
+                lift1Pos = lift1Pos + 0.01;
             }
         }
 
         if (gamepad2.y) {
             //right up
-            if (lift2Pos <= 0.35) {
-                lift2Pos = 0.35;
+            if (lift2Pos <= 0) {
+                lift2Pos = 0;
                 lift2.setPosition(lift2Pos);
 
             } else {
@@ -202,14 +202,14 @@ public class ETHigh extends EOpModeBase {
 
         if (gamepad2.a) {
             //right down
-            if (lift2Pos >= 0.5) {
-                lift2Pos = 0.5;
+            if (lift2Pos >= 0.35) {
+                lift2Pos = 0.35;
                 lift2.setPosition(lift2Pos);
 
             } else {
 
                 lift2.setPosition(lift2Pos);
-                lift2Pos = lift2Pos + 0.01;
+                lift2Pos = lift2Pos - 0.01;
             }
         }
 

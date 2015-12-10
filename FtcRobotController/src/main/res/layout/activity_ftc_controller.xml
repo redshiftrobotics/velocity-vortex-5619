@@ -33,31 +33,15 @@
       android:textSize="16sp"
       android:textStyle="bold"/>
 
-    <ImageButton
-      android:id="@+id/menu_buttons"
-      android:contentDescription="menu_buttons"
-      android:scaleType="fitXY"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:src="@drawable/icon_menu"
-      android:background="@color/black"
-      android:padding="15dp"
-      android:adjustViewBounds="true"
-      android:layout_alignParentRight="true"
-      android:layout_alignParentEnd="true"
-      android:layout_centerInParent="true"
-      android:layout_centerHorizontal="true"
-      android:layout_margin="10dp"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version: 4.1.7"
+        android:text="Version: 4.1.8"
         android:id="@+id/textVersion"
         android:textColor="@android:color/holo_blue_light"
-        android:layout_alignBottom="@+id/menu_buttons"
         android:layout_alignLeft="@+id/textDeviceName"
-        android:layout_alignStart="@+id/textDeviceName" />
+        android:layout_alignStart="@+id/textDeviceName"
+        android:layout_centerInParent="true" />
 
   </RelativeLayout>
   <!-- end of black bar -->
@@ -132,6 +116,19 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/menu_buttons"
+        android:contentDescription="menu_buttons"
+        android:scaleType="fitXY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_menu"
+        android:background="@color/black"
+        android:padding="15dp"
+        android:adjustViewBounds="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
   </RelativeLayout>
 </LinearLayout>

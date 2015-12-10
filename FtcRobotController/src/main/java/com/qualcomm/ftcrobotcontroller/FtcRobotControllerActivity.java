@@ -193,7 +193,7 @@ public class FtcRobotControllerActivity extends Activity {
 
     //==============================[ERICS CODE]=================================================
 
-    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+    this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	  mainActivity = this;
 
       t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
