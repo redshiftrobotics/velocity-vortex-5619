@@ -65,9 +65,10 @@ public class EAutoCallMountainCodeHigh {
 
     public void init()
     {
+        dt("STARTING MADDYS OP MODE");
         //StartTime = System.currentTimeMillis();
         state = mountainStates.beginning;
-        dt("STARTING MADDYS OP MODE");
+
     }
 
     public void loop()

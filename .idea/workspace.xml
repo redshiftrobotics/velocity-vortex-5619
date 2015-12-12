@@ -18,11 +18,8 @@
   <component name="ChangeListManager">
     <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" afterPath="$PROJECT_DIR$/FtcRobotController/FtcRobotController.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/RobotCore_release_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/RobotCore_release_.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="5619.iws" />
@@ -68,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,21 +73,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ETHigh.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ETHigh.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6658986">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="189" column="21" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EAutoHighBlue.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EAutoHighBlue.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5299539">
+              <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+              <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1540,11 +1537,11 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/FtcRobotControllerActivity.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountianCodeHigh.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighRed.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java" />
       </list>
     </option>
   </component>
@@ -1997,7 +1994,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449879131924</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="fixed servo code">
+      <created>1449941619731</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1449941619732</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2014,7 +2017,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270809" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45252052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45252052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24598931" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2074,7 +2077,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Party works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
     <MESSAGE value="Fixed a TON of things.&#10;Added a lot of nice funtions for autonomus &#10;Fixed party again&#10;Added math conversions for the motors&#10;Fix servo spazzums&#10;&#10;Added more hugs" />
     <MESSAGE value="added more and more hugs" />
     <MESSAGE value="Fixed problems and working on autonomus" />
@@ -2099,7 +2101,8 @@
     <MESSAGE value="version number changed." />
     <MESSAGE value="DOWNLOAD THIS IT WORKS TO MAKE CHANGES" />
     <MESSAGE value="fixed encoder bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed encoder bug" />
+    <MESSAGE value="fixed servo code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed servo code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2335,6 +2338,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3837472">
           <caret line="200" column="42" selection-start-line="200" selection-start-column="42" selection-end-line="200" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2364,20 +2368,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <caret line="189" column="21" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -2393,17 +2387,27 @@
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoCallMountainCodeHigh.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <caret line="74" column="5" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java">
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6658986">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighBlue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5299539">
+          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
           <folding />
         </state>
       </provider>

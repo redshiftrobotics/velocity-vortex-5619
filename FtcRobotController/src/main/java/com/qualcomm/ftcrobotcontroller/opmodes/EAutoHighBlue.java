@@ -52,10 +52,13 @@ public class EAutoHighBlue extends EOpModeBase{
         if(state == STATE_DRIVE_7_FEET)
         {
             loopDrive7();
+            ct("IM DOING", "STATE_DRIVE");
         }
         else if(state == STATE_TURN_90_LEFT)
         {
             loopLeft90();
+            ct("IM DOING", "CALL CODE");
+
         }
     }
 
@@ -126,6 +129,7 @@ public class EAutoHighBlue extends EOpModeBase{
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
+            dt("I AM SWITCHING STATES NOW GOD DAMMIT!");
         }
     }
 
