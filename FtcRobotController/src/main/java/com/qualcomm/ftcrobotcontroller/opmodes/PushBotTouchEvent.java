@@ -6,7 +6,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 //
 /**
  * Provide a basic autonomous operational mode that demonstrates the use of an
- * touch sensor to control the arm using a state machine for the Push Bot.
+ * touch sensor to control the arm using a Estate machine for the Push Bot.
  *
  * @author SSI Robotics
  * @version 2015-08-30-11-45
@@ -43,7 +43,7 @@ public class PushBotTouchEvent extends PushBotTelemetrySensors
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during auto-operation.
+     * Implement a Estate machine that controls the robot during auto-operation.
      *
      * The system calls this member repeatedly while the OpMode is running.
      */

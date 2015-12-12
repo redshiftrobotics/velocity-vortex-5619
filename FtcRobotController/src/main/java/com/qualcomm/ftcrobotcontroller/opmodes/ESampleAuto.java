@@ -49,7 +49,7 @@ public class ESampleAuto extends EOpModeBase {
     public void loopDrive7() {
         /*
         if encoders say your finished
-        then call start next state
+        then call start next Estate
          */
     }
 }

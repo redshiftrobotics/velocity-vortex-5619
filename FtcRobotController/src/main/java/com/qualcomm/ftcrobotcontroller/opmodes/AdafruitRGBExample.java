@@ -94,7 +94,7 @@ public class AdafruitRGBExample extends LinearOpMode {
     // get a reference to our ColorSensor object.
     sensorRGB = hardwareMap.colorSensor.get("lady");
 
-    // bEnabled represents the state of the LED.
+    // bEnabled represents the Estate of the LED.
     boolean bEnabled = true;
 
     // turn the LED on in the beginning, just so user will know that the sensor is active.
@@ -116,7 +116,7 @@ public class AdafruitRGBExample extends LinearOpMode {
     // color of the Robot Controller app to match the hue detected by the RGB sensor.
     final View relativeLayout = ((Activity) hardwareMap.appContext).findViewById(R.id.RelativeLayout);
 
-    // bPrevState and bCurrState represent the previous and current state of the button.
+    // bPrevState and bCurrState represent the previous and current Estate of the button.
     boolean bPrevState = false;
     boolean bCurrState = false;
 
@@ -126,14 +126,14 @@ public class AdafruitRGBExample extends LinearOpMode {
       // check the status of the x button on either gamepad.
       bCurrState = gamepad1.x || gamepad2.x;
 
-      // check for button state transitions.
+      // check for button Estate transitions.
       if (bCurrState == true && bCurrState != bPrevState)  {
-        // button is transitioning to a pressed state.
+        // button is transitioning to a pressed Estate.
 
         // print a debug statement.
         DbgLog.msg("MY_DEBUG - x button was pressed!");
 
-        // update previous state variable.
+        // update previous Estate variable.
         bPrevState = bCurrState;
 
         // on button press, enable the LED.
@@ -143,12 +143,12 @@ public class AdafruitRGBExample extends LinearOpMode {
         cdim.setDigitalChannelState(LED_CHANNEL, bEnabled);
 
       } else if (bCurrState == false && bCurrState != bPrevState)  {
-        // button is transitioning to a released state.
+        // button is transitioning to a released Estate.
 
         // print a debug statement.
         DbgLog.msg("MY_DEBUG - x button was released!");
 
-        // update previous state variable.
+        // update previous Estate variable.
         bPrevState = bCurrState;
 
         // on button press, enable the LED.

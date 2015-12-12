@@ -7,7 +7,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 /**
  * Provide a basic autonomous operational mode that uses the left and right
  * drive motors and associated encoders, the left arm motor and associated touch
- * sensor, IR seeker V3 and optical distance sensor implemented using a state
+ * sensor, IR seeker V3 and optical distance sensor implemented using a Estate
  * machine for the Push Bot.
  *
  * @author SSI Robotics
@@ -69,8 +69,8 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during auto-operation.
-     * The state machine uses a class member and sensor input to transition
+     * Implement a Estate machine that controls the robot during auto-operation.
+     * The Estate machine uses a class member and sensor input to transition
      * between states.
      *
      * The system calls this member repeatedly while the OpMode is running.
@@ -79,7 +79,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
 
     {
         //
-        // Update the state machines
+        // Update the Estate machines
         //
         switch (v_state)
         {
@@ -93,12 +93,12 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             if (have_drive_encoders_reset ())
             {
                 //
-                // Begin the next state.  Drive forward.
+                // Begin the next Estate.  Drive forward.
                 //
                 drive_using_encoders (-1.0f, 1.0f, -2880, 2880);
 
                 //
-                // Transition to the next state.
+                // Transition to the next Estate.
                 //
                 v_state++;
             }
@@ -127,7 +127,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             {
                 //
                 // The drive wheels have reached the specified encoder values,
-                // so transition to the next state when this method is called
+                // so transition to the next Estate when this method is called
                 // again.
                 //
                 v_state++;
@@ -143,7 +143,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             if (have_drive_encoders_reset ())
             {
                 //
-                // Begin the next state.  Turn left.
+                // Begin the next Estate.  Turn left.
                 //
                 // There is no conditional (if statement) here, because the
                 // encoders can't be read until the next cycle
@@ -153,13 +153,13 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
                 drive_using_encoders (-1.0f, 1.0f, -2880, 2880);
 
                 //
-                // Start the arm state machine.
+                // Start the arm Estate machine.
                 //
                 v_arm_state = 1;
 
                 //
                 // The drive wheels have reached the specified encoder values,
-                // so transition to the next state when this method is called
+                // so transition to the next Estate when this method is called
                 // again.
                 //
                 v_state++;
@@ -182,12 +182,12 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
         //
         case 4:
             //
-            // As soon as the drive encoders reset, begin the next state.
+            // As soon as the drive encoders reset, begin the next Estate.
             //
             if (have_drive_encoders_reset ())
             {
                 //
-                // Begin the next state.
+                // Begin the next Estate.
                 //
                 // There is no conditional (if statement) here, because the
                 // motor power won't be applied until this method exits.
@@ -195,7 +195,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
                 run_without_drive_encoders ();
 
                 //
-                // Transition to the next state.
+                // Transition to the next Estate.
                 //
                 v_state++;
             }
@@ -216,7 +216,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
                 set_drive_power (0.0, 0.0);
 
                 //
-                // Begin the next state.
+                // Begin the next Estate.
                 //
                 drive_to_ir_beacon ();
 
@@ -245,7 +245,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             if (l_status == drive_to_ir_beacon_done)
             {
                 //
-                // Begin the next state.  Open the claw.
+                // Begin the next Estate.  Open the claw.
                 //
                 open_hand ();
 
@@ -261,18 +261,18 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             break;
         //
         // Perform no action - stay in this case until the OpMode is stopped.
-        // This method will still be called regardless of the state machine.
+        // This method will still be called regardless of the Estate machine.
         //
         default:
             //
-            // The autonomous actions have been accomplished (i.e. the state has
-            // transitioned into its final state.
+            // The autonomous actions have been accomplished (i.e. the Estate has
+            // transitioned into its final Estate.
             //
             break;
         }
 
         //
-        // Update the arm state machine.
+        // Update the arm Estate machine.
         //
         update_arm_state ();
 
@@ -290,13 +290,13 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
     // update_arm_state
     //
     /**
-     * Implement a state machine that controls the arm during auto-operation.
+     * Implement a Estate machine that controls the arm during auto-operation.
      */
     public void update_arm_state ()
 
     {
         //
-        // Update the arm state machine.
+        // Update the arm Estate machine.
         //
         switch (v_arm_state)
         {
@@ -321,7 +321,7 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
                 if (move_arm_upward_until_touch ())
                 {
                     //
-                    // Transition to the stop state.
+                    // Transition to the stop Estate.
                     //
                     v_arm_state++;
                 }
@@ -329,12 +329,12 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
             //
             // Perform no action - stay in this case until the OpMode is
             // stopped.  This method will still be called regardless of the
-            // state machine.
+            // Estate machine.
             //
             default:
                 //
-                // The autonomous actions have been accomplished (i.e. the state
-                // has transitioned into its final state.
+                // The autonomous actions have been accomplished (i.e. the Estate
+                // has transitioned into its final Estate.
                 //
                 break;
         }
@@ -346,11 +346,11 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
     // v_state
     //
     /**
-     * This class member remembers which state is currently active.  When the
-     * start method is called, the state will be initialize (0).  During the
-     * first iteration of the loop method, the state will change from initialize
-     * to state_1.  When state_1 actions are complete, the state will change to
-     * state_2.  This implements a state machine for the loop method.
+     * This class member remembers which Estate is currently active.  When the
+     * start method is called, the Estate will be initialize (0).  During the
+     * first iteration of the loop method, the Estate will change from initialize
+     * to state_1.  When state_1 actions are complete, the Estate will change to
+     * state_2.  This implements a Estate machine for the loop method.
      */
     private int v_state = 0;
 
@@ -359,11 +359,11 @@ public class PushBotAutoSensors extends PushBotTelemetrySensors
     // v_arm_state
     //
     /**
-     * This class member remembers which state is currently active.  When the
-     * start method is called, the state will be initialize (0).  During the
-     * first iteration of the loop method, the state will change from initialize
-     * to state_1.  When state_1 actions are complete, the state will change to
-     * state_2.  This implements a state machine for the loop method.
+     * This class member remembers which Estate is currently active.  When the
+     * start method is called, the Estate will be initialize (0).  During the
+     * first iteration of the loop method, the Estate will change from initialize
+     * to state_1.  When state_1 actions are complete, the Estate will change to
+     * state_2.  This implements a Estate machine for the loop method.
      */
     private int v_arm_state = 0;
 

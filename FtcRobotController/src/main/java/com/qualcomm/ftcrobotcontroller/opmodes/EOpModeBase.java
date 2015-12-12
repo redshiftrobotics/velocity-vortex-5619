@@ -120,7 +120,7 @@ public abstract class EOpModeBase extends OpMode {
     }
 
 
-    public void ct(String what, String text) //Debug text single line. Usefull for printing state changes
+    public void ct(String what, String text) //Debug text single line. Usefull for printing Estate changes
     {
         telemetry.addData(what, text);
         if (Debug) {
@@ -128,7 +128,7 @@ public abstract class EOpModeBase extends OpMode {
         }
     }
 
-    public void ct(String what, int text) //Debug text single line. Usefull for printing state changes
+    public void ct(String what, int text) //Debug text single line. Usefull for printing Estate changes
     {
         telemetry.addData(what, text);
         if (Debug) {
@@ -136,7 +136,7 @@ public abstract class EOpModeBase extends OpMode {
         }
     }
 
-    public void ct(String what, double text) //Debug text single line. Usefull for printing state changes
+    public void ct(String what, double text) //Debug text single line. Usefull for printing Estate changes
     {
         telemetry.addData(what, text);
         if (Debug) {
@@ -144,7 +144,7 @@ public abstract class EOpModeBase extends OpMode {
         }
     }
 
-    public void ct(String what, float text) //Debug text single line. Usefull for printing state changes
+    public void ct(String what, float text) //Debug text single line. Usefull for printing Estate changes
     {
         telemetry.addData(what, text);
         if (Debug) {

@@ -6,7 +6,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 //
 /**
  * Provide a basic autonomous operational mode that demonstrates the use of an
- * optical distance sensor to follow a line implemented using a state machine
+ * optical distance sensor to follow a line implemented using a Estate machine
  * for the Push Bot.
  *
  * @author SSI Robotics
@@ -44,7 +44,7 @@ public class PushBotOdsFollowEvent extends PushBotTelemetrySensors
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during auto-operation.
+     * Implement a Estate machine that controls the robot during auto-operation.
      *
      * The system calls this member repeatedly while the OpMode is running.
      */

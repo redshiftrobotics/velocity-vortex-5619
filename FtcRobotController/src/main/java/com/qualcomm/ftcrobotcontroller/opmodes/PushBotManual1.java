@@ -44,8 +44,8 @@ public class PushBotManual1 extends PushBotTelemetry
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during
-     * manual-operation.  The state machine uses gamepad input to transition
+     * Implement a Estate machine that controls the robot during
+     * manual-operation.  The Estate machine uses gamepad input to transition
      * between states.
      *
      * The system calls this member repeatedly while the OpMode is running.

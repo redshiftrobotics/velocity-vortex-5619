@@ -6,7 +6,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 //
 /**
  * Provide a basic autonomous operational mode that demonstrates the use of an
- * IR seeker implemented using a state machine for the Push Bot.
+ * IR seeker implemented using a Estate machine for the Push Bot.
  *
  * @author SSI Robotics
  * @version 2015-08-16-08-41
@@ -43,7 +43,7 @@ public class PushBotIrEvent extends PushBotTelemetrySensors
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during auto-operation.
+     * Implement a Estate machine that controls the robot during auto-operation.
      *
      * The system calls this member repeatedly while the OpMode is running.
      */
@@ -52,7 +52,7 @@ public class PushBotIrEvent extends PushBotTelemetrySensors
     {
         //
         // When the robot is close to the IR beacon, stop the motors and
-        // transition to the next state.
+        // transition to the next Estate.
         //
         int l_status = drive_to_ir_beacon ();
         if (l_status == drive_to_ir_beacon_running)

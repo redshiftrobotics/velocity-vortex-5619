@@ -98,8 +98,8 @@ public class FtcOpModeRegister implements OpModeRegister {
         //DRIVE
         // manager.register("Low Drive", ETLow.class);
         manager.register("High Drive", ETHigh.class);
-        manager.register("Blue Team", EAutoHighBlue.class);
-        manager.register("Red Team", EAutoHighRed.class);
+        manager.register("Blue Team", ECombHighBlue.class);
+        manager.register("Red Team", ECombHighRed.class);
 
        //manager.register("Everybody should do the YMCA now!", EPartyYMCA.class);
        // manager.register("Dance-Space Jam", EParty.class);

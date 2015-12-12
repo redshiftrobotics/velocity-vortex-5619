@@ -53,7 +53,7 @@ public class EAutoCallMountainCode {
         //toastShort(text); //this makes it so DT (Debug text Multiline) also uses toast. ONLY USE IF NESSASARRY
     }
 
-    public void ct(String what, String text) //Debug text single line. Usefull for printing state changes
+    public void ct(String what, String text) //Debug text single line. Usefull for printing Estate changes
     {
         telemetry.addData(what, text);
     }

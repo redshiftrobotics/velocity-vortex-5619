@@ -741,7 +741,7 @@ public class PushBotHardware extends OpMode
         //
         // Have the motor shafts turned the required amount?
         //
-        // If they haven't, then the op-mode remains in this state (i.e this
+        // If they haven't, then the op-mode remains in this Estate (i.e this
         // block will be executed the next time this method is called).
         //
         if (have_drive_encoders_reached (p_left_count, p_right_count))
@@ -757,7 +757,7 @@ public class PushBotHardware extends OpMode
             set_drive_power (0.0f, 0.0f);
 
             //
-            // Transition to the next state when this method is called
+            // Transition to the next Estate when this method is called
             // again.
             //
             l_return = true;

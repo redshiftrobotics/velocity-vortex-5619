@@ -46,8 +46,8 @@ public class PushBotManualSensors extends PushBotTelemetrySensors
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during
-     * manual-operation.  The state machine uses gamepad and sensor input to
+     * Implement a Estate machine that controls the robot during
+     * manual-operation.  The Estate machine uses gamepad and sensor input to
      * transition between states.
      *
      * The system calls this member repeatedly while the OpMode is running.

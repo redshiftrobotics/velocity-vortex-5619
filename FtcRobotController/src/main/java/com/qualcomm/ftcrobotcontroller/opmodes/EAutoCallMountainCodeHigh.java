@@ -79,7 +79,7 @@ public class EAutoCallMountainCodeHigh {
 //
 //        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
 //        {
-//            state = mountainStates.extendArms;
+//            Estate = mountainStates.extendArms;
 //            armsOut = true;
 //        }
 //

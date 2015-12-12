@@ -6,7 +6,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 //
 /**
  * Provide a basic autonomous operational mode that uses the left and right
- * drive motors and associated encoders implemented using a state machine for
+ * drive motors and associated encoders implemented using a Estate machine for
  * the Push Bot.
  *
  * @author SSI Robotics
@@ -68,8 +68,8 @@ public class PushBotAuto extends PushBotTelemetry
     // loop
     //
     /**
-     * Implement a state machine that controls the robot during auto-operation.
-     * The state machine uses a class member and encoder input to transition
+     * Implement a Estate machine that controls the robot during auto-operation.
+     * The Estate machine uses a class member and encoder input to transition
      * between states.
      *
      * The system calls this member repeatedly while the OpMode is running.
@@ -84,7 +84,7 @@ public class PushBotAuto extends PushBotTelemetry
         switch (v_state)
         {
         //
-        // Synchronize the state machine and hardware.
+        // Synchronize the Estate machine and hardware.
         //
         case 0:
             //
@@ -93,7 +93,7 @@ public class PushBotAuto extends PushBotTelemetry
             reset_drive_encoders ();
 
             //
-            // Transition to the next state when this method is called again.
+            // Transition to the next Estate when this method is called again.
             //
             v_state++;
 
@@ -104,7 +104,7 @@ public class PushBotAuto extends PushBotTelemetry
         case 1:
             //
             // Tell the system that motor encoders will be used.  This call MUST
-            // be in this state and NOT the previous or the encoders will not
+            // be in this Estate and NOT the previous or the encoders will not
             // work.  It doesn't need to be in subsequent states.
             //
             run_using_encoders ();
@@ -117,7 +117,7 @@ public class PushBotAuto extends PushBotTelemetry
             //
             // Have the motor shafts turned the required amount?
             //
-            // If they haven't, then the op-mode remains in this state (i.e this
+            // If they haven't, then the op-mode remains in this Estate (i.e this
             // block will be executed the next time this method is called).
             //
             if (have_drive_encoders_reached (2880, 2880))
@@ -133,7 +133,7 @@ public class PushBotAuto extends PushBotTelemetry
                 set_drive_power (0.0f, 0.0f);
 
                 //
-                // Transition to the next state when this method is called
+                // Transition to the next Estate when this method is called
                 // again.
                 //
                 v_state++;
@@ -194,12 +194,12 @@ public class PushBotAuto extends PushBotTelemetry
             break;
         //
         // Perform no action - stay in this case until the OpMode is stopped.
-        // This method will still be called regardless of the state machine.
+        // This method will still be called regardless of the Estate machine.
         //
         default:
             //
-            // The autonomous actions have been accomplished (i.e. the state has
-            // transitioned into its final state.
+            // The autonomous actions have been accomplished (i.e. the Estate has
+            // transitioned into its final Estate.
             //
             break;
         }
@@ -217,11 +217,11 @@ public class PushBotAuto extends PushBotTelemetry
     // v_state
     //
     /**
-     * This class member remembers which state is currently active.  When the
-     * start method is called, the state will be initialized (0).  When the loop
-     * starts, the state will change from initialize to state_1.  When state_1
-     * actions are complete, the state will change to state_2.  This implements
-     * a state machine for the loop method.
+     * This class member remembers which Estate is currently active.  When the
+     * start method is called, the Estate will be initialized (0).  When the loop
+     * starts, the Estate will change from initialize to state_1.  When state_1
+     * actions are complete, the Estate will change to state_2.  This implements
+     * a Estate machine for the loop method.
      */
     private int v_state = 0;
 

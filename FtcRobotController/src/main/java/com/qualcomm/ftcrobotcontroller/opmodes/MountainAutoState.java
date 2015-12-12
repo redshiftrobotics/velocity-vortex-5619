@@ -40,7 +40,7 @@ public class MountainAutoState extends EOpModeBase
         //checking if motors and arms don't have power
         if (frontRightMotor.getPower() == 0 && frontLeftMotor.getPower() ==0 && backRightMotor.getPower() == 0 && backLeftMotor.getPower() == 0 && extendMotor1.getPower() == 0 && extendMotor2.getPower() == 0)
         {
-            //if neither have power set state to beginning
+            //if neither have power set Estate to beginning
             return mountainStates.begining;
         }
         //if motors have forward power
@@ -129,8 +129,8 @@ public class MountainAutoState extends EOpModeBase
 //        currentFrontLeftMotorPosition = frontLeftMotor.getCurrentPosition();
 //        currentFrontRightMotorPosition = frontRightMotor.getCurrentPosition();
 
-//        mountainStates state = getState();
-//        switch (state)
+//        mountainStates Estate = getState();
+//        switch (Estate)
 //        {
 //            case begining:
 //                DoBeginning();
