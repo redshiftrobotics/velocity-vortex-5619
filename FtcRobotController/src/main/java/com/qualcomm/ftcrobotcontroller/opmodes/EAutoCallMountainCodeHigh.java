@@ -65,7 +65,7 @@ public class EAutoCallMountainCodeHigh {
 
     public void init()
     {
-        StartTime = System.currentTimeMillis();
+        //StartTime = System.currentTimeMillis();
         state = mountainStates.beginning;
         dt("STARTING MADDYS OP MODE");
     }
@@ -73,24 +73,24 @@ public class EAutoCallMountainCodeHigh {
     public void loop()
     {
 
-        TimeElapsed = System.currentTimeMillis() - StartTime;
-
-
-        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
-        {
-            state = mountainStates.extendArms;
-            armsOut = true;
-        }
-
+//        TimeElapsed = System.currentTimeMillis() - StartTime;
+//
+//
+//        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
+//        {
+//            state = mountainStates.extendArms;
+//            armsOut = true;
+//        }
+//
 
         switch (state)
         {
             case beginning:
                 DoBeginning();
                 break;
-            case forwardDrive:
-                DoForwardDrive();
-                break;
+//            case forwardDrive:
+//                DoForwardDrive();
+//                break;
             case extendArms:
                 DoExtendArms();
                 break;
@@ -122,10 +122,10 @@ public class EAutoCallMountainCodeHigh {
         state = mountainStates.extendArms;
     }
 
-    void DoForwardDrive()
-    {
-        telemetry.addData("State: ", "Forward Drive");
-    }
+   // void DoForwardDrive()
+//    {
+//        telemetry.addData("State: ", "Forward Drive");
+//    }
 
     void DoExtendArms()
     {
@@ -158,6 +158,7 @@ public class EAutoCallMountainCodeHigh {
         //TEST THESE FUCKING VALUES
         lift1.setPosition(.6);
         lift2.setPosition(.3);
+        //maybe add bool to check the postition???
         telemetry.addData("State: ", "Catch on arm bar");
         state =  mountainStates.pullUp;
 
