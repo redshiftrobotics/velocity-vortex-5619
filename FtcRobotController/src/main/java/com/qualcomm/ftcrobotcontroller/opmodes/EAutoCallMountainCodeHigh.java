@@ -61,7 +61,7 @@ public class EAutoCallMountainCodeHigh {
 
     long StartTime;
     long TimeElapsed;
-
+//
 
     public void init()
     {
