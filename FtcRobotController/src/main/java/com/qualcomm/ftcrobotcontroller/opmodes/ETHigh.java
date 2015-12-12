@@ -83,7 +83,7 @@ public class ETHigh extends EOpModeBase {
     boolean toggleStateHitServoLeft = false;
 
     public boolean toggleHitServoLeft() {
-        if (gamepad2.left_bumper && !lastBttnStateHitServoLeft) {
+        if (gamepad1.left_bumper && !lastBttnStateHitServoLeft) {
             toggleStateHitServoLeft = !toggleStateHitServoLeft;
         }
         lastBttnStateHitServoLeft = gamepad1.left_bumper;
@@ -94,7 +94,7 @@ public class ETHigh extends EOpModeBase {
     boolean toggleStateHitServoRight = false;
 
     public boolean toggleHitServoRight() {
-        if (gamepad2.right_bumper && !lastBttnStateHitServoRight) {
+        if (gamepad1.right_bumper && !lastBttnStateHitServoRight) {
             toggleStateHitServoRight = !toggleStateHitServoRight;
         }
         lastBttnStateHitServoRight = gamepad1.right_bumper;
@@ -174,7 +174,7 @@ public class ETHigh extends EOpModeBase {
 
         }
 
-        if (toggleSyncMotor() == false) {
+        if (toggleSyncMotor() == true) {
             ct("Sync", "true");
             extendMotor1.setPower(extendValueLeft * amountToSlowDownTheArms);
             extendMotor2.setPower(extendValueRight * amountToSlowDownTheArms);

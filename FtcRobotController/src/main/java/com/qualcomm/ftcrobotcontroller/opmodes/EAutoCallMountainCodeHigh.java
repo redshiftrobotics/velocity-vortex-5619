@@ -187,6 +187,7 @@ public class EAutoCallMountainCodeHigh {
 
     void DoStop()
     {
+
         telemetry.addData("State: ", "Stopped");
         frontLeftMotor.setPower(0);
         frontRightMotor.setPower(0);
