@@ -35,6 +35,8 @@ public class EAutoHighRed extends EOpModeBase {
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
 
     }
@@ -74,6 +76,8 @@ public class EAutoHighRed extends EOpModeBase {
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         frontLeftMotor.setTargetPosition(COUNTS_DRIVE7);
         frontRightMotor.setTargetPosition(COUNTS_DRIVE7);
@@ -90,6 +94,9 @@ public class EAutoHighRed extends EOpModeBase {
         frontRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         backLeftMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         backRightMotor.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        extendMotor2.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
 
 
 
