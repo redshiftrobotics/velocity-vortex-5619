@@ -42,7 +42,7 @@ public abstract class EOpModeBase extends OpMode {
     protected DcMotorController dcMotorController1; //motor controller 1
     protected DcMotorController dcMotorController2; //motor controller 2
     protected DcMotorController dcMotorController3; //motor controller 3
-    protected EAutoCallMountainCode mountainCode;
+
     protected EAutoCallMountainCodeHigh mountainCodeHigh;
 
 
@@ -437,7 +437,7 @@ public abstract class EOpModeBase extends OpMode {
         }
 
         if(Debug){dt("Starting To Proses: mountainCode = new EAutoCallMountainCode(frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, extendMotor1, extendMotor2, telemetry);");}
-        mountainCode = new EAutoCallMountainCode(frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, extendMotor1, extendMotor2, telemetry);
+        mountainCodeHigh = new EAutoCallMountainCodeHigh(frontLeftMotor, frontRightMotor, backLeftMotor, backRightMotor, extendMotor1, extendMotor2, telemetry, lift1, lift2);
         if (Debug) {
             dt("Finished!");
         }
