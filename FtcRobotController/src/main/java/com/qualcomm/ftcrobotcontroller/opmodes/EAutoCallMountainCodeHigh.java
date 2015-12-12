@@ -114,12 +114,12 @@ public class EAutoCallMountainCodeHigh {
 
     void DoBeginning()
     {
-        frontLeftMotor.setPower(.2);
-        frontRightMotor.setPower(.2);
-        backLeftMotor.setPower(.2);
-        backRightMotor.setPower(.2);
+        frontLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
         telemetry.addData("State: ", "Beginning");
-        state = mountainStates.forwardDrive;
+        state = mountainStates.extendArms;
     }
 
     void DoForwardDrive()
@@ -130,11 +130,12 @@ public class EAutoCallMountainCodeHigh {
     void DoExtendArms()
     {
         //SET ARMS TO GOT SLIGHTLY ABOVE CHURRO (TEST VALUES)
-        lift1.setPosition(.5);
-        lift2.setPosition(.5);
+        //TEST THIS SHIT
+        lift1.setPosition(.7);
+        lift2.setPosition(.2);
 
-        moveLeftArmBlahInches(24);
-        moveRightArmBlahInches(24);
+        moveLeftArmBlahInches(48);
+        moveRightArmBlahInches(48);
 
         telemetry.addData("State: ", "Extend Arms");
 
@@ -144,7 +145,7 @@ public class EAutoCallMountainCodeHigh {
 
     void DoExtendingArms()
     {
-        if (getLeftTapePos()>= 24 && getRightTapePos()>= 24)
+        if (getLeftTapePos()>= 48 && getRightTapePos()>= 48)
         {
             state = mountainStates.catchArmOnBar;
         }
@@ -154,8 +155,9 @@ public class EAutoCallMountainCodeHigh {
     void DoCatchArmOnBar()
     {
         //SET ARMS SLOWIY DOWN TILL THE CATCH CHURROS (TEST VALUES)
-        lift1.setPosition(.5);
-        lift2.setPosition(.5);
+        //TEST THESE FUCKING VALUES
+        lift1.setPosition(.6);
+        lift2.setPosition(.3);
         telemetry.addData("State: ", "Catch on arm bar");
         state =  mountainStates.pullUp;
 
@@ -165,8 +167,8 @@ public class EAutoCallMountainCodeHigh {
     {
         //pull up to (midzone??)
         //POSSIBLY CHANGE WHEEL SPEED/POWER
-        moveRightArmBlahInches(-20);
-        moveLeftArmBlahInches(-20);
+        moveRightArmBlahInches(-48);
+        moveLeftArmBlahInches(-48);
 
         telemetry.addData("State:", "Do Pull Up");
 
