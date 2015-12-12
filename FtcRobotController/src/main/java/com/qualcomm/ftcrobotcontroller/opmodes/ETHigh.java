@@ -17,7 +17,8 @@ public class ETHigh extends EOpModeBase {
     double lift2Pos = 0.35;
 
 
-
+    boolean leftTriggerPushed = false;
+    boolean rightTriggerPushed = false;
 
     @Override
     public void init() {
@@ -47,6 +48,8 @@ public class ETHigh extends EOpModeBase {
         lift2.setPosition(lift2Pos);
         //hit1.setPosition(1);
         //hit2.setPosition(0.2);
+
+
 
 
 
@@ -83,7 +86,7 @@ public class ETHigh extends EOpModeBase {
         if (gamepad2.left_bumper && !lastBttnStateHitServoLeft) {
             toggleStateHitServoLeft = !toggleStateHitServoLeft;
         }
-        lastBttnStateHitServoLeft = gamepad2.left_bumper;
+        lastBttnStateHitServoLeft = gamepad1.left_bumper;
         return toggleStateHitServoLeft;
     }
 
@@ -94,8 +97,19 @@ public class ETHigh extends EOpModeBase {
         if (gamepad2.right_bumper && !lastBttnStateHitServoRight) {
             toggleStateHitServoRight = !toggleStateHitServoRight;
         }
-        lastBttnStateHitServoRight = gamepad2.right_bumper;
+        lastBttnStateHitServoRight = gamepad1.right_bumper;
         return toggleStateHitServoRight;
+    }
+
+    boolean lastBttnStateToggleSync = false;
+    boolean toggleStateToggleSync = false;
+
+    public boolean toggleSyncMotor() {
+        if (gamepad2.right_bumper && !lastBttnStateToggleSync) {
+            toggleStateToggleSync = !toggleStateToggleSync;
+        }
+        lastBttnStateToggleSync = rightTriggerPushed;
+        return toggleStateToggleSync;
     }
 
 
@@ -136,10 +150,11 @@ public class ETHigh extends EOpModeBase {
         extendValueLeft = Range.clip(extendValueLeft, -1, 1);
         extendValueRight = Range.clip(extendValueRight, -1, 1);
 
+        double amountToSlowDownTheArms = 0.5;
 
 
-        extendMotor1.setPower(extendValueLeft);
-        extendMotor2.setPower(extendValueRight);
+
+
 
 
         if (toggleHitServoLeft() == false) {
@@ -157,6 +172,17 @@ public class ETHigh extends EOpModeBase {
             ct("Hit2", "Open");
             hit2.setPosition(0.50);
 
+        }
+
+        if (toggleSyncMotor() == false) {
+            ct("Sync", "true");
+            extendMotor1.setPower(extendValueLeft * amountToSlowDownTheArms);
+            extendMotor2.setPower(extendValueRight * amountToSlowDownTheArms);
+
+        } else {
+            ct("Sync", "false");
+            extendMotor1.setPower(extendValueLeft * amountToSlowDownTheArms);
+            extendMotor2.setPower(extendValueLeft * amountToSlowDownTheArms);
         }
 
 
@@ -224,6 +250,30 @@ public class ETHigh extends EOpModeBase {
 
         ct("lift1Pos", lift1Pos);
         ct("lift2Pos", lift2Pos);
+
+        if(gamepad2.left_trigger > 0)
+        {
+            leftTriggerPushed = true;
+            ct("leftTriggerPushed", "true");
+        }
+        else
+        {
+            leftTriggerPushed = false;
+            ct("leftTriggerPushed", "false");
+        }
+
+        if(gamepad2.right_trigger > 0)
+        {
+            //pushed
+            rightTriggerPushed = true;
+            ct("rightTriggerPushed", "true");
+        }
+        else
+        {
+            //not
+            rightTriggerPushed = false;
+            ct("rightTriggerPushed", "false");
+        }
     }
 }
 

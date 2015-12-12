@@ -129,7 +129,7 @@
       <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:text="Version: 4.2.1 COMP!"
+          android:text="Version: 4.2.2 COMP!"
           android:id="@+id/textVersion"
           android:textColor="@android:color/holo_blue_light"
           android:layout_marginLeft="31dp"

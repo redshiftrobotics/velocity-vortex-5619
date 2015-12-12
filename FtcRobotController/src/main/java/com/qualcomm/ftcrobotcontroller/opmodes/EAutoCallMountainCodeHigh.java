@@ -12,6 +12,9 @@ public class EAutoCallMountainCodeHigh {
     String teleConvert;
     int teleInt = 0;
 
+    final int ENCODER_CPR = 1120; //ANDY MARK MOTOR DONT CHANGE
+    final double TAPE_MEASURE_INCH_PER_ROTATION = 5.25;
+
 
     protected DcMotor frontLeftMotor; //FRONT LEFT
     protected DcMotor frontRightMotor; //FRONT RIGHT
@@ -50,16 +53,224 @@ public class EAutoCallMountainCodeHigh {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    enum mountainStates {beginning, forwardDrive, extendArms, catchArmOnBar, pullUp, pullingUp, stop, extendingArms}
+    mountainStates state;
+
+    boolean armsOut = false;
+
+
+    long StartTime;
+    long TimeElapsed;
+
+
     public void init()
     {
-        dt("Started!");
-
-        //maddy's code goes here
+        StartTime = System.currentTimeMillis();
+        state = mountainStates.beginning;
+        dt("STARTING MADDYS OP MODE");
     }
 
     public void loop()
     {
 
-        //maddy's code goes here
+        TimeElapsed = System.currentTimeMillis() - StartTime;
+
+
+        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
+        {
+            state = mountainStates.extendArms;
+            armsOut = true;
+        }
+
+
+        switch (state)
+        {
+            case beginning:
+                DoBeginning();
+                break;
+            case forwardDrive:
+                DoForwardDrive();
+                break;
+            case extendArms:
+                DoExtendArms();
+                break;
+            case extendingArms:
+                DoExtendingArms();
+                break;
+            case catchArmOnBar:
+                DoCatchArmOnBar();
+                break;
+            case pullUp:
+                DoPullUp();
+                break;
+            case pullingUp:
+                DoPullingUp();
+                break;
+            case stop:
+                DoStop();
+                break;
+        }
+    }
+
+    void DoBeginning()
+    {
+        frontLeftMotor.setPower(.2);
+        frontRightMotor.setPower(.2);
+        backLeftMotor.setPower(.2);
+        backRightMotor.setPower(.2);
+        telemetry.addData("State: ", "Beginning");
+        state = mountainStates.forwardDrive;
+    }
+
+    void DoForwardDrive()
+    {
+        telemetry.addData("State: ", "Forward Drive");
+    }
+
+    void DoExtendArms()
+    {
+        //SET ARMS TO GOT SLIGHTLY ABOVE CHURRO (TEST VALUES)
+        lift1.setPosition(.5);
+        lift2.setPosition(.5);
+
+        moveLeftArmBlahInches(24);
+        moveRightArmBlahInches(24);
+
+        telemetry.addData("State: ", "Extend Arms");
+
+
+        state= mountainStates.extendingArms;
+    }
+
+    void DoExtendingArms()
+    {
+        if (getLeftTapePos()>= 24 && getRightTapePos()>= 24)
+        {
+            state = mountainStates.catchArmOnBar;
+        }
+        telemetry.addData("State: ", "Extending Arms Currently");
+    }
+
+    void DoCatchArmOnBar()
+    {
+        //SET ARMS SLOWIY DOWN TILL THE CATCH CHURROS (TEST VALUES)
+        lift1.setPosition(.5);
+        lift2.setPosition(.5);
+        telemetry.addData("State: ", "Catch on arm bar");
+        state =  mountainStates.pullUp;
+
+    }
+
+    void DoPullUp()
+    {
+        //pull up to (midzone??)
+        //POSSIBLY CHANGE WHEEL SPEED/POWER
+        moveRightArmBlahInches(-20);
+        moveLeftArmBlahInches(-20);
+
+        telemetry.addData("State:", "Do Pull Up");
+
+        state = mountainStates.pullingUp;
+    }
+
+    void DoPullingUp()
+    {
+        telemetry.addData("State:", "Currently Doing Pull Up");
+        if(getLeftTapePos()<= 5 && getRightTapePos()<= 5)
+        {
+            state = mountainStates.stop;
+        }
+    }
+
+    void DoStop()
+    {
+        telemetry.addData("State: ", "Stopped");
+        frontLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        backRightMotor.setPower(0);
+        extendMotor1.setPower(0);
+        extendMotor2.setPower(0);
+    }
+
+
+    public void moveLeftArmBlahInches(double inchesToMove) {
+        double count = extendMotor1.getCurrentPosition() + inchesToMove / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+
+        if (count > 0) {
+            extendMotor1.setPower(1);
+            while (extendMotor1.getCurrentPosition() < count) {
+
+            }
+            extendMotor1.setPower(0);
+        } else {
+            extendMotor1.setPower(-1);
+            while (extendMotor1.getCurrentPosition() > count) {
+
+            }
+            extendMotor1.setPower(0);
+        }
+    }
+
+    public void moveRightArmBlahInches(double inchesToMove) {
+        double count = extendMotor2.getCurrentPosition() + inchesToMove / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+
+        if (count > 0) {
+            extendMotor2.setPower(1);
+            while (extendMotor2.getCurrentPosition() < count) {
+
+            }
+            extendMotor2.setPower(0);
+        } else {
+            extendMotor2.setPower(-1);
+            while (extendMotor2.getCurrentPosition() > count) {
+
+            }
+            extendMotor2.setPower(0);
+        }
+
+
+    }
+
+
+
+    public void resetArmLeft() {
+        double count = 0;
+        extendMotor1.setPower(-1);
+        while (extendMotor1.getCurrentPosition() > count) {
+
+        }
+        extendMotor1.setPower(0);
+    }
+
+    public void resetArmRight() {
+        double count = 0;
+        extendMotor2.setPower(-1);
+        while (extendMotor2.getCurrentPosition() > count) {
+
+        }
+        extendMotor2.setPower(0);
+    }
+
+
+
+    public void resetArmHeightLeft() {
+
+        lift1.setPosition(0.6);
+    }
+
+    public void resetArmHeightRight() {
+
+        lift2.setPosition(0.5);
+    }
+
+    public double getLeftTapePos() {
+
+        return extendMotor1.getCurrentPosition() / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+    }
+
+    public double getRightTapePos() {
+
+        return extendMotor2.getCurrentPosition() / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
     }
 }
