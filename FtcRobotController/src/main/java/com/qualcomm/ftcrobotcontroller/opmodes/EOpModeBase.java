@@ -185,9 +185,9 @@ public abstract class EOpModeBase extends OpMode {
     }
 
     public void moveLeftArmBlahInches(double inchesToMove) {
-        double count = extendMotor1.getCurrentPosition() + inchesToMove / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+        double count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
 
-        if (count > 0) {
+        if (count > 0){
             extendMotor1.setPower(1);
             while (extendMotor1.getCurrentPosition() < count) {
                 if (Debug) {
@@ -207,7 +207,7 @@ public abstract class EOpModeBase extends OpMode {
     }
 
     public void moveRightArmBlahInches(double inchesToMove) {
-        double count = extendMotor2.getCurrentPosition() + inchesToMove / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
+        double count = extendMotor2.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
 
         if (count > 0) {
             extendMotor2.setPower(1);

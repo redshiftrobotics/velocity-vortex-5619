@@ -143,7 +143,7 @@ public class ECombHighBlue extends EOpModeBase{
         if(ENCODER_POS_DRIVE7 >= COUNTS_DRIVE7)
         {
             startLeft90();
-            //dt("I AM SWITCHING STATES NOW GOD DAMMIT!");
+            dt("I AM SWITCHING STATES NOW GOD DAMMIT!");
         }
     }
 
@@ -162,15 +162,15 @@ public class ECombHighBlue extends EOpModeBase{
 
         dt("Calling Maddy's Code Now!");
         //this will call anouther funtion for maddys op mode
-        minit();
+        //minit();
         dt("Done Calling Code!");
     }
 
     public void loopLeft90()
     {
         //this will call anouther funtion for maddys op mode
-
-        mloop();
+        dt("Begining of MLOOP");
+       // mloop();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -183,32 +183,18 @@ public class ECombHighBlue extends EOpModeBase{
     public void minit()
     {
         dt("STARTING MADDYS CODE NOW");
-        //StartTime = System.currentTimeMillis();
         state = mountainStates.beginning;
 
     }
 
     public void mloop()
     {
-
-//        TimeElapsed = System.currentTimeMillis() - StartTime;
-//
-//
-//        if (!armsOut && TimeElapsed> /*SET THIS FUCKING TIME*/0)
-//        {
-//            Estate = mountainStates.extendArms;
-//            armsOut = true;
-//        }
-//
-
+        dt("THIS IS MLOOP");
         switch (state)
         {
             case beginning:
                 DoBeginning();
                 break;
-//            case forwardDrive:
-//                DoForwardDrive();
-//                break;
             case extendArms:
                 DoExtendArms();
                 break;
