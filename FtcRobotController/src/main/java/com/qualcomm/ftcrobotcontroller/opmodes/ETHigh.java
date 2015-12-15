@@ -174,7 +174,7 @@ public class ETHigh extends EOpModeBase {
 
         }
 
-        if (toggleSyncMotor() == true) {
+        if (toggleSyncMotor() == false) {
             ct("Sync", "false");
             extendMotor1.setPower(extendValueLeft * amountToSlowDownTheArms);
             extendMotor2.setPower(extendValueRight * amountToSlowDownTheArms);

@@ -108,16 +108,16 @@ public class FtcOpModeRegister implements OpModeRegister {
 
         //manager.register("RESET (In case of bugs run)", EResetAll.class);
 
-      /*
+
 // manager.register("Arm Test", ArmTest.class);
-      manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
-      manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
-      manager.register("[Debug] BACK LEFT", EBackLeft.class);
-      manager.register("[Debug] BACK RIGHT", EBackRight.class);
-     // manager.register("Debug.class", EDebug.class);
+     // manager.register("[Debug] FRONT LEFT", EFrontLeft.class);
+     // manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
+    //  manager.register("[Debug] BACK LEFT", EBackLeft.class);
+     // manager.register("[Debug] BACK RIGHT", EBackRight.class);
+      manager.register("Debug", EDebug.class);
     //  manager.register("DebugDrive.class", EDebugDriveTest.class);
 
-*/
+
 
 
     }
