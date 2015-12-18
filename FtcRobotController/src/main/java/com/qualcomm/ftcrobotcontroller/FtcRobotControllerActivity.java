@@ -75,7 +75,9 @@ import com.qualcomm.robotcore.wifi.WifiDirectAssistant;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.ServerSocket;
 import java.util.Locale;
 
 public class FtcRobotControllerActivity extends Activity {
@@ -148,6 +150,26 @@ public class FtcRobotControllerActivity extends Activity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    //███████████████████████████████████████████████████
+    final Thread thread = new Thread(new Runnable() {
+      @Override
+      public void run() {
+
+        //god damm multithreading
+        //use sockets
+        try {
+          //ServerSocket ss = new ServerSocket(5619,50);
+          //ss.accept();
+          //
+        }catch(Exception e){
+          e.printStackTrace();
+        }
+
+
+      }
+    });
+
 
     setContentView(R.layout.activity_ftc_controller);
 //ERIC

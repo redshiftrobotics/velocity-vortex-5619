@@ -10,6 +10,8 @@ import com.qualcomm.robotcore.hardware.LegacyModule;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 
+import java.text.DecimalFormat;
+
 
 /**
  * Created by Eric Golde on 11/1/2015.
@@ -18,6 +20,9 @@ public abstract class EOpModeBase extends OpMode {
 
     String teleConvert;
     int teleInt = 0;
+
+    DecimalFormat newFormat = new DecimalFormat("#.##");
+
 //
     boolean useTTS = false; //use TTS? (YOU CANT USE THIS DURRING A MATCH)
     public static boolean Debug = false; //outputs a lot of text for debugging purpuses
@@ -185,24 +190,45 @@ public abstract class EOpModeBase extends OpMode {
     }
 
     public void moveLeftArmBlahInches(double inchesToMove) {
-        double count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
+        //double count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
+        //double twoDecimal =  Double.valueOf(newFormat.format(count));
+        double count = 2;
+        double twoDecimal =  Double.valueOf(newFormat.format(count));
+        ct("Count", count);
+        ct("Better Count", twoDecimal);
 
-        if (count > 0){
+        if(inchesToMove > 0)
+        {
+            //move positive
             extendMotor1.setPower(1);
-            while (extendMotor1.getCurrentPosition() < count) {
-                if (Debug) {
-                    dt("Left Arm Count: " + count);
-                }
+            while(twoDecimal <= inchesToMove)
+            {
+                extendMotor1.setPower(1);
+                dl("HERE");
+                count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
+                twoDecimal =  Double.valueOf(newFormat.format(count));
+
             }
             extendMotor1.setPower(0);
-        } else {
+        }
+       else if(inchesToMove < 1000)
+        {
+            //move negitive
             extendMotor1.setPower(-1);
-            while (extendMotor1.getCurrentPosition() > count) {
-                if (Debug) {
-                    dt("Left Arm Count: " + count);
-                }
+            while(twoDecimal >= inchesToMove)
+            {
+                count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
+                twoDecimal =  Double.valueOf(newFormat.format(count));
             }
             extendMotor1.setPower(0);
+        }
+        else
+        {
+            // equels 0
+            //dont do anything
+            //coder made a mistake
+            ct("Number", "??????");
+            dt("Dear Coder, You have made a mistake in your code. You can't move 0 inches. It will do nothing. Trust me. I know my math :)");
         }
     }
 

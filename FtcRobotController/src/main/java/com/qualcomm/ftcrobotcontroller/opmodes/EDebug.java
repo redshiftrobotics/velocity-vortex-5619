@@ -1,5 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
+import com.qualcomm.ftcrobotcontroller.FtcRobotControllerActivity;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorController;
 
@@ -15,17 +16,7 @@ public class EDebug extends EOpModeBase {
 
 
 
-
-    public void init() {
-
-        dt("Debug Time!");
-
-        super.init();
-
-    }
-
-    @Override
-    public void start()
+    public void instructions()
     {
         dt("-=Instructions=-");
         dt("When you Push A Both servos (arm) should reset to there correct position");
@@ -35,50 +26,41 @@ public class EDebug extends EOpModeBase {
         dt("Right Trigger toggles Sync (Not Working)");
         dt("-==============-");
     }
+
+    public void init() {
+
+        dt("Debug Time!");
+
+        super.init();
+
+        instructions();
+
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
+    }
+
+    public void start()
+    {
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+    }
+
+
     @Override
     public void loop()
     {
+
+
         if(gamepad1.a)
         {
-            dt("Resetting Arm Servos");
-            resetArmHeightLeft();
-            resetArmHeightRight();
+            moveLeftArmBlahInches(5);
         }
         if(gamepad1.b)
         {
-            dt("Resetting Hit Servos");
-            resetHitLeft();
-            resetHitRight();
-        }
-        if(gamepad1.y)
-        {
-            dt("Reset Arm Lengh");
-            resetArmLeft();
-            resetArmRight();
-        }
-        if(gamepad1.x)
-        {
-            dt("Move Too Blah");
-            dt("Left & Right arm should move 10 inches");
-            moveLeftArmBlahInches(10);
-            moveRightArmBlahInches(10);
-
-            dt("Open Hit Servos");
-            hit1.setPosition(0.50);
-            hit2.setPosition(0.50);
-
-            dt("Raise Arms");
-            lift1.setPosition(0.6);
-            lift2.setPosition(0.35);
+            moveLeftArmBlahInches(-5);
         }
 
         ct("Left Arm", extendMotor1.getCurrentPosition());
-        ct("Right Arm", extendMotor2.getCurrentPosition());
-
-        ct("Front Left", frontLeftMotor.getCurrentPosition());
-        ct("Front Right", frontRightMotor.getCurrentPosition());
-        ct("Back Left", backLeftMotor.getCurrentPosition());
-        ct("Back Right", backRightMotor.getCurrentPosition());
 
 
 
