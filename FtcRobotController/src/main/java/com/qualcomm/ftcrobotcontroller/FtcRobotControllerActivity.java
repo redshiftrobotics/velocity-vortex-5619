@@ -151,24 +151,7 @@ public class FtcRobotControllerActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    //███████████████████████████████████████████████████
-    final Thread thread = new Thread(new Runnable() {
-      @Override
-      public void run() {
 
-        //god damm multithreading
-        //use sockets
-        try {
-          //ServerSocket ss = new ServerSocket(5619,50);
-          //ss.accept();
-          //
-        }catch(Exception e){
-          e.printStackTrace();
-        }
-
-
-      }
-    });
 
 
     setContentView(R.layout.activity_ftc_controller);

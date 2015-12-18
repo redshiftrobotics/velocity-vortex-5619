@@ -190,35 +190,30 @@ public abstract class EOpModeBase extends OpMode {
     }
 
     public void moveLeftArmBlahInches(double inchesToMove) {
-        //double count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
+        double targetCount = extendMotor1.getCurrentPosition() + inchesToMove / TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR;
         //double twoDecimal =  Double.valueOf(newFormat.format(count));
-        double count = 2;
-        double twoDecimal =  Double.valueOf(newFormat.format(count));
-        ct("Count", count);
-        ct("Better Count", twoDecimal);
+        //double count = extendMotor1.getCurrentPosition();
+
+        ct("Target Count", targetCount);
+
 
         if(inchesToMove > 0)
         {
             //move positive
             extendMotor1.setPower(1);
-            while(twoDecimal <= inchesToMove)
+            while(extendMotor1.getCurrentPosition() < targetCount)
             {
-                extendMotor1.setPower(1);
                 dl("HERE");
-                count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
-                twoDecimal =  Double.valueOf(newFormat.format(count));
-
             }
             extendMotor1.setPower(0);
         }
-       else if(inchesToMove < 1000)
+       else if(inchesToMove < 0)
         {
             //move negitive
             extendMotor1.setPower(-1);
-            while(twoDecimal >= inchesToMove)
+            while(extendMotor1.getCurrentPosition() > targetCount)
             {
-                count = extendMotor1.getCurrentPosition() + (inchesToMove / (TAPE_MEASURE_INCH_PER_ROTATION * ENCODER_CPR));
-                twoDecimal =  Double.valueOf(newFormat.format(count));
+                dl("HERE 2");
             }
             extendMotor1.setPower(0);
         }
