@@ -33,6 +33,32 @@
       android:textSize="16sp"
       android:textStyle="bold"/>
 
+      <ImageButton
+          android:id="@+id/menu_buttons"
+          android:contentDescription="menu_buttons"
+          android:scaleType="fitXY"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/icon_menu"
+          android:background="@color/black"
+          android:padding="15dp"
+          android:adjustViewBounds="true"
+          android:layout_alignTop="@+id/robotIcon"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentEnd="true"
+          android:layout_marginRight="33dp"
+          android:layout_marginEnd="33dp" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Version: 4.3.0 COMP!"
+          android:id="@+id/textVersion"
+          android:textColor="@android:color/holo_blue_light"
+          android:layout_below="@+id/textDeviceName"
+          android:layout_toRightOf="@+id/robotIcon"
+          android:layout_toEndOf="@+id/robotIcon" />
+
   </RelativeLayout>
   <!-- end of black bar -->
 
@@ -112,31 +138,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
-    <ImageButton
-        android:id="@+id/menu_buttons"
-        android:contentDescription="menu_buttons"
-        android:scaleType="fitXY"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon_menu"
-        android:background="@color/black"
-        android:padding="15dp"
-        android:adjustViewBounds="true"
-        android:layout_above="@+id/textWifiDirectStatus"
-        android:layout_centerHorizontal="true" />
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Version: 4.3.0 COMP!"
-          android:id="@+id/textVersion"
-          android:textColor="@android:color/holo_blue_light"
-          android:layout_marginLeft="31dp"
-          android:layout_marginStart="31dp"
-          android:layout_alignTop="@+id/menu_buttons"
-          android:layout_toRightOf="@+id/menu_buttons"
-          android:layout_toEndOf="@+id/menu_buttons" />
 
   </RelativeLayout>
 </LinearLayout>

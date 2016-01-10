@@ -117,7 +117,7 @@ public class ETHigh extends EOpModeBase {
     public void loop() {
 
 
-//get the values from the gamepads
+        //get the values from the gamepads
         //note: pushing the stick all the way up returns -1,
         //so we need to reverse the y values
         float xValue = -gamepad1.left_stick_y;

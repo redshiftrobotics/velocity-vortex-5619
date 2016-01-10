@@ -97,9 +97,9 @@ public class FtcOpModeRegister implements OpModeRegister {
 
         //DRIVE
         // manager.register("Low Drive", ETLow.class);
-        manager.register("High Drive", ETHigh.class);
-        manager.register("Blue Team", ECombHighBlue.class);
-        manager.register("Red Team", ECombHighRed.class);
+        manager.register("Teleop", ETankTeleop.class);
+       // manager.register("Blue Team", ECombHighBlue.class);
+       // manager.register("Red Team", ECombHighRed.class);
 
        //manager.register("Everybody should do the YMCA now!", EPartyYMCA.class);
        // manager.register("Dance-Space Jam", EParty.class);
@@ -114,7 +114,7 @@ public class FtcOpModeRegister implements OpModeRegister {
      // manager.register("[Debug] FRONT RIGHT", EFrontRight.class);
     //  manager.register("[Debug] BACK LEFT", EBackLeft.class);
      // manager.register("[Debug] BACK RIGHT", EBackRight.class);
-      manager.register("Debug", EDebug.class);
+      //manager.register("Debug", EDebug.class);
     //  manager.register("DebugDrive.class", EDebugDriveTest.class);
 
 
