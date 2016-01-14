@@ -6,38 +6,34 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Eric Golde on 1/9/2016.
  */
-public class ETankTeleop extends EOpModeBaseTank{ //tank teleop
-////////////////////////////////////////////////////////////
+public class ETankTeleop extends EOpModeBaseTank { //tank teleop
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     double amountToSlowDownTheDrivingSpeed = 0.5;
     double amountToSlowDownTheArms = 0.5;
     double hit1Open = 1;
     double hit1Closed = .50;
     double hit2Open = .50;
     double hit2Closed = 0;
-
-
     double armLeast = 0.9;
     double armMost = 0.7;
-    double armServoValue = armLeast;
     double armServoIncrement = 0.1;
 
-////////////////////////////////////////////////////////////
+    double armServoValue = armLeast; //dont edit
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public void init()
-    {
+    public void init() {
         dt("Tank Drive Selected!");
         super.init(); //calls the init funtion in EOpModeBase.class
 
-        left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+        //arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
     }
 
     @Override
-    public void start()
-    {
+    public void start() {
         left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -71,8 +67,7 @@ public class ETankTeleop extends EOpModeBaseTank{ //tank teleop
 
 
     @Override
-    public void loop()
-    {
+    public void loop() {
 //get the values from the gamepads
         //note: pushing the stick all the way up returns -1,
         //so we need to reverse the y values
@@ -99,27 +94,19 @@ public class ETankTeleop extends EOpModeBaseTank{ //tank teleop
         float armControllerAngle = -gamepad2.right_stick_y;
         armControllerAngle = Range.clip(armControllerAngle, -1, 1);
 
-        if(armControllerAngle > 0.5) //controller up
+        if (armControllerAngle > 0.5) //controller up
         {
             //UP
-            if(armServoValue < armMost)
-            {
+            if (armServoValue < armMost) {
                 armServoValue = armServoValue + armServoIncrement;
-            }
-            else
-            {
+            } else {
                 armServoValue = armMost;
             }
-        }
-        else if(armControllerAngle <= -0.5)
-        {
+        } else if (armControllerAngle <= -0.5) {
             //DOWN
-            if(armServoValue > armLeast)
-            {
+            if (armServoValue > armLeast) {
                 armServoValue = armServoValue - armServoIncrement;
-            }
-            else
-            {
+            } else {
                 armServoValue = armLeast;
             }
         }
@@ -143,7 +130,6 @@ public class ETankTeleop extends EOpModeBaseTank{ //tank teleop
             hit2.setPosition(hit2Open);
 
         }
-
 
 
         ct("Left", left.getCurrentPosition());

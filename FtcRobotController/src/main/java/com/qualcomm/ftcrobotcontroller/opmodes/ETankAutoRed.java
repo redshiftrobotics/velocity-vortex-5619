@@ -6,36 +6,41 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
  * Created by Eric Golde on 1/9/2016.
  */
 public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    final int encoderPosToDriveToBottomOnTheMountian = 8930; //edit
+    final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 1000; //edit
+    final double leftAndRightMotorPowerDivider = 1; //edit
+
+    final double leftAndRightMotorPower = 0.5; //DO NOT EDIT
+    final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.3; //DO NOT EDIT
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     int state;
-    final int encoderPosToDriveToBottomOnTheMountian = 1000; //edit
-    final int encoderPosToExtendTapeMeasureToGrabTheBarAtTheBegining = 1000; //edit
-    final double leftAndRightMotorPower = 0.5;
-    final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.4;
-    final double armExtendPower = 1;
     final int STATE_TURN_ONTO_MOUNTIAN = 1;
     final int STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR = 2;
 
-    public void updateTelementryMotorOutput()
-    {
-        ct("Left Encoder:", left.getCurrentPosition());
-        ct("Right Encoder:", right.getCurrentPosition());
-        ct("Arm Encoder:", arm.getCurrentPosition());
-
-
+    public void updateTelementryMotorOutput() {
+        ct("Left Encoder", left.getCurrentPosition());
+        ct("Right Encoder", right.getCurrentPosition());
+        ct("Arm Encoder", arm.getCurrentPosition());
+        if (state == STATE_TURN_ONTO_MOUNTIAN) {
+            ct("ToGetTo", encoderPosToDriveToBottomOnTheMountian);
+        } else if (state == STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR) {
+            ct("ToGetTo", encoderPosToDriveToBottomOnTheMountian + encoderPosToDriveUpToTheMidZone);
+        }
     }
 
-    public void stopAll()
-    {
+    public void stopAll() {
         left.setPower(0);
         right.setPower(0);
         arm.setPower(0);
+        ct("State", "stopAll");
     }
 
-    public void stopDriveMotors()
-    {
+    public void stopDriveMotors() {
         left.setPower(0);
         right.setPower(0);
+        ct("State", "stopDriveMotors");
     }
 
     @Override
@@ -60,18 +65,20 @@ public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
         }
     }
 
+    public void setupEncoderStuffAndThings() {
+        //set up all encoders before startung up the robot
+        //this needs to be in the start
+        //it will not work in the init for some reason
+        //this makes all the motors work properly
 
-    public void startTurnOntoMountian() {
-        state = STATE_TURN_ONTO_MOUNTIAN;
-        ct("State", "STATE_DO_CURVE");
-
+        dt("Setting up encoders...");
         left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
         left.setTargetPosition(encoderPosToDriveToBottomOnTheMountian);
         right.setTargetPosition(encoderPosToDriveToBottomOnTheMountian);
-        right.setTargetPosition(encoderPosToExtendTapeMeasureToGrabTheBarAtTheBegining);
+        //arm.setTargetPosition(/*Encoder pos for autonoums arm. I dont think we need this but it is here*/);
 
         left.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
         right.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
@@ -80,34 +87,51 @@ public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
         left.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+        dt("Done!");
+
+    }
+
+    public void startTurnOntoMountian() {
+        state = STATE_TURN_ONTO_MOUNTIAN;
+        ct("State", "STATE_DO_CURVE");
+
+        setupEncoderStuffAndThings();// before we do anything else set up the encoders
 
         left.setPower(leftAndRightMotorPower * amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian);
         right.setPower(leftAndRightMotorPower);
 
     }
 
-    public void loopTurnOntoMountian()
-    {
+    public void loopTurnOntoMountian() {
         updateTelementryMotorOutput();
 
-        if(right.getCurrentPosition() >= encoderPosToDriveToBottomOnTheMountian )
-        {
+        if (right.getCurrentPosition() >= encoderPosToDriveToBottomOnTheMountian) {
             //at bottom of the mountian!
             stopDriveMotors();
             startTryToGetOntoTheFirstBar();
         }
     }
 
-    public void startTryToGetOntoTheFirstBar()
-    {
+    public void startTryToGetOntoTheFirstBar() {
         state = STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR;
         ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
-        dt("Done!");
+        //drive motors slowly
+
+        left.setPower(leftAndRightMotorPower * leftAndRightMotorPowerDivider);
+        right.setPower(leftAndRightMotorPower * leftAndRightMotorPowerDivider);
     }
 
-    public void loopTryToGetToTheFirstBar()
-    {
-        updateTelementryMotorOutput();;
+    public void loopTryToGetToTheFirstBar() {
+        updateTelementryMotorOutput();
+
+        if (right.getCurrentPosition() >= encoderPosToDriveUpToTheMidZone) {
+            //In the mid zone
+            //stop everything
+            stopAll(); //stop motors
+            ct("State", "IN_THE_MID_ZONE");
+            //stop(); //"ftc stop" THIS MAY NOT WORK. USE OWN STOP FUNCTION
+        }
+
     }
 
 }

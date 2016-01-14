@@ -22,11 +22,7 @@ public abstract class EOpModeBaseTank extends OpMode {
     int teleInt = 0;
 
 
-
-
-
     public static boolean Debug = false; //outputs a lot of text for debugging purpuses
-
 
 
     protected DcMotor left;
@@ -35,7 +31,6 @@ public abstract class EOpModeBaseTank extends OpMode {
     protected Servo hit1;
     protected Servo hit2;
     protected Servo armServo;
-
 
 
     public void dl(String text) {
@@ -145,9 +140,6 @@ public abstract class EOpModeBaseTank extends OpMode {
     }
 
 
-
-
-
     public double getLeftTapePos() {
         if (Debug) {
             dt("LeftPos: " + left.getCurrentPosition());
@@ -166,20 +158,17 @@ public abstract class EOpModeBaseTank extends OpMode {
         dt("Init Loading...");//start
 
 
-
-
-
         if (Debug) {
             dt("Starting To Register: left motor");
         }
-       left = hardwareMap.dcMotor.get("left");
+        left = hardwareMap.dcMotor.get("left");
         if (Debug) {
             dt("Finished!");
         }
         if (Debug) {
             dt("Starting To Register: right motor");
         }
-       right = hardwareMap.dcMotor.get("right");
+        right = hardwareMap.dcMotor.get("right");
         if (Debug) {
             dt("Finished!");
         }
@@ -214,23 +203,27 @@ public abstract class EOpModeBaseTank extends OpMode {
         }
 
 
-
-
-        if(Debug){dt("Starting To Proses: left");}
+        if (Debug) {
+            dt("Starting To Proses: left");
+        }
         left.setDirection(DcMotor.Direction.FORWARD);
         if (Debug) {
             dt("Finished!");
         }
-        if(Debug){dt("Starting To Proses: right");}
+        if (Debug) {
+            dt("Starting To Proses: right");
+        }
         right.setDirection(DcMotor.Direction.REVERSE);
         if (Debug) {
             dt("Finished!");
-        }if(Debug){dt("Starting To Proses: arm");}
+        }
+        if (Debug) {
+            dt("Starting To Proses: arm");
+        }
         arm.setDirection(DcMotor.Direction.FORWARD);
         if (Debug) {
             dt("Finished!");
         }
-
 
 
         dt("Init Loaded!"); //end

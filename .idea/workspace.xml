@@ -16,11 +16,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="Everything seems to work for the compition! Just need to calabrate everything">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
+    <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="Everything seems to work for the compition! Just need to calabrate everything.&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
@@ -65,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ETankTeleop.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ETankTeleop.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.70284235">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,31 +81,24 @@
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="102" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ETankAutoBlue.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48320413">
-              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+              <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding>
-                <element signature="e#1271#1272#0" expanded="true" />
-                <element signature="e#1310#1311#0" expanded="true" />
+                <element signature="e#2051#2052#0" expanded="true" />
+                <element signature="e#2090#2091#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EDebug.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java">
+      <file leaf-file-name="ETankAutoBlue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="e#274#275#0" expanded="true" />
+                <element signature="e#314#315#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+              <caret line="185" column="45" selection-start-line="185" selection-start-column="45" selection-end-line="185" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#dt#0;class#EOpModeBaseTank#0" expanded="false" />
@@ -134,7 +127,7 @@
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1369,13 +1362,13 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/NoahInterfaceTest.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETHigh.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAuto.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/res/layout/activity_ftc_controller.xml" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" />
       </list>
     </option>
   </component>
@@ -1881,7 +1874,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452386105019</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Everything seems to work for the compition! Just need to calabrate everything.&#10;">
+      <created>1452743256909</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1452743256909</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1898,7 +1897,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942554" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07560138" sideWeight="0.49572194" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1958,7 +1957,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made 2 funtions to get the inches pos on the tape measure. Dont know if it works but i hope it does" />
     <MESSAGE value="Renamed Some of my classes and removed useless classes i made" />
     <MESSAGE value="Merge branch 'master' of https://github.com/redshiftrobotics/5619&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;" />
     <MESSAGE value="Robot will now do the YMCA dance." />
@@ -1983,7 +1981,8 @@
     <MESSAGE value="Finally got my android studio working again. if you see this on github eric it worked!" />
     <MESSAGE value="This is for Noah" />
     <MESSAGE value="ETankTeleop is the teleop for the new robot. Please updad this to the phone and configure it:&#10;&#10;CONFIG:&#10;motorctrl1:&#10;1. left&#10;2. right&#10;motorctrl2:&#10;1. arm&#10;2." />
-    <option name="LAST_COMMIT_MESSAGE" value="ETankTeleop is the teleop for the new robot. Please updad this to the phone and configure it:&#10;&#10;CONFIG:&#10;motorctrl1:&#10;1. left&#10;2. right&#10;motorctrl2:&#10;1. arm&#10;2." />
+    <MESSAGE value="Everything seems to work for the compition! Just need to calabrate everything.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything seems to work for the compition! Just need to calabrate everything.&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2031,9 +2030,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2149#2150#0" expanded="false" />
+            <element signature="e#2189#2190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2077,9 +2076,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2149#2150#0" expanded="false" />
+            <element signature="e#2189#2190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2131,9 +2130,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="68" selection-start-line="40" selection-start-column="68" selection-end-line="40" selection-end-column="68" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2149#2150#0" expanded="false" />
+            <element signature="e#2189#2190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2192,9 +2191,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2149#2150#0" expanded="false" />
+            <element signature="e#2189#2190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2344,26 +2343,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EAutoHighRed.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6701164">
           <caret line="143" column="35" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2372,9 +2355,54 @@
         <state vertical-scroll-proportion="0.54980594">
           <caret line="66" column="33" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="33" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2149#2150#0" expanded="false" />
+            <element signature="e#2189#2190#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="185" column="45" selection-start-line="185" selection-start-column="45" selection-end-line="185" selection-end-column="45" />
+          <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
-            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="method#dt#0;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#dt#1;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#dt#2;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#dt#3;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#ct#0;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#ct#1;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#ct#2;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="method#ct#3;class#EOpModeBaseTank#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EDebug.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39534885">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2393,46 +2421,20 @@
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="53" selection-start-line="0" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#dt#0;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#dt#1;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#dt#2;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#dt#3;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#ct#0;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#ct#1;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#ct#2;class#EOpModeBaseTank#0" expanded="false" />
-            <element signature="method#ct#3;class#EOpModeBaseTank#0" expanded="false" />
+            <element signature="e#2051#2052#0" expanded="true" />
+            <element signature="e#2090#2091#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.70284235">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoBlue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48320413">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding>
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1310#1311#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -9,51 +9,33 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
  */
 
 
-
-
-
 public class EDebug extends EOpModeBaseTank {
 
 
-
-    public void instructions()
-    {
+    public void instructions() {
         dt("-=Instructions=-");
-        dt("When you Push A Both servos (arm) should reset to there correct position");
-        dt("When you push B hit servos should reset");
-        dt("When you push Y both arms should retract to there default start up POS");
-        dt("Push X to test");
-        dt("Right Trigger toggles Sync (Not Working)");
+
         dt("-==============-");
     }
 
+    @Override
     public void init() {
-
         dt("Debug Time!");
-
         super.init();
-
-
-
+        instructions();
     }
 
-    public void start()
-    {
+    @Override
+    public void start() {
 
     }
 
 
     @Override
-    public void loop()
-    {
-
-
-
+    public void loop() {
 
 
     }
-
-
 
 
 }
