@@ -29,11 +29,13 @@ public abstract class EOpModeBaseTank extends OpMode {
 
 
 
-    protected DcMotor left; //FRONT LEFT
-    protected DcMotor right; //FRONT RIGHT
-    protected DcMotor arm; //BACK LEFT
+    protected DcMotor left;
+    protected DcMotor right;
+    protected DcMotor arm;
     protected Servo hit1;
     protected Servo hit2;
+    protected Servo armServo;
+
 
 
     public void dl(String text) {
@@ -203,6 +205,14 @@ public abstract class EOpModeBaseTank extends OpMode {
         if (Debug) {
             dt("Finished!");
         }
+        if (Debug) {
+            dt("Starting To Register: armServo");
+        }
+        armServo = hardwareMap.servo.get("armServo");
+        if (Debug) {
+            dt("Finished!");
+        }
+
 
 
 

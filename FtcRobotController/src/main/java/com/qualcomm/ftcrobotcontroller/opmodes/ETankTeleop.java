@@ -6,10 +6,21 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Eric Golde on 1/9/2016.
  */
-public class ETankTeleop extends EOpModeBaseTank{
+public class ETankTeleop extends EOpModeBaseTank{ //tank teleop
 ////////////////////////////////////////////////////////////
     double amountToSlowDownTheDrivingSpeed = 0.5;
     double amountToSlowDownTheArms = 0.5;
+    double hit1Open = 1;
+    double hit1Closed = .50;
+    double hit2Open = .50;
+    double hit2Closed = 0;
+
+
+    double armLeast = 0.9;
+    double armMost = 0.7;
+    double armServoValue = armLeast;
+    double armServoIncrement = 0.1;
+
 ////////////////////////////////////////////////////////////
 
     @Override
@@ -21,6 +32,7 @@ public class ETankTeleop extends EOpModeBaseTank{
         left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
+
     }
 
     @Override
@@ -84,20 +96,51 @@ public class ETankTeleop extends EOpModeBaseTank{
         armValue = Range.clip(armValue, -1, 1);
         arm.setPower(armValue * amountToSlowDownTheArms);
 
+        float armControllerAngle = -gamepad2.right_stick_y;
+        armControllerAngle = Range.clip(armControllerAngle, -1, 1);
+
+        if(armControllerAngle > 0.5) //controller up
+        {
+            //UP
+            if(armServoValue < armMost)
+            {
+                armServoValue = armServoValue + armServoIncrement;
+            }
+            else
+            {
+                armServoValue = armMost;
+            }
+        }
+        else if(armControllerAngle <= -0.5)
+        {
+            //DOWN
+            if(armServoValue > armLeast)
+            {
+                armServoValue = armServoValue - armServoIncrement;
+            }
+            else
+            {
+                armServoValue = armLeast;
+            }
+        }
+
+        armServo.setPosition(armServoValue);
+
+
         if (toggleHitServoLeft() == false) {
-            ct("Hit1", "Closed");
-            hit1.setPosition(1);
+            ct("Hit1", hit1Closed); //closed
+            hit1.setPosition(hit1Closed);
         } else {
-            ct("Hit1", "Open");
-            hit1.setPosition(0.50);
+            ct("Hit1", hit1Open); //open
+            hit1.setPosition(hit1Open);
         }
 
         if (toggleHitServoRight() == false) {
-            ct("Hit2", "Closed");
-            hit2.setPosition(0);
+            ct("Hit2", hit2Closed); //closed
+            hit2.setPosition(hit2Closed);
         } else {
-            ct("Hit2", "Open");
-            hit2.setPosition(0.50);
+            ct("Hit2", hit2Open);//open
+            hit2.setPosition(hit2Open);
 
         }
 
@@ -106,6 +149,7 @@ public class ETankTeleop extends EOpModeBaseTank{
         ct("Left", left.getCurrentPosition());
         ct("Right", right.getCurrentPosition());
         ct("Arm", arm.getCurrentPosition());
+        ct("ArmServo", armServoValue);
 
     }
 }

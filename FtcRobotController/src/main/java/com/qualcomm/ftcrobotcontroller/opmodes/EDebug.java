@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 
 
 
-public class EDebug extends EOpModeBase {
+public class EDebug extends EOpModeBaseTank {
 
 
 
@@ -33,16 +33,13 @@ public class EDebug extends EOpModeBase {
 
         super.init();
 
-        instructions();
 
-        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
 
     }
 
     public void start()
     {
-        extendMotor1.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        extendMotor1.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
     }
 
 
@@ -51,16 +48,6 @@ public class EDebug extends EOpModeBase {
     {
 
 
-        if(gamepad1.a)
-        {
-            moveLeftArmBlahInches(5);
-        }
-        if(gamepad1.b)
-        {
-            moveLeftArmBlahInches(-5);
-        }
-
-        ct("Left Arm", extendMotor1.getCurrentPosition());
 
 
 
