@@ -140,19 +140,6 @@ public abstract class EOpModeBaseTank extends OpMode {
     }
 
 
-    public double getLeftTapePos() {
-        if (Debug) {
-            dt("LeftPos: " + left.getCurrentPosition());
-        }
-        return left.getCurrentPosition();
-    }
-
-    public double getRightTapePos() {
-        if (Debug) {
-            dt("RightPos: " + right.getCurrentPosition());
-        }
-        return right.getCurrentPosition();
-    }
 
     public void init() {
         dt("Init Loading...");//start
@@ -183,7 +170,7 @@ public abstract class EOpModeBaseTank extends OpMode {
         if (Debug) {
             dt("Starting To Register: hit1");
         }
-        hit1 = hardwareMap.servo.get("hit2");
+        hit1 = hardwareMap.servo.get("hit1");
         if (Debug) {
             dt("Finished!");
         }

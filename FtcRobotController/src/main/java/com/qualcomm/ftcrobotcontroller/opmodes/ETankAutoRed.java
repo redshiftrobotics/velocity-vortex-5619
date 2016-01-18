@@ -5,19 +5,19 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Eric Golde on 1/9/2016.
  */
-public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
+public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode //left
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    final int encoderPosToDriveToBottomOnTheMountian = 8930; //edit
-    final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 1000; //edit
-    final double leftAndRightMotorPowerDivider = 1; //edit
+    private final int encoderPosToDriveToBottomOnTheMountian = 8400; //edit
+    private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
 
-    final double leftAndRightMotorPower = 0.5; //DO NOT EDIT
-    final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.3; //DO NOT EDIT
+
+    private final double leftAndRightMotorPower = 1; //DO NOT EDIT
+    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    int state;
-    final int STATE_TURN_ONTO_MOUNTIAN = 1;
-    final int STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR = 2;
+    private int state;
+    private final int STATE_TURN_ONTO_MOUNTIAN = 1;
+    private final int STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR = 2;
 
     public void updateTelementryMotorOutput() {
         ct("Left Encoder", left.getCurrentPosition());
@@ -47,10 +47,13 @@ public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
     public void init() {
         dt("Red Team Autonomous Selected!");
         super.init();
+        setupEncoderStuffAndThings();
     }
 
     @Override
     public void start() {
+
+
         startTurnOntoMountian();
     }
 
@@ -117,8 +120,8 @@ public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode
         ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
         //drive motors slowly
 
-        left.setPower(leftAndRightMotorPower * leftAndRightMotorPowerDivider);
-        right.setPower(leftAndRightMotorPower * leftAndRightMotorPowerDivider);
+        left.setPower(leftAndRightMotorPower);
+        right.setPower(leftAndRightMotorPower);
     }
 
     public void loopTryToGetToTheFirstBar() {

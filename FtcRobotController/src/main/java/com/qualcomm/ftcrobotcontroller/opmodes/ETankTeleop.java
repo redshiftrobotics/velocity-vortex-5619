@@ -1,6 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.util.Range;
 
 /**
@@ -10,15 +11,16 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     double amountToSlowDownTheDrivingSpeed = 0.5;
     double amountToSlowDownTheArms = 0.5;
-    double hit1Open = 1;
-    double hit1Closed = .50;
+    double hit1Open = .50;
+    double hit1Closed = 0;
     double hit2Open = .50;
     double hit2Closed = 0;
-    double armLeast = 0.9;
-    double armMost = 0.7;
+    double armLeast = 0.9; // backwards
+    double armMost = 0.0; //least
     double armServoIncrement = 0.1;
 
-    double armServoValue = armLeast; //dont edit
+
+    double armServoValue = armMost; //dont edit
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
@@ -33,6 +35,12 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     }
 
     @Override
+    public void stop()
+    {
+        armServo.setPosition(armLeast);
+    }
+
+    @Override
     public void start() {
         left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -41,6 +49,10 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         left.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         right.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
+
+        hit1.setPosition(hit1Closed);
+        hit2.setPosition(hit2Closed);
+        armServo.setPosition(armLeast);
     }
 
     boolean lastBttnStateHitServoLeft = false;
