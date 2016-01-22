@@ -5,13 +5,14 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Eric Golde on 1/9/2016.
  */
-public class ETankAutoBlue extends EOpModeBaseTank { //Blue team autonomous mode //right
+public class ETankAutoRedOLD extends EOpModeBaseTank { //red team autonomous mode //left
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private final int encoderPosToDriveToBottomOnTheMountian = 3545; //edit
+    private final int encoderPosToDriveToBottomOnTheMountian = 8400; //edit
     private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
 
 
-
+    private final double leftAndRightMotorPower = 1; //DO NOT EDIT
+    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private int state;
@@ -51,6 +52,8 @@ public class ETankAutoBlue extends EOpModeBaseTank { //Blue team autonomous mode
 
     @Override
     public void start() {
+
+
         startTurnOntoMountian();
     }
 
@@ -97,15 +100,15 @@ public class ETankAutoBlue extends EOpModeBaseTank { //Blue team autonomous mode
 
         setupEncoderStuffAndThings();// before we do anything else set up the encoders
 
-        left.setPower(0.4);
-        right.setPower(0.2);
+        left.setPower(leftAndRightMotorPower * amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian);
+        right.setPower(leftAndRightMotorPower);
 
     }
 
     public void loopTurnOntoMountian() {
         updateTelementryMotorOutput();
 
-        if (left.getCurrentPosition() >= encoderPosToDriveToBottomOnTheMountian) {
+        if (right.getCurrentPosition() >= encoderPosToDriveToBottomOnTheMountian) {
             //at bottom of the mountian!
             stopDriveMotors();
             startTryToGetOntoTheFirstBar();
@@ -117,8 +120,8 @@ public class ETankAutoBlue extends EOpModeBaseTank { //Blue team autonomous mode
         ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
         //drive motors slowly
 
-        left.setPower(0.4);
-        right.setPower(0.4);
+        left.setPower(leftAndRightMotorPower);
+        right.setPower(leftAndRightMotorPower);
     }
 
     public void loopTryToGetToTheFirstBar() {

@@ -94,12 +94,11 @@ public class FtcOpModeRegister implements OpModeRegister {
 	  //////////////////////////////////////////////////////////////////////////////////////
 */
 
-        manager.register("Teleop", ETankTeleop.class);
-        manager.register("Blue Team", ETankAutoBlue.class);
+        //manager.register("Teleop", ETankTeleop.class);
+        //manager.register("Blue Team", ETankAutoBlue.class);
         manager.register("Red Team", ETankAutoRed.class);
         manager.register("Debug", EDebug.class);
-        manager.register("left", ELeft.class);
-        manager.register("rigjt", ERight.class);
+
 
     }
 }

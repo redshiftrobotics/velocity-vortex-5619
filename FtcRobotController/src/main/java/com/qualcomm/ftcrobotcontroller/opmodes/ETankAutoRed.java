@@ -1,140 +1,132 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
-import com.qualcomm.robotcore.hardware.DcMotorController;
-
 /**
- * Created by Eric Golde on 1/9/2016.
+ * Created by Eric Golde on 1/22/2016.
  */
-public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode //left
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private final int encoderPosToDriveToBottomOnTheMountian = 8400; //edit
-    private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
+public class ETankAutoRed extends EOpModeBaseTank {
 
+    final int epTurnOffOfStartingPlatform = 700;
+    final int epAmountToDriveForwardBeforeTurning = epTurnOffOfStartingPlatform + 1500;
+    final int epAmountToTurnUntilYouHitTheLine = epAmountToDriveForwardBeforeTurning + 700;
+    final int epAmountToDriveForwardBeforeYouHitTheClimberBucket = epAmountToTurnUntilYouHitTheLine + 800;
 
-    private final double leftAndRightMotorPower = 1; //DO NOT EDIT
-    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    final int epAmountToExtendClimberArmServoToDropClimbersInTheBucket = 1; //servo int 0-1
 
-    private int state;
-    private final int STATE_TURN_ONTO_MOUNTIAN = 1;
-    private final int STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR = 2;
+//////////////////////////
+    int servoPos;
+    boolean finishedExtendingArmForBucket = false; //*****DO NOT OVERRIDE****
+    boolean finishRetractingTheArmForBucket = false; //*****DO NOT OVERRIDE****
+    boolean doneUsingTheArmForBucket = false; //*****DO NOT OVERRIDE****
+    boolean doneDroppingClimbers = false; //*****DO NOT OVERRIDE****
+    boolean doneDoingEverythingWithServosInAutonomous = false; //*****DO NOT OVERRIDE****
 
-    public void updateTelementryMotorOutput() {
-        ct("Left Encoder", left.getCurrentPosition());
-        ct("Right Encoder", right.getCurrentPosition());
-        ct("Arm Encoder", arm.getCurrentPosition());
-        if (state == STATE_TURN_ONTO_MOUNTIAN) {
-            ct("ToGetTo", encoderPosToDriveToBottomOnTheMountian);
-        } else if (state == STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR) {
-            ct("ToGetTo", encoderPosToDriveToBottomOnTheMountian + encoderPosToDriveUpToTheMidZone);
-        }
-    }
-
-    public void stopAll() {
-        left.setPower(0);
-        right.setPower(0);
-        arm.setPower(0);
-        ct("State", "stopAll");
-    }
-
-    public void stopDriveMotors() {
-        left.setPower(0);
-        right.setPower(0);
-        ct("State", "stopDriveMotors");
-    }
 
     @Override
-    public void init() {
+    public void init()
+    {
         dt("Red Team Autonomous Selected!");
         super.init();
-        setupEncoderStuffAndThings();
     }
 
     @Override
-    public void start() {
-
-
-        startTurnOntoMountian();
+    public void start()
+    {
+        turnOffOfStartingPos();
     }
 
     @Override
-    public void loop() {
-        updateTelementryMotorOutput();
-        if (state == STATE_TURN_ONTO_MOUNTIAN) {
-            loopTurnOntoMountian();
-        } else if (state == STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR) {
-            //run loop for getting onto first bar
-            loopTryToGetToTheFirstBar();
+    public void loop()
+    {
+        if(right.getCurrentPosition() >= epTurnOffOfStartingPlatform)
+        {
+            //when you finish turning off of the starting plat form,
+            //you should start driving forward now.
+            driveForwardToAroundWhiteLine();
         }
-    }
-
-    public void setupEncoderStuffAndThings() {
-        //set up all encoders before startung up the robot
-        //this needs to be in the start
-        //it will not work in the init for some reason
-        //this makes all the motors work properly
-
-        dt("Setting up encoders...");
-        left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-        arm.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
-
-        left.setTargetPosition(encoderPosToDriveToBottomOnTheMountian);
-        right.setTargetPosition(encoderPosToDriveToBottomOnTheMountian);
-        //arm.setTargetPosition(/*Encoder pos for autonoums arm. I dont think we need this but it is here*/);
-
-        left.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        right.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-        arm.setChannelMode(DcMotorController.RunMode.RUN_TO_POSITION);
-
-        left.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        right.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        arm.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
-        dt("Done!");
-
-    }
-
-    public void startTurnOntoMountian() {
-        state = STATE_TURN_ONTO_MOUNTIAN;
-        ct("State", "STATE_DO_CURVE");
-
-        setupEncoderStuffAndThings();// before we do anything else set up the encoders
-
-        left.setPower(leftAndRightMotorPower * amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian);
-        right.setPower(leftAndRightMotorPower);
-
-    }
-
-    public void loopTurnOntoMountian() {
-        updateTelementryMotorOutput();
-
-        if (right.getCurrentPosition() >= encoderPosToDriveToBottomOnTheMountian) {
-            //at bottom of the mountian!
-            stopDriveMotors();
-            startTryToGetOntoTheFirstBar();
+        else if(right.getCurrentPosition() >= epAmountToDriveForwardBeforeTurning)
+        {
+            //when your done driving forward
+            //you should start to turn on to the line now
+            turnToAlineWithWhiteLine();
         }
-    }
-
-    public void startTryToGetOntoTheFirstBar() {
-        state = STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR;
-        ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
-        //drive motors slowly
-
-        left.setPower(leftAndRightMotorPower);
-        right.setPower(leftAndRightMotorPower);
-    }
-
-    public void loopTryToGetToTheFirstBar() {
-        updateTelementryMotorOutput();
-
-        if (right.getCurrentPosition() >= encoderPosToDriveUpToTheMidZone) {
-            //In the mid zone
-            //stop everything
-            stopAll(); //stop motors
-            ct("State", "IN_THE_MID_ZONE");
-            //stop(); //"ftc stop" THIS MAY NOT WORK. USE OWN STOP FUNCTION
+        else if(right.getCurrentPosition() >= epAmountToTurnUntilYouHitTheLine)
+        {
+            //you now have finished and you have hit the line.
+            //you should now start driving forward slowly so you can dump the people into bucket
+            driveSlowlyToPositionRobotToDumpClimbers();
+        }
+        else if(right.getCurrentPosition() >= epAmountToDriveForwardBeforeYouHitTheClimberBucket)
+        {
+            //you now have stoped to you can extend the climber thingy and dump the climbers
+            //we need some kind of wait or for loop to delay.
+            //this cant be thread.sleep i dont think.
+            //well it can but that can cause other problems
+            if(extendArmForBucket())
+            {
+                finishedExtendingArmForBucket = true;
+            }
+        }
+        else if(finishedExtendingArmForBucket && doneUsingTheArmForBucket == false && doneDoingEverythingWithServosInAutonomous == false)
+        {
+            //servo arm has finished extending
+            //dump
+            if(dropClimbersInBucket())
+            {
+                doneDroppingClimbers = true;
+            }
+        }
+        else if(finishedExtendingArmForBucket && doneDroppingClimbers && doneDoingEverythingWithServosInAutonomous == false)
+        {
+            //retract the arm
+            if(retractArmForBucket())
+            {
+                finishedExtendingArmForBucket = true;
+                doneDoingEverythingWithServosInAutonomous = true;
+            }
+        }
+        else if(finishedExtendingArmForBucket && finishRetractingTheArmForBucket && doneDroppingClimbers && doneDoingEverythingWithServosInAutonomous)
+        {
+            //you have now finished retracting the arm
+            //NOW WHAT??
+            //DRIVE AWAY??
+            //--Need more instructions--
         }
 
+
     }
+
+    public void turnOffOfStartingPos()
+    {
+        left.setPower(.3);
+        right.setPower(.4);
+    }
+    public void driveForwardToAroundWhiteLine()
+    {
+        left.setPower(.5);
+        right.setPower(.5);
+    }
+    public void turnToAlineWithWhiteLine()
+    {
+        left.setPower(.2);
+        right.setPower(.3);
+    }
+    public void driveSlowlyToPositionRobotToDumpClimbers()
+    {
+        left.setPower(.2);
+        right.setPower(.2);
+    }
+    public boolean extendArmForBucket()
+    {
+        return true; //CHANGE THIS
+    }
+    public boolean retractArmForBucket()
+    {
+        return true; //CHANGE THIS
+    }
+    public boolean dropClimbersInBucket()
+    {
+        return true; //CHANGE THIS
+    }
+
 
 }
