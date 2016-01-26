@@ -9,27 +9,20 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class EServoTest  extends OpMode{
 
     Servo servo;
-    double pos = 0;
+    Servo servo1;
+
 
     public void init()
     {
-       servo = hardwareMap.servo.get("lift1");
-        servo.setPosition(pos);
+       servo = hardwareMap.servo.get("servo");
+        servo1 = hardwareMap.servo.get("servo1");
     }
 
     public void loop()
     {
-        telemetry.addData("Servo Pos", pos);
-        if(pos < 0.99)
-        {
-            servo.setPosition(pos);
-            pos++;
-        }
-        else
-        {
-            servo.setPosition(0);
-            pos = 0;
-        }
+        servo.setPosition(1);
+        servo1.setPosition(1);
+
 
     }
 

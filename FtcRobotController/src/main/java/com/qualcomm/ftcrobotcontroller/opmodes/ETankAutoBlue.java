@@ -5,13 +5,13 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
 /**
  * Created by Eric Golde on 1/9/2016.
  */
-public class ETankAutoRedOLD extends EOpModeBaseTank { //red team autonomous mode //left
+public class ETankAutoBlue extends EOpModeBaseTank { //red team autonomous mode //left
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private final int encoderPosToDriveToBottomOnTheMountian = 8400; //edit
     private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
 
 
-    private final double leftAndRightMotorPower = 1; //DO NOT EDIT
+    private final double leftAndRightMotorPower = 0.5; //DO NOT EDIT
     private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -100,8 +100,8 @@ public class ETankAutoRedOLD extends EOpModeBaseTank { //red team autonomous mod
 
         setupEncoderStuffAndThings();// before we do anything else set up the encoders
 
-        left.setPower(leftAndRightMotorPower * amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian);
-        right.setPower(leftAndRightMotorPower);
+        right.setPower(leftAndRightMotorPower * amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian);
+        left.setPower(leftAndRightMotorPower);
 
     }
 

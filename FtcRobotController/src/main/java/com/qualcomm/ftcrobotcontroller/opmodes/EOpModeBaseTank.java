@@ -33,6 +33,8 @@ public abstract class EOpModeBaseTank extends OpMode {
     protected Servo armServo;
     protected Servo climberExtend;
     protected Servo climberDrop;
+    protected Servo pinBall1;
+    protected Servo pinBall2;
 
 
     public void dl(String text) {
@@ -193,14 +195,29 @@ public abstract class EOpModeBaseTank extends OpMode {
         if (Debug) {
             dt("Starting To Register: climberExtend");
         }
-        armServo = hardwareMap.servo.get("climberExtend");
+        climberExtend = hardwareMap.servo.get("climberExtend");
         if (Debug) {
             dt("Finished!");
         }
         if (Debug) {
             dt("Starting To Register: climberDrop");
         }
-        armServo = hardwareMap.servo.get("climberDrop");
+        climberDrop = hardwareMap.servo.get("climberDrop");
+        if (Debug) {
+            dt("Finished!");
+        }
+        ////
+        if (Debug) {
+            dt("Starting To Register: pinBall1");
+        }
+        pinBall1 = hardwareMap.servo.get("pinBall1");
+        if (Debug) {
+            dt("Finished!");
+        }
+        if (Debug) {
+            dt("Starting To Register: pinBall2");
+        }
+        pinBall2 = hardwareMap.servo.get("pinBall2");
         if (Debug) {
             dt("Finished!");
         }

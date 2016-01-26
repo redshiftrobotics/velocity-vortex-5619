@@ -106,6 +106,29 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         float armControllerAngle = -gamepad2.right_stick_y;
         armControllerAngle = Range.clip(armControllerAngle, -1, 1);
 
+        //pinball thingys
+        /*
+        if(gamepad2.left_bumper)
+        {
+            pinBall1.setPosition(1);
+        }
+        else
+        {
+            pinBall1.setPosition(.5);
+        }
+        if(gamepad2.right_bumper)
+        {
+            pinBall1.setPosition(0);
+        }
+        else
+        {
+            pinBall1.setPosition(.5);
+        }
+        */
+
+        
+        armControllerAngle = Range.clip(armControllerAngle, -1, 1);
+
         if (armControllerAngle > 0.5) //controller up
         {
             //UP
