@@ -14,14 +14,14 @@ public class EServoTest  extends OpMode{
 
     public void init()
     {
-       servo = hardwareMap.servo.get("servo");
+       servo = hardwareMap.servo.get("climberExtend");
         servo1 = hardwareMap.servo.get("servo1");
     }
 
     public void loop()
     {
         servo.setPosition(1);
-        servo1.setPosition(1);
+
 
 
     }

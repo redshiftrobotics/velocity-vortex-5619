@@ -12,7 +12,7 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     double amountToSlowDownTheDrivingSpeed = 0.5;
     double amountToSlowDownTheArms = 0.5;
     double hit1Open = .50;
-    double hit1Closed = 0;
+    double hit1Closed = 1;
     double hit2Open = .50;
     double hit2Closed = 0;
     double armLeast = 0.9; // backwards
@@ -27,6 +27,7 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     public void init() {
         dt("Tank Drive Selected!");
         super.init(); //calls the init funtion in EOpModeBase.class
+        //fixMyGodServosBecauseFTCScrewedMyServosUp();
 
         //left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         //right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -34,10 +35,20 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
 
     }
 
+    public void fixMyGodServosBecauseFTCScrewedMyServosUp()
+    {
+        hit1.setPosition(0);
+        hit2.setPosition(0);
+        armServo.setPosition(armMost);
+        climberExtend.setPosition(0.5); //continus serveo
+        climberDrop.setPosition(1);
+    }
+
     @Override
     public void stop()
     {
-        armServo.setPosition(armLeast);
+        //armServo.setPosition(armLeast);
+        //fixMyGodServosBecauseFTCScrewedMyServosUp();
     }
 
     @Override
@@ -50,9 +61,10 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         right.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
         arm.setChannelMode(DcMotorController.RunMode.RUN_USING_ENCODERS);
 
-        hit1.setPosition(hit1Closed);
-        hit2.setPosition(hit2Closed);
-        armServo.setPosition(armLeast);
+       // hit1.setPosition(hit1Closed);
+       // hit2.setPosition(hit2Closed);
+       // armServo.setPosition(armLeast);
+        //fixMyGodServosBecauseFTCScrewedMyServosUp();
     }
 
     boolean lastBttnStateHitServoLeft = false;
@@ -126,8 +138,15 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         }
         */
 
-        
-        armControllerAngle = Range.clip(armControllerAngle, -1, 1);
+        if(gamepad2.b)
+        {
+            climberExtend.setPosition(0.3);
+        }
+        else
+        {
+            climberExtend.setPosition(0);
+        }
+
 
         if (armControllerAngle > 0.5) //controller up
         {
@@ -164,6 +183,15 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
             ct("Hit2", hit2Open);//open
             hit2.setPosition(hit2Open);
 
+        }
+
+        if(gamepad2.a)
+        {
+            climberDrop.setPosition(0);
+        }
+        else
+        {
+            climberDrop.setPosition(0.7);
         }
 
 
