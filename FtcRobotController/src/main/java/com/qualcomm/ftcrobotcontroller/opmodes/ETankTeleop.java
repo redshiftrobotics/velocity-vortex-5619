@@ -140,11 +140,11 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
 
         if(gamepad2.b)
         {
-            climberExtend.setPosition(0.3);
+            climberExtend.setPosition(0.4);
         }
         else
         {
-            climberExtend.setPosition(0);
+            climberExtend.setPosition(0.2);
         }
 
 
