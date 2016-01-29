@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76029a75-347b-48c0-acd0-ebe4572f5de7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" afterPath="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="5619.iws" />
@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ETankTeleop.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ETankTeleop.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8554839">
+            <state vertical-scroll-proportion="0.0">
               <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ETankAutoRed.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ETankAutoRed.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="119" column="60" selection-start-line="119" selection-start-column="60" selection-end-line="119" selection-end-column="60" />
+            <state vertical-scroll-proportion="0.19741936">
+              <caret line="9" column="118" selection-start-line="9" selection-start-column="118" selection-end-line="9" selection-end-column="118" />
               <folding />
             </state>
           </provider>
@@ -1382,8 +1382,8 @@
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/FtcOpModeRegister.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EOpModeBaseTank.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/EServoTest.java" />
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java" />
+        <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java" />
       </list>
     </option>
   </component>
@@ -2001,7 +2001,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454018369762</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Servo Bugs and optmizations fixed!!">
+      <created>1454099397403</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1454099397403</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2019,7 +2025,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0744559" sideWeight="0.49572194" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0744559" sideWeight="0.49572194" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2078,7 +2084,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="final EOPModeBase for COMP" />
     <MESSAGE value="Fixed to compinsate the errors because of the broken motor and servo controllers." />
     <MESSAGE value="hope this works. dont know. servos being meen. robot hates me." />
     <MESSAGE value="Servos basicly workeng. Throwing some bounds exepotions so going to fix them next" />
@@ -2103,7 +2108,8 @@
     <MESSAGE value="fixed op mode comflicting with config file on phone because of unused servos" />
     <MESSAGE value="Servos need to die." />
     <MESSAGE value="Almost done calabrating red Auto. Teleop Works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost done calabrating red Auto. Teleop Works." />
+    <MESSAGE value="Servo Bugs and optmizations fixed!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Servo Bugs and optmizations fixed!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2530,21 +2536,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="60" selection-start-line="119" selection-start-column="60" selection-end-line="119" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankTeleop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8554839">
+        <state vertical-scroll-proportion="0.0">
           <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FtcRobotController/src/main/java/com/qualcomm/ftcrobotcontroller/opmodes/ETankAutoRed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19741936">
+          <caret line="9" column="118" selection-start-line="9" selection-start-column="118" selection-end-line="9" selection-end-column="118" />
+          <folding />
         </state>
       </provider>
     </entry>

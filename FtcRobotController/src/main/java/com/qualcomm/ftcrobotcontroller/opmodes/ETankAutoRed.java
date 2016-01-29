@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
  */
 public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode //left
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private final int encoderPosToDriveToBottomOnTheMountian = 4000; //edit
+    private final int encoderPosToDriveToBottomOnTheMountian = 5800; //edit //maddy edit this number to change turning
     private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
 
 
     private final double leftAndRightMotorPower = 0.5; //DO NOT EDIT
-    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
+    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.2; //DO NOT EDIT
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private int state;
