@@ -9,25 +9,31 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    double amountToSlowDownTheDrivingSpeed = 0.5;
+    double amountToSlowDownTheDrivingSpeed = 0.4;
     double amountToSlowDownTheArms = 0.5;
     double hit1Open = .50;
     double hit1Closed = 1;
     double hit2Open = .50;
     double hit2Closed = 0;
-    double armLeast = 0.9; // backwards
-    double armMost = 0.0; //least
+    double armMost = 0.4;
+    double armLeast = 0.2;
     double armServoIncrement = 0.1;
+    double climberExtendUp = 0.4;
+    double climberExtendClosed = 0.2;
+    double climberDropOpen = 0;
+    double climberDropClosed = 0.7;
 
 
     double armServoValue = armMost; //dont edit
+    boolean isArmUp = false; //dont edit
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public void init() {
         dt("Tank Drive Selected!");
         super.init(); //calls the init funtion in EOpModeBase.class
-        //fixMyGodServosBecauseFTCScrewedMyServosUp();
+        fixMyGodServosBecauseFTCScrewedMyServosUp();
 
         //left.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
         //right.setChannelMode(DcMotorController.RunMode.RESET_ENCODERS);
@@ -37,11 +43,11 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
 
     public void fixMyGodServosBecauseFTCScrewedMyServosUp()
     {
-        hit1.setPosition(0);
-        hit2.setPosition(0);
-        armServo.setPosition(armMost);
-        climberExtend.setPosition(0.5); //continus serveo
-        climberDrop.setPosition(1);
+        hit1.setPosition(hit1Closed);
+        hit2.setPosition(hit2Closed);
+        //armServo.setPosition(armMost);
+        climberExtend.setPosition(0.2); //continus serveo
+        //climberDrop.setPosition(1);
     }
 
     @Override
@@ -87,6 +93,28 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         }
         lastBttnStateHitServoRight = gamepad1.right_bumper;
         return toggleStateHitServoRight;
+    }
+
+    boolean lastBttnStateToggleClimber = false;
+    boolean toggleStateToggleClimber = false;
+
+    public boolean toggleExtendClimber() {
+        if (gamepad2.b && !lastBttnStateToggleClimber) {
+            toggleStateToggleClimber = !toggleStateToggleClimber;
+        }
+        lastBttnStateToggleClimber = gamepad2.b;
+        return toggleStateToggleClimber;
+    }
+
+    boolean lastBttnStateToggleClimberDrop = false;
+    boolean toggleStateToggleClimberDrop = false;
+
+    public boolean toggleOpenClimberDrop() {
+        if (gamepad2.a && !lastBttnStateToggleClimberDrop) {
+            toggleStateToggleClimberDrop = !toggleStateToggleClimberDrop;
+        }
+        lastBttnStateToggleClimberDrop = gamepad2.a;
+        return toggleStateToggleClimberDrop;
     }
 
 
@@ -138,7 +166,8 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         }
         */
 
-        if(gamepad2.b)
+        /*
+        if(gamepad2.b) //replaced by toggle code
         {
             climberExtend.setPosition(0.4);
         }
@@ -146,23 +175,47 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         {
             climberExtend.setPosition(0.2);
         }
+        */
+        if (toggleExtendClimber() == false) {
+            ct("ExtendClimber", "Closed"); //closed
+            climberExtend.setPosition(climberExtendClosed);
+        } else {
+            ct("ExtendClimber", "Open"); //open
+            climberExtend.setPosition(climberExtendUp);
+        }
+
 
 
         if (armControllerAngle > 0.5) //controller up
         {
             //UP
+            /*
             if (armServoValue < armMost) {
                 armServoValue = armServoValue + armServoIncrement;
             } else {
                 armServoValue = armMost;
             }
+            */
+            isArmUp = true;
         } else if (armControllerAngle <= -0.5) {
             //DOWN
+            /*
             if (armServoValue > armLeast) {
                 armServoValue = armServoValue - armServoIncrement;
             } else {
                 armServoValue = armLeast;
             }
+            */
+            isArmUp = false;
+        }
+        //this is because of flaky servo bugs
+        //might take out but i dont know
+        if(isArmUp)
+        {
+            armServoValue = armMost;
+        }
+        else {
+            armServoValue = armLeast;
         }
 
         armServo.setPosition(armServoValue);
@@ -185,6 +238,8 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
 
         }
 
+        /* //replaced by toggle
+
         if(gamepad2.a)
         {
             climberDrop.setPosition(0);
@@ -192,6 +247,15 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
         else
         {
             climberDrop.setPosition(0.7);
+        }*/
+
+        if (toggleOpenClimberDrop() == false) {
+            ct("ClimberDrop", "Closed"); //closed
+            climberDrop.setPosition(climberDropClosed);
+        } else {
+            ct("ClimberDrop", "Open");//open
+           climberDrop.setPosition(climberDropOpen);
+
         }
 
 
