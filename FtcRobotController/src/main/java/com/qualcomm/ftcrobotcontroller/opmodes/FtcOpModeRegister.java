@@ -97,8 +97,8 @@ public class FtcOpModeRegister implements OpModeRegister {
         manager.register("Teleop", ETankTeleop.class);
         manager.register("Blue Team", ETankAutoBlue.class);
         manager.register("Red Team", ETankAutoRed.class);
-        manager.register("Debug", EDebug.class);
-        manager.register("Servo", EServoTest.class);
+        //manager.register("Debug", EDebug.class);
+        //manager.register("Servo", EServoTest.class);
 
 
     }

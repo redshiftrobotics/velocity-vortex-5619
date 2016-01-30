@@ -7,12 +7,12 @@ import com.qualcomm.robotcore.hardware.DcMotorController;
  */
 public class ETankAutoBlue extends EOpModeBaseTank { //red team autonomous mode //left
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    private final int encoderPosToDriveToBottomOnTheMountian = 8400; //edit
+    private final int encoderPosToDriveToBottomOnTheMountian = 5800; //edit
     private final int encoderPosToDriveUpToTheMidZone = encoderPosToDriveToBottomOnTheMountian + 6000; //edit
 
 
     private final double leftAndRightMotorPower = 0.5; //DO NOT EDIT
-    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.1; //DO NOT EDIT
+    private final double amountToTurnTheMotorsWhenTurningToGetToTheBottomOfTheMountian = 0.2; //DO NOT EDIT
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private int state;
@@ -120,8 +120,8 @@ public class ETankAutoBlue extends EOpModeBaseTank { //red team autonomous mode 
         ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
         //drive motors slowly
 
-        left.setPower(leftAndRightMotorPower);
-        right.setPower(leftAndRightMotorPower);
+        left.setPower(.4);
+        right.setPower(.4);
     }
 
     public void loopTryToGetToTheFirstBar() {

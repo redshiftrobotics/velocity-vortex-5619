@@ -120,8 +120,8 @@ public class ETankAutoRed extends EOpModeBaseTank { //red team autonomous mode /
         ct("State", "STATE_TRY_TOO_GET_OVER_THE_FIRST_BAR");
         //drive motors slowly
 
-        left.setPower(leftAndRightMotorPower);
-        right.setPower(leftAndRightMotorPower);
+        left.setPower(.4);
+        right.setPower(.4);
     }
 
     public void loopTryToGetToTheFirstBar() {

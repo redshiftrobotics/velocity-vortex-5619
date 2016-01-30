@@ -18,7 +18,7 @@ public class ETankTeleop extends EOpModeBaseTank { //tank teleop
     double armMost = 0.4;
     double armLeast = 0.2;
     double armServoIncrement = 0.1;
-    double climberExtendUp = 0.4;
+    double climberExtendUp = 0.9; //orginally .4
     double climberExtendClosed = 0.2;
     double climberDropOpen = 0;
     double climberDropClosed = 0.7;
