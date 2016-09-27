@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.Map;
 
@@ -117,16 +118,19 @@ public class BeaconDetector {
      * @return the state of the beacon.
      */
     private BeaconState findBlueRedOrder() {
-        for (int i = 0; i < reds.length; ++i) {
-            if (reds[i] <= blues[i]) {
-                reds[i]  = 0;
-            } else {
-                blues[i] = 0;
-            }
-        }
+//        for (int i = 0; i < reds.length; ++i) {
+//            if (reds[i] <= blues[i]) {
+//                reds[i]  = 0;
+//            } else {
+//                blues[i] = 0;
+//            }
+//        }
+
+        Log.d("log", "findBlueRedOrder");
 
         int redStart  = findStreakStart(reds);
         int blueStart = findStreakStart(blues);
+
 
         if (redStart < blueStart) {
             return BeaconState.RED_BLUE;
@@ -141,12 +145,12 @@ public class BeaconDetector {
      */
     private BeaconState classify() {
         int numReds  = sum(reds);
-        int num_blues = sum(blues);
+        int numBlues = sum(blues);
 
-        if (num_blues <= options.get("classify:other") && numReds > options.get("classify:main")) {
+        if (numBlues <= options.get("classify:other") && numReds > options.get("classify:main")) {
             return BeaconState.RED;
         }
-        if (numReds <= options.get("classify:other") && num_blues > options.get("classify:main")) {
+        if (numReds <= options.get("classify:other") && numBlues > options.get("classify:main")) {
             return BeaconState.BLUE;
         }
         return findBlueRedOrder();
