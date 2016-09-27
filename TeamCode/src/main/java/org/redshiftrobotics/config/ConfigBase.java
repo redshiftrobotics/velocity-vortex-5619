@@ -80,7 +80,7 @@ public class ConfigBase extends OpMode {
             util.log("Done configuring. Please exit this OPMode.");
             util.updateTelemetry();
             currentVar=max;
-
+            util.stopOPMode();
             return;
         }
 
