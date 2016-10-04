@@ -7,10 +7,6 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
  */
 public class ColorPicker {
 
-    public ColorPicker(){
-
-    }
-
     private int sensitivity = 80;
 
     public void setSensitivity(int sensitivity){
