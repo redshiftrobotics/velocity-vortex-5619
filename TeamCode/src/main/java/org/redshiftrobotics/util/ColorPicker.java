@@ -41,29 +41,15 @@ public class ColorPicker {
     }
 
     public String toString(int color){
-        if(color == Color.RED){
-            return "RED";
-        }
-        else if(color == Color.YELLOW){
-            return "YELLOW";
-        }
-        else if(color == Color.GREEN){
-            return "GREEN";
-        }
-        else if(color == Color.BLUE){
-            return "BLUE";
-        }
-        else if(color == Color.PURPLE){
-            return "PURPLE";
-        }
-        else if(color == Color.BLACK){
-            return "BLACK";
-        }
-        else if(color == Color.WHITE) {
-            return "WHITE";
-        }
-        else{
-            return "UNKNOWN_COLOR";
+        switch(color) {
+            case Color.RED:  return "RED";
+            case Color.YELLOW:  return "YELLOW";
+            case Color.GREEN:  return "GREEN";
+            case Color.BLUE:  return "BLUE";
+            case Color.PURPLE:  return "PURPLE";
+            case Color.WHITE:  return "WHITE";
+            case Color.BLACK:  return "BLACK";
+            default: return "UNKNOWN_COLOR";
         }
     }
 
