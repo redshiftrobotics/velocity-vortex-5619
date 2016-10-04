@@ -14,7 +14,8 @@
     * Please put your issues in the appropriate milestone!
 	* Feel free to open issues for really, really far-off features. Just give them a future milestone.
     * Just generally keep GH Issues in sync with the SCRUM Board.
-* Commit early, Commit often.
+        * Feel free to use the [`SCRUM OK`](https://github.com/redshiftrobotics/5619/labels/SCRUM%20OK) and [`SCRUM FAIL`](https://github.com/redshiftrobotics/5619/labels/SCRUM%20FAIL) labels for this.
+* Commit early, commit often.
 * Commit guidelines! Commits should always be written in the second person imperative, and with no period
   at the end (?, ! and &#8253; are OK though). This means that your commit message should tell anyone
   looking at it _what the commit will do to the codebase_. You should also read [this guide on git commit messages](http://chris.beams.io/posts/git-commit/),
