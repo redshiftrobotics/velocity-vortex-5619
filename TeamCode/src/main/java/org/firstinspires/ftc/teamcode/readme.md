@@ -1,3 +1,12 @@
+# Redshift Robotics
+You should have all of your OpModes extend `org.redshiftrobotics.RedshiftOpMode`.
+It provides many useful helper methods.
+
+## Methods:
+None yet.
+
+# FTC
+
 ## TeamCode Module
 
 Welcome!
