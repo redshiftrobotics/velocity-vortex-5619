@@ -26,7 +26,7 @@ import org.redshiftrobotics.util.ColorPicker;
 public class HTColorExample extends LinearOpMode {
 
     ColorSensor colorSensor;  // Hardware Device Object
-    ColorPicker colorPicker = new ColorPicker();
+    ColorPicker colorPicker;
 
     @Override
     public void runOpMode() throws InterruptedException {
