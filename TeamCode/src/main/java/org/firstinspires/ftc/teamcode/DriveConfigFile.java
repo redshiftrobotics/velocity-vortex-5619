@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.justtests.ExampleOPModeUsingConfig;
 import org.redshiftrobotics.config.Config;
 import org.redshiftrobotics.config.ConfigBase;
 
