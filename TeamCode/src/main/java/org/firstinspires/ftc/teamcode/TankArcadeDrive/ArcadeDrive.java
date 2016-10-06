@@ -1,18 +1,18 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.TankArcadeDrive;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.teamcode.TankArcadeDrive.DriveOPBase;
 
 /**
  * Created by Eric Golde on 9/20/2016.
  */
 
 @TeleOp(name="ArcadeDrive", group="WTD")
-public class ArcadeDrive extends DriveOPBase{
+public class ArcadeDrive extends DriveOPBase {
 
     DcMotor left;
     DcMotor right;

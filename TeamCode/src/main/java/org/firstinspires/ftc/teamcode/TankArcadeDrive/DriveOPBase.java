@@ -1,10 +1,9 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.TankArcadeDrive;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.redshiftrobotics.config.ConfigType;
 import org.redshiftrobotics.config.ConfigVariable;
-import org.redshiftrobotics.util.Util;
 
 /**
  * Created by Eric Golde on 9/24/2016.

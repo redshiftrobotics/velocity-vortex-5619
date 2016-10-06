@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Created by Eric Golde on 9/20/2016.
  */
 
+//Just a template for me so i can make sure to get everything correct
 @TeleOp(name="Example", group="Group")
 @Disabled
 public class EmptyOPMode extends OpMode{

@@ -14,6 +14,7 @@ import org.redshiftrobotics.util.ColorPicker;
  * Created by Eric Golde on 10/4/2016.
  */
 
+//idea for very stupidly simple line follower. ***NEVER TESTED***
 @TeleOp(name="ColorLineFollowTest", group="Sensor")
 public class ColorLineFollowTest extends OpMode {
 
@@ -44,8 +45,8 @@ public class ColorLineFollowTest extends OpMode {
     public void loop() {
 
         int s0c = colorPicker.whatColor(s0);
-        //int s1c = colorPicker.whatColor(s1);
-        /*
+        int s1c = colorPicker.whatColor(s1);
+
         telemetry.addData("s0c", colorPicker.toString(s0c));
         telemetry.addData("s1c", colorPicker.toString(s1c));
 
@@ -70,6 +71,6 @@ public class ColorLineFollowTest extends OpMode {
         }
 
         updateTelemetry(telemetry);
-*/
+
     }
 }
