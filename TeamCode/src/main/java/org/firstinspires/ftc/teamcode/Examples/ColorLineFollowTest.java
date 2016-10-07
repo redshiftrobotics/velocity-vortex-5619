@@ -1,6 +1,4 @@
-package org.firstinspires.ftc.teamcode;
-
-import android.graphics.Color;
+package org.firstinspires.ftc.teamcode.Examples;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -9,65 +7,53 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.redshiftrobotics.util.ColorPicker;
+import org.redshiftrobotics.util.ColorPicker.*;
 
 /**
  * Created by Eric Golde on 10/4/2016.
  */
 
-//idea for very stupidly simple line follower. ***NEVER TESTED***
+/*
+idea for very stupidly simple line follower.
+this is not really good but it works for the most part.
+ */
 @TeleOp(name="ColorLineFollowTest", group="Sensor")
 public class ColorLineFollowTest extends OpMode {
 
     DcMotor left;
     DcMotor right;
-    ColorSensor s0;
-    ColorSensor s1;
+    ColorSensor sensor;
     ColorPicker colorPicker = new ColorPicker();
-    boolean dirRight = true;
-    double speed = 0.3;
-
-
-
+    double speed = 1;
     @Override
     public void init() {
         left = hardwareMap.dcMotor.get("left");
         right = hardwareMap.dcMotor.get("right");
-        right.setDirection(DcMotorSimple.Direction.REVERSE);
+        left.setDirection(DcMotorSimple.Direction.REVERSE);
+        //right.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        s0 = hardwareMap.colorSensor.get("s0");
-        s1 = hardwareMap.colorSensor.get("s1");
+        sensor = hardwareMap.colorSensor.get("color sensor");
 
-        s0.enableLed(true);
-        s1.enableLed(true);
+        sensor.enableLed(true);
     }
 
     @Override
     public void loop() {
 
-        int s0c = colorPicker.whatColor(s0);
-        int s1c = colorPicker.whatColor(s1);
+        Color color = colorPicker.whatColor(sensor);
 
-        telemetry.addData("s0c", colorPicker.toString(s0c));
-        telemetry.addData("s1c", colorPicker.toString(s1c));
+        telemetry.addData("color", colorPicker.toString(color));
 
-        if(s0c == ColorPicker.Color.BLACK){
-            //right
-            dirRight = true;
-        }
-
-        if(s1c == ColorPicker.Color.BLACK){
-            //left
-            dirRight = false;
-        }
-
-        telemetry.addData("dir", dirRight);
-
-        if(dirRight){
+        if(color == ColorPicker.Color.RED){
             left.setPower(speed);
             right.setPower(-speed);
+            telemetry.addData("left", "+");
+            telemetry.addData("right", "-");
         }else{
             left.setPower(-speed);
             right.setPower(speed);
+            telemetry.addData("left", "-");
+            telemetry.addData("right", "+");
         }
 
         updateTelemetry(telemetry);

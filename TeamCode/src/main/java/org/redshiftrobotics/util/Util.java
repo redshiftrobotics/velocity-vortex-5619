@@ -7,6 +7,8 @@ import java.util.ArrayList;
 /**
  * Created by Eric Golde on 9/16/2016.
  */
+
+//util class for shorting methods.
 public class Util {
 
     OpMode op;

@@ -7,8 +7,11 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
  */
 public class ColorPicker {
 
+    /*
+    this is a class I made to return solid colors from the color sensor
+     */
     public ColorPicker(){
-
+        //this needs to be here, cause withiut it bad stuff happends
     }
 
     private int sensitivity = 80;
@@ -17,7 +20,8 @@ public class ColorPicker {
         this.sensitivity = sensitivity;
     }
 
-    public int whatColor(ColorSensor colorSensor){
+    //returns a color based off of the color sensor
+    public Color whatColor(ColorSensor colorSensor){
             if(colorSensor.red() > sensitivity && colorSensor.green() < sensitivity && colorSensor.blue() < sensitivity){
                 return Color.RED;
             }
@@ -44,29 +48,28 @@ public class ColorPicker {
             }
     }
 
-    public String toString(int color){
+    public String toString(Color color){
         switch(color) {
-            case Color.RED:  return "RED";
-            case Color.YELLOW:  return "YELLOW";
-            case Color.GREEN:  return "GREEN";
-            case Color.BLUE:  return "BLUE";
-            case Color.PURPLE:  return "PURPLE";
-            case Color.WHITE:  return "WHITE";
-            case Color.BLACK:  return "BLACK";
+            case RED:  return "RED";
+            case YELLOW:  return "YELLOW";
+            case GREEN:  return "GREEN";
+            case BLUE:  return "BLUE";
+            case PURPLE:  return "PURPLE";
+            case WHITE:  return "WHITE";
+            case BLACK:  return "BLACK";
             default: return "UNKNOWN_COLOR";
         }
     }
 
-
-    public class Color {
-        public static final int RED = 1;
-        public static final int YELLOW = 2;
-        public static final int GREEN = 3;
-        public static final int BLUE = 4;
-        public static final int PURPLE = 5;
-        public static final int BLACK = 6;
-        public static final int WHITE = 7;
-        public static final int UNKNOWN_COLOR = 8;
+    public enum Color{
+        RED,
+        YELLOW,
+        GREEN,
+        BLUE,
+        PURPLE,
+        BLACK,
+        WHITE,
+        UNKNOWN_COLOR
     }
 
 }
