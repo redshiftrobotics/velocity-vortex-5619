@@ -11,7 +11,8 @@ import org.firstinspires.ftc.teamcode.TankArcadeDrive.DriveOPBase;
  * Created by Eric Golde on 9/20/2016.
  */
 
-@TeleOp(name="ArcadeDrive", group="WTD")
+//simple arcade drive. Use joystick #1
+@TeleOp(name="ArcadeDrive", group="Drive")
 public class ArcadeDrive extends DriveOPBase {
 
     DcMotor left;

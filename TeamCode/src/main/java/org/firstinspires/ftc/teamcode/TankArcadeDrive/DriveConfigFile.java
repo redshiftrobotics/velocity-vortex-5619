@@ -9,7 +9,9 @@ import org.redshiftrobotics.config.ConfigBase;
 /**
  * Created by Eric Golde on 9/24/2016.
  */
-@TeleOp(name="Drive Config", group="WTD")
+
+//drive config
+@TeleOp(name="Drive Config", group="Drive")
 public class DriveConfigFile extends ConfigBase {
 
     public static Config config = new Config();

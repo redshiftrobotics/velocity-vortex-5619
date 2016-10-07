@@ -11,7 +11,8 @@ import org.firstinspires.ftc.teamcode.TankArcadeDrive.DriveOPBase;
  * Created by Eric Golde on 9/20/2016.
  */
 
-@TeleOp(name="TankDrive", group="WTD")
+//example tank drive with config
+@TeleOp(name="TankDrive", group="Drive")
 public class TankDrive extends DriveOPBase {
 
     DcMotor left;
