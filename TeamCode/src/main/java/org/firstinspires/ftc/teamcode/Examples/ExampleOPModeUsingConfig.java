@@ -3,9 +3,10 @@ package org.firstinspires.ftc.teamcode.Examples;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.redshiftrobotics.config.ConfigType;
 import org.redshiftrobotics.config.ConfigVariable;
 import org.redshiftrobotics.util.Util;
+
+import org.redshiftrobotics.config.Config.Type;
 
 /**
  * Created by Eric Golde on 9/16/2016.
@@ -15,10 +16,10 @@ public class ExampleOPModeUsingConfig extends OpMode {
 
                                        // new ConfigVariable(name, value, min, max, increment);
 
-    static final ConfigVariable test1 = new ConfigVariable("int", 1, 0, 10, 1).setType(ConfigType.TYPE_INT);
-    static final ConfigVariable test2 = new ConfigVariable("float", 3.3, 1.111, 400.48, 3.6).setType(ConfigType.TYPE_FLOAT);
-    static final ConfigVariable test3 = new ConfigVariable("double", 3.3, 1.111, 400.48, 3.6).setType(ConfigType.TYPE_DOUBLE);
-    static final ConfigVariable test4 = new ConfigVariable("boolean", 1, 0, 1, 1).setType(ConfigType.TYPE_BOOLEAN);
+    static final ConfigVariable test1 = new ConfigVariable("int", 1, 0, 10, 1).setType(Type.INT);
+    static final ConfigVariable test2 = new ConfigVariable("float", 3.3, 1.111, 400.48, 3.6).setType(Type.FLOAT);
+    static final ConfigVariable test3 = new ConfigVariable("double", 3.3, 1.111, 400.48, 3.6).setType(Type.DOUBLE);
+    static final ConfigVariable test4 = new ConfigVariable("boolean", 1, 0, 1, 1).setType(Type.BOOLEAN);
     Util util = new Util(this);
 
     static void initMe() //you need this because static { } does not get called in FTC //CALL CLEAR BEFORE ANYTHING
