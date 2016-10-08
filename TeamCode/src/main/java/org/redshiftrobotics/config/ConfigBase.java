@@ -47,6 +47,9 @@ public class ConfigBase extends OpMode {
     }
 
     @Override
+    public void stop(){util.writeLine("Done configuring. Please exit this OPMode.");}
+
+    @Override
     public void loop() {
 
         if(gp.a && !lastStateNext){
@@ -78,7 +81,7 @@ public class ConfigBase extends OpMode {
 
         if(currentVar >= max - 1){
             util.clearTelemetry();
-            util.log("Done configuring. Please exit this OPMode.");
+
             util.updateTelemetry();
             currentVar=max;
             util.stopOPMode();
