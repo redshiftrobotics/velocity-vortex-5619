@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.TankArcadeDrive;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.TankArcadeDrive.DriveOPBase;
@@ -12,6 +13,7 @@ import org.redshiftrobotics.config.ConfigBase;
 
 //drive config
 @TeleOp(name="Drive Config", group="Drive")
+@Disabled
 public class DriveConfigFile extends ConfigBase {
 
     public static Config config = new Config();

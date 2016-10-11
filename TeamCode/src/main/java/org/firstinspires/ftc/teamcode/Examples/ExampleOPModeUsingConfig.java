@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Examples;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -12,6 +13,7 @@ import org.redshiftrobotics.config.Config.Type;
  * Created by Eric Golde on 9/16/2016.
  */
 @TeleOp(name="Run Me!", group="Config")
+@Disabled
 public class ExampleOPModeUsingConfig extends OpMode {
 
                                        // new ConfigVariable(name, value, min, max, increment);

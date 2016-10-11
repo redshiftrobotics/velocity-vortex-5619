@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Examples;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.redshiftrobotics.config.Config;
@@ -10,6 +11,7 @@ import org.redshiftrobotics.config.ConfigBase;
  */
 
 @TeleOp(name="Config Me!", group="Config")
+@Disabled
 public class ExampleConfig extends ConfigBase{
 
     public static Config config = new Config();

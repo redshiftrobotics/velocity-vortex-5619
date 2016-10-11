@@ -16,11 +16,10 @@ public class Config {
         variables.clear();
     }
 
-    public static enum Type{
+    public enum Type{
         DOUBLE,
         INT,
         FLOAT,
         BOOLEAN
-
     }
 }

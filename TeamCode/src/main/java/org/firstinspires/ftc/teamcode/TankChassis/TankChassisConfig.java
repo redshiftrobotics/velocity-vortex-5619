@@ -11,7 +11,7 @@ import org.redshiftrobotics.config.ConfigVariable;
  * Created by Eric Golde on 10/8/2016.
  */
 
-@TeleOp(name="Tank Chassis Config", group="TankChasis")
+@TeleOp(name="Tank Chassis Config", group="TankChassis")
 public class TankChassisConfig extends ConfigBase{
 
     public static Config config = new Config();

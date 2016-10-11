@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.TankArcadeDrive;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -13,6 +14,7 @@ import org.firstinspires.ftc.teamcode.TankArcadeDrive.DriveOPBase;
 
 //example tank drive with config
 @TeleOp(name="TankDrive", group="Drive")
+@Disabled
 public class TankDrive extends DriveOPBase {
 
     DcMotor left;
