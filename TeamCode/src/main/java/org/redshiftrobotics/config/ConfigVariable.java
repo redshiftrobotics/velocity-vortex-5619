@@ -3,7 +3,7 @@ package org.redshiftrobotics.config;
 /**
  * Created by Eric Golde on 9/16/2016.
  */
-import org.redshiftrobotics.config.Config.Type;
+import org.redshiftrobotics.config.ConfigType;
 
 public class ConfigVariable {
     public final String name;
@@ -11,7 +11,7 @@ public class ConfigVariable {
     double min;
     double max;
     double increment;
-    protected Type type = Type.DOUBLE;
+    protected ConfigType type = ConfigType.DOUBLE;
 
     public ConfigVariable(String name, double value, double min, double max, double increment){
         this.name = name;
@@ -28,7 +28,7 @@ public class ConfigVariable {
         return false;
     }
 
-    public ConfigVariable setType(Type type){
+    public ConfigVariable setType(ConfigType type){
         this.type = type;
         return this;
     }

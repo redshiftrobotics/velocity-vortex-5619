@@ -7,7 +7,7 @@ import java.text.*;
 
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.redshiftrobotics.util.Util;
-import org.redshiftrobotics.config.Config.Type;
+import org.redshiftrobotics.config.ConfigType;
 
 /**
  * Created by Eric Golde on 9/16/2016.
@@ -153,19 +153,19 @@ public class ConfigBase extends OpMode {
 
         util.log("Variable", config.variables.get(currentVar).name);
 
-        if(config.variables.get(currentVar).type == Type.DOUBLE){
+        if(config.variables.get(currentVar).type == ConfigType.DOUBLE){
             DecimalFormat df = new DecimalFormat("#.##");
             util.log("Value", df.format(config.variables.get(currentVar).getValueDouble()));
 
-        }else if(config.variables.get(currentVar).type == Type.BOOLEAN){
+        }else if(config.variables.get(currentVar).type == ConfigType.BOOLEAN){
 
             util.log("Value", config.variables.get(currentVar).getValueBoolean());
 
-        }else if(config.variables.get(currentVar).type == Type.FLOAT){
+        }else if(config.variables.get(currentVar).type == ConfigType.FLOAT){
             DecimalFormat df = new DecimalFormat("#.##########");
             util.log("Value", df.format(config.variables.get(currentVar).getValueFloat()));
 
-        }else if(config.variables.get(currentVar).type == Type.INT){
+        }else if(config.variables.get(currentVar).type == ConfigType.INT){
 
             util.log("Value", config.variables.get(currentVar).getValueInt());
 

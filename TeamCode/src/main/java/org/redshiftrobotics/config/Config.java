@@ -15,11 +15,4 @@ public class Config {
     public void clearArray(){
         variables.clear();
     }
-
-    public enum Type{
-        DOUBLE,
-        INT,
-        FLOAT,
-        BOOLEAN
-    }
 }
