@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import java.text.*;
 
 import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
+import org.redshiftrobotics.util.ColorPicker;
 import org.redshiftrobotics.util.Util;
 import org.redshiftrobotics.config.ConfigType;
 
@@ -153,6 +154,7 @@ public class ConfigBase extends OpMode {
 
         util.log("Variable", config.variables.get(currentVar).name);
 
+        //i know this is messy but it makes it a lot nicer when seeing the result on the driver station phone.
         if(config.variables.get(currentVar).type == ConfigType.DOUBLE){
             DecimalFormat df = new DecimalFormat("#.##");
             util.log("Value", df.format(config.variables.get(currentVar).getValueDouble()));
@@ -168,6 +170,11 @@ public class ConfigBase extends OpMode {
         }else if(config.variables.get(currentVar).type == ConfigType.INT){
 
             util.log("Value", config.variables.get(currentVar).getValueInt());
+
+        }else if(config.variables.get(currentVar).type == ConfigType.COLORPICKER){
+
+            util.log("Value", ColorPicker.Color.toString(config.variables.get(currentVar).getValueInt()));
+
 
         }else{
             //this shoulden't ever happen
