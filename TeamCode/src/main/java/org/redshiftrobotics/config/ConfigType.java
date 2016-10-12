@@ -7,5 +7,6 @@ public enum ConfigType{
     DOUBLE,
     INT,
     FLOAT,
-    BOOLEAN
+    BOOLEAN,
+    COLORPICKER
 }

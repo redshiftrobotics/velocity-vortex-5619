@@ -89,7 +89,7 @@ public class HTColorExample extends LinearOpMode {
             telemetry.addData("Green", colorSensor.green());
             telemetry.addData("Blue ", colorSensor.blue());
             telemetry.addData("Hue", hsvValues[0]);
-            telemetry.addData("I think", colorPicker.toString(colorPicker.whatColor(colorSensor)));
+            telemetry.addData("I think", colorPicker.whatColor(colorSensor).getName());
 
             // change the background color to match the color detected by the RGB sensor.
             // pass a reference to the hue, saturation, and value array as an argument

@@ -48,28 +48,67 @@ public class ColorPicker {
             }
     }
 
-    public String toString(Color color){
-        switch(color) {
-            case RED:  return "RED";
-            case YELLOW:  return "YELLOW";
-            case GREEN:  return "GREEN";
-            case BLUE:  return "BLUE";
-            case PURPLE:  return "PURPLE";
-            case WHITE:  return "WHITE";
-            case BLACK:  return "BLACK";
-            default: return "UNKNOWN_COLOR";
-        }
-    }
+
 
     public enum Color{
-        RED,
-        YELLOW,
-        GREEN,
-        BLUE,
-        PURPLE,
-        BLACK,
-        WHITE,
-        UNKNOWN_COLOR
+        RED ("RED", 1),
+        YELLOW ("YELLOW", 2),
+        GREEN ("GREEN", 3),
+        BLUE ("BLUE", 4),
+        PURPLE ("PURPLE", 5),
+        BLACK ("WHITE", 6),
+        WHITE ("BLACK", 7),
+        UNKNOWN_COLOR ("UNKNOWN_COLOR", 0);
+
+        final String name;
+        final int number;
+
+        Color(String name, int number){
+            this.name = name;
+            this.number = number;
+        }
+
+        public static Color getColor(int number){
+            switch(number) {
+                case 1:  return Color.RED;
+                case 2:  return Color.YELLOW;
+                case 3:  return Color.GREEN;
+                case 4:  return Color.BLUE;
+                case 5:  return Color.PURPLE;
+                case 6:  return Color.WHITE;
+                case 7:  return Color.BLACK;
+                default: return Color.UNKNOWN_COLOR;
+            }
+        }
+
+        public static Color getColor(String name){
+            switch(name) {
+                case "RED":  return Color.RED;
+                case "YELLOW":  return Color.YELLOW;
+                case "GREEN":  return Color.GREEN;
+                case "BLUE":  return Color.BLUE;
+                case "PURPLE":  return Color.PURPLE;
+                case "WHITE":  return Color.WHITE;
+                case "BLACK":  return Color.BLACK;
+                default: return Color.UNKNOWN_COLOR;
+            }
+        }
+
+        public static String toString(int colorInt){
+            return getColor(colorInt).getName();
+        }
+
+        public static int toInt(String name){
+            return getColor(name).getNumber();
+        }
+
+        public int getNumber(){
+            return number;
+        }
+
+        public String getName(){
+            return name;
+        }
     }
 
 }

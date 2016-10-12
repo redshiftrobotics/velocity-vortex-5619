@@ -42,7 +42,7 @@ public class ColorLineFollowTest extends OpMode {
 
         Color color = colorPicker.whatColor(sensor);
 
-        telemetry.addData("color", colorPicker.toString(color));
+        telemetry.addData("color", color.getName());
 
         if(color == ColorPicker.Color.RED){
             left.setPower(speed);
