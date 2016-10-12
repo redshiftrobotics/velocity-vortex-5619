@@ -175,7 +175,6 @@ public class ConfigBase extends OpMode {
 
             util.log("Value", ColorPicker.Color.toString(config.variables.get(currentVar).getValueInt()));
 
-
         }else{
             //this shoulden't ever happen
             util.writeLine("Type error occured in config base. (This should never happen)");
