@@ -94,21 +94,15 @@ public class ColorPicker {
             }
         }
 
-        public static String toString(int colorInt){
-            return getColor(colorInt).getName();
-        }
-
-        public static int toInt(String name){
-            return getColor(name).getNumber();
-        }
-
         public int getNumber(){
             return number;
         }
+        public static int getNumber(String name){return getColor(name).getNumber();}
 
         public String getName(){
             return name;
         }
+        public static String getName(int number){return getColor(number).getName();}
     }
 
 }
