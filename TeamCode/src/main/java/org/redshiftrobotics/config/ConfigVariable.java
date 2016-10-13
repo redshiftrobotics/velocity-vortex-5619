@@ -4,6 +4,7 @@ package org.redshiftrobotics.config;
  * Created by Eric Golde on 9/16/2016.
  */
 import org.redshiftrobotics.config.ConfigType;
+import org.redshiftrobotics.util.ColorPicker;
 
 public class ConfigVariable {
     public final String name;
@@ -32,6 +33,8 @@ public class ConfigVariable {
         this.type = type;
         return this;
     }
+
+    public ColorPicker.Color getValueColor(){return ColorPicker.Color.getColor((int) Math.round(value));}
 
     public int getValueInt(){
         return (int) Math.round(value);

@@ -58,7 +58,7 @@ public class ColorPicker {
         PURPLE ("PURPLE", 5),
         BLACK ("WHITE", 6),
         WHITE ("BLACK", 7),
-        UNKNOWN_COLOR ("UNKNOWN_COLOR", 0);
+        UNKNOWN_COLOR ("UNKNOWN_COLOR", 8);
 
         final String name;
         final int number;
@@ -103,6 +103,9 @@ public class ColorPicker {
             return name;
         }
         public static String getName(int number){return getColor(number).getName();}
+
+        public static final int MIN = 1;
+        public static final int MAX = 8;
     }
 
 }
