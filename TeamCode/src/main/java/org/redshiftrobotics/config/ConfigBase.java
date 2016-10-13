@@ -173,7 +173,7 @@ public class ConfigBase extends OpMode {
 
         }else if(config.variables.get(currentVar).type == ConfigType.COLORPICKER){
 
-            util.log("Value", ColorPicker.Color.toString(config.variables.get(currentVar).getValueInt()));
+            util.log("Value", ColorPicker.Color.getColor(config.variables.get(currentVar).getValueInt()).getName());
 
         }else{
             //this shoulden't ever happen
