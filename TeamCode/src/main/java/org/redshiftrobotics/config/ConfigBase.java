@@ -179,7 +179,6 @@ public class ConfigBase extends OpMode {
             //this shoulden't ever happen
             util.writeLine("Type error occured in config base. (This should never happen)");
         }
-        //util.log("Value", config.variables.get(currentVar).getValueDouble());
         util.updateTelemetry();
     }
 
