@@ -70,7 +70,7 @@ public class LinearDetectColor extends LinearOpModeCamera {
             int blueValue = 0;
             int greenValue = 0;
 
-            // get image, rotated so (0,0) is in the bottom left of the preview window
+            // get image, rotated so (0,0) is in the bottom left of the cameraPreview window
             Bitmap rgbImage;
             rgbImage = convertYuvImageToRgb(yuvImage, width, height, ds2);
 

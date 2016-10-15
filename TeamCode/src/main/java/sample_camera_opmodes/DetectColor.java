@@ -34,7 +34,7 @@ public class DetectColor extends OpModeCamera {
     // 1 is original resolution, which is detailed but slow
     // must be called before super.init sets up the camera
 
-    super.init(); // inits camera functions, starts preview callback
+    super.init(); // inits camera functions, starts cameraPreview callback
   }
 
   /*
@@ -50,7 +50,7 @@ public class DetectColor extends OpModeCamera {
       int blueValue = 0;
       int greenValue = 0;
 
-      // get image, rotated so (0,0) is in the bottom left of the preview window
+      // get image, rotated so (0,0) is in the bottom left of the cameraPreview window
       Bitmap rgbImage;
       rgbImage = convertYuvImageToRgb(yuvImage, width, height, ds2);
 

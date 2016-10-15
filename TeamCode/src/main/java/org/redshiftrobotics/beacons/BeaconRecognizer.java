@@ -1,22 +1,67 @@
-package org.firstinspires.ftc.teamcode;
+package org.redshiftrobotics.beacons;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
+import java.util.HashMap;
 import java.util.Map;
 
-public class BeaconDetector {
+/**
+ * Recognize a beacon from a Bitmap
+ */
+public class BeaconRecognizer {
     private Map<String, Integer> options;
 
     private Bitmap image;
     private int[] reds;
     private int[] blues;
 
-    public BeaconDetector(Map<String, Integer> options) {
+	/**
+	 * Create a BeaconRecognizer with the default options.
+	 */
+    public BeaconRecognizer() {
+        HashMap<String, Integer> options = new HashMap<String, Integer>();
+        options.put("red:r"         , 210);
+        options.put("red:g"         , 150);
+        options.put("red:b"         , 240);
+        options.put("blue:r"        ,  85);
+        options.put("blue:g"        , 255);
+        options.put("blue:b"        , 200);
+        options.put("classify:main" , 210);
+        options.put("classify:other", 210);
+
         this.options = options;
     }
 
-    public BeaconState detect(Bitmap image) {
+	/**
+	 * Create a BeaconRecognizer with custom options.
+	 *
+	 * Options:
+	 * - `red:r`: the minimum red threshold for a pixel to be classified as red.
+	 * - `red:g`: the maximum green threshold for a pixel to be classified as red.
+	 * - `red:b`: the maximum blue threshold for a pixel to be classified as red.
+	 * - `blue:r`: the maximum blue threshold for a pixel to be classified as blue.
+	 * - `blue:g`: the maximum green threshold for a pixel to be classified as blue.
+	 * - `blue:b`: the minimum blue threshold for a pixel to be classified as blue.
+	 * - `classify:main": The number of pixels of the dominant color for a beacon to be considered of that color.
+	 * - `classify:other`: The maximum number of pixels of the alternate color.
+	 *
+	 * @param options the options
+	 * @TODO Make classify:main/other %'s
+	 */
+    public BeaconRecognizer(Map<String, Integer> options) {
+        this.options = options;
+    }
+
+	/**
+	 * Recognize a beacon from an image.
+	 *
+	 * @see BeaconRecognizer for a simple solution that handles getting the image for you.
+	 * @param image the image to recognize.
+	 * @return the state of the beacon, or null if there isn't one.
+	 * @TODO We never actually return null here, so if you give us a picture of a cat you'll get a BeaconState. We might
+	 * 		 want to try and fix that, by detecting if it's actually a beacon.
+	 */
+    public BeaconState recognize(Bitmap image) {
         this.image = image;
 
         int height = image.getHeight();
@@ -118,19 +163,16 @@ public class BeaconDetector {
      * @return the state of the beacon.
      */
     private BeaconState findBlueRedOrder() {
-//        for (int i = 0; i < reds.length; ++i) {
-//            if (reds[i] <= blues[i]) {
-//                reds[i]  = 0;
-//            } else {
-//                blues[i] = 0;
-//            }
-//        }
-
-        Log.d("log", "findBlueRedOrder");
+        for (int i = 0; i < reds.length; ++i) {
+            if (reds[i] <= blues[i]) {
+                reds[i]  = 0;
+            } else {
+                blues[i] = 0;
+            }
+        }
 
         int redStart  = findStreakStart(reds);
         int blueStart = findStreakStart(blues);
-
 
         if (redStart < blueStart) {
             return BeaconState.RED_BLUE;
