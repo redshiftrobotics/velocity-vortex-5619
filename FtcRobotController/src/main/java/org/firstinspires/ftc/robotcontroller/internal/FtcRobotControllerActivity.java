@@ -98,6 +98,7 @@ import org.firstinspires.inspection.RcInspectionActivity;
 import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class FtcRobotControllerActivity extends Activity {
 
@@ -160,6 +161,17 @@ public class FtcRobotControllerActivity extends Activity {
     });
   }
 
+  public void initPreview(final Camera camera, final AtomicReference<CameraPreview> preview, final Camera.PreviewCallback previewCallback) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        preview.set(new CameraPreview(FtcRobotControllerActivity.this, camera, previewCallback));
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.addView(preview.get());
+      }
+    });
+  }
+
   // poor coding style here.  Shouldn't have to duplicate these routines for regular and linear OpModes.
   public void initPreviewLinear(final Camera camera, final LinearOpModeCamera context, final Camera.PreviewCallback previewCallback) {
     runOnUiThread(new Runnable() {
@@ -172,6 +184,15 @@ public class FtcRobotControllerActivity extends Activity {
     });
   }
 
+  public void removePreview(final AtomicReference<CameraPreview> preview) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.removeAllViews();
+      }
+    });
+  }
 
   public void removePreview(final OpModeCamera context) {
     runOnUiThread(new Runnable() {
