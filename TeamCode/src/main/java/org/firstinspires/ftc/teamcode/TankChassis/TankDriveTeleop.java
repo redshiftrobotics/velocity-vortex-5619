@@ -25,6 +25,4 @@ public class TankDriveTeleop extends TankChassisBase {
         right.setPower(rightValue);
     }
 
-    @Override
-    public void stop(){/*Not used yet.*/}
 }

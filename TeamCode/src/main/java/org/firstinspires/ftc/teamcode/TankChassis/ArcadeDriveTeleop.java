@@ -15,11 +15,6 @@ public class ArcadeDriveTeleop extends TankChassisBase {
     }
 
     @Override
-    public void start(){
-
-    }
-
-    @Override
     public void loop() {
 
         float xValue = gamepad1.left_stick_x;
@@ -33,10 +28,5 @@ public class ArcadeDriveTeleop extends TankChassisBase {
 
         left.setPower(leftPower);
         right.setPower(rightPower);
-    }
-
-    @Override
-    public void stop(){
-
     }
 }
