@@ -5,15 +5,11 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.redshiftrobotics.config.ConfigVariable;
-import org.redshiftrobotics.util.ColorPicker;
 import org.redshiftrobotics.util.ColorPicker.Color;
 import org.redshiftrobotics.util.Util;
 
 import org.redshiftrobotics.config.ConfigType;
 
-/**
- * Created by Eric Golde on 9/16/2016.
- */
 @TeleOp(name="Run Me!", group="Config")
 @Disabled
 public class ExampleOPModeUsingConfig extends OpMode {

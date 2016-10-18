@@ -3,10 +3,6 @@ package org.firstinspires.ftc.teamcode.TankChassis;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-/**
- * Created by Eric Golde on 10/8/2016.
- */
-
 @TeleOp(name="Tank Drive", group="TankChassis")
 public class TankDriveTeleop extends TankChassisBase {
 

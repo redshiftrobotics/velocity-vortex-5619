@@ -10,9 +10,6 @@ import org.redshiftrobotics.util.Util;
 
 import org.redshiftrobotics.config.ConfigType;
 
-/**
- * Created by Eric Golde on 9/16/2016.
- */
 @TeleOp(name="ColorOutput", group="ColorConfig")
 @Disabled
 public class TestColorConfigOPMode extends OpMode {

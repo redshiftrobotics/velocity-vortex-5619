@@ -7,11 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.redshiftrobotics.util.ColorPicker;
-import org.redshiftrobotics.util.ColorPicker.*;
-
-/**
- * Created by Eric Golde on 10/4/2016.
- */
+import org.redshiftrobotics.util.ColorPicker.Color;
 
 /*
 idea for very stupidly simple line follower.
@@ -30,7 +26,6 @@ public class ColorLineFollowTest extends OpMode {
         left = hardwareMap.dcMotor.get("left");
         right = hardwareMap.dcMotor.get("right");
         left.setDirection(DcMotorSimple.Direction.REVERSE);
-        //right.setDirection(DcMotorSimple.Direction.REVERSE);
 
         sensor = hardwareMap.colorSensor.get("color sensor");
 

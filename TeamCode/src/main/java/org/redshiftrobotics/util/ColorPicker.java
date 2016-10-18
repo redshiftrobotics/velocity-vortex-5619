@@ -2,16 +2,13 @@ package org.redshiftrobotics.util;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
-/**
- * Created by Eric Golde on 10/1/2016.
- */
 public class ColorPicker {
 
     /*
     this is a class I made to return solid colors from the color sensor
      */
     public ColorPicker(){
-        //this needs to be here, cause withiut it bad stuff happends
+        //this needs to be here, cause without it bad stuff happends.
     }
 
     private int sensitivity = 80;

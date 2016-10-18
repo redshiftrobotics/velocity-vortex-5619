@@ -23,7 +23,9 @@ import org.redshiftrobotics.util.ColorPicker;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-//modified by Eric
+/*
+I modified this to use the ColorPicker class to predict the color
+ */
 
 @TeleOp(name = "Color Picker Example", group = "Sensor")
 public class HTColorExample extends LinearOpMode {

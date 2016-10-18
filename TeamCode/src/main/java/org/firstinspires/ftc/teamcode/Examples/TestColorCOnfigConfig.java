@@ -6,9 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.redshiftrobotics.config.Config;
 import org.redshiftrobotics.config.ConfigBase;
 
-/**
- * Created by Eric Golde on 10/13/2016.
- */
 @TeleOp(name="ColorInput", group="ColorConfig")
 @Disabled
 public class TestColorCOnfigConfig extends ConfigBase {

@@ -4,9 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-/**
- * Created by Eric Golde on 10/8/2016.
- */
 public abstract class TankChassisBase extends OpMode{
 
     DcMotor left;

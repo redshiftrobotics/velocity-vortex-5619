@@ -3,11 +3,6 @@ package org.firstinspires.ftc.teamcode.TankChassis;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-
-/**
- * Created by Eric Golde on 9/20/2016.
- */
-
 //simple arcade drive. Use joystick #1
 @TeleOp(name="ArcadeDrive", group="TankChassis")
 public class ArcadeDriveTeleop extends TankChassisBase {

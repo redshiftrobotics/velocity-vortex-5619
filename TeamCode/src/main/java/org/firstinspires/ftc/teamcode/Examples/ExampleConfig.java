@@ -6,10 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.redshiftrobotics.config.Config;
 import org.redshiftrobotics.config.ConfigBase;
 
-/**
- * Created by Eric Golde on 9/16/2016.
- */
-
 @TeleOp(name="Config Me!", group="Config")
 @Disabled
 public class ExampleConfig extends ConfigBase{
