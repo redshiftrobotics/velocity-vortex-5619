@@ -3,10 +3,10 @@ package org.redshiftrobotics.util;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 public class ColorPicker {
-
     /*
     this is a class I made to return solid colors from the color sensor
      */
+
     public ColorPicker(){
         //this needs to be here, cause without it bad stuff happends.
     }
@@ -17,7 +17,6 @@ public class ColorPicker {
         this.sensitivity = sensitivity;
     }
 
-    //returns a color based off of the color sensor
     public Color whatColor(ColorSensor colorSensor){
             if(colorSensor.red() > sensitivity && colorSensor.green() < sensitivity && colorSensor.blue() < sensitivity){
                 return Color.RED;

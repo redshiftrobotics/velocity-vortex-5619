@@ -3,16 +3,10 @@ package org.redshiftrobotics.config;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import java.text.*;
-
-import org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity;
 import org.redshiftrobotics.util.ColorPicker;
 import org.redshiftrobotics.util.Util;
-import org.redshiftrobotics.config.ConfigType;
 
-/**
- * Created by Eric Golde on 9/16/2016.
- */
+import java.text.DecimalFormat;
 
 public class ConfigBase extends OpMode {
     protected Config config;

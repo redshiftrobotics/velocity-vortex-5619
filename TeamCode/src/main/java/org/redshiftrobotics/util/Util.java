@@ -4,9 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import java.util.ArrayList;
 
-//util class for shorting methods.
 public class Util {
-
     OpMode op;
 
     public Util(OpMode opMode){
