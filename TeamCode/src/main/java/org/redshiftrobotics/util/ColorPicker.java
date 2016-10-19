@@ -2,11 +2,10 @@ package org.redshiftrobotics.util;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
+/*
+this is a class I made to return solid colors from the color sensor
+*/
 public class ColorPicker {
-    /*
-    this is a class I made to return solid colors from the color sensor
-     */
-
     public ColorPicker(){
         //this needs to be here, cause without it bad stuff happends.
     }
@@ -43,8 +42,6 @@ public class ColorPicker {
                 return Color.UNKNOWN_COLOR;
             }
     }
-
-
 
     public enum Color{
         RED ("RED", 1),
@@ -103,5 +100,4 @@ public class ColorPicker {
         public static final int MIN = 1;
         public static final int MAX = 8;
     }
-
 }

@@ -25,5 +25,4 @@ public class TankChassisConfig extends ConfigBase{
     public void loop() {
         super.loop();
     }
-
 }

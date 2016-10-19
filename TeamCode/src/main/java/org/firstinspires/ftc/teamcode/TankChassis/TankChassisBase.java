@@ -16,5 +16,4 @@ public abstract class TankChassisBase extends OpMode{
         right.setDirection(DcMotorSimple.Direction.REVERSE);
 
     }
-
 }

@@ -11,8 +11,7 @@ public class Util {
         this.op = opMode;
     }
 
-    public void log(String thing, Object obj){
-        op.telemetry.addData(thing, String.valueOf(obj));}
+    public void log(String thing, Object obj){op.telemetry.addData(thing, String.valueOf(obj));}
 
     public void log(Object obj){
         op.telemetry.addLine(String.valueOf(obj));

@@ -24,5 +24,4 @@ public class TankDriveTeleop extends TankChassisBase {
         left.setPower(leftValue);
         right.setPower(rightValue);
     }
-
 }

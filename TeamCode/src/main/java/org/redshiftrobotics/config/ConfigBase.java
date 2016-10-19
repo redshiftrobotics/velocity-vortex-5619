@@ -21,7 +21,6 @@ public class ConfigBase extends OpMode {
 
     int currentVar = 0;
 
-
     @Override
     public void init() {
         gp = gamepad1;
@@ -68,8 +67,6 @@ public class ConfigBase extends OpMode {
         lastStateUp = gp.y;
         lastStateDown = gp.x;
     }
-
-
 
     void nextPressed(){
         int max = config.variables.size();
@@ -175,5 +172,4 @@ public class ConfigBase extends OpMode {
         }
         util.updateTelemetry();
     }
-
 }

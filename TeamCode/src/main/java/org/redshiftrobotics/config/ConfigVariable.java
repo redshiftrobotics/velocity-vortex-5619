@@ -47,5 +47,4 @@ public class ConfigVariable {
     public void setValue(double value){
         this.value = value;
     }
-
 }
