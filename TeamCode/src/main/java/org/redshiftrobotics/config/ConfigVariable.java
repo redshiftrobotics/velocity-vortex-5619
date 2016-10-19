@@ -1,6 +1,6 @@
 package org.redshiftrobotics.config;
 
-import org.redshiftrobotics.util.ColorPicker;
+import org.redshiftrobotics.util.ColorPicker.Color;
 
 public class ConfigVariable {
     public final String name;
@@ -30,7 +30,7 @@ public class ConfigVariable {
         return this;
     }
 
-    public ColorPicker.Color getValueColor(){return ColorPicker.Color.getColor((int) Math.round(value));}
+    public Color getValueColor(){return Color.getColor((int) Math.round(value));}
 
     public int getValueInt(){
         return (int) Math.round(value);
