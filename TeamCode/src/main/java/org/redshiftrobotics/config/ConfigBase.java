@@ -73,7 +73,6 @@ public class ConfigBase extends OpMode {
 
         if(currentVar >= max - 1){
             util.clearTelemetry();
-
             util.updateTelemetry();
             currentVar=max;
             util.stopOPMode();
