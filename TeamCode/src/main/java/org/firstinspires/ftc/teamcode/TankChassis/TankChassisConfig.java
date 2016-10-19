@@ -8,7 +8,7 @@ import org.redshiftrobotics.config.ConfigVariable;
 
 @TeleOp(name="Tank Chassis Config", group="TankChassis")
 public class TankChassisConfig extends ConfigBase{
-    public static Config config = new Config();
+    Config config = new Config();
 
     static final ConfigVariable motorSpeed = new ConfigVariable("Drive Speed", 1, 0.1, 1, 0.1);
 
