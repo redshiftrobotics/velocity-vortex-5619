@@ -1,6 +1,7 @@
 package org.redshiftrobotics.beacons;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,7 +58,7 @@ public class BeaconRecognizer {
 	 *
 	 * @see BeaconRecognizer for a simple solution that handles getting the image for you.
 	 * @param image the image to recognize.
-	 * @return the state of the beacon, or null if there isn't one.
+	 * @return the state of the beacon.
 	 * @TODO We never actually return null here, so if you give us a picture of a cat you'll get a BeaconState. We might
 	 * 		 want to try and fix that, by detecting if it's actually a beacon.
 	 */
@@ -100,9 +101,9 @@ public class BeaconRecognizer {
     private int classifyPixel(int x, int y) {
         // This ignores the alpha channel, which could be bad.
         int pixel = image.getPixel(x, y);
-        int R = (pixel >> 16) & 0xff;
-        int G = (pixel >>  8) & 0xff;
-        int B =  pixel        & 0xff;
+		int R = Color.red(pixel);
+		int G = Color.green(pixel);
+		int B = Color.blue(pixel);
 
         if (R < options.get("blue:r") && G < options.get("blue:g") && B > options.get("blue:b")) {
             return 0;

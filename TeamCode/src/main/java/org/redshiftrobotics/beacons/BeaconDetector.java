@@ -100,7 +100,7 @@ public class BeaconDetector {
 
 	/**
 	 * Detect a beacon (if there is one).
-	 * @return BeaconState: The state of the beacon (or null).
+	 * @return BeaconState: The state of the beacon.
 	 */
 	public BeaconState detect() {
 		// FIXME(@ariporad): There must be a better way to wait for the camera.
