@@ -46,10 +46,25 @@ public class DRMap {
 
             switch(p.getDirection()){
                 case FORWARD:
+                    left.setTargetPosition((int)ec);
+                    right.setTargetPosition((int)ec);
+                    left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    left.setPower(p.getPower());
+                    right.setPower(p.getPower());
+                    break;
+
+                case BACKWARDS:
+                    left.setTargetPosition((int)ec);
+                    right.setTargetPosition((int)ec);
+                    left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                    left.setPower(p.getPower());
+                    right.setPower(p.getPower());
+                    break;
             }
 
-            left.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            right.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         }
     }
 

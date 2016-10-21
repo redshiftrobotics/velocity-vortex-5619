@@ -7,6 +7,7 @@ public class DRPath {
 
     private double distance;
     private DRDirection direction;
+    private int power;
 
     public DRPath(double distance){
         this.distance = distance;
@@ -33,5 +34,9 @@ public class DRPath {
     public DRDirection getDirection(){
         return direction;
     }
+
+    public void setPower(int power){this.power = power;}
+
+    public int getPower(){return power;}
 
 }
