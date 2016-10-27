@@ -50,7 +50,7 @@ public class robot {
      * @param power the power multiplier
      */
     public void setPowerMultiplier(float power){
-        Data.Drive.powerConstant = power;
+        Data.Drive.powerMultiplier = power;
     }
     /*
      * Drive straight and correct rotational error with PID.
@@ -97,12 +97,12 @@ public class robot {
             // movement. We can use the sign of Rotations to determine this
             if(Rotations > 0) {
                 // We are moving forwards.
-                Data.Drive.leftDrive.setPower(Data.Drive.powerConstant + (Direction / 200));
-                Data.Drive.rightDrive.setPower(Data.Drive.powerConstant - (Direction / 200));
+                Data.Drive.leftDrive.setPower(Data.Drive.powerMultiplier + (Direction / 200));
+                Data.Drive.rightDrive.setPower(Data.Drive.powerMultiplier - (Direction / 200));
             } else {
                 // We are moving backwards
-                Data.Drive.leftDrive.setPower(Data.Drive.powerConstant + (Direction / 200));
-                Data.Drive.rightDrive.setPower(Data.Drive.powerConstant - (Direction / 200));
+                Data.Drive.leftDrive.setPower(Data.Drive.powerMultiplier + (Direction / 200));
+                Data.Drive.rightDrive.setPower(Data.Drive.powerMultiplier - (Direction / 200));
             }
         }
         // Our Drive loop has completed! Stop the motors.
@@ -248,5 +248,5 @@ class drive {
     DcMotor leftDrive;
     DcMotor rightDrive;
     int encoderCount;
-    float powerConstant = (3/8f);
+    float powerMultiplier = (3/8f);
 }
