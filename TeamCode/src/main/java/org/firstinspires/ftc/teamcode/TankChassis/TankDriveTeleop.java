@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.TankChassis;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
@@ -7,6 +8,7 @@ import com.qualcomm.robotcore.util.Range;
  * Tank drive teleop. Use Joystick #1
  */
 @TeleOp(name="Tank Drive", group="TankChassis")
+@Disabled
 public class TankDriveTeleop extends TankChassisBase {
     @Override
     public void init() {

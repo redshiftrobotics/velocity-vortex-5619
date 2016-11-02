@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.TankChassis;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
@@ -8,6 +9,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 
 @TeleOp(name="ArcadeDrive", group="TankChassis")
+@Disabled
 public class ArcadeDriveTeleop extends TankChassisBase {
     @Override
     public void init() {
