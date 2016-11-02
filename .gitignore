@@ -236,5 +236,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#Custom Ignores
 .idea/workspace.xml
-.idea/workspace.xml
+TeamCode/src/main/java/org/redshiftrobotics/OpenHouse/
