@@ -31,6 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 package org.firstinspires.ftc.robotcontroller.internal;
 
+import for_camera_opmodes.*;
+
+import android.hardware.Camera;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ComponentName;
@@ -50,6 +53,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -94,6 +98,7 @@ import org.firstinspires.inspection.RcInspectionActivity;
 import java.io.File;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class FtcRobotControllerActivity extends Activity {
 
@@ -141,6 +146,77 @@ public class FtcRobotControllerActivity extends Activity {
     }
 
   }
+
+  /////////////////////////////////////////////////////////
+  // ADDED FOR CAMERA!!!
+
+  public void initPreview(final Camera camera, final OpModeCamera context, final Camera.PreviewCallback previewCallback) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        context.preview = new CameraPreview(FtcRobotControllerActivity.this, camera, previewCallback);
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.addView(context.preview);
+      }
+    });
+  }
+
+  public void initPreview(final Camera camera, final AtomicReference<CameraPreview> preview, final Camera.PreviewCallback previewCallback) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        preview.set(new CameraPreview(FtcRobotControllerActivity.this, camera, previewCallback));
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.addView(preview.get());
+      }
+    });
+  }
+
+  // poor coding style here.  Shouldn't have to duplicate these routines for regular and linear OpModes.
+  public void initPreviewLinear(final Camera camera, final LinearOpModeCamera context, final Camera.PreviewCallback previewCallback) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        context.preview = new CameraPreview(FtcRobotControllerActivity.this, camera, previewCallback);
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.addView(context.preview);
+      }
+    });
+  }
+
+  public void removePreview(final AtomicReference<CameraPreview> preview) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.removeAllViews();
+      }
+    });
+  }
+
+  public void removePreview(final OpModeCamera context) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.removeAllViews();
+      }
+    });
+  }
+
+  public void removePreviewLinear(final LinearOpModeCamera context) {
+    runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        FrameLayout previewLayout = (FrameLayout) findViewById(R.id.previewLayout);
+        previewLayout.removeAllViews();
+      }
+    });
+  }
+
+  // END CAMERA ADD!!!
+  //////////////////////////////////////////////
+
 
   protected ServiceConnection connection = new ServiceConnection() {
     @Override
