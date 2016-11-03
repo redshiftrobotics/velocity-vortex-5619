@@ -21,7 +21,6 @@ public class Util {
         for(Object msg:obj){
             log(msg);
         }
-        updateTelemetry();
     }
 
     public void writeLine (Object obj){
