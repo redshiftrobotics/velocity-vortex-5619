@@ -32,7 +32,7 @@ public class TankDriveTeleop extends TankChassisBase {
         right.setPower(rightValue);
 
         if(gamepad1.a){
-            launcher.setPower(1);
+            launcher.setPower(TankChassisConfig.fireSpeed.getValueDouble());
         }else{
             launcher.setPower(0);
         }
