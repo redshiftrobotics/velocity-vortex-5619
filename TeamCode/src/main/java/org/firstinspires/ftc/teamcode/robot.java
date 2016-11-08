@@ -1,252 +1,229 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
+import com.qualcomm.hardware.adafruit.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import com.qualcomm.hardware.adafruit.BNO055IMU;
+import com.qualcomm.hardware.adafruit.AdafruitBNO055IMU;
 
 import java.util.ArrayList;
 
+/**
+ * Created by Noah Rose Ledesma on 10/1/16. Thanks to Matt Kelsey, Adam Perlin, and Samin Zachariah
+ * Re-implementation of the 2856 PID Driving System without the spaghetti.
+ * Class name is not finalized. Method names are eh right now, looking to revise them.
+ */
 public class robot {
 
-    public robotData Data;
+	public RobotData Data = new RobotData();
 
-    /*
-     * Public Methods
-     */
+	public float IMURotations = 0;
 
-    /*
-     * Robot Constructor.
-     * @param imu the IMU
-     * @param LeftDrive the left motor
-     * @param RightDrive the right motor
-     */
-    public robot(I2cDeviceSynch imu, DcMotor LeftDrive, DcMotor RightDrive) {
-        Data = new robotData();
+	//changed from I2cDevice
+	public robot(I2cDeviceSynch imu, DcMotor leftDrive, DcMotor rightDrive) {
+		// Initialize the IMU & its parameters. We will always be using Degrees for angle
+		// measurement and Meters per sec per sec for acceleration.
+		Data.imuParameters = new BNO055IMU.Parameters();
+		Data.imuParameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+		Data.imuParameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
 
-        Data.imuParameters = new BNO055IMU.Parameters();
-        Data.imuParameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        Data.imuParameters.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
 		Data.imu = new AdafruitBNO055IMU(imu);
 		Data.imu.initialize(Data.imuParameters);
 
-        Data.Drive.leftDrive = LeftDrive;
-        Data.Drive.rightDrive = RightDrive;
-        Data.Drive.encoderCount = 1400;
+		// Store the Robot Hardware
+		Data.Drive.rightDrive = rightDrive;
+		Data.Drive.leftDrive = leftDrive;
 
-        // Start the program clock
-        Data.time = new robotTime();
+		Data.Drive.EncoderCount = 1400;
 
-        // We need two points of data from the IMU to do our calculations. So lets take the first one
-        // and put it into our "current" headings slot.
-        Data.PID.headings[1] = (float) Data.imu.getAngularOrientation().firstAngle;
+		// Start the program clock
+		Data.Time = new RobotTime();
+	}
 
-    }
+	// Public Interface Methods:
 
-    /*
-     * Sets the power multiplier of our robot in order to inhibit speeds.
-     * @param power the power multiplier
-     */
-    public void setPowerMultiplier(float power){
-        Data.Drive.powerMultiplier = power;
-    }
-    /*
-     * Drive straight and correct rotational error with PID.
-     * @param Rotations the number of rotations to move the robot
-     * @param Timeout the time in seconds the robot should attempt this action
-     */
-    public void Straight(float Rotations, int Timeout){
+	// Method that moves the robot forward variable number of Rotations. Orientation is verified and
+	// corrected by PID control.
+	public void Straight(float Rotations, int Timeout){
+		// We need two points of data from the IMU to do our calculation. So lets take the first one
+		// and put it into our "current" headings slot.
+		CalculateAngles();
 
-        float StartTime = Data.time.currentTime();
-        float LoopTime = Data.time.currentTime();
-        float StartPosition = Data.Drive.leftDrive.getCurrentPosition();
+		// Get the current program time and starting encoder position before we start our drive loop
+		float StartTime = Data.Time.CurrentTime();
+		float StartPosition = Data.Drive.leftDrive.getCurrentPosition();
 
-        // Clear old data
-        Data.PID.integralData.clear();
-        Data.PID.derivativeData.clear();
+		// Reset our Integral and Derivative data.
+		Data.PID.IntegralData.clear();
+		Data.PID.DerivativeData.clear();
 
-        // Manually calculate our first target
-        Data.PID.target = Data.PID.headings[1] * (Rotations * 360);
 
-        // We use encoders to form a loop that corrects rotation until we reach our target.
-        while(Math.abs(StartPosition - Data.Drive.leftDrive.getCurrentPosition()) < Math.abs(Rotations) * Data.Drive.encoderCount){
 
-            if(StartTime + Timeout < Data.time.currentTime()){
-                break;
-            }
+		// Manually calculate our first target
+		Data.PID.Target = CalculateAngles() + (IMURotations * 360);
 
-            // Record the time since the previous loop.
-            LoopTime = Data.time.timeFrom(LoopTime);
+		// We need to keep track of how much time passes between a loop.
+		float LoopTime = Data.Time.CurrentTime();
 
-            // Calculate our angles. This method may modify the input Rotations.
-            Rotations = CalculateTarget(Rotations);
+		// This is the main loop of our straight drive.
+		// We use encoders to form a loop that corrects rotation until we reach our target.
+		while(Math.abs(StartPosition - Data.Drive.leftDrive.getCurrentPosition()) < Math.abs(Rotations) * Data.Drive.EncoderCount){
+			// First we check if we have exceeded our timeout and...
+			if(StartTime + Timeout < Data.Time.CurrentTime()){
+				// ... stop our loop if we have.
+				break;
+			}
 
-            // Calculate our PID values
-            CalculatePID(LoopTime);
+			// Record the time since the previous loop.
+			LoopTime = Data.Time.TimeFrom(LoopTime);
+			// Calculate our angles. This method may modify the input Rotations.
+			//IMURotations =
+			CalculateAngles();
+			// Calculate our PID
+			CalculatePID(LoopTime);
 
-            // Calculate the Direction to travel to correct any rotational errors.
-            float Direction = (Data.PID.i * Data.PID.iTuning) + (Data.PID.p * Data.PID.pTuning) + (Data.PID.d * Data.PID.dTuning);
+			// Calculate the Direction to travel to correct any rotational errors.
+			float Direction = ((Data.PID.I * Data.PID.ITuning) / 2000) + ((Data.PID.P * Data.PID.PTuning) / 2000) + ((Data.PID.D * Data.PID.DTuning) / 2000);
+			// Constrain our direction from being too intense.
 
-            // Constrain our direction from being too intense.
-            if(Direction > 50){ Direction = 50; }
-            if(Direction < -50){ Direction = -50; }
+			//if(Direction > 50){ Direction = 50; }
+			//if(Direction < -50){ Direction = -50; }
 
-            // Before we set the power of our motors, we need to adjust for forwards or backwards
-            // movement. We can use the sign of Rotations to determine this
-            if(Rotations > 0) {
-                // We are moving forwards.
-                Data.Drive.leftDrive.setPower(Data.Drive.powerMultiplier + (Direction / 200));
-                Data.Drive.rightDrive.setPower(Data.Drive.powerMultiplier - (Direction / 200));
-            } else {
-                // We are moving backwards
-                Data.Drive.leftDrive.setPower(Data.Drive.powerMultiplier + (Direction / 200));
-                Data.Drive.rightDrive.setPower(Data.Drive.powerMultiplier - (Direction / 200));
-            }
-        }
-        // Our Drive loop has completed! Stop the motors.
-        Data.Drive.leftDrive.setPower(0);
-        Data.Drive.rightDrive.setPower(0);
-    }
+			// Define our motor power multiplier
 
-    /*
-     * Private Methods
-     */
+			// Before we set the power of our motors, we need to adjust for forwards or backwards
+			// movement. We can use the sign of Rotations to determine this
+			// We are moving forwards
+			Data.Drive.rightDrive.setPower(Drive.POWER_CONSTANT - (Direction));
+			Data.Drive.leftDrive.setPower(Drive.POWER_CONSTANT + (Direction));
+		}
+		// Our drive loop has completed! Stop the motors.
+		Data.Drive.rightDrive.setPower(0);
+		Data.Drive.leftDrive.setPower(0);
+	}
 
-    /*
-     * Calculate Target Rotation from the IMU data.
-     */
-    private float CalculateTarget(float Rotations){
+	// Private Methods
 
-        // `Push` the heading down the array and calculate a new one
-        Data.PID.headings[0] = Data.PID.headings[1];
-        Data.PID.headings[1] = Data.imu.getAngularOrientation().firstAngle;
+	// Method that grabs the IMU data and calculates a new ComputedTarget.
+	private float CalculateAngles(){
+		// First we will move the current angle heading into the previous angle heading slot.
+		Data.PID.Headings[0] = Data.PID.Headings[1];
+		// Then, we assign the new angle heading.
+		Data.PID.Headings[1] = Data.imu.getAngularOrientation().firstAngle;
 
-        Data.PID.computedTarget = (Data.PID.headings[1] + (Rotations * 360));
+		// Finally we calculate a ComputedTarget from the current angle heading.
+		Data.PID.ComputedTarget = Data.PID.Headings[1] + (IMURotations * 360);
 
-        // Now we determine if we need to re-calculate the angles.
-        if(Data.PID.headings[0] > 300 && Data.PID.headings[1] < 60) {
-            Rotations++;
-            return CalculateTarget(Rotations);
-        } else if(Data.PID.headings[0] < 60 && Data.PID.headings[1] > 300) {
-            Rotations--;
-            return CalculateTarget(Rotations);
-        }
-    return Rotations;
-    }
+		// Now we determine if we need to re-calculate the angles.
+		if(Data.PID.Headings[0] > Math.abs(300) && Data.PID.Headings[1] < Math.abs(60)) {
+			IMURotations++; //rotations of 360 degrees
+			CalculateAngles();
+		} else if(Data.PID.Headings[0] < Math.abs(60) && Data.PID.Headings[1] > Math.abs(300)) {
+			IMURotations--;
+			CalculateAngles();
+		}
+		return Data.PID.Headings[1];
+	}
 
-    /*
-     * Calculate our PID Values
-     * @param LoopTime the time from the previous CalculatePID
-     */
-    private void CalculatePID(float LoopTime){
-        // Append to our data sets.
-        Data.PID.integralData.add(Data.PID.computedTarget - Data.PID.target);
-        Data.PID.derivativeData.add(Data.PID.computedTarget);
+	// Method that calculates P, I, and D. Requires the time
+	private void CalculatePID(float LoopTime){
 
-        // Keep integralData and derivativeData from having an exceeding number of entries.
-        if (Data.PID.integralData.size() > 500){
-            Data.PID.integralData.remove(0);
-        }
 
-        if(Data.PID.derivativeData.size() > 5){
-            Data.PID.derivativeData.remove(0);
-        }
+		// Append to our data sets.
+		Data.PID.IntegralData.add(Data.PID.ComputedTarget - Data.PID.Target);
+		Data.PID.DerivativeData.add(Data.PID.ComputedTarget);
 
-        // Set our p, i, and d values.
+		// Keep IntegralData and DerivativeData from having an exceeding number of entries.
+		if (Data.PID.IntegralData.size() > 500){
+			Data.PID.IntegralData.remove(0);
+		}
 
-        // `p` will be the computedTarget - target
-        Data.PID.p = Data.PID.computedTarget - Data.PID.target;
-        // `i` will be the average of the integralData (Cries softly at the lack of Java8 streams)
+		if(Data.PID.DerivativeData.size() > 5){
+			Data.PID.DerivativeData.remove(0);
+		}
 
-        float IntegralAverage = 0;
-        for(float value : Data.PID.integralData){
-            IntegralAverage += value;
-        }
-        Data.PID.i = IntegralAverage / Data.PID.integralData.size();
+		// Set our P, I, and D values.
+		// `P` will be the ComputedTarget - Target
+		Data.PID.P = Data.PID.ComputedTarget - Data.PID.Target;
 
-        // `d` will be the difference of the computedTarget and the Derivative average divided by
-        // the time since the last loop in seconds multiplied by one plus half of the size of
-        // the Derivative data set size.
+		// `I` will be the average of the IntegralData (Cries softly at the lack of Java8 streams)
+		float IntegralAverage = 0;
+		for(float value : Data.PID.IntegralData){
+			IntegralAverage += value;
+		}
+		Data.PID.I = IntegralAverage / Data.PID.IntegralData.size();
 
-        float DerivativeAverage = 0;
-        for(float value : Data.PID.derivativeData){
-            DerivativeAverage += value;
-        }
-        DerivativeAverage /= Data.PID.derivativeData.size();
+		// `D` will be the difference of the ComputedTarget and the Derivative average divided by
+		// the time since the last loop in seconds multiplied by one plus half of the size of
+		// the Derivative data set size.
+		float DerivativeAverage = 0;
+		for(float value : Data.PID.DerivativeData){
+			DerivativeAverage += value;
+		}
+		DerivativeAverage /= Data.PID.DerivativeData.size();
 
-        Data.PID.d = (Data.PID.computedTarget - DerivativeAverage) / ((LoopTime/1000) * (1 + (Data.PID.derivativeData.size() / 2)));
-
-    }
+		Data.PID.D = (Data.PID.ComputedTarget - DerivativeAverage) / ((LoopTime/1000) * (1 + (Data.PID.DerivativeData.size() / 2)));
+	}
 }
 
-/*
- * Data Containers
- */
 
-/*
- * Main data container
- */
-class robotData {
-    BNO055IMU imu;
-    BNO055IMU.Parameters imuParameters;
-    PID PID;
-    robotTime time;
-    drive Drive;
-    // Data constructor
-    robotData(){
-        PID = new PID();
-        time = new robotTime();
-        Drive = new drive();
-    }
+// Data container classes
+// RobotData acts as the main container for Data.
+// The PID, RobotTime, and Drive Classes act as child data containers for neater organization.
+
+class RobotData {
+	BNO055IMU imu;
+	BNO055IMU.Parameters imuParameters;
+	PID PID;
+	RobotTime Time;
+	Drive Drive;
+	RobotData(){
+		PID = new PID();
+		Time = new RobotTime();
+		Drive = new Drive();
+	}
 }
 
-/*
- * PID data container
- */
+// PID data
 class PID {
-    float computedTarget;
-    float target;
-    float p, i, d;
-    float pTuning, iTuning, dTuning;
-    float[] headings = new float[2];
-    ArrayList<Float> derivativeData;
-    ArrayList<Float> integralData;
-    // Constructor
-    PID(){
-        // Init non-primitives
-        derivativeData = new ArrayList<>();
-        integralData = new ArrayList<>();
-    }
+	float ComputedTarget;
+	float Target;
+	float P, I, D;
+	float PTuning, ITuning, DTuning;
+	float[] Headings = new float[2];
+	ArrayList<Float> DerivativeData;
+	ArrayList<Float> IntegralData;
+	// Constructor
+	PID(){
+		// Init non-primitives
+		DerivativeData = new ArrayList<>();
+		IntegralData = new ArrayList<>();
+	}
 }
+// Time data
+class RobotTime {
+	private ElapsedTime ProgramTime;
 
-/*
- * Time-related functions.
- */
-class robotTime {
-    private ElapsedTime ProgramTime;
+	public RobotTime(){
+		ProgramTime = new ElapsedTime();
+	}
 
-    public robotTime(){
-        ProgramTime = new ElapsedTime();
-    }
+	public float CurrentTime(){
+		return (float) ProgramTime.seconds();
+	}
 
-    public float currentTime(){
-        return (float) ProgramTime.seconds();
-    }
-
-    public float timeFrom(float PreviousTime){
-        return (float) (ProgramTime.seconds() - PreviousTime);
-    }
-
+	public float TimeFrom(float PreviousTime){
+		return (float) (ProgramTime.seconds() - PreviousTime);
+	}
 }
+// Robot hardware data.
+class Drive {
+	//motors indexing around the robot like the quadrants in a graph or like the motors on a drone
+	// for example
+	DcMotor rightDrive;
+	DcMotor leftDrive;
 
-/*
- * Drive data container
- */
-class drive {
-    DcMotor leftDrive;
-    DcMotor rightDrive;
-    int encoderCount;
-    float powerMultiplier = (3/8f);
+	int EncoderCount;
+	final static float POWER_CONSTANT = (3/8f); // I believe this value does not change. 0.5*(3/4)
 }
