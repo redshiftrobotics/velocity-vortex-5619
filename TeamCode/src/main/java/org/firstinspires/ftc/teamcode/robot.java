@@ -103,6 +103,56 @@ public class robot {
 		Data.Drive.leftDrive.setPower(0);
 	}
 
+	public void AngleTurn(float angle, int Timeout){
+		// We need two points of data from the IMU to do our calculation. So lets take the first one
+		// and put it into our "current" headings slot.
+		CalculateAngles();
+
+		// Get the current program time and starting encoder position before we start our drive loop
+		float StartTime = Data.Time.CurrentTime();
+		float StartPosition = Data.Drive.leftDrive.getCurrentPosition();
+
+		// Reset our Integral and Derivative data.
+		Data.PID.IntegralData.clear();
+		Data.PID.DerivativeData.clear();
+
+
+		//Calculate PIDS again because Isaac Zinda only knows
+
+
+		// Manually calculate our first target
+		Data.PID.Target = (CalculateAngles() + (IMURotations * 360)) + angle;
+
+		// We need to keep track of how much time passes between a loop.
+		float LoopTime = Data.Time.CurrentTime();
+
+		// This is the main loop of our straight drive.
+		// We use encoders to form a loop that corrects rotation until we reach our target.
+		while(StartTime + Timeout > Data.Time.CurrentTime()){
+
+			// Record the time since the previous loop.
+			LoopTime = Data.Time.TimeFrom(LoopTime);
+			// Calculate our angles. This method may modify the input Rotations.
+			//IMURotations =
+			CalculateAngles();
+			// Calculate our PID
+			CalculatePID(LoopTime);
+
+			// Calculate the Direction to travel to correct any rotational errors.
+			float Direction = ((Data.PID.I * Data.PID.ITuning) / 2000) + ((Data.PID.P * Data.PID.PTuning) / 2000) + ((Data.PID.D * Data.PID.DTuning) / 2000);;
+
+			if(Math.abs(Direction) <= 0.03f) {
+				break;
+			}
+
+			Data.Drive.rightDrive.setPower(Drive.POWER_CONSTANT - (Direction));
+			Data.Drive.leftDrive.setPower(Drive.POWER_CONSTANT  + (Direction));
+		}
+		// Our drive loop has completed! Stop the motors.
+		Data.Drive.rightDrive.setPower(0);
+		Data.Drive.leftDrive.setPower(0);
+	}
+
 	// Private Methods
 
 	// Method that grabs the IMU data and calculates a new ComputedTarget.
