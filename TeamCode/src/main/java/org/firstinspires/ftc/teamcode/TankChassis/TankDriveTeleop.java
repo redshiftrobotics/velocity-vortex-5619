@@ -6,7 +6,12 @@ import com.qualcomm.robotcore.util.Range;
 import org.redshiftrobotics.miscutil.TelementryUtil;
 
 /**
- * Tank drive teleop. Use Joystick #1
+ * Controls:
+ *   JoyStick 1:
+ *     Left Stick: Left side forward and backwards
+ *     Right Stick: Right side forward and backwards
+ *   JoyStick 2:
+ *     A: Hold to fire launcher
  */
 
 @TeleOp(name="Tank Drive", group="TankChassis")
@@ -31,7 +36,7 @@ public class TankDriveTeleop extends TankChassisBase {
         left.setPower(leftValue);
         right.setPower(rightValue);
 
-        if(gamepad1.a){
+        if(gamepad2.a){
             launcher.setPower(TankChassisConfig.fireSpeed.getValueDouble());
         }else{
             launcher.setPower(0);
