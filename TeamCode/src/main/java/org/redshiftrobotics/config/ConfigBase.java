@@ -3,8 +3,8 @@ package org.redshiftrobotics.config;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import org.redshiftrobotics.util.ColorPicker;
-import org.redshiftrobotics.util.Util;
+import org.redshiftrobotics.colorpicker.ColorPicker;
+import org.redshiftrobotics.miscutil.TelementryUtil;
 
 import java.text.DecimalFormat;
 
@@ -12,7 +12,7 @@ public class ConfigBase extends OpMode {
     protected Config config;
     Gamepad gp;
 
-    Util util = new Util(this);
+    TelementryUtil util = new TelementryUtil(this);
 
     boolean lastStateNext = false;
     boolean lastStateBack = false;

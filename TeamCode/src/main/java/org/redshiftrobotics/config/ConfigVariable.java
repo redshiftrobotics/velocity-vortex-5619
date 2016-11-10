@@ -1,6 +1,6 @@
 package org.redshiftrobotics.config;
 
-import org.redshiftrobotics.util.ColorPicker.Color;
+import org.redshiftrobotics.colorpicker.ColorPicker.Color;
 
 public class ConfigVariable {
     public final String name;

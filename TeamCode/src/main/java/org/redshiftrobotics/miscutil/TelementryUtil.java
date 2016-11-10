@@ -1,13 +1,13 @@
-package org.redshiftrobotics.util;
+package org.redshiftrobotics.miscutil;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import java.util.ArrayList;
 
-public class Util {
+public class TelementryUtil {
     OpMode op;
 
-    public Util(OpMode opMode){
+    public TelementryUtil(OpMode opMode){
         this.op = opMode;
     }
 

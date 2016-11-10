@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.TankChassis;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import org.redshiftrobotics.util.Util;
+import org.redshiftrobotics.miscutil.TelementryUtil;
 
 /**
  * Tank drive teleop. Use Joystick #1
@@ -12,7 +12,7 @@ import org.redshiftrobotics.util.Util;
 @TeleOp(name="Tank Drive", group="TankChassis")
 public class TankDriveTeleop extends TankChassisBase {
 
-    Util util = new Util(this);
+    TelementryUtil util = new TelementryUtil(this);
 
     @Override
     public void init() {

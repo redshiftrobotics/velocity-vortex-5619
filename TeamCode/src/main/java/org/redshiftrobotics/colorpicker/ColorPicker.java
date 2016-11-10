@@ -1,4 +1,4 @@
-package org.redshiftrobotics.util;
+package org.redshiftrobotics.colorpicker;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
