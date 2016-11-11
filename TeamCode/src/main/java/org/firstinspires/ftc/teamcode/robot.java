@@ -35,9 +35,6 @@ public class robot {
 		Data.Drive.leftDrive = leftDrive;
 
 		Data.Drive.EncoderCount = 1400;
-
-		// Start the program clock
-		Data.Time = new RobotTime();
 	}
 
 	// Public Interface Methods:
@@ -94,8 +91,8 @@ public class robot {
 			// Before we set the power of our motors, we need to adjust for forwards or backwards
 			// movement. We can use the sign of Rotations to determine this
 			// We are moving forwards
-			Data.Drive.rightDrive.setPower(Drive.POWER_CONSTANT - (Direction));
-			Data.Drive.leftDrive.setPower(Drive.POWER_CONSTANT + (Direction));
+			Data.Drive.rightDrive.setPower(Data.Drive.POWER_CONSTANT - (Direction));
+			Data.Drive.leftDrive.setPower(Data.Drive.POWER_CONSTANT + (Direction));
 		}
 		// Our drive loop has completed! Stop the motors.
 		Data.Drive.rightDrive.setPower(0);
@@ -141,8 +138,8 @@ public class robot {
 				break;
 			}
 
-			Data.Drive.rightDrive.setPower(Drive.POWER_CONSTANT - (Direction));
-			Data.Drive.leftDrive.setPower(Drive.POWER_CONSTANT  + (Direction));
+			Data.Drive.rightDrive.setPower(Data.Drive.POWER_CONSTANT - (Direction));
+			Data.Drive.leftDrive.setPower(Data.Drive.POWER_CONSTANT  + (Direction));
 		}
 		// Our drive loop has completed! Stop the motors.
 		Data.Drive.rightDrive.setPower(0);
@@ -229,49 +226,52 @@ class RobotData {
 		Time = new RobotTime();
 		Drive = new Drive();
 	}
-}
 
-// PID data
-class PID {
-	float ComputedTarget;
-	float Target;
-	float P, I, D;
-	float PTuning, ITuning, DTuning;
-	float[] Headings = new float[2];
-	int IMURotations;
-	ArrayList<Float> DerivativeData;
-	ArrayList<Float> IntegralData;
-	// Constructor
-	PID(){
-		// Init non-primitives
-		DerivativeData = new ArrayList<>();
-		IntegralData = new ArrayList<>();
-		IMURotations = 0;
-	}
-}
-// Time data
-class RobotTime {
-	private ElapsedTime ProgramTime;
-
-	public RobotTime(){
-		ProgramTime = new ElapsedTime();
+	// PID Calculation data
+	class PID {
+		float ComputedTarget;
+		float Target;
+		float P, I, D;
+		float PTuning, ITuning, DTuning;
+		float[] Headings = new float[2];
+		int IMURotations;
+		ArrayList<Float> DerivativeData;
+		ArrayList<Float> IntegralData;
+		// Constructor
+		PID(){
+			// Init non-primitives
+			DerivativeData = new ArrayList<>();
+			IntegralData = new ArrayList<>();
+			IMURotations = 0;
+		}
 	}
 
-	public float CurrentTime(){
-		return (float) ProgramTime.seconds();
+	// Time data
+	class RobotTime {
+		private ElapsedTime ProgramTime;
+
+		public RobotTime(){
+			ProgramTime = new ElapsedTime();
+		}
+
+		public float CurrentTime(){
+			return (float) ProgramTime.seconds();
+		}
+
+		public float TimeFrom(float PreviousTime){
+			return (float) (ProgramTime.seconds() - PreviousTime);
+		}
 	}
 
-	public float TimeFrom(float PreviousTime){
-		return (float) (ProgramTime.seconds() - PreviousTime);
-	}
-}
-// Robot hardware data.
-class Drive {
-	//motors indexing around the robot like the quadrants in a graph or like the motors on a drone
-	// for example
-	DcMotor rightDrive;
-	DcMotor leftDrive;
+	// Robot hardware data.
+	class Drive {
+		//motors indexing around the robot like the quadrants in a graph or like the motors on a drone
+		// for example
+		DcMotor rightDrive;
+		DcMotor leftDrive;
 
-	int EncoderCount;
-	final static float POWER_CONSTANT = (3/8f); // I believe this value does not change. 0.5*(3/4)
+		int EncoderCount;
+		final float POWER_CONSTANT = (3/8f); // I believe this value does not change. 0.5*(3/4)
+	}
+
 }
