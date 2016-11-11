@@ -18,7 +18,6 @@ public class robot {
 
 	public RobotData Data = new RobotData();
 
-	public float IMURotations = 0;
 
 	//changed from I2cDevice
 	public robot(I2cDeviceSynch imu, DcMotor leftDrive, DcMotor rightDrive) {
@@ -61,7 +60,7 @@ public class robot {
 
 
 		// Manually calculate our first target
-		Data.PID.Target = CalculateAngles() + (IMURotations * 360);
+		Data.PID.Target = CalculateAngles() + (Data.PID.IMURotations * 360);
 
 		// We need to keep track of how much time passes between a loop.
 		float LoopTime = Data.Time.CurrentTime();
@@ -117,11 +116,8 @@ public class robot {
 		Data.PID.DerivativeData.clear();
 
 
-		//Calculate PIDS again because Isaac Zinda only knows
-
-
 		// Manually calculate our first target
-		Data.PID.Target = (CalculateAngles() + (IMURotations * 360)) + angle;
+		Data.PID.Target = (CalculateAngles() + (Data.PID.IMURotations * 360)) + angle;
 
 		// We need to keep track of how much time passes between a loop.
 		float LoopTime = Data.Time.CurrentTime();
@@ -163,14 +159,14 @@ public class robot {
 		Data.PID.Headings[1] = Data.imu.getAngularOrientation().firstAngle;
 
 		// Finally we calculate a ComputedTarget from the current angle heading.
-		Data.PID.ComputedTarget = Data.PID.Headings[1] + (IMURotations * 360);
+		Data.PID.ComputedTarget = Data.PID.Headings[1] + (Data.PID.IMURotations * 360);
 
 		// Now we determine if we need to re-calculate the angles.
 		if(Data.PID.Headings[0] > Math.abs(300) && Data.PID.Headings[1] < Math.abs(60)) {
-			IMURotations++; //rotations of 360 degrees
+			Data.PID.IMURotations++; //rotations of 360 degrees
 			CalculateAngles();
 		} else if(Data.PID.Headings[0] < Math.abs(60) && Data.PID.Headings[1] > Math.abs(300)) {
-			IMURotations--;
+			Data.PID.IMURotations--;
 			CalculateAngles();
 		}
 		return Data.PID.Headings[1];
@@ -242,6 +238,7 @@ class PID {
 	float P, I, D;
 	float PTuning, ITuning, DTuning;
 	float[] Headings = new float[2];
+	int IMURotations;
 	ArrayList<Float> DerivativeData;
 	ArrayList<Float> IntegralData;
 	// Constructor
@@ -249,6 +246,7 @@ class PID {
 		// Init non-primitives
 		DerivativeData = new ArrayList<>();
 		IntegralData = new ArrayList<>();
+		IMURotations = 0;
 	}
 }
 // Time data
