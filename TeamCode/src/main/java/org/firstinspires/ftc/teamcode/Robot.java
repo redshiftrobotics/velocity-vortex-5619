@@ -41,7 +41,11 @@ public class Robot {
 
 	// Method that moves the Robot forward variable number of Rotations. Orientation is verified and
 	// corrected by PID control.
-	public void straight(float Rotations, int timeout){
+	public void straight(float rotations){
+		// Assume 1 sec per rotation.
+		straight(rotations, (int)rotations);
+	}
+	public void straight(float rotations, int timeout){
 		// We need two points of data from the IMU to do our calculation. So lets take the first one
 		// and put it into our "current" headings slot.
 		calculateAngles();
@@ -64,7 +68,7 @@ public class Robot {
 
 		// This is the main loop of our straight drive.
 		// We use encoders to form a loop that corrects rotation until we reach our target.
-		while(Math.abs(startPosition - data.drive.leftDrive.getCurrentPosition()) < Math.abs(Rotations) * data.drive.encoderCount){
+		while(Math.abs(startPosition - data.drive.leftDrive.getCurrentPosition()) < Math.abs(rotations) * data.drive.encoderCount){
 			// First we check if we have exceeded our timeout and...
 			if(startTime + timeout < data.time.currentTime()){
 				// ... stop our loop if we have.
