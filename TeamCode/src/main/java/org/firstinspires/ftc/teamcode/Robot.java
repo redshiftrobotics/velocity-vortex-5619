@@ -179,11 +179,11 @@ public class Robot {
 		data.PID.derivativeData.add(data.PID.computedTarget);
 
 		// Keep integralData and derivativeData from having an exceeding number of entries.
-		if (data.PID.integralData.size() > 500){
+		if (data.PID.integralData.size() > data.PID.INTEGRAL_DATA_MAX_SIZE){
 			data.PID.integralData.remove(0);
 		}
 
-		if(data.PID.derivativeData.size() > 5){
+		if(data.PID.derivativeData.size() > data.PID.DERIVATIVE_DATA_MAX_SIZE){
 			data.PID.derivativeData.remove(0);
 		}
 
@@ -238,6 +238,8 @@ class RobotData {
 		int IMURotations;
 		ArrayList<Float> derivativeData;
 		ArrayList<Float> integralData;
+		final int INTEGRAL_DATA_MAX_SIZE = 500;
+		final int DERIVATIVE_DATA_MAX_SIZE = 5;
 		// Constructor
 		PID(){
 			// Init non-primitives
