@@ -100,7 +100,7 @@ public class Robot {
 		data.drive.leftDrive.setPower(0);
 	}
 
-	public void AngleTurn(float angle, int Timeout){
+	public void angleTurn(float angle, int timeout){
 		// We need two points of data from the IMU to do our calculation. So lets take the first one
 		// and put it into our "current" headings slot.
 		calculateAngles();
@@ -122,7 +122,7 @@ public class Robot {
 
 		// This is the main loop of our straight drive.
 		// We use encoders to form a loop that corrects rotation until we reach our target.
-		while(StartTime + Timeout > data.time.currentTime()){
+		while(StartTime + timeout > data.time.currentTime()){
 
 			// Record the time since the previous loop.
 			LoopTime = data.time.timeFrom(LoopTime);
