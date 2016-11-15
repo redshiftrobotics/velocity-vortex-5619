@@ -160,10 +160,10 @@ public class Robot {
 		data.PID.computedTarget = data.PID.headings[1] + (data.PID.IMURotations * 360);
 
 		// Now we determine if we need to re-calculate the angles.
-		if(data.PID.headings[0] > Math.abs(300) && data.PID.headings[1] < Math.abs(60)) {
+		if(data.PID.headings[0] > 300 && data.PID.headings[1] < 60) {
 			data.PID.IMURotations++; //rotations of 360 degrees
 			calculateAngles();
-		} else if(data.PID.headings[0] < Math.abs(60) && data.PID.headings[1] > Math.abs(300)) {
+		} else if(data.PID.headings[0] < 60 && data.PID.headings[1] > 300) {
 			data.PID.IMURotations--;
 			calculateAngles();
 		}
