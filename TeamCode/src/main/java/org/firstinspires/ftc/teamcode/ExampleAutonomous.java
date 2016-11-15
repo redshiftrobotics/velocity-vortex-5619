@@ -34,7 +34,7 @@ public class ExampleAutonomous extends LinearOpMode {
         // Lets drive straight ten rotations or 10 seconds.
         myRobot.straight(10f, 10);
 		// Now do a 90 degree turn
-		myRobot.AngleTurn(90, 5);
+		myRobot.angleTurn(90, 5);
     }
 }
 
