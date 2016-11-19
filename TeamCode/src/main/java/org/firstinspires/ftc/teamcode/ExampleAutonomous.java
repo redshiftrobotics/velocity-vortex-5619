@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
-@Disabled
+
 @Autonomous(name = "ExampleAutonomous", group = "Autonomous")
 public class ExampleAutonomous extends LinearOpMode {
 
@@ -24,17 +24,17 @@ public class ExampleAutonomous extends LinearOpMode {
         imu = hardwareMap.i2cDeviceSynch.get("imu");
 
         // Create our driver
-        myRobot = new Robot(imu, leftDrive, rightDrive);
+        myRobot = new Robot(imu, leftDrive, rightDrive, telemetry);
 
         // Set our p, i, and d tuning
-        myRobot.data.PID.PTuning = 37f;
-        myRobot.data.PID.ITuning = 1f;
-        myRobot.data.PID.DTuning = 4f;
+        myRobot.Data.PID.PTuning = 37f;
+        myRobot.Data.PID.ITuning = 1f;
+        myRobot.Data.PID.DTuning = 4f;
 
         // Lets drive straight ten rotations or 10 seconds.
-        myRobot.straight(10f, 10);
+        myRobot.Straight(10f, 10, telemetry);
 		// Now do a 90 degree turn
-		myRobot.AngleTurn(90, 5);
+		myRobot.AngleTurn(90, 5, telemetry);
     }
 }
 
