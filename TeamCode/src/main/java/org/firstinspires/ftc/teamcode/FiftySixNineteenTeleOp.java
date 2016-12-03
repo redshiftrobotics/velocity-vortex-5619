@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -13,12 +14,6 @@ public class FiftySixNineteenTeleOp extends OpMode {
 	private DcMotor collector;
 	private DcMotor launcher;
 
-	private boolean lastAState = false;
-	private boolean lastBState = false;
-
-	boolean collectorOn = false;
-	boolean launcherOn = false;
-
 	@Override
 	public void init() {
 		// Directions are reversed for TeleOP
@@ -29,6 +24,7 @@ public class FiftySixNineteenTeleOp extends OpMode {
 		left.setDirection(DcMotorSimple.Direction.REVERSE);
 		right.setDirection(DcMotorSimple.Direction.FORWARD);
 		collector.setDirection(DcMotorSimple.Direction.REVERSE);
+		launcher.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 	}
 
 	@Override
@@ -43,19 +39,10 @@ public class FiftySixNineteenTeleOp extends OpMode {
 		telemetry.addLine("0, 1, 2, FIFTY-SIX NINETEEN!");
 		telemetry.update();
 
-		boolean A = gamepad1.a || gamepad2.a;
-		boolean B = gamepad1.b || gamepad2.b;
-
-		if (lastAState != A && A) {
-			collectorOn = !collectorOn;
-			collector.setPower(collectorOn ? 1 : 0);
-		}
-
-		if (lastBState != B && B) {
-			launcherOn = !launcherOn;
-			launcher.setPower(launcherOn ? 1 : 0);
-		}
-
+		if (gamepad1.right_trigger > 0.75) launcher.setPower(1.0);
+		else launcher.setPower(0);
+		if (gamepad1.left_trigger > 0.75) collector.setPower(1.0);
+		else collector.setPower(0);
 		left.setPower(gamepad1.left_stick_y);
 		right.setPower(gamepad1.right_stick_y);
 	}
