@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.redshiftrobotics.miscutil.TelementryUtil;
+import org.redshiftrobotics.util.TelementryUtil;
 
 import java.io.File;
 import java.io.FileWriter;

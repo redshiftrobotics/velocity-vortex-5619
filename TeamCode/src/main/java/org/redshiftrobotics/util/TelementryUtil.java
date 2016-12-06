@@ -1,4 +1,4 @@
-package org.redshiftrobotics.miscutil;
+package org.redshiftrobotics.util;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 

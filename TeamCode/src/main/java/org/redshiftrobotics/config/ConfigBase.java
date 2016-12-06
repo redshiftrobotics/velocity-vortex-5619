@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.redshiftrobotics.colorpicker.ColorPicker;
-import org.redshiftrobotics.miscutil.TelementryUtil;
+import org.redshiftrobotics.util.TelementryUtil;
 
 import java.text.DecimalFormat;
 
