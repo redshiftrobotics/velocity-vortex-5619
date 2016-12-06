@@ -1,7 +1,8 @@
-package sample_camera_opmodes;
+package org.redshiftrobotics.SAMPLES.camera;
 
 import android.graphics.Bitmap;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import for_camera_opmodes.OpModeCamera;
@@ -13,7 +14,7 @@ import for_camera_opmodes.OpModeCamera;
  */
 
 @TeleOp(name = "DetectColor", group = "ZZOpModeCameraPackage")
-//@Disabled
+@Disabled
 public class DetectColor extends OpModeCamera {
 
   int ds2 = 2;  // additional downsampling of the image
