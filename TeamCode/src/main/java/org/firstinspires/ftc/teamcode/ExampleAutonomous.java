@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
-
 @Autonomous(name = "ExampleAutonomous", group = "Autonomous")
 public class ExampleAutonomous extends LinearOpMode {
 

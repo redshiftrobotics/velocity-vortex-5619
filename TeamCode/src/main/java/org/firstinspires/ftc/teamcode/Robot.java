@@ -50,7 +50,6 @@ public class Robot {
 	}
 
 	// Public Interface Methods:
-
 	// Method that moves the robot forward variable number of Rotations. Orientation is verified and
 	// corrected by PID control.
 	public void straight(float rotations, int timeout, Telemetry tm){
@@ -180,8 +179,6 @@ public class Robot {
 		Data.PID.D = D;
 	}
 }
-
-
 // Data container classes
 // robotData acts as the main container for Data.
 // The PID, robotTime, and Drive Classes act as child data containers for neater organization.
@@ -248,5 +245,5 @@ class Drive {
 	DcMotor m0;
 	DcMotor m1;
 	int encoderCount;
-	float POWER_CONSTANT = (3/8f); // I believe this value does not change. 0.5*(3/4)
+	float POWER_CONSTANT = (3/8f); // I believe this value does not change. 0.5*(3/4
 }

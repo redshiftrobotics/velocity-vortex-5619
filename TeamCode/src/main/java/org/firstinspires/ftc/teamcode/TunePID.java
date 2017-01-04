@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
-@TeleOp(name = "Tune PID", group = "Teleop")
+@TeleOp(name = "Tune PID", group = "Util")
 public class TunePID extends LinearOpMode {
 
 	Robot myRobot;
@@ -83,6 +83,7 @@ public class TunePID extends LinearOpMode {
 							myRobot.Data.PID.PTuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
 							myRobot.Data.PID.PTuning -= 1;
+
 						}
 						break;
 
@@ -95,6 +96,7 @@ public class TunePID extends LinearOpMode {
 							myRobot.Data.PID.ITuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
 							myRobot.Data.PID.ITuning -= 1;
+
 						}
 						break;
 					case D:
@@ -137,6 +139,7 @@ public class TunePID extends LinearOpMode {
 				telemetry.addData("POW", myRobot.Data.Drive.POWER_CONSTANT);
 				telemetry.addData("MAG", myRobot.Data.PID.MagicNumber);
 				telemetry.addData("IMU", myRobot.Data.imu.getAngularOrientation() + ". TAR: " + myRobot.Data.PID.Target);
+
 				telemetry.update();
 				Thread.sleep(100);
 			}
