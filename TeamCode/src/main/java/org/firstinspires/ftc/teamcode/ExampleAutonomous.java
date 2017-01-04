@@ -26,12 +26,13 @@ public class ExampleAutonomous extends LinearOpMode {
         // Create our driver
         myRobot = new Robot(imu, leftDrive, rightDrive, telemetry);
         // Set our p, i, and d tuning
-		myRobot.Data.PID.PTuning = 16;
-		myRobot.Data.PID.ITuning = 1;
-		myRobot.Data.PID.DTuning = 4;
+		myRobot.Data.PID.pTuning = 1.8f;
+		myRobot.Data.PID.iTuning = 1f;
+		myRobot.Data.PID.dTuning = .1f;
+		myRobot.Data.Drive.POWER_CONSTANT = 0.575f;
+
         // Lets drive straight ten rotations or 10 seconds.
-        myRobot.Straight(10f, 10, telemetry);
-		// Now do a 90 degree turn
+        myRobot.straight(10f, 10, telemetry);
     }
 }
 
