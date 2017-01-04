@@ -145,11 +145,14 @@ public class BeaconDetector {
 
 		Camera.Parameters parameters = camera.getParameters();
 
-		cameraWidth = parameters.getPreviewSize().width / ds;
-		cameraHeight = parameters.getPreviewSize().height / ds;
-		parameters.setPreviewSize(cameraWidth, cameraHeight);
+		//cameraWidth = parameters.getPreviewSize().width / ds;
+		//cameraHeight = parameters.getPreviewSize().height / ds;
+		//parameters.setPreviewSize(cameraWidth, cameraHeight);
+		parameters.setZoom(45);
 
-		// camera.setParameters(parameters);
+		camera.setParameters(parameters);
+
+		Log.d("Camera Max Zoom", String.valueOf(parameters.getMaxZoom()));
 
 		data = parameters.flatten();
 
@@ -278,6 +281,7 @@ public class BeaconDetector {
 		// get image and rotate it so (0,0) is in the bottom left
 		Bitmap tmpImage;
 		Matrix matrix = new Matrix();
+		matrix.postRotate(90);
 		tmpImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length, opt);
 		rgbImage = Bitmap.createBitmap(tmpImage, 0, 0, tmpImage.getWidth(), tmpImage.getHeight(), matrix, true);
 

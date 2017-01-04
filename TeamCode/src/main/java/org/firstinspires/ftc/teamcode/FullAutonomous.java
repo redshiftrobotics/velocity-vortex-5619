@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.util.Log;
+
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.LightSensor;
 
 import org.redshiftrobotics.Alliance;
@@ -13,7 +16,6 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 	private LightSensor rightLightSensor;
 
 	protected double ON_LINE_LIGHT_VAL = 0.1;
-	protected boolean ALTERNATE_POSITION = false;
 
 	protected abstract Alliance getAlliance();
 
@@ -26,14 +28,19 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		if (getAlliance() == Alliance.RED) {
 			switch (beaconState) {
 				case RED:
+					Log.v("v", "Beacon already red, noop");
 					return BeaconButton.NONE; // If it's already correct, then noop.
 				case BLUE:
+					Log.v("v", "Beacon blue, pressing right");
 					return BeaconButton.RIGHT; // It doesn't actually matter which one we press.
 				case RED_BLUE:
+					Log.v("v", "Beacon RB, L");
 					return BeaconButton.LEFT;
 				case BLUE_RED:
+					Log.v("v", "Beacon BR, R");
 					return BeaconButton.RIGHT;
 				default:
+					Log.v("v", "IDFK");
 					return BeaconButton.NONE;
 			}
 		} else {
@@ -124,83 +131,62 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 	public void runOpMode() throws InterruptedException {
 		leftDrive = hardwareMap.dcMotor.get("left_drive");
 		rightDrive = hardwareMap.dcMotor.get("right_drive");
-		leftLightSensor = hardwareMap.lightSensor.get("left_light");
-		rightLightSensor = hardwareMap.lightSensor.get("right_light");
+		rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+		leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+		leftLightSensor = hardwareMap.lightSensor.get("left_line");
+		rightLightSensor = hardwareMap.lightSensor.get("right_line");
 
 		detector = new BeaconDetector(hardwareMap);
+		detector.start();
 
 		waitForStart();
 
-		if (ALTERNATE_POSITION) { // In Pos 2
+		if (isAlternatePosition()) { // In Pos 2
 			forward(0); // Move away from wall. (This should be 18" less than the primary position.)
 			left(); // Face Corner Vortex
 			forward(0); // Till we're 9" behind where the primary position would be.
 			right(); // Now we're where we would be if we had been in the primary position.
 		} else {
-			forward(0); // Move away from wall
+			//forward(0); // Move away from wall
 		}
 
 		// Note: we do the near beacon first just to make sure we don't cross the line in the first 10 seconds.
-		forward(0); // Till we're perpendicular to the white tape of the CLOSEST beacon.
-		forward(0); // 24"ish
-		left(); // Facing wall with beacons on it.
-		forward(0); // The end of the white tape should be in line with the front of the robot.
-		left(); // Now we're facing the white tape. If we drive forward, both light sensors will be on the white line.
+		forward(4400); //pendicular to the white tape of the CLOSEST beacon.
 
-		approachBeacon(); // Drive till we're on the line, then back 9"
-		right(); // Now we're facing the beacon head-on.
+		pressBeacon();
 
-		pressBeacon(); // BEACON! (No-op if it's fully lit for us.) This will move us back.
+		forward(4200);
 
-		right(); // Now face the white line of the second beacon.
-		forward(0); // Most of the way to the next white line. (NOT all the way.)
-
-		approachBeacon();
-		left(); // Face Beacon #2 (FAR Beacon)
-
-		pressBeacon(); // GO!
-
-		// FIN.
-	}
-
-	private void approachBeacon() {
-		while (leftLightSensor.getLightDetected() < ON_LINE_LIGHT_VAL) { // FIXME: use both sensors
-			// FIXME: Mess with these
-			leftDrive.setPower(0.75);
-			rightDrive.setPower(0.75);
-		}
-
-		leftDrive.setPower(0);
-		rightDrive.setPower(0);
-
-		backward(0); // 9"
+		pressBeacon();
 	}
 
 	private void pressBeacon() throws InterruptedException {
 		BeaconState beaconState = detector.detect();
 		BeaconButton buttonToPress = computeBeaconButton(beaconState);
 
-		if (buttonToPress != BeaconButton.NONE) {
-			LineFollower lf = new LineFollower(
-					buttonToPress == BeaconButton.LEFT ? rightLightSensor : leftLightSensor,
-					leftDrive,
-					rightDrive
-			);
+		int ticksToAlignWithBeacon = 0;
 
-			double lStart = leftDrive.getCurrentPosition();
-			double rStart = rightDrive.getCurrentPosition();
+		if (buttonToPress == BeaconButton.LEFT) ticksToAlignWithBeacon = 1450;
+		else if (buttonToPress == BeaconButton.RIGHT) ticksToAlignWithBeacon = 320;
 
-			while (computeLineFollowDistance(
-					leftDrive.getCurrentPosition() - lStart,
-					rightDrive.getCurrentPosition() - rStart) < 0
-					) {
-				lf.tick();
-				idle(); // Let's be good people
+		backward(ticksToAlignWithBeacon);
+
+		if (ticksToAlignWithBeacon != 0) {
+			if (getAlliance() == Alliance.RED) {
+				left(); // Facing wall with beacons on it.
+			} else {
+				right();
+			}
+			forward(3500);
+			backward(2100);
+
+			if (getAlliance() == Alliance.RED) {
+				move(0, -4000);
+			} else {
+				move(-4000, 0);
 			}
 
-			leftDrive.setPower(0);
-			rightDrive.setPower(0);
-			backward(0); // Note, this needs to be the length of the white tape + 9"
+			forward(ticksToAlignWithBeacon);
 		}
 	}
 }

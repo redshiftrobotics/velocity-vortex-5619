@@ -1,10 +1,21 @@
 package org.redshiftrobotics.beacons;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.Log;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.redshiftrobotics.beacons.PixelState.BLUE;
+
+enum PixelState {
+	RED, BLUE, BLACK
+}
 
 /**
  * Recognize a beacon from a Bitmap
@@ -12,6 +23,8 @@ import java.util.Map;
 public class BeaconRecognizer {
     private Map<String, Integer> options;
 
+
+	private Bitmap inputImage;
     private Bitmap image;
     private int[] reds;
     private int[] blues;
@@ -21,13 +34,13 @@ public class BeaconRecognizer {
 	 */
     public BeaconRecognizer() {
         HashMap<String, Integer> options = new HashMap<String, Integer>();
-        options.put("red:r"         , 210);
-        options.put("red:g"         , 150);
-        options.put("red:b"         , 240);
-        options.put("blue:r"        ,  85);
+        options.put("red:r"         , 180);
+        options.put("red:g"         , 200);
+        options.put("red:b"         , 145);
+        options.put("blue:r"        , 145);
         options.put("blue:g"        , 255);
         options.put("blue:b"        , 200);
-        options.put("classify:main" , 210);
+        options.put("classify:main" , 250);
         options.put("classify:other", 210);
 
         this.options = options;
@@ -62,8 +75,9 @@ public class BeaconRecognizer {
 	 * @TODO We never actually return null here, so if you give us a picture of a cat you'll get a BeaconState. We might
 	 * 		 want to try and fix that, by detecting if it's actually a beacon.
 	 */
-    public BeaconState recognize(Bitmap image) {
-        this.image = image;
+    public BeaconState recognize(Bitmap im) {
+		this.inputImage = im.copy(Bitmap.Config.ARGB_8888, false);
+        this.image = im.copy(Bitmap.Config.ARGB_8888, true);
 
         int height = image.getHeight();
         int width = image.getWidth();
@@ -71,34 +85,75 @@ public class BeaconRecognizer {
         reds  = new int[width];
         blues = new int[width];
 
+		Log.d("Height", String.valueOf(height));
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                int pixelClass = classifyPixel(x, y);
-                if (pixelClass == 0) {
-                    blues[x]++;
-                } else if (pixelClass == 1) {
-                    reds[x]++;
-                }
+                PixelState pixelState = classifyPixel(x, y);
+				switch (pixelState) {
+					case BLUE:
+						blues[x]++;
+						image.setPixel(x, y, Color.BLUE);
+						break;
+					case RED:
+						reds[x]++;
+						image.setPixel(x, y, Color.RED);
+						break;
+					case BLACK:
+						image.setPixel(x, y, Color.BLACK);
+						break;
+					default:
+						image.setPixel(x, y, Color.YELLOW);
+						break;
+
+				}
             }
         }
 
         BeaconState ret = classify();
 
+		this.writeImageReport();
+
         this.image = null;
+		inputImage = null;
         reds = null;
         blues = null;
 
         return ret;
     }
 
+	private void writeImageReport() {
+		Bitmap res;
+
+		int width = this.image.getWidth() + this.image.getWidth();
+		int height = this.image.getHeight();
+
+		res = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
+		Canvas comboImage = new Canvas(res);
+
+		comboImage.drawBitmap(this.inputImage, 0f, 0f, null);
+		comboImage.drawBitmap(this.image, this.inputImage.getWidth(), 0f, null);
+
+		// this is an extra bit I added, just incase you want to save the new image somewhere and then return the location
+		String tmpImg = "RedshiftBeaconDetector-" + String.valueOf(System.currentTimeMillis()) + ".png";
+
+		OutputStream os = null;
+		try {
+			os = new FileOutputStream("/sdcard/Pictures/" + tmpImg);
+			res.compress(Bitmap.CompressFormat.PNG, 100, os);
+		} catch(IOException e) {
+			Log.e("combineImages", "problem combining images", e);
+		}
+	}
+
 
     /**
      * Classify a pixel as blue, red or neither.
      * @param x the x coordinate of the pixel to classify.
      * @param y the y coordinate of the pixel to classify.
-     * @return 0 if pixel is blue, 1 if it's red, and -1 if it's neither (black).
+     * @return state of the pixel
      */
-    private int classifyPixel(int x, int y) {
+    private PixelState classifyPixel(int x, int y) {
         // This ignores the alpha channel, which could be bad.
         int pixel = image.getPixel(x, y);
 		int R = Color.red(pixel);
@@ -106,11 +161,11 @@ public class BeaconRecognizer {
 		int B = Color.blue(pixel);
 
         if (R < options.get("blue:r") && G < options.get("blue:g") && B > options.get("blue:b")) {
-            return 0;
+            return BLUE;
         } else if (R > options.get("red:r") && G < options.get("red:g") && B < options.get("red:b")) {
-            return 1;
+			return PixelState.RED;
         }
-        return -1;
+		return PixelState.BLACK;
     }
 
     /**
