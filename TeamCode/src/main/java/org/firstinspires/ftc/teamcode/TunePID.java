@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -8,7 +7,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 
 @TeleOp(name = "Tune PID", group = "Util")
-@Disabled
 public class TunePID extends LinearOpMode {
 
 	Robot myRobot;
@@ -17,6 +15,7 @@ public class TunePID extends LinearOpMode {
 	DcMotor rightDrive;
 	TuneState state;
 	DcMotorSimple.Direction direction;
+	DcMotorSimple.Direction direction2;
 	boolean driving = false;
 
 	@Override
@@ -28,15 +27,15 @@ public class TunePID extends LinearOpMode {
 
 		// Create our driver
 		myRobot = new Robot(imu, leftDrive, rightDrive, telemetry);
-
 		// Give it default tunings
-		myRobot.Data.PID.PTuning = 20;
-		myRobot.Data.PID.ITuning = 20;
-		myRobot.Data.PID.DTuning = 20;
-
+		myRobot.Data.PID.PTuning = 1.8f;
+		myRobot.Data.PID.ITuning = 1f;
+		myRobot.Data.PID.DTuning = .1f;
+		myRobot.Data.Drive.POWER_CONSTANT = 0.575f;
+		myRobot.Data.PID.MagicNumber = 30;
+		rightDrive.setDirection(DcMotor.Direction.REVERSE);
 		// Give a default state
 		state = TuneState.P;
-		direction = DcMotor.Direction.FORWARD;
 
 		while (true) {
 			if (!driving) {
@@ -50,16 +49,26 @@ public class TunePID extends LinearOpMode {
 				} else if (gamepad1.x) {
 					telemetry.addData("Tuning", "D");
 					state = TuneState.D;
-				}  else if(gamepad1.dpad_up){
-					telemetry.addData("drive Direction", "Forwards");
-					direction = DcMotor.Direction.FORWARD;
+				} else if(gamepad1.y){
+					telemetry.addData("Tuning", "POW");
+					state = TuneState.POW;
+				} else if(gamepad1.right_stick_button) {
+					telemetry.addData("Tuning", "MAG");
+					state = TuneState.MAG;
+				} else if(gamepad1.dpad_up){
+					telemetry.addData("Right Drive Direction", "Forwards");
+					rightDrive.setDirection(DcMotor.Direction.FORWARD);
 				} else if(gamepad1.dpad_down){
-					telemetry.addData("drive Direction", "Backwards");
-					direction = DcMotor.Direction.REVERSE;
-				} else if (gamepad1.back) {
-					// Start the auto drive. Functionality should halt until the drive stops
-					leftDrive.setDirection(direction);
-					rightDrive.setDirection(direction);
+					telemetry.addData("Right Drive Direction", "Backwards");
+					rightDrive.setDirection(DcMotor.Direction.REVERSE);
+				} else if(gamepad1.dpad_left){
+					telemetry.addData("Left Drive Direction", "Backwards");
+					leftDrive.setDirection(DcMotor.Direction.REVERSE);
+				} else if(gamepad1.dpad_right){
+					telemetry.addData("Left Drive Direction", "Forwards");
+					leftDrive.setDirection(DcMotor.Direction.FORWARD);
+				} if (gamepad1.start) {
+					telemetry.addData("Driving", "Driving");
 					myRobot.Straight(50f, 3, telemetry);
 				}
 
@@ -74,6 +83,7 @@ public class TunePID extends LinearOpMode {
 							myRobot.Data.PID.PTuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
 							myRobot.Data.PID.PTuning -= 1;
+
 						}
 						break;
 
@@ -86,6 +96,7 @@ public class TunePID extends LinearOpMode {
 							myRobot.Data.PID.ITuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
 							myRobot.Data.PID.ITuning -= 1;
+
 						}
 						break;
 					case D:
@@ -99,10 +110,36 @@ public class TunePID extends LinearOpMode {
 							myRobot.Data.PID.DTuning -= 1;
 						}
 						break;
+					case POW:
+						if (gamepad1.right_bumper) {
+							myRobot.Data.Drive.POWER_CONSTANT += .1;
+						} else if (gamepad1.right_trigger == 1) {
+							myRobot.Data.Drive.POWER_CONSTANT += 1;
+						} else if (gamepad1.left_bumper) {
+							myRobot.Data.Drive.POWER_CONSTANT -= .1;
+						} else if (gamepad1.left_trigger == 1) {
+							myRobot.Data.Drive.POWER_CONSTANT -= 1;
+						}
+						break;
+					case MAG:
+						if (gamepad1.right_bumper) {
+							myRobot.Data.PID.MagicNumber += .1;
+						} else if (gamepad1.right_trigger == 1) {
+							myRobot.Data.PID.MagicNumber += 1;
+						} else if (gamepad1.left_bumper) {
+							myRobot.Data.PID.MagicNumber -= .1;
+						} else if (gamepad1.left_trigger == 1) {
+							myRobot.Data.PID.MagicNumber -= 1;
+						}
+						break;
 				}
 				telemetry.addData("P", myRobot.Data.PID.PTuning);
 				telemetry.addData("I", myRobot.Data.PID.ITuning);
 				telemetry.addData("D", myRobot.Data.PID.DTuning);
+				telemetry.addData("POW", myRobot.Data.Drive.POWER_CONSTANT);
+				telemetry.addData("MAG", myRobot.Data.PID.MagicNumber);
+				telemetry.addData("IMU", myRobot.Data.imu.getAngularOrientation() + ". TAR: " + myRobot.Data.PID.Target);
+
 				telemetry.update();
 				Thread.sleep(100);
 			}
@@ -110,6 +147,6 @@ public class TunePID extends LinearOpMode {
 	}
 
 	enum TuneState {
-		P, I, D
+		P, I, D, POW, MAG
 	}
 }
