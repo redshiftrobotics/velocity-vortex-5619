@@ -8,6 +8,8 @@ public abstract class AutonomousOpMode extends LinearOpMode {
 	protected DcMotor leftDrive;
 	protected DcMotor rightDrive;
 
+	protected Robot robot;
+
 	protected float MAX_POWER = 1.0f;
 	protected int TICKS_PER_ROTATION = 1120;
 
@@ -74,12 +76,13 @@ public abstract class AutonomousOpMode extends LinearOpMode {
 
 
 	protected void forward(double rotations) throws InterruptedException {
-		// TODO: PID
-		move(rotations, rotations);
+		rotations = rotations / 1400; // We actually input ticks.
+		robot.straight((float) rotations, (int) rotations, telemetry);
 	}
 
 	protected void backward(double rotations) throws InterruptedException {
-		forward(-rotations);
+		rotations = rotations / 1400; // We actually input ticks.
+		robot.straight((float) -rotations, (int) rotations, telemetry);
 	}
 
 	protected void left() throws InterruptedException {

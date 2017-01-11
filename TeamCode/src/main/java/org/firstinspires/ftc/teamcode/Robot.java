@@ -44,6 +44,7 @@ public class Robot {
 		Data.Drive.m1 = m1;
 		Data.Drive.encoderCount = 1400;
 
+		Data.telemetry = tm;
 
 		// Start the program clock
 		Data.Time = new robotTime();
@@ -100,6 +101,8 @@ public class Robot {
 
 			// Calculate the Direction to travel to correct any rotational errors.
 			float direction = ((Data.PID.I * Data.PID.iTuning) / Data.PID.magicNumber) + ((Data.PID.P * Data.PID.pTuning) / Data.PID.magicNumber) + ((Data.PID.D * Data.PID.dTuning) / Data.PID.magicNumber);
+			Data.telemetry.addData("Direction", direction);
+			Data.telemetry.update();
 			// Constrain our direction from being too intense.
 			Data.Drive.m0.setPower((Data.Drive.POWER_CONSTANT + (direction)));
 			Data.Drive.m1.setPower((Data.Drive.POWER_CONSTANT - (direction)));
@@ -189,6 +192,7 @@ class robotData {
 	PID PID;
 	robotTime Time;
 	Drive Drive;
+	Telemetry telemetry;
 	robotData(){
 		PID = new PID();
 		Time = new robotTime();

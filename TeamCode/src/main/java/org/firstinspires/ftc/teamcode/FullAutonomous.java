@@ -3,19 +3,16 @@ package org.firstinspires.ftc.teamcode;
 import android.util.Log;
 
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.I2cDeviceSynch;
 import com.qualcomm.robotcore.hardware.LightSensor;
 
 import org.redshiftrobotics.Alliance;
 import org.redshiftrobotics.beacons.BeaconState;
 import org.redshiftrobotics.beacons.BeaconDetector;
-import org.redshiftrobotics.linefollower.LineFollower;
 
 abstract public class FullAutonomous extends AutonomousOpMode {
 	private BeaconDetector detector;
-	private LightSensor leftLightSensor;
-	private LightSensor rightLightSensor;
-
-	protected double ON_LINE_LIGHT_VAL = 0.1;
+	private I2cDeviceSynch imu;
 
 	protected abstract Alliance getAlliance();
 
@@ -133,8 +130,16 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		rightDrive = hardwareMap.dcMotor.get("right_drive");
 		rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
 		leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-		leftLightSensor = hardwareMap.lightSensor.get("left_line");
-		rightLightSensor = hardwareMap.lightSensor.get("right_line");
+		imu = hardwareMap.i2cDeviceSynch.get("imu");
+
+		robot = new Robot(imu, rightDrive, leftDrive, telemetry);
+
+		// Set our p, i, and d tuning
+		robot.Data.PID.pTuning = 2f;
+		robot.Data.PID.iTuning = 1f;
+		robot.Data.PID.dTuning = .3f;
+		robot.Data.Drive.POWER_CONSTANT = 0.575f;
+		robot.Data.PID.magicNumber = 30;
 
 		detector = new BeaconDetector(hardwareMap);
 		detector.start();
@@ -151,7 +156,7 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		}
 
 		// Note: we do the near beacon first just to make sure we don't cross the line in the first 10 seconds.
-		forward(4400); //pendicular to the white tape of the CLOSEST beacon.
+		forward(4800); //pendicular to the white tape of the CLOSEST beacon.
 
 		pressBeacon();
 

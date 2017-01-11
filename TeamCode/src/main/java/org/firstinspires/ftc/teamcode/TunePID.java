@@ -28,12 +28,13 @@ public class TunePID extends LinearOpMode {
 		// Create our driver
 		myRobot = new Robot(imu, leftDrive, rightDrive, telemetry);
 		// Give it default tunings
-		myRobot.Data.PID.PTuning = 1.8f;
-		myRobot.Data.PID.ITuning = 1f;
-		myRobot.Data.PID.DTuning = .1f;
+		myRobot.Data.PID.pTuning = 1.8f;
+		myRobot.Data.PID.iTuning = 1f;
+		myRobot.Data.PID.dTuning = .1f;
 		myRobot.Data.Drive.POWER_CONSTANT = 0.575f;
-		myRobot.Data.PID.MagicNumber = 30;
-		rightDrive.setDirection(DcMotor.Direction.REVERSE);
+		myRobot.Data.PID.magicNumber = 30;
+		leftDrive.setDirection(DcMotor.Direction.REVERSE);
+		rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
 		// Give a default state
 		state = TuneState.P;
 
@@ -55,59 +56,47 @@ public class TunePID extends LinearOpMode {
 				} else if(gamepad1.right_stick_button) {
 					telemetry.addData("Tuning", "MAG");
 					state = TuneState.MAG;
-				} else if(gamepad1.dpad_up){
-					telemetry.addData("Right Drive Direction", "Forwards");
-					rightDrive.setDirection(DcMotor.Direction.FORWARD);
-				} else if(gamepad1.dpad_down){
-					telemetry.addData("Right Drive Direction", "Backwards");
-					rightDrive.setDirection(DcMotor.Direction.REVERSE);
-				} else if(gamepad1.dpad_left){
-					telemetry.addData("Left Drive Direction", "Backwards");
-					leftDrive.setDirection(DcMotor.Direction.REVERSE);
-				} else if(gamepad1.dpad_right){
-					telemetry.addData("Left Drive Direction", "Forwards");
-					leftDrive.setDirection(DcMotor.Direction.FORWARD);
 				} if (gamepad1.start) {
 					telemetry.addData("Driving", "Driving");
-					myRobot.Straight(50f, 3, telemetry);
+					myRobot.straight(50f, 3, telemetry);
 				}
 
 				// Allow tuning of the values
 				switch (state) {
 					case P:
 						if (gamepad1.right_bumper) {
-							myRobot.Data.PID.PTuning += .1;
+							myRobot.Data.PID.pTuning += .1;
 						} else if (gamepad1.right_trigger == 1) {
-							myRobot.Data.PID.PTuning += 1;
+							myRobot.Data.PID.pTuning += 1;
 						} else if (gamepad1.left_bumper) {
-							myRobot.Data.PID.PTuning -= .1;
+							myRobot.Data.PID.pTuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
-							myRobot.Data.PID.PTuning -= 1;
+							myRobot.Data.PID.pTuning -= 1;
 
 						}
 						break;
 
 					case I:
 						if (gamepad1.right_bumper) {
-							myRobot.Data.PID.ITuning += .1;
+							myRobot.Data.PID.iTuning += .1;
 						} else if (gamepad1.right_trigger == 1) {
-							myRobot.Data.PID.ITuning += 1;
+							myRobot.Data.PID.iTuning += 1;
 						} else if (gamepad1.left_bumper) {
-							myRobot.Data.PID.ITuning -= .1;
+							myRobot.Data.PID.iTuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
-							myRobot.Data.PID.ITuning -= 1;
+							myRobot.Data.PID.iTuning -= 1;
 
 						}
 						break;
 					case D:
 						if (gamepad1.right_bumper) {
-							myRobot.Data.PID.DTuning += .1;
+							myRobot.Data.PID.dTuning += .1;
 						} else if (gamepad1.right_trigger == 1) {
-							myRobot.Data.PID.DTuning += 1;
+							myRobot.Data.PID.dTuning += 1;
 						} else if (gamepad1.left_bumper) {
-							myRobot.Data.PID.DTuning -= .1;
+							myRobot.Data.PID.dTuning -= .1;
 						} else if (gamepad1.left_trigger == 1) {
-							myRobot.Data.PID.DTuning -= 1;
+							myRobot.Data.PID.dTuning -= 1;
 						}
 						break;
 					case POW:
@@ -123,22 +112,22 @@ public class TunePID extends LinearOpMode {
 						break;
 					case MAG:
 						if (gamepad1.right_bumper) {
-							myRobot.Data.PID.MagicNumber += .1;
+							myRobot.Data.PID.magicNumber += .1;
 						} else if (gamepad1.right_trigger == 1) {
-							myRobot.Data.PID.MagicNumber += 1;
+							myRobot.Data.PID.magicNumber += 1;
 						} else if (gamepad1.left_bumper) {
-							myRobot.Data.PID.MagicNumber -= .1;
+							myRobot.Data.PID.magicNumber -= .1;
 						} else if (gamepad1.left_trigger == 1) {
-							myRobot.Data.PID.MagicNumber -= 1;
+							myRobot.Data.PID.magicNumber -= 1;
 						}
 						break;
 				}
-				telemetry.addData("P", myRobot.Data.PID.PTuning);
-				telemetry.addData("I", myRobot.Data.PID.ITuning);
-				telemetry.addData("D", myRobot.Data.PID.DTuning);
+				telemetry.addData("P", myRobot.Data.PID.pTuning);
+				telemetry.addData("I", myRobot.Data.PID.iTuning);
+				telemetry.addData("D", myRobot.Data.PID.dTuning);
 				telemetry.addData("POW", myRobot.Data.Drive.POWER_CONSTANT);
-				telemetry.addData("MAG", myRobot.Data.PID.MagicNumber);
-				telemetry.addData("IMU", myRobot.Data.imu.getAngularOrientation() + ". TAR: " + myRobot.Data.PID.Target);
+				telemetry.addData("MAG", myRobot.Data.PID.magicNumber);
+				telemetry.addData("IMU", myRobot.Data.imu.getAngularOrientation() + ". TAR: " + myRobot.Data.PID.target);
 
 				telemetry.update();
 				Thread.sleep(100);
