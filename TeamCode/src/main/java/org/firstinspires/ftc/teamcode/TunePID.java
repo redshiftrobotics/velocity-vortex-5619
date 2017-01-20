@@ -33,8 +33,8 @@ public class TunePID extends LinearOpMode {
 		myRobot.Data.PID.dTuning = .1f;
 		myRobot.Data.Drive.POWER_CONSTANT = 0.575f;
 		myRobot.Data.PID.magicNumber = 30;
-		leftDrive.setDirection(DcMotor.Direction.REVERSE);
-		rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+		leftDrive.setDirection(DcMotor.Direction.FORWARD);
+		rightDrive.setDirection(DcMotor.Direction.FORWARD);
 		// Give a default state
 		state = TuneState.P;
 

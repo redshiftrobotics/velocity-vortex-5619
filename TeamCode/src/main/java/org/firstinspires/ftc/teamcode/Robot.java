@@ -85,6 +85,8 @@ public class Robot {
 		// This is the main loop of our straight drive.
 		// We use encoders to form a loop that corrects rotation until we reach our target.
 		while(Math.abs(startPosition - Data.Drive.m0.getCurrentPosition()) < Math.abs(rotations) * Data.Drive.encoderCount){
+			tm.addData("Angle", Data.PID.headings[0]);
+			tm.addData("Target", Data.PID.target);
 			// First we check if we have exceeded our timeout and...
 			if(startTime + timeout < Data.Time.currentTime()){
 				// ... stop our loop if we have.
@@ -102,10 +104,12 @@ public class Robot {
 			// Calculate the Direction to travel to correct any rotational errors.
 			float direction = ((Data.PID.I * Data.PID.iTuning) / Data.PID.magicNumber) + ((Data.PID.P * Data.PID.pTuning) / Data.PID.magicNumber) + ((Data.PID.D * Data.PID.dTuning) / Data.PID.magicNumber);
 			Data.telemetry.addData("Direction", direction);
+			Data.telemetry.addData("RAW", Data.PID.headings[1]);
 			Data.telemetry.update();
 			// Constrain our direction from being too intense.
 			Data.Drive.m0.setPower((Data.Drive.POWER_CONSTANT + (direction)));
 			Data.Drive.m1.setPower((Data.Drive.POWER_CONSTANT - (direction)));
+			tm.update();
 		}
 		// Our drive loop has completed! Stop the motors.
 		Data.Drive.m0.setPower(0);

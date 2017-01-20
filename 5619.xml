@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Robot type="FirstInspires-FTC">
+    <LegacyModuleController name="Legacy Module 1" serialNumber="AL00XTQC">
+        <LightSensor name="left_line" port="0" />
+        <LightSensor name="right_line" port="1" />
+    </LegacyModuleController>
+    <MotorController name="Motor Controller 2" serialNumber="AL00VVOC">
+    </MotorController>
+    <DeviceInterfaceModule name="PID" serialNumber="AL00VEZD">
+        <I2cDeviceSynch name="imu" port="5" />
+    </DeviceInterfaceModule>
+    <MotorController name="Motor Controller 3" serialNumber="A104OW1B">
+        <Motor name="right_drive" port="1" />
+        <Motor name="left_drive" port="2" />
+    </MotorController>
+</Robot>

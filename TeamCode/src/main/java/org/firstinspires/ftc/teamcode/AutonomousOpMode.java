@@ -42,18 +42,25 @@ public abstract class AutonomousOpMode extends LinearOpMode {
 		double lTarget = leftDrive.getCurrentPosition() + left;
 		double rTarget = rightDrive.getCurrentPosition() + right;
 
-		float lSpeed = left > 0 ? 1.0f : -1.0f;
+		double startL = leftDrive.getCurrentPosition();
+		double startR = rightDrive.getCurrentPosition();
+
+		float lSpeed = left > 0 ?  1.0f : -1.0f;
 		float rSpeed = right > 0 ? 1.0f : -1.0f;
 
 		boolean leftDone = false;
 		boolean rightDone = false;
 		while (!leftDone || !rightDone) {
-			leftDone = leftDone || Math.abs(leftDrive.getCurrentPosition() - lTarget) < 100;
-			rightDone = rightDone || Math.abs(rightDrive.getCurrentPosition() - rTarget) < 100;
+			leftDone = leftDone || left == 0 || (left < 0 ? leftDrive.getCurrentPosition() < lTarget : leftDrive
+					.getCurrentPosition() > lTarget);
+			rightDone = rightDone || right == 0 || (right < 0 ? rightDrive.getCurrentPosition() < rTarget : rightDrive
+					.getCurrentPosition() > rTarget);
 			telemetry.addData("lTarget", lTarget);
 			telemetry.addData("rTarget", rTarget);
 			telemetry.addData("lSpeed", lSpeed);
 			telemetry.addData("rSpeed", rSpeed);
+			telemetry.addData("lstart", startL);
+			telemetry.addData("rstart", startR);
 			telemetry.addData("lcp", leftDrive.getCurrentPosition());
 			telemetry.addData("rcp", rightDrive.getCurrentPosition());
 			telemetry.addData("ldone", leftDone);
@@ -71,27 +78,31 @@ public abstract class AutonomousOpMode extends LinearOpMode {
 			}
 			idle();
 		}
-		Thread.sleep(500);
+		leftDrive.setPower(0);
+		rightDrive.setPower(0);
+		Thread.sleep(1000);
 	}
 
 
 	protected void forward(double rotations) throws InterruptedException {
-		rotations = rotations / 1400; // We actually input ticks.
-		robot.straight((float) rotations, (int) rotations, telemetry);
+		//rotations = rotations / 1400; // We actually input ticks.
+		//robot.straight((float) rotations, (int) rotations, telemetry);
+		move(rotations, rotations);
 	}
 
 	protected void backward(double rotations) throws InterruptedException {
-		rotations = rotations / 1400; // We actually input ticks.
-		robot.straight((float) -rotations, (int) rotations, telemetry);
+		//rotations = rotations / 1400; // We actually input ticks.
+		//robot.straight((float) -rotations, (int) rotations, telemetry);
+		forward(-rotations);
 	}
 
 	protected void left() throws InterruptedException {
 		// TODO: PID
-		move(0, 4000);
+		move(0, 3500);
 	}
 
 	protected void right() throws InterruptedException {
 		// TODO: PID
-		move(4000, 0);
+		move(3500, 0);
 	}
 }

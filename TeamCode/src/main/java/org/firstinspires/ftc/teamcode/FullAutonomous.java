@@ -128,10 +128,11 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 	public void runOpMode() throws InterruptedException {
 		leftDrive = hardwareMap.dcMotor.get("left_drive");
 		rightDrive = hardwareMap.dcMotor.get("right_drive");
-		rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-		leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+		rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+		leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
 		imu = hardwareMap.i2cDeviceSynch.get("imu");
 
+		/*
 		robot = new Robot(imu, rightDrive, leftDrive, telemetry);
 
 		// Set our p, i, and d tuning
@@ -140,9 +141,13 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		robot.Data.PID.dTuning = .3f;
 		robot.Data.Drive.POWER_CONSTANT = 0.575f;
 		robot.Data.PID.magicNumber = 30;
+		*/
 
 		detector = new BeaconDetector(hardwareMap);
 		detector.start();
+
+		telemetry.addLine("Ready");
+		telemetry.update();
 
 		waitForStart();
 
@@ -156,7 +161,7 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		}
 
 		// Note: we do the near beacon first just to make sure we don't cross the line in the first 10 seconds.
-		forward(4800); //pendicular to the white tape of the CLOSEST beacon.
+		forward(4200); //pendicular to the white tape of the CLOSEST beacon.
 
 		pressBeacon();
 
@@ -169,26 +174,32 @@ abstract public class FullAutonomous extends AutonomousOpMode {
 		BeaconState beaconState = detector.detect();
 		BeaconButton buttonToPress = computeBeaconButton(beaconState);
 
+		telemetry.addData("beaconState", beaconState.toString());
+		telemetry.addData("button", buttonToPress.toString());
+		telemetry.update();
+
+		Thread.sleep(1000);
+
 		int ticksToAlignWithBeacon = 0;
 
-		if (buttonToPress == BeaconButton.LEFT) ticksToAlignWithBeacon = 1450;
-		else if (buttonToPress == BeaconButton.RIGHT) ticksToAlignWithBeacon = 320;
+		if (buttonToPress == BeaconButton.LEFT) ticksToAlignWithBeacon = 320;
+		else if (buttonToPress == BeaconButton.RIGHT) ticksToAlignWithBeacon = 1450;
 
 		backward(ticksToAlignWithBeacon);
 
 		if (ticksToAlignWithBeacon != 0) {
 			if (getAlliance() == Alliance.RED) {
-				left(); // Facing wall with beacons on it.
+				move(3250, 0);
 			} else {
-				right();
+				move(3250, 0);
 			}
 			forward(3500);
 			backward(2100);
 
 			if (getAlliance() == Alliance.RED) {
-				move(0, -4000);
+				move(0, -3500);
 			} else {
-				move(-4000, 0);
+				move(-3500, 0);
 			}
 
 			forward(ticksToAlignWithBeacon);
