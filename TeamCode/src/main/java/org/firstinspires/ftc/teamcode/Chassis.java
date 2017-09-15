@@ -16,20 +16,20 @@ public class Chassis {
 	public Chassis(){/*Nothing goes here*/}
 
 	/**
-	 * ! CALL AT THE BEGINING OF INIT() !
+	 * ! CALL AT THE BEGINNING OF INIT() !
 	 * This will init the chassis class. It registers everything to the hardware map, sets up all the motors etc.
 	 */
 	public void init(OpMode opMode){
 		this.opMode = opMode;
 
-		//Here is where everything gets initalised
+		//Here is where everything gets initialised
 	}
 
 	/**
 	 * This is called from the main loop of your OPMode.
 	 */
 	public void loop(){
-		opMode.telemetry.update();
+		//We might need this, not clear as of now
 	}
 
 }
