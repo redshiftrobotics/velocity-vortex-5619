@@ -14,10 +14,12 @@ public class Chassis {
 	private OpMode opMode;
 	private HardwareMap hardware;
 
+	//Motors
 	public DcMotor frontLeft;
 	public DcMotor frontRight;
 	public DcMotor backLeft;
 	public DcMotor backRight;
+
 
 
 	public Chassis(OpMode opMode){
@@ -30,17 +32,32 @@ public class Chassis {
 	 */
 	public void init(){
 		//Here is where everything gets initialised
+		opMode.telemetry.addData("CHASSIS: ", "Starting to Initialize everything...");
+		updateTelementry();
+
 		frontLeft = hardware.dcMotor.get("fl");
 		frontRight = hardware.dcMotor.get("fr");
 		backLeft = hardware.dcMotor.get("bl");
 		backRight = hardware.dcMotor.get("br");
+
+		//Assuming that the right motors spin the oppisite way
+		frontRight.setDirection(DcMotorSimple.Direction.REVERSE);
+		backRight.setDirection(DcMotorSimple.Direction.REVERSE);
+
+		opMode.telemetry.addData("CHASSIS: ", "Initialized everything!");
+
+		updateTelementry();
 	}
 
 	/**
-	 * This is called from the main loop of your OPMode.
+	 * ! CALL AT THE END OF LOOP() !
+	 * This will automatically update telemetry
 	 */
 	public void loop(){
 		//We might need this, not clear as of now
+		updateTelementry();
 	}
+
+	private void updateTelementry(){opMode.telemetry.update();}
 
 }
