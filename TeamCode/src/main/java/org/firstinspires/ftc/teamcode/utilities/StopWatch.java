@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.utilities;
 
 /**
  * FTC StopWatch class that was in the advanced coding powerpoint

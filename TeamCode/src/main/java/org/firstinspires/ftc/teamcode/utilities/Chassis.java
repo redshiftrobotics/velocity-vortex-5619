@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.utilities;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.*;
@@ -12,17 +12,28 @@ import com.qualcomm.robotcore.hardware.*;
 public class Chassis {
 
 	private OpMode opMode;
+	private HardwareMap hardware;
 
-	public Chassis(){/*Nothing goes here*/}
+	public DcMotor frontLeft;
+	public DcMotor frontRight;
+	public DcMotor backLeft;
+	public DcMotor backRight;
 
+
+	public Chassis(OpMode opMode){
+		this.opMode = opMode;
+		this.hardware = opMode.hardwareMap;
+	}
 	/**
 	 * ! CALL AT THE BEGINNING OF INIT() !
 	 * This will init the chassis class. It registers everything to the hardware map, sets up all the motors etc.
 	 */
-	public void init(OpMode opMode){
-		this.opMode = opMode;
-
+	public void init(){
 		//Here is where everything gets initialised
+		frontLeft = hardware.dcMotor.get("fl");
+		frontRight = hardware.dcMotor.get("fr");
+		backLeft = hardware.dcMotor.get("bl");
+		backRight = hardware.dcMotor.get("br");
 	}
 
 	/**
