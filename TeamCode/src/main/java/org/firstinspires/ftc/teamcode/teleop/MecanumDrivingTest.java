@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.utilities.Chassis;
 
@@ -10,6 +11,7 @@ import java.text.DecimalFormat;
  * Created by Eric Golde on 9/26/2017.
  */
 
+@TeleOp(name = "Mecanum Driving Test", group = "testing")
 public class MecanumDrivingTest extends OpMode {
 
 	private Chassis chassis = new Chassis(this);
