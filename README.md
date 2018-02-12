@@ -1,3 +1,6 @@
+# THIS REPOSITORY HAS BEEN ARCHIVED
+## As 5619 Horizon's 2016-2017 (Velocity Vortex) season has ended, this repository has been archived.
+
 # ftc_app
 FTC Android Studio project to create FTC Robot Controller app.
 
