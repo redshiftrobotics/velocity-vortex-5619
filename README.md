@@ -2,6 +2,11 @@
 ## As 5619 Horizon's 2016-2017 (Velocity Vortex) season has ended, this repository has been archived.
 
 # ftc_app
+
+## IMPORTANT NOTE
+
+After cloning this repo, you must run `git submodule update --init --recursive`. Otherwise bad things happen.
+
 FTC Android Studio project to create FTC Robot Controller app.
 
 This is the FTC SDK that can be used to create an FTC Robot Controller app, with custom op modes.
